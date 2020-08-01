@@ -1,7 +1,7 @@
 # Flutter Architecture Blueprints
 
 <p align="center">
-  <img width="100%" src="./art/cover.png">
+  <img width="85%" src="./art/cover.png">
 </p>
 
 Flutter Architecture Blueprint is a project that introduces different architectures and project structure approaches to developing Flutter apps.
@@ -27,5 +27,5 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Testing | APIs |-|
 | □ | Testing | Data |-|
 | □ | Testing | UIs |-|
-| □ | CI | Build |-|
+| □ | CI | Build on Github Actions |-|
 | □ | CI | Firebase App Distribution settings |-|
