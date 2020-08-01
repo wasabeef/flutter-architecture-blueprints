@@ -5,3 +5,10 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 ## Concept
 
 **Make it easy.**
+
+## Collections
+
+|Status|Description|Codes|
+|:---:|---|---|
+| |Architecture|-|
+| |CI|-|
