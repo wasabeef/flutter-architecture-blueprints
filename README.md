@@ -20,6 +20,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 
 **iOS**
 - iOS 13+
+- compatibilityVersion "Xcode 9.3"
 
 **Android**
 - Android 5.1+
