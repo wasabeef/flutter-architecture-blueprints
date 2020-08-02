@@ -32,6 +32,19 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 $ make setup
 ```
 
+### Make .apk and .ipa file
+Android
+```shell script
+$ make build-dev-apk
+$ make build-prd-apk
+```
+
+iOS
+```shell script
+$ make build-dev-ipa
+$ make build-prd-ipa
+```
+
 ## Collections
 
 **Architecture**
@@ -61,7 +74,7 @@ $ make setup
 |:---:|---|---|---|
 | □ | Base | Switching between Development and Production environment | Flutter, iOS, Android |
 | ✅ | Android | Kotlin version | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/build.gradle#L2) |
-| ✅ | Android | Apk attributes | build.gradle ([compileSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L29), [applicationId](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L42), [minSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L43), [targetSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L44), [ndkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L30)) |
+| ✅ | Android | Apk attributes | build.gradle ([compileSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L29), [applicationId](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L43), [minSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L44), [targetSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L45), [ndkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L30)) |
 | □ | iOS | iOS info.plist |-|
 | ✅ | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/analysis_options.yaml) |
 | ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L8), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|

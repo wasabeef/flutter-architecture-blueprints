@@ -1,0 +1,13 @@
+#include "Flutter/Generated.xcconfig"
+#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release-production.xcconfig"
+TRACK_WIDGET_CREATION=
+
+FLUTTER_FLAVOR=production
+FLUTTER_TARGET=$PROJECT_DIR/../lib/main_prd.dart
+PRODUCT_BUNDLE_IDENTIFIER=com.example.app
+DISPLAY_NAME=FAB
+
+// FIREBASE_DIR=$PROJECT_DIR/$PROJECT_NAME/Resources/Firebase/Production
+
+// GOOGLE prefix key configs were copied from GoogleService-Info.plist
+// GOOGLE_REVERSED_CLIENT_ID = ***************
