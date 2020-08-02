@@ -23,9 +23,9 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 
 **Android**
 - Android 5.1+
-  - minSdkVersion 22
-  - targetSdkVersion 30
-  - ndkVersion 21.3.6528147 [(Specific version installing)](https://developer.android.com/studio/projects/install-ndk#specific-version)
+- minSdkVersion 22
+- targetSdkVersion 30
+- ndkVersion 21.3.6528147 [(Specific version installing)](https://developer.android.com/studio/projects/install-ndk#specific-version)
 
 ### Setup
 ```shell script
