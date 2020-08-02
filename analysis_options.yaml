@@ -1,0 +1,9 @@
+# See: https://github.com/dart-lang/pedantic/tree/master/lib
+include: package:pedantic/analysis_options.1.9.0.yaml
+
+# See: https://github.com/flutter/flutter/blob/master/analysis_options.yaml
+
+analyzer:
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
