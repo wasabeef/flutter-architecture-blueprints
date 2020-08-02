@@ -19,7 +19,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 - [npm](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
 **iOS**
-- iOS 12+
+- iOS 13+
 
 **Android**
 - Android 5.1+
