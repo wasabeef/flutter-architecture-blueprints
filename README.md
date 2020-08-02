@@ -29,3 +29,14 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Testing | UIs |-|
 | □ | CI | Build on Github Actions |-|
 | □ | CI | Firebase App Distribution settings |-|
+
+## Getting Started
+
+Setup your flutter environment: https://flutter.dev/docs/get-started/install
+
+Set up for Flutter
+```shell script
+$ flutter channel beta
+$ flutter upgrade
+$ flutter pub get
+```
