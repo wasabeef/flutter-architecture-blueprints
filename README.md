@@ -33,11 +33,13 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 
 ## Getting Started
 
-Setup your flutter environment: https://flutter.dev/docs/get-started/install
+### Requirements
 
-Set up for Flutter
+- [Flutter (beta channel)](https://flutter.dev/docs/get-started/install)
+- [Dart 2.9.0+ (beta channel)](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
+- [npm](https://treehouse.github.io/installation-guides/mac/node-mac.html)
+
+### Setup
 ```shell script
-$ flutter channel beta
-$ flutter upgrade
-$ flutter pub get
+$ make setup
 ```
