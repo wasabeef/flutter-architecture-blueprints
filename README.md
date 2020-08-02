@@ -14,9 +14,6 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| □ | Project | .gitignore settings|-|
-| □ | Project |Lint / Analysis Settings |-|
-| □ | Project | Switching between Development and Production environment |-|
 | □ | Architecture | Base |-|
 | □ | Architecture | Networking for API |-|
 | □ | Architecture | Persistent Data |-|
@@ -27,6 +24,10 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Testing | APIs |-|
 | □ | Testing | Data |-|
 | □ | Testing | UIs |-|
+| □ | Project | Lint / Analyze settings |-|
+| □ | Project | Git hooks for format and analyze |-|
+| □ | Project | Switching between Development and Production environment |-|
+| □ | Project | .gitignore settings|-|
 | □ | CI | Build on Github Actions |-|
 | □ | CI | Firebase App Distribution settings |-|
 
