@@ -10,29 +10,6 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 
 **Make it easy.**
 
-## Collections
-
-|Working status|Category|Description|Codes|
-|:---:|---|---|---|
-| □ | Architecture | Base |-|
-| □ | Architecture | Networking for API |-|
-| □ | Architecture | Persistent Data |-|
-| □ | Architecture | Error handling |-|
-| □ | UI | Page |-|
-| □ | UI | Component |-|
-| □ | UI | Animation |-|
-| □ | Testing | APIs |-|
-| □ | Testing | Data |-|
-| □ | Testing | UIs |-|
-| □ | Project | Switching between Development and Production environment |-|
-| □ | Project | Android gradle settings |-|
-| □ | Project | iOS info.plist settings |-|
-| □ | Project | Lint / Analyze settings |-|
-| ✅ | Project | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L8), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
-| ✅ | Project | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
-| □ | CI | Build on Github Actions |-|
-| □ | CI | Firebase App Distribution settings |-|
-
 ## Getting Started
 
 ### Requirements
@@ -48,9 +25,52 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 - Android 5.1+
   - minSdkVersion 22
   - targetSdkVersion 30
-  - ndkVersion 21.3.6528147 
+  - ndkVersion 21.3.6528147 [(Specific version installing)](https://developer.android.com/studio/projects/install-ndk#specific-version)
 
 ### Setup
 ```shell script
 $ make setup
 ```
+
+## Collections
+
+**Architecture**
+|Working status|Category|Description|Codes|
+|:---:|---|---|---|
+| □ | Base | Riverpods + StateNotifier |-|
+| □ | Networking | dio |-|
+| □ | Persistent Data | sqflite |-|
+| □ | Error handling |  |-|
+
+**UI**
+|Working status|Category|Description|Codes|
+|:---:|---|---|---|
+| □ | Page | - |-|
+| □ | Component | - |-|
+| □ | Animation | - |-|
+
+**Testing**
+|Working status|Category|Description|Codes|
+|:---:|---|---|---|
+| □ | API | - |-|
+| □ | Data | - |-|
+| □ | UI | - |-|
+
+**Project settings**
+|Working status|Category|Description|Codes|
+|:---:|---|---|---|
+| □ | Base | Switching between Development and Production environment |-|
+| □ | Android | Android gradle |-|
+| □ | iOS | iOS info.plist |-|
+| □ | Dart | Lint / Analyze |-|
+| ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L8), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
+| ✅ | Git | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
+
+**CI**
+|Working status|Category|Description|Codes|
+|:---:|---|---|---|
+| □ | Build | Github Actions |-|
+| □ | Build | Bitrise |-|
+| □ | Distributing | Firebase App Distribution |-|
+| □ | Distributing | Google Play |-|
+| □ | Distributing | Apple Store |-|
