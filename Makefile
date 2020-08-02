@@ -6,8 +6,8 @@ setup:
 	flutter pub get
 	npm install
 
-.PHONY: pre-push
-pre-push:
+.PHONY: format-analyze
+format-analyze:
 	flutter format lib/
 	flutter analyze
 
