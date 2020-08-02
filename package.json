@@ -1,0 +1,12 @@
+{
+  "name": "flutter-architecture-blueprints",
+  "author": "wasabeef",
+  "husky": {
+    "hooks": {
+      "pre-push": "make pre-push"
+    }
+  },
+  "devDependencies": {
+    "husky": "^4.2.5"
+  }
+}
