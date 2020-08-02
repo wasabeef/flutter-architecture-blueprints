@@ -22,6 +22,7 @@
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+.idea/libraries/Dart_Packages.xml
 android/.idea/
 
 # The .vscode folder contains launch configuration and tasks you configure in

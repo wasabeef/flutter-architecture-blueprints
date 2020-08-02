@@ -93,6 +93,13 @@
             </list>
           </value>
         </entry>
+        <entry key="pedantic">
+          <value>
+            <list>
+              <option value="/Applications/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="sky_engine">
           <value>
             <list>
@@ -170,6 +177,7 @@
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/matcher-0.12.8/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/meta-1.1.8/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.7.0/lib" />
+      <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.9.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.7.0/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/stack_trace-1.9.5/lib" />
       <root url="file:///Applications/flutter/.pub-cache/hosted/pub.dartlang.org/stream_channel-2.0.0/lib" />
