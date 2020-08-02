@@ -10,3 +10,11 @@ setup:
 pre-push:
 	flutter format lib/
 	flutter analyze
+
+.PHONY: build-dev-apk
+build-dev-apk:
+	flutter build apk --release --flavor development --target lib/main_dev.dart
+
+.PHONY: build-prd-apk
+build-prd-apk:
+	flutter build apk --release --flavor production --target lib/main_prd.dart

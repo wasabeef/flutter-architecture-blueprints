@@ -1,0 +1,15 @@
+// TODO Must be re-created.
+signingConfigs {
+    release {
+        storeFile file("release.keystore")
+        storePassword "aabbccdd"
+        keyAlias "fab"
+        keyPassword "aabbccdd"
+    }
+}
+
+// $ keytool -v -list -keystore
+// Certificate fingerprints:
+// MD5:  9A:69:D4:B6:BF:BE:C1:A5:C5:BB:05:7B:36:84:D7:5C
+// SHA1: AA:88:1A:A8:47:7A:90:73:16:D6:F1:B7:D5:25:7B:92:BC:C9:4B:FD
+// SHA256: 22:39:5E:46:8C:55:00:6C:3A:4B:68:7D:66:20:0A:42:07:75:90:71:29:31:DA:1C:6E:48:FC:60:58:6E:0C:2D
