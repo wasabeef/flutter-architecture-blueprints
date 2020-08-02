@@ -59,8 +59,9 @@ $ make setup
 **Project settings**
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| □ | Base | Switching between Development and Production environment |-|
-| □ | Android | Android gradle |-|
+| □ | Base | Switching between Development and Production environment | Flutter, iOS, Android |
+| ✅ | Android | Kotlin version | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/build.gradle#L2) |
+| ✅ | Android | Apk attributes | [compileSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L29), [applicationId](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L42), [minSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L43), [targetSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L44), [ndkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L30) |
 | □ | iOS | iOS info.plist |-|
 | □ | Dart | Lint / Analyze |-|
 | ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L8), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
