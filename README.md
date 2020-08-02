@@ -53,7 +53,7 @@ $ make build-prd-ipa
 |:---:|---|---|---|
 | □ | Base | Riverpods + StateNotifier |-|
 | □ | Networking | dio |-|
-| □ | Persistent Data | sqflite |-|
+| □ | Cache and Persist Data | Prefect Docs | sqflite |-|
 | □ | Error handling |  |-|
 
 #### UI
