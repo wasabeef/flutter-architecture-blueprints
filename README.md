@@ -39,7 +39,7 @@ $ make setup
 |:---:|---|---|---|
 | □ | Base | Riverpods + StateNotifier |-|
 | □ | Networking | dio |-|
-| □ | Persistent Data |  |-|
+| □ | Persistent Data | sqflite |-|
 | □ | Error handling |  |-|
 
 **UI**
@@ -70,4 +70,7 @@ $ make setup
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | Build | Github Actions |-|
-| □ | Release | Firebase App Distribution |-|
+| □ | Build | Bitrise |-|
+| □ | Distributing | Firebase App Distribution |-|
+| □ | Distributing | Google Play |-|
+| □ | Distributing | Apple Store |-|
