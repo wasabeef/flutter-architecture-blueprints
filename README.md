@@ -48,7 +48,7 @@ $ make build-prd-ipa
 
 ## Collections
 
-**Architecture**
+#### Architecture
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | Base | Riverpods + StateNotifier |-|
@@ -56,21 +56,21 @@ $ make build-prd-ipa
 | □ | Persistent Data | sqflite |-|
 | □ | Error handling |  |-|
 
-**UI**
+#### UI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | Page | - |-|
 | □ | Component | - |-|
 | □ | Animation | - |-|
 
-**Testing**
+#### Testing
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | API | - |-|
 | □ | Data | - |-|
 | □ | UI | - |-|
 
-**Project settings**
+#### Project settings
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | ✅ | Base | Switching between Development and Production environment | Flutter([flavor.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/flavor.dart), [runConfigurations](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/.idea/runConfigurations), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L14-L28)), iOS([xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Podfile#L7-L12)), Android([build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L50-L75), [Flavor dirs](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/src), [signingConfigs](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/signingConfigs)) |
@@ -82,7 +82,7 @@ $ make build-prd-ipa
 | ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L8), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
 | ✅ | Git | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
 
-**CI**
+#### CI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | Build | Github Actions |-|
