@@ -3,7 +3,7 @@
   "author": "wasabeef",
   "husky": {
     "hooks": {
-      "pre-push": "make pre-push"
+      "pre-push": "make format-analyze"
     }
   },
   "devDependencies": {
