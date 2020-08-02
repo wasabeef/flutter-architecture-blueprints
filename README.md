@@ -25,9 +25,9 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Testing | Data |-|
 | □ | Testing | UIs |-|
 | □ | Project | Lint / Analyze settings |-|
-| □ | Project | Git hooks for format and analyze |-|
+| ✅ | Project | Git hooks for format and analyze | [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12), [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L8)|
 | □ | Project | Switching between Development and Production environment |-|
-| □ | Project | .gitignore settings|-|
+| ✅ | Project | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
 | □ | CI | Build on Github Actions |-|
 | □ | CI | Firebase App Distribution settings |-|
 
