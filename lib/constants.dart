@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 @immutable
 class Constants {
   const Constants({
-    @required this.endpoint,
+    required this.endpoint,
   });
 
   factory Constants.of() {
