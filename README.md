@@ -28,25 +28,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 - targetSdkVersion 30
 - ndkVersion 21.3.6528147 [(Specific version installing)](https://developer.android.com/studio/projects/install-ndk#specific-version)
 
-### Setup
-```shell script
-$ make setup
-```
-
-### Make .apk and .ipa file
-Android
-```shell script
-$ make build-dev-apk
-$ make build-prd-apk
-```
-
-iOS
-```shell script
-$ make build-dev-ipa
-$ make build-prd-ipa
-```
-
-## Collections
+### Collections
 
 #### Architecture
 |Working status|Category|Description|Codes|
@@ -93,3 +75,21 @@ $ make build-prd-ipa
 | □ | Distributing | Firebase App Distribution |-|
 | □ | Distributing | Google Play |-|
 | □ | Distributing | Apple Store |-|
+
+### Setup
+```shell script
+$ make setup
+```
+
+### Make .apk and .ipa file
+Android
+```shell script
+$ make build-dev-apk
+$ make build-prd-apk
+```
+
+iOS
+```shell script
+$ make build-dev-ipa
+$ make build-prd-ipa
+```
