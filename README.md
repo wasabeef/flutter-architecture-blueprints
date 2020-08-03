@@ -36,6 +36,8 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Base | Riverpods + StateNotifier |-|
 | □ | Networking | dio |-|
 | □ | Cache and Persist Data | Prefect Docs | sqflite |-|
+| □ | Constants | - |-|
+| □ | Localization | - |-|
 | □ | Error handling |  |-|
 
 #### UI
