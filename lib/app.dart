@@ -1,6 +1,6 @@
 import 'package:app/constants.dart';
 import 'package:app/l10n/delegate.dart';
-import 'package:app/view/MyHomePage.dart';
+import 'package:app/view/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -24,7 +24,7 @@ class App extends StatelessWidget {
       ],
       supportedLocales: const [Locale('en'), Locale('ja')],
       routes: {
-        Constants.PAGE_HOME: (context) => const MyHomePage(),
+        Constants.PAGE_HOME: (context) => const HomePage(),
       },
     ));
   }
