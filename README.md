@@ -43,6 +43,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 #### UI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
+| □ | Theme | - |-|
 | □ | Page | - |-|
 | □ | Component | - |-|
 | □ | Animation | - |-|
