@@ -1,4 +1,4 @@
-import 'package:app/ext/context.dart';
+import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {

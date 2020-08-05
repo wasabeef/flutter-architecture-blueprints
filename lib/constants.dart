@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class Constants {
   const Constants({
     @required this.endpoint,
+    @required this.apiKey,
   });
 
   factory Constants.of() {
@@ -19,13 +20,15 @@ class Constants {
 
   factory Constants.dev() {
     return const Constants(
-      endpoint: 'http://localhost:3000/api',
+      endpoint: 'https://newsapi.org',
+      apiKey: 'f25c1783fa9b43bca53c6ad2d28defbe',
     );
   }
 
   factory Constants.prd() {
     return const Constants(
-      endpoint: 'http://localhost:3000/api',
+      endpoint: 'https://newsapi.org',
+      apiKey: '4bc454db94464956aea4cbb01f4bf9f4',
     );
   }
 
@@ -33,4 +36,5 @@ class Constants {
   static const String PAGE_HOME = '/home';
 
   final String endpoint;
+  final String apiKey;
 }
