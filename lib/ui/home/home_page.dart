@@ -1,24 +1,15 @@
+import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key key}) : super(key: key);
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final news = useProvider(
+        homeViewModelNotifierProvider.select((value) => value.news));
+    final homeViewModel = useProvider(homeViewModelNotifierProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text(context.localized.home),
@@ -28,19 +19,19 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'Fetch latest news from newsapi.org:',
             ),
             Text(
-              '$_counter',
+              news.toString(),
               style: Theme.of(context).textTheme.headline4,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        onPressed: () async => await homeViewModel.getNews(),
+        tooltip: 'Get News',
+        child: const Icon(Icons.book),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
