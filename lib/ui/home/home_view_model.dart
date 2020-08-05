@@ -5,10 +5,9 @@ import 'package:app/data/repository/news_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+// TODO(wasabeef): thinking thinking.. where should write this code.
 final dataSource = NewsDataSourceImpl(dio: AppDio());
-
 final repository = NewsRepositoryImpl(dataSource: dataSource);
-
 final homeViewModelNotifierProvider =
     ChangeNotifierProvider((_) => HomeViewModel(repository: repository));
 
