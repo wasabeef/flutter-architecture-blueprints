@@ -36,8 +36,8 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Base | Riverpods + Hooks+ StateNotifier |-|
 | □ | Networking | dio |-|
 | □ | Cache and Persist Data | sqflite |-|
-| □ | Constants | - |-|
-| □ | Localization | - |-|
+| ✅ | Constants | Define constants | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart) |
+| ✅ | Localization | Switching between two languages | [l10n dir](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n), [Usage](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24) |
 | □ | Error handling |  |-|
 
 #### UI
@@ -67,12 +67,12 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | ✅ | iOS | Xcode version | [compatibilityVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/3ae7135cc040fecf5bbb2100a353f6594037752d/ios/Runner.xcodeproj/project.pbxproj#L182) |
 | ✅ | iOS | Podfile | [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Podfile) |
 | ✅ | iOS | Switching between Development and Production environment | [xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Podfile#L7-L12) |
-| ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L11), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
-| ✅ | Git | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
 
 #### CI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
+| ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L11), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
+| ✅ | Git | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
 | □ | Build | Github Actions |-|
 | □ | Build | Bitrise |-|
 | □ | Distributing | Firebase App Distribution |-|
