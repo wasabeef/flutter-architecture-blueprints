@@ -11,6 +11,10 @@ format-analyze:
 	flutter format lib/
 	flutter analyze
 
+.PHONY: build-runner
+build-runner:
+	flutter packages pub run build_runner build
+
 .PHONY: build-dev-apk
 build-dev-apk:
 	flutter build apk --release --flavor development --target lib/main_dev.dart

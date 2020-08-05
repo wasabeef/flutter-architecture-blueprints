@@ -85,6 +85,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 ### Setup
 ```shell script
 $ make setup
+$ make build-runner
 ```
 
 ### Make .apk and .ipa file
