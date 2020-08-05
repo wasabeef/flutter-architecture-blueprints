@@ -37,7 +37,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | □ | Networking | dio |-|
 | □ | Cache and Persist Data | sqflite |-|
 | ✅ | Constants | Define constants | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart) |
-| ✅ | Localization | Switching between two languages | [l10n dir](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n), [Usage](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24) |
+| ✅ | Localization | Switching between two languages | [l10n dir](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n), [context.localized](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24) |
 | □ | Error handling |  |-|
 
 #### UI
