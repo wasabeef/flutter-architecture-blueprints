@@ -47,7 +47,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| □ | Base | Riverpods + Hooks + ChangeNotifier = Android MVVM-ish |-|
+| □ | Base | Riverpods + Hooks + ChangeNotifier + Android MVVM-ish |-|
 | □ | Networking | dio |-|
 | □ | Cache and Persist Data | sqflite |-|
 | ✅ | Constants | Define constants | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart) |
