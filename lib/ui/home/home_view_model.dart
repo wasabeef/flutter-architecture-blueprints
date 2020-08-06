@@ -1,3 +1,4 @@
+import 'package:app/data/model/news.dart';
 import 'package:app/data/provier/news_repository_provider.dart';
 import 'package:app/data/repository/news_repository.dart';
 import 'package:flutter/material.dart';
@@ -12,9 +13,9 @@ class HomeViewModel extends ChangeNotifier {
 
   final NewsRepository _repository;
 
-  String news = 'Not yet';
+  News news;
 
-  Future<String> getNews() async {
+  Future<News> getNews() async {
     return _repository
         .getNews()
         .then((value) => news = value)

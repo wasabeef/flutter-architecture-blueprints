@@ -1,3 +1,5 @@
+import 'package:app/data/model/news.dart';
+import 'package:app/ui/component/loading.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +12,8 @@ class HomePage extends HookWidget {
     final news = useProvider(
         homeViewModelNotifierProvider.select((value) => value.news));
     final homeViewModel = useProvider(homeViewModelNotifierProvider);
+    final future = useMemoized(() => homeViewModel.getNews());
+
     return Scaffold(
       appBar: AppBar(
         title: Text(context.localized.home),
@@ -21,10 +25,19 @@ class HomePage extends HookWidget {
             const Text(
               'Fetch latest news from newsapi.org:',
             ),
-            Text(
-              news.toString(),
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            FutureBuilder<News>(
+              future: future,
+              builder: (_, snapshot) {
+                if (snapshot.hasData) {
+                  return Text(
+                    'Total results: ${snapshot.data.totalResults}',
+                    style: Theme.of(context).textTheme.headline4,
+                  );
+                } else {
+                  return const Loading();
+                }
+              },
+            )
           ],
         ),
       ),

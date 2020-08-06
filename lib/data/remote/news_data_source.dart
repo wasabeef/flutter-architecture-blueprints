@@ -1,3 +1,5 @@
+import 'package:app/data/model/news.dart';
+
 abstract class NewsDataSource {
-  Future<String> getNews();
+  Future<News> getNews();
 }
