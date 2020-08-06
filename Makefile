@@ -25,8 +25,8 @@ build-prd-apk:
 
 .PHONY: build-dev-ipa
 build-dev-ipa:
-	flutter build ios --release --flavor development --target lib/main_dev.dart
+	flutter build ios --release --no-codesign --flavor development --target lib/main_dev.dart
 
 .PHONY: build-prd-ipa
 build-prd-ipa:
-	flutter build ios --release --flavor production --target lib/main_prd.dart
+	flutter build ios --release --no-codesign --flavor production --target lib/main_prd.dart
