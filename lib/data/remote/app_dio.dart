@@ -1,15 +1,10 @@
 import 'package:app/constants.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 
 class AppDio with DioMixin implements Dio {
-
-  static Dio getInstance() {
-    return AppDio()
-      ..interceptors.add(LogInterceptor(responseBody: true));
-  }
-
-  AppDio([BaseOptions options]) {
+  AppDio._([BaseOptions options]) {
     options = BaseOptions(
       baseUrl: Constants.of().endpoint,
       contentType: 'application/json',
@@ -20,5 +15,13 @@ class AppDio with DioMixin implements Dio {
 
     this.options = options;
     httpClientAdapter = DefaultHttpClientAdapter();
+  }
+
+  static Dio getInstance() {
+    return AppDio._()
+      ..interceptors.add(
+          DioCacheManager(CacheConfig(baseUrl: Constants.of().endpoint))
+              .interceptor as Interceptor)
+      ..interceptors.add(LogInterceptor(responseBody: true));
   }
 }

@@ -6,6 +6,6 @@ extension DateTimeExt on DateTime {
   }
 
   String formatYYYYMMdd() {
-    return DateFormat('yyyyMMdd').format(this);
+    return DateFormat('yyyy-MM-dd').format(this);
   }
 }

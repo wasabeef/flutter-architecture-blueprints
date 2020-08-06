@@ -38,6 +38,7 @@ dependencies:
   # For Networking and Data
   json_serializable: ^3.3.0
   dio: ^3.0.9
+  dio_http_cache: ^0.2.8
   intl: ^0.16.1 # DateFormat
   shared_preferences: ^0.5.8
 
