@@ -1,0 +1,79 @@
+---
+format_version: '8'
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+project_type: flutter
+trigger_map:
+  - push_branch: "*"
+    workflow: primary
+  - pull_request_source_branch: "*"
+    workflow: primary
+workflows:
+  deploy:
+    steps:
+      - activate-ssh-key@4:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4: {}
+      - script@1:
+          title: Do anything with Script step
+      - certificate-and-profile-installer@1: {}
+      - flutter-installer@0:
+          inputs:
+            - is_update: 'false'
+      - cache-pull@2: {}
+      - flutter-analyze@0:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - flutter-test@0:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - flutter-build@0:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+            - platform: both
+      - xcode-archive@2:
+          inputs:
+            - project_path: "$BITRISE_PROJECT_PATH"
+            - scheme: "$BITRISE_SCHEME"
+            - export_method: "$BITRISE_EXPORT_METHOD"
+            - configuration: Release
+      - deploy-to-bitrise-io@1: {}
+      - cache-push@2: {}
+  primary:
+    steps:
+      - activate-ssh-key@4:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4: {}
+      - script@1:
+          title: Do anything with Script step
+      - flutter-installer@0:
+          inputs:
+            - version: beta
+      - cache-pull@2: {}
+      - flutter-analyze@0.2:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - flutter-test@0:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - flutter-build@0:
+          inputs:
+            - ios_additional_params: "--release --no-codesign --flavor production --target
+            lib/main_prd.dart"
+            - is_debug_mode: 'true'
+            - android_additional_params: "--release --flavor production --target lib/main_prd.dart"
+      - deploy-to-bitrise-io@1: {}
+      - cache-push@2: {}
+app:
+  envs:
+    - opts:
+        is_expand: false
+      BITRISE_FLUTTER_PROJECT_LOCATION: "."
+    - opts:
+        is_expand: false
+      BITRISE_PROJECT_PATH: ios/Runner.xcworkspace
+    - opts:
+        is_expand: false
+      BITRISE_SCHEME: Production
+    - opts:
+        is_expand: false
+      BITRISE_EXPORT_METHOD: production
