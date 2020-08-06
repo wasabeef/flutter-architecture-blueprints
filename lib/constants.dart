@@ -11,21 +11,21 @@ class Constants {
   factory Constants.of() {
     switch (config) {
       case Flavor.development:
-        return Constants.dev();
+        return Constants._dev();
       case Flavor.production:
       default:
-        return Constants.prd();
+        return Constants._prd();
     }
   }
 
-  factory Constants.dev() {
+  factory Constants._dev() {
     return const Constants(
       endpoint: 'https://newsapi.org',
       apiKey: 'f25c1783fa9b43bca53c6ad2d28defbe',
     );
   }
 
-  factory Constants.prd() {
+  factory Constants._prd() {
     return const Constants(
       endpoint: 'https://newsapi.org',
       apiKey: '4bc454db94464956aea4cbb01f4bf9f4',
