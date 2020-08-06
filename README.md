@@ -4,6 +4,11 @@
   <img width="85%" src="./art/cover.png">
 </p>
 
+<p align="center">
+  <a href="https://app.bitrise.io/app/bc96b48850888851"><img src="https://app.bitrise.io/app/bc96b48850888851/status.svg?token=kpOAmHRna6NiMkHYsosrlA"></a>
+  <a href="https://codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/latest_build"><img src="https://api.codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/status_badge.svg"></a>
+</p>
+
 Flutter Architecture Blueprint is a project that introduces different architectures and project structure approaches to developing Flutter apps.
 
 ## Concept
@@ -72,8 +77,9 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 |:---:|---|---|---|
 | ✅ | Git | Git hooks for format and analyze | [package.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/package.json#L4-L11), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L9-L12)|
 | ✅ | Git | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
+| ✅ | Build | Codemagic |[codemagic.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codemagic.yaml)|
+| ✅ | Build | Bitrise |[bitrise.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/bitrise.yml)|
 | □ | Build | Github Actions |-|
-| □ | Build | Bitrise |-|
 | □ | Distributing | Firebase App Distribution |-|
 | □ | Distributing | Google Play |-|
 | □ | Distributing | Apple Store |-|
