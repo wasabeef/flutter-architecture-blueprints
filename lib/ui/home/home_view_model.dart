@@ -1,15 +1,10 @@
-import 'package:app/data/remote/app_dio.dart';
-import 'package:app/data/remote/news_data_source_impl.dart';
+import 'package:app/data/provier/news_repository_provider.dart';
 import 'package:app/data/repository/news_repository.dart';
-import 'package:app/data/repository/news_repository_impl.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-// TODO(wasabeef): thinking thinking.. where should write this code.
-final dataSource = NewsDataSourceImpl(dio: AppDio());
-final repository = NewsRepositoryImpl(dataSource: dataSource);
-final homeViewModelNotifierProvider =
-    ChangeNotifierProvider((_) => HomeViewModel(repository: repository));
+final homeViewModelNotifierProvider = ChangeNotifierProvider(
+    (ref) => HomeViewModel(repository: ref.read(newsRepositoryProvider)));
 
 class HomeViewModel extends ChangeNotifier {
   HomeViewModel({@required NewsRepository repository})

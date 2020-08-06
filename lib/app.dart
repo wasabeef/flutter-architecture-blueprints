@@ -17,7 +17,7 @@ class App extends HookWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      initialRoute: Constants.PAGE_HOME,
+      home: HomePage(),
       localizationsDelegates: const [
         L10nDelegate(),
         GlobalMaterialLocalizations.delegate,
