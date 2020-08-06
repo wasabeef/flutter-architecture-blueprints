@@ -3,6 +3,12 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 
 class AppDio with DioMixin implements Dio {
+
+  static Dio getInstance() {
+    return AppDio()
+      ..interceptors.add(LogInterceptor(responseBody: true));
+  }
+
   AppDio([BaseOptions options]) {
     options = BaseOptions(
       baseUrl: Constants.of().endpoint,

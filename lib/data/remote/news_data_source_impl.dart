@@ -14,9 +14,6 @@ class NewsDataSourceImpl implements NewsDataSource {
     return _dio
         .get<Map<String, dynamic>>(
             '/v2/everything?q=bitcoin&from=2020-07-06&sortBy=publishedAt&apiKey=4bc454db94464956aea4cbb01f4bf9f4')
-        .then((response) {
-      debugPrint(response.data.toString());
-      return News.fromJson(response.data);
-    });
+        .then((response) => News.fromJson(response.data));
   }
 }
