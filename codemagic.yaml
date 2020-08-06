@@ -1,0 +1,71 @@
+# Automatically generated on 2020-08-06 UTC from https://codemagic.io/app/5f2c1b6a8ff73d000f7bc1e1/settings
+# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
+
+# References
+# Environment variables: https://docs.codemagic.io/building/environment-variables/
+
+workflows:
+  flutter-architecture-blueprints-workflow:
+    name: Flutter Architecture Blueprints Workflow
+    max_build_duration: 60
+    environment:
+      vars:
+        FCI_FLUTTER_SCHEME: Production
+      flutter: beta
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
+        - $FCI_BUILD_DIR/node_modules
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FLUTTER_ROOT/.pub-cache
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: '*'
+          include: true
+          source: true
+    scripts:
+      - |
+        # set up debug keystore
+        rm -f ~/.android/debug.keystore
+        keytool -genkeypair \
+          -alias androiddebugkey \
+          -keypass android \
+          -keystore ~/.android/debug.keystore \
+          -storepass android \
+          -dname 'CN=Android Debug,O=Android,C=US' \
+          -keyalg 'RSA' \
+          -keysize 2048 \
+          -validity 10000
+      - |
+        # set up local properties
+        echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
+      - cd . && flutter packages pub get
+      - cd . && flutter analyze
+      - cd . && flutter test
+      - |
+        #!/bin/sh
+        set -e # exit on first failed commandset
+        set -x # print all executed commands to the log
+        # Workaround for issue #21335
+        /usr/bin/plutil -replace CFBundleIdentifier -string com.example.app ios/Runner/Info.plist
+      - cd . && flutter build apk --release --flavor production --target lib/main_prd.dart
+      - find . -name "Podfile" -execdir pod install \;
+      - cd . && flutter build ios --release --no-codesign --flavor production --target
+        lib/main_prd.dart --no-codesign
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - dadadada.chop@gmail.com
