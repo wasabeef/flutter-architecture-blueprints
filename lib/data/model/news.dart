@@ -1,8 +1,10 @@
 import 'package:app/data/model/article.dart';
+import 'package:flutter/foundation.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'news.g.dart';
 
+@immutable
 @JsonSerializable()
 class News {
   const News({

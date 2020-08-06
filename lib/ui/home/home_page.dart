@@ -9,8 +9,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final news = useProvider(
-        homeViewModelNotifierProvider.select((value) => value.news));
     final homeViewModel = useProvider(homeViewModelNotifierProvider);
     final future = useMemoized(() => homeViewModel.getNews());
 
@@ -43,7 +41,7 @@ class HomePage extends HookWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async => await homeViewModel.getNews(),
-        tooltip: 'Get News',
+        tooltip: 'Reload',
         child: const Icon(Icons.book),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

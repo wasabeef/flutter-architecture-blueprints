@@ -28,6 +28,7 @@ analyzer:
     # see https://github.com/dart-lang/sdk/issues/28463
     - "lib/i18n/messages_*.dart"
     - "lib/src/http/**"
+    - "lib/data/model/*.g.dart"
 
 linter:
   rules:
