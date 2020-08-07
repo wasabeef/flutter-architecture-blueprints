@@ -70,5 +70,5 @@ workflows:
       github_releases:
         prerelease: false
         artifact_patterns:
-          - '*.apk'
-          - '*.ipa'
+          - 'app-production-release.apk'
+          - 'Runner.ipa'
