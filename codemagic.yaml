@@ -8,7 +8,7 @@ workflows:
     environment:
       vars:
         FCI_FLUTTER_SCHEME: Production
-        ANDROID_NDK_VERSION: "21.3.6528147"
+        ANDROID_NDK_VERSION: 21.3.6528147
         ANDROID_SDK_VERSION: 30
       flutter: beta
       xcode: latest
@@ -16,7 +16,9 @@ workflows:
     cache:
       cache_paths:
         - ~/.pub-cache
-        - ~/.gradle/wrapper
+        # Too heavy the extract process.
+        # - ~/.gradle/caches
+        # - ~/.gradle/wrapper
         - $FCI_BUILD_DIR/node_modules
         - $FCI_BUILD_DIR/ios/Pods
         - $FLUTTER_ROOT/.pub-cache
