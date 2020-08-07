@@ -1,5 +1,7 @@
-import 'package:app/flavor.dart';
+import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
+
+enum Flavor { development, production }
 
 @immutable
 class Constants {
@@ -9,13 +11,24 @@ class Constants {
   });
 
   factory Constants.of() {
-    switch (config) {
+    if (_instance != null) {
+      return _instance;
+    }
+
+    final flavor = EnumToString.fromString(
+      Flavor.values,
+      const String.fromEnvironment('FLAVOR'),
+    );
+
+    switch (flavor) {
       case Flavor.development:
-        return Constants._dev();
+        _instance = Constants._dev();
+        break;
       case Flavor.production:
       default:
-        return Constants._prd();
+        _instance = Constants._prd();
     }
+    return _instance;
   }
 
   factory Constants._dev() {
@@ -34,6 +47,8 @@ class Constants {
 
   // Routing name
   static const String PAGE_HOME = '/home';
+
+  static Constants _instance;
 
   final String endpoint;
   final String apiKey;

@@ -40,6 +40,7 @@ dependencies:
   dio_http_cache: ^0.2.8
   intl: ^0.16.1 # DateFormat
   shared_preferences: ^0.5.8
+  enum_to_string: ^1.0.4
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
