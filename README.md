@@ -11,9 +11,11 @@
 
 Flutter Architecture Blueprint is a project that introduces different architectures and project structure approaches to developing Flutter apps.
 
-## Concept
+## Documentation
 
-**Make it easy.**
+* [Install Flutter](https://flutter.dev/get-started/)
+* [Flutter documentation](https://flutter.dev/docs)
+* [Contributing to Flutter](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/CONTRIBUTING.md)
 
 ## Requirements
 
