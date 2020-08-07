@@ -7,8 +7,7 @@ workflows:
     max_build_duration: 60
     triggering:
       events:
-        - push
-        - tag
+        - pull_request
       branch_patterns:
         - pattern: master
           include: true
