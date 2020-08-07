@@ -85,4 +85,4 @@ app:
       ANDROID_NDK_VERSION: 21.0.6113669
     - opts:
         is_expand: false
-      ANDROID_SDK_VERSION: 30
+      ANDROID_SDK_VERSION: 29

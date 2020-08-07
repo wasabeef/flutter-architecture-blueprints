@@ -16,7 +16,6 @@ workflows:
     cache:
       cache_paths:
         - ~/.pub-cache
-        - ~/.gradle/caches
         - ~/.gradle/wrapper
         - $FCI_BUILD_DIR/node_modules
         - $FCI_BUILD_DIR/ios/Pods
