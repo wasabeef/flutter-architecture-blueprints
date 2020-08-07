@@ -2,36 +2,23 @@
 # Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
 
 workflows:
-  pull:
+  master-merge:
     name: Master Workflow
     max_build_duration: 60
-    triggering:
-      events:
-        - pull_request
-      branch_patterns:
-        - pattern: master
-          include: true
-          source: false
-    scripts:
-      - echo "pull"
-
-  master:
-    name: Master Workflow
-    max_build_duration: 60
-#    environment:
-#      vars:
-#        FCI_FLUTTER_SCHEME: Production
-#        ANDROID_NDK_VERSION: 21.3.6528147
-#        ANDROID_SDK_VERSION: 30
-#        CODECOV_TOKEN: Encrypted(Z0FBQUFBQmZMUHJ6aU9za084Zi1Xd3RscnAzbGVsbFROTUhaMFBKejAzX2Q4b3dGQ1I3a1B6Y1FtY3lucmh1Z3FpZGhPbE1laTc0V1VIUndZTlpMYzF6T0VEWFdJWUwxZW9PeFJMQk9OS29yQUVWdzVqbHZzNXp3aE1Uc0ZOa09UQWF0WXg5cXZlNjk=)
-#      flutter: beta
-#      xcode: latest
-#      cocoapods: default
-#    cache:
-#      cache_paths:
-#        - $FLUTTER_ROOT/.pub-cache
-#        - $FCI_BUILD_DIR/ios/Pods
-#        - $FCI_BUILD_DIR/android/.gradle
+    environment:
+      vars:
+        FCI_FLUTTER_SCHEME: Production
+        ANDROID_NDK_VERSION: 21.3.6528147
+        ANDROID_SDK_VERSION: 30
+        CODECOV_TOKEN: Encrypted(Z0FBQUFBQmZMUHJ6aU9za084Zi1Xd3RscnAzbGVsbFROTUhaMFBKejAzX2Q4b3dGQ1I3a1B6Y1FtY3lucmh1Z3FpZGhPbE1laTc0V1VIUndZTlpMYzF6T0VEWFdJWUwxZW9PeFJMQk9OS29yQUVWdzVqbHZzNXp3aE1Uc0ZOa09UQWF0WXg5cXZlNjk=)
+      flutter: beta
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths:
+        - $FLUTTER_ROOT/.pub-cache
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
         - push
@@ -41,40 +28,38 @@ workflows:
           include: true
           source: true
     scripts:
-      - echo "master"
-#    scripts:
-#      - name: Setup local properties
-#        script: |
-#            # set up local properties
-#            echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
-#
-#      - name: Flutter pub get
-#        script: |
-#          flutter packages pub get
-#
-#      - name: Flutte Analysis
-#        script: |
-#          make analyze
-#
-#      - name: Flutter Unit test
-#        script: |
-#          make unit-test
-#
-#      - name: Codecov upload
-#        script: |
-#          #!/bin/sh
-#          set -e # exit on first failed commandset
-#          set -x # print all executed commands to the log
-#          bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
-#
-#      - name: Build
-#        script: |
-#          #!/bin/sh
-#          set -e # exit on first failed commandset
-#          set -x # print all executed commands to the log
-#          /usr/bin/plutil -replace CFBundleIdentifier -string com.example.app ios/Runner/Info.plist
-#          make build-prd-apk
-#          make build-prd-ipa
+      - name: Setup local properties
+        script: |
+            # set up local properties
+            echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
+
+      - name: Flutter pub get
+        script: |
+          flutter packages pub get
+
+      - name: Flutte Analysis
+        script: |
+          make analyze
+
+      - name: Flutter Unit test
+        script: |
+          make unit-test
+
+      - name: Codecov upload
+        script: |
+          #!/bin/sh
+          set -e # exit on first failed commandset
+          set -x # print all executed commands to the log
+          bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+
+      - name: Build
+        script: |
+          #!/bin/sh
+          set -e # exit on first failed commandset
+          set -x # print all executed commands to the log
+          /usr/bin/plutil -replace CFBundleIdentifier -string com.example.app ios/Runner/Info.plist
+          make build-prd-apk
+          make build-prd-ipa
 
     artifacts:
       - build/**/outputs/**/*.apk
@@ -83,6 +68,83 @@ workflows:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
       - flutter_drive.log
+
+    publishing:
+      slack:
+        channel: '#develop'
+        notify_on_build_start: false
+      github_releases:
+        prerelease: false
+        artifact_patterns:
+          - '*.apk'
+          - '*.ipa'
+
+  pull-request:
+    name: Pull-request Workflow
+    max_build_duration: 60
+    environment:
+      vars:
+        FCI_FLUTTER_SCHEME: Development
+        ANDROID_NDK_VERSION: 21.3.6528147
+        ANDROID_SDK_VERSION: 30
+        CODECOV_TOKEN: Encrypted(Z0FBQUFBQmZMUHJ6aU9za084Zi1Xd3RscnAzbGVsbFROTUhaMFBKejAzX2Q4b3dGQ1I3a1B6Y1FtY3lucmh1Z3FpZGhPbE1laTc0V1VIUndZTlpMYzF6T0VEWFdJWUwxZW9PeFJMQk9OS29yQUVWdzVqbHZzNXp3aE1Uc0ZOa09UQWF0WXg5cXZlNjk=)
+      flutter: beta
+      xcode: latest
+      cocoapods: default
+    cache:
+      cache_paths:
+        - $FLUTTER_ROOT/.pub-cache
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FCI_BUILD_DIR/android/.gradle
+    triggering:
+      events:
+        - push_request
+      branch_patterns:
+        - pattern: master
+          include: true
+          source: false
+    scripts:
+      - name: Setup local properties
+        script: |
+          # set up local properties
+          echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
+
+      - name: Flutter pub get
+        script: |
+          flutter packages pub get
+
+      - name: Flutte Analysis
+        script: |
+          make analyze
+
+      - name: Flutter Unit test
+        script: |
+          make unit-test
+
+      - name: Codecov upload
+        script: |
+          #!/bin/sh
+          set -e # exit on first failed commandset
+          set -x # print all executed commands to the log
+          bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+
+      - name: Build
+        script: |
+          #!/bin/sh
+          set -e # exit on first failed commandset
+          set -x # print all executed commands to the log
+          /usr/bin/plutil -replace CFBundleIdentifier -string com.example.app ios/Runner/Info.plist
+          make build-dev-apk
+          make build-dev-ipa
+
+    artifacts:
+      - build/**/outputs/**/*.apk
+      - build/**/outputs/**/*.aab
+      - build/**/outputs/**/mapping.txt
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - flutter_drive.log
+      - coverage/lcov.info
 
     publishing:
       slack:
