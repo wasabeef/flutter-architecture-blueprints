@@ -27,9 +27,6 @@ workflows:
         - pattern: master
           include: true
           source: true
-        - pattern: master
-          include: true
-          source: false
     scripts:
       - name: Setup local properties
         script: |
@@ -101,15 +98,11 @@ workflows:
         - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
-        - push
         - push_request
       branch_patterns:
-        - pattern: master
-          include: false
+        - pattern: '*'
+          include: true
           source: true
-        - pattern: master
-          include: false
-          source: false
     scripts:
       - name: Setup local properties
         script: |
