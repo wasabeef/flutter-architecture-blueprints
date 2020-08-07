@@ -5,8 +5,12 @@
 </p>
 
 <p align="center">
-  <a href="https://app.bitrise.io/app/bc96b48850888851"><img src="https://app.bitrise.io/app/bc96b48850888851/status.svg?token=kpOAmHRna6NiMkHYsosrlA"></a>
-  <a href="https://codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/latest_build"><img src="https://api.codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/status_badge.svg"></a>
+  <a href="https://app.bitrise.io/app/bc96b48850888851">
+    <img src="https://app.bitrise.io/app/bc96b48850888851/status.svg?token=kpOAmHRna6NiMkHYsosrlA">
+  </a>
+  <a href="https://codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/latest_build">
+    <img src="https://api.codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/status_badge.svg">
+  </a>
   <a href="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints">
     <img src="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints/branch/master/graph/badge.svg?token=9NCYY33KNG" />
   </a>
