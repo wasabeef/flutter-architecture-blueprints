@@ -8,8 +8,8 @@ workflows:
     environment:
       vars:
         FCI_FLUTTER_SCHEME: Production
-        ANDROID_NDK_VERSION: '"21.3.6528147"'
-        ANDROID_SDK_VERSION: '"30"'
+        ANDROID_NDK_VERSION: "21.3.6528147"
+        ANDROID_SDK_VERSION: 30
       flutter: beta
       xcode: latest
       cocoapods: default

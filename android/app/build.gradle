@@ -26,7 +26,8 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion System.getenv('ANDROID_SDK_VERSION') ? System.getenv('ANDROID_SDK_VERSION') : "30"
+    // Workaround for support to multiple CIs (Bitrise and Codemagic).
+    compileSdkVersion System.getenv('ANDROID_SDK_VERSION') ? System.getenv('ANDROID_SDK_VERSION') : 30
     ndkVersion System.getenv('ANDROID_NDK_VERSION') ? System.getenv('ANDROID_NDK_VERSION') : "21.3.6528147"
 
     sourceSets {
