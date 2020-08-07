@@ -44,12 +44,17 @@ workflows:
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - cd . && flutter packages pub get
       - cd . && flutter analyze
-      - cd . && flutter test
+      - cd . && flutter test --coverage --coverage-path=./coverage/lcov.info
       - |
         #!/bin/sh
         set -e # exit on first failed commandset
         set -x # print all executed commands to the log
-        # Workaround for issue #21335
+        bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+      - |
+        #!/bin/sh
+        set -e # exit on first failed commandset
+        set -x # print all executed commands to the log
+        # Workaround for issue #2133
         /usr/bin/plutil -replace CFBundleIdentifier -string com.example.app ios/Runner/Info.plist
       - cd . && flutter build apk --release --flavor production --target lib/main_prd.dart
       - find . -name "Podfile" -execdir pod install \;

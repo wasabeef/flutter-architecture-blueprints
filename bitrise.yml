@@ -55,6 +55,9 @@ workflows:
       - flutter-test@0:
           inputs:
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - codecov@1:
+          inputs:
+            - CODECOV_TOKEN: "$CODECOV_TOKEN"
       - flutter-build@0:
           inputs:
             - ios_additional_params: "--release --no-codesign --flavor production --target

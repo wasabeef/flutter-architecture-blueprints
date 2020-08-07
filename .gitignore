@@ -102,3 +102,6 @@ node_modules/
 
 ## Generated code
 # **/*.g.dart
+
+## Test coverage
+coverage/

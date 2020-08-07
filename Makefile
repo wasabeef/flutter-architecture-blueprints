@@ -30,3 +30,8 @@ build-dev-ipa:
 .PHONY: build-prd-ipa
 build-prd-ipa:
 	flutter build ios --release --no-codesign --flavor production --target lib/main_prd.dart
+
+.PHONY: test
+test:
+	flutter test --coverage --coverage-path=./coverage/lcov.info
+
