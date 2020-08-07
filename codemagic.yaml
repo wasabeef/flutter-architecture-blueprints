@@ -15,13 +15,9 @@ workflows:
       cocoapods: default
     cache:
       cache_paths:
-        - ~/.pub-cache
-        # Too heavy the extract process.
-        # - ~/.gradle/caches
-        # - ~/.gradle/wrapper
-        - $FCI_BUILD_DIR/node_modules
-        - $FCI_BUILD_DIR/ios/Pods
         - $FLUTTER_ROOT/.pub-cache
+        - $FCI_BUILD_DIR/ios/Pods
+        - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
         - push
