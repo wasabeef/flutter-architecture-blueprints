@@ -98,6 +98,7 @@ workflows:
         - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
+        - push
         - push_request
       branch_patterns:
         - pattern: master
