@@ -75,6 +75,7 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 |:---:|---|---|---|
 | □ | API | - |-|
 | □ | UI | - |-|
+| ✅ | Coverage | Codecov |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml)|
 
 #### CI
 |Working status|Category|Description|Codes|
