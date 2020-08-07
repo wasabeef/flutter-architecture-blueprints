@@ -2,23 +2,37 @@
 # Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
 
 workflows:
+  pull:
+    name: Master Workflow
+    max_build_duration: 60
+    triggering:
+      events:
+        - push
+        - tag
+      branch_patterns:
+        - pattern: master
+          include: true
+          source: false
+    scripts:
+      - echo "pull"
+
   master:
     name: Master Workflow
     max_build_duration: 60
-    environment:
-      vars:
-        FCI_FLUTTER_SCHEME: Production
-        ANDROID_NDK_VERSION: 21.3.6528147
-        ANDROID_SDK_VERSION: 30
-        CODECOV_TOKEN: Encrypted(Z0FBQUFBQmZMUHJ6aU9za084Zi1Xd3RscnAzbGVsbFROTUhaMFBKejAzX2Q4b3dGQ1I3a1B6Y1FtY3lucmh1Z3FpZGhPbE1laTc0V1VIUndZTlpMYzF6T0VEWFdJWUwxZW9PeFJMQk9OS29yQUVWdzVqbHZzNXp3aE1Uc0ZOa09UQWF0WXg5cXZlNjk=)
-      flutter: beta
-      xcode: latest
-      cocoapods: default
-    cache:
-      cache_paths:
-        - $FLUTTER_ROOT/.pub-cache
-        - $FCI_BUILD_DIR/ios/Pods
-        - $FCI_BUILD_DIR/android/.gradle
+#    environment:
+#      vars:
+#        FCI_FLUTTER_SCHEME: Production
+#        ANDROID_NDK_VERSION: 21.3.6528147
+#        ANDROID_SDK_VERSION: 30
+#        CODECOV_TOKEN: Encrypted(Z0FBQUFBQmZMUHJ6aU9za084Zi1Xd3RscnAzbGVsbFROTUhaMFBKejAzX2Q4b3dGQ1I3a1B6Y1FtY3lucmh1Z3FpZGhPbE1laTc0V1VIUndZTlpMYzF6T0VEWFdJWUwxZW9PeFJMQk9OS29yQUVWdzVqbHZzNXp3aE1Uc0ZOa09UQWF0WXg5cXZlNjk=)
+#      flutter: beta
+#      xcode: latest
+#      cocoapods: default
+#    cache:
+#      cache_paths:
+#        - $FLUTTER_ROOT/.pub-cache
+#        - $FCI_BUILD_DIR/ios/Pods
+#        - $FCI_BUILD_DIR/android/.gradle
     triggering:
       events:
         - push
@@ -28,7 +42,7 @@ workflows:
           include: true
           source: true
     scripts:
-      - echo "hello"
+      - echo "master"
 #    scripts:
 #      - name: Setup local properties
 #        script: |
