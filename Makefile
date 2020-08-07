@@ -1,4 +1,3 @@
-
 .PHONY: setup
 setup:
 	flutter channel beta
@@ -6,8 +5,12 @@ setup:
 	flutter pub get
 	npm install
 
+.PHONY: dependencies
+dependencies:
+	flutter packages pub upgrade
+
 .PHONY: analyze
-format-analyze:
+analyze:
 	flutter analyze
 
 .PHONY: format-analyze
@@ -40,4 +43,8 @@ build-prd-ipa:
 .PHONY: unit-test
 unit-test:
 	flutter test --coverage --coverage-path=./coverage/lcov.info
+
+.PHONY: codecov
+codecov:
+	./scripts/codecov.sh ${CODECOV_TOKEN}
 

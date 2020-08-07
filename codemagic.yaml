@@ -35,7 +35,7 @@ workflows:
             echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
 
       - name: Flutter pub get
-        script: flutter packages pub get
+        script: make dependencies
 
       - name: Flutte Analysis
         script: make analyze
@@ -44,7 +44,7 @@ workflows:
         script: make unit-test
 
       - name: Codecov upload
-        script: bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN
+        script: make codecov
 
       - name: Build
         script: |
