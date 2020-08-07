@@ -71,7 +71,6 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | API | - |-|
-| □ | Data | - |-|
 | □ | UI | - |-|
 
 #### CI
@@ -83,8 +82,6 @@ Flutter Architecture Blueprint is a project that introduces different architectu
 | ✅ | Build | Bitrise |[bitrise.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/bitrise.yml)|
 | □ | Build | Github Actions |-|
 | □ | Distributing | Firebase App Distribution |-|
-| □ | Distributing | Google Play |-|
-| □ | Distributing | Apple Store |-|
 
 
 ## Getting Started
