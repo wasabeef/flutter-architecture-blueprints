@@ -8,6 +8,8 @@ workflows:
     environment:
       vars:
         FCI_FLUTTER_SCHEME: Production
+        ANDROID_NDK_VERSION: '"21.3.6528147"'
+        ANDROID_SDK_VERSION: '"30"'
       flutter: beta
       xcode: latest
       cocoapods: default
@@ -44,7 +46,6 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
       - cd . && flutter packages pub get
-      - cd . && flutter config --enable-web
       - cd . && flutter analyze
       - cd . && flutter test
       - |
@@ -57,24 +58,17 @@ workflows:
       - find . -name "Podfile" -execdir pod install \;
       - cd . && flutter build ios --release --no-codesign --flavor production --target
         lib/main_prd.dart --no-codesign
-      - |
-        # build web
-        cd .
-        flutter build web --release --target lib/main_prd.dart
-        cd build/web
-        7z a -r ../web.zip ./*
     artifacts:
       - build/**/outputs/**/*.apk
       - build/**/outputs/**/*.aab
       - build/**/outputs/**/mapping.txt
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
-      - build/web.zip
       - flutter_drive.log
     publishing:
       slack:
         channel: '#develop'
-        notify_on_build_start: true
+        notify_on_build_start: false
       github_releases:
         prerelease: false
         artifact_patterns:
