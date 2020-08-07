@@ -63,6 +63,9 @@ workflows:
             - android_additional_params: "--release --flavor production --target lib/main_prd.dart"
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
+      - slack@3:
+          inputs:
+            - webhook_url: "$SLACK_WEBHOOK_URL"
 app:
   envs:
     - opts:
