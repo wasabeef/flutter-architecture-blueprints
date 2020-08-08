@@ -23,6 +23,10 @@ class HomePage extends HookWidget {
             icon: const Icon(Icons.color_lens),
             onPressed: () async => theme.toggle(),
           ),
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () async => homeViewModel.getNews(),
+          ),
         ],
       ),
       body: Center(
@@ -48,11 +52,6 @@ class HomePage extends HookWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async => await homeViewModel.getNews(),
-        tooltip: 'Reload',
-        child: const Icon(Icons.book),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
