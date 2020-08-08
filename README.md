@@ -73,7 +73,8 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | ✅ | Theme | Dynamically Switch between light and dark themes |-|
-| ✅ | Theme | Dynamically Switch between light and dark themes |-|
+| ✅ | Font | Google font |-|
+| ✅ | Transition | Simple animation between screens |-|
 
 #### Testing
 |Working status|Category|Description|Codes|
