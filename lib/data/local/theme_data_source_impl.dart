@@ -1,5 +1,5 @@
 import 'package:app/data/local/theme_data_source.dart';
-import 'package:app/data/local/theme_setting.dart';
+import 'package:app/data/model/theme_setting.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
