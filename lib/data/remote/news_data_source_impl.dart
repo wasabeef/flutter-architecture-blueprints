@@ -16,7 +16,7 @@ class NewsDataSourceImpl implements NewsDataSource {
     return _dio
         .get<Map<String, dynamic>>('/v2/everything',
             queryParameters: <String, String>{
-              'q': 'flutter+dart',
+              'q': 'anime',
               'from': DateTime.now()
                   .subtract(
                     const Duration(days: 28),
@@ -24,6 +24,7 @@ class NewsDataSourceImpl implements NewsDataSource {
                   .toLocal()
                   .formatYYYYMMdd(),
               'sortBy': 'publishedAt',
+              'language': 'en',
               'apiKey': Constants.of().apiKey,
             },
             options: buildCacheOptions(const Duration(hours: 1)))

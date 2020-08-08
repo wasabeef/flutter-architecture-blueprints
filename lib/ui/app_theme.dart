@@ -2,6 +2,7 @@ import 'package:app/data/model/theme_setting.dart';
 import 'package:app/data/provier/theme_repository_provider.dart';
 import 'package:app/data/repository/theme_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final appThemeNotifierProvider =
@@ -10,12 +11,14 @@ final appThemeNotifierProvider =
 ThemeData get lightTheme {
   return ThemeData.light().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
   );
 }
 
 ThemeData get darkTheme {
   return ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
   );
 }
 

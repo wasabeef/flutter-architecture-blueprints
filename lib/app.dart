@@ -1,6 +1,7 @@
 import 'package:app/constants.dart';
 import 'package:app/l10n/delegate.dart';
 import 'package:app/ui/app_theme.dart';
+import 'package:app/ui/detail/datail_page.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -27,6 +28,7 @@ class App extends HookWidget {
       supportedLocales: const [Locale('en'), Locale('ja')],
       routes: {
         Constants.PAGE_HOME: (context) => HomePage(),
+        Constants.PAGE_DETAIL: (context) => DetailPage(),
       },
     );
   }
