@@ -26,7 +26,7 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 
 ## Requirements
 
-- [Flutter (beta channel)](https://flutter.dev/docs/get-started/install)
+- [Flutter 1.20.0+ (beta channel)](https://flutter.dev/docs/get-started/install)
 - [Dart 2.9.0+ (beta channel)](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
 - [npm](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
@@ -73,13 +73,14 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | ✅ | Theme | Dynamically Switch between light and dark themes |-|
+| ✅ | Theme | Dynamically Switch between light and dark themes |-|
 
 #### Testing
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | □ | API | - |-|
 | □ | UI | - |-|
-| ✅ | Coverage | Codecov |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml)|
+| ✅ | Coverage reports | Codecov |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml)|
 
 #### CI
 |Working status|Category|Description|Codes|

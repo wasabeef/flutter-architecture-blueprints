@@ -18,8 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.8.0 <3.0.0"
-  flutter: "> 1.17.0"
+  sdk: '>2.8.0 <3.0.0'
+  flutter: '>=1.20.0'
 
 dependencies:
   flutter:
@@ -35,13 +35,25 @@ dependencies:
   hooks_riverpod: ^0.6.0-dev+2
   state_notifier: ^0.6.0
 
-  # For Networking and Data
-  json_serializable: ^3.3.0
+  # For Networking
   dio: ^3.0.9
   dio_http_cache: ^0.2.8
-  intl: ^0.16.1 # DateFormat
+
+  # For Model
+  json_serializable: ^3.3.0
+
+  # For DateTime
+  intl: ^0.16.1
+
+  # For Key-Value local storage
   shared_preferences: ^0.5.8
+
+  # Convert between Enum and String
   enum_to_string: ^1.0.4
+
+  # For UIs
+  flutter_easyrefresh: ^2.1.5
+  google_fonts: ^1.1.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -50,8 +62,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  build_runner: ^1.7.4
 
+  build_runner: ^1.7.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -65,9 +77,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
