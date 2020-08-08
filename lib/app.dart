@@ -10,9 +10,15 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class App extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final appTheme = useProvider(appThemeNotifierProvider);
+    final themeData =
+        useMemoized(() => appTheme.themeData, [appTheme.setting]);
+    final snapshot = useFuture(themeData);
+
     return MaterialApp(
       title: 'Flutter Architecture Blueprints',
-      theme: useProvider(appThemeNotifierProvider.state),
+      theme: snapshot.data ?? lightTheme,
+      darkTheme: darkTheme,
       home: HomePage(),
       localizationsDelegates: const [
         L10nDelegate(),

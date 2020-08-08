@@ -1,12 +1,11 @@
-import 'package:app/data/local/theme_setting.dart';
+import 'package:app/data/model/theme_setting.dart';
 import 'package:app/data/provier/theme_repository_provider.dart';
 import 'package:app/data/repository/theme_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 final appThemeNotifierProvider =
-    StateNotifierProvider<AppTheme>((ref) => AppTheme(ref));
+    ChangeNotifierProvider<AppTheme>((ref) => AppTheme(ref: ref));
 
 ThemeData get lightTheme {
   return ThemeData.light().copyWith(
@@ -20,43 +19,40 @@ ThemeData get darkTheme {
   );
 }
 
-class AppTheme extends StateNotifier<ThemeData> {
-  AppTheme(this._ref) : super(darkTheme) {
-    _loadThemeSetting();
-  }
+class AppTheme extends ChangeNotifier {
+  AppTheme({@required ProviderReference ref}) : _ref = ref;
 
   final ProviderReference _ref;
 
   ThemeRepository _repository;
 
-  ThemeSetting _theme;
+  ThemeSetting setting;
 
-  Future<void> _loadThemeSetting() async {
-    _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _theme = _repository.loadThemeSetting() ?? ThemeSetting.DARK;
-    return changeTheme(_theme);
-  }
-
-  Future<void> changeTheme(ThemeSetting theme) {
-    theme == ThemeSetting.LIGHT ? _loadLightTheme() : _loadDarkTheme();
-    return _repository.saveThemeSetting(theme);
+  Future<ThemeData> get themeData async {
+    if (setting == null) {
+      _repository ??= await _ref.read(themeRepositoryProvider.future);
+      setting = _repository.loadThemeSetting() ?? ThemeSetting.DARK;
+    }
+    return setting == ThemeSetting.LIGHT ? lightTheme : darkTheme;
   }
 
   Future<void> _loadLightTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _theme = ThemeSetting.LIGHT;
-    state = lightTheme;
+    setting = ThemeSetting.LIGHT;
+    await _repository.saveThemeSetting(setting);
+    notifyListeners();
   }
 
   Future<void> _loadDarkTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _theme = ThemeSetting.DARK;
-    state = darkTheme;
+    setting = ThemeSetting.DARK;
+    await _repository.saveThemeSetting(setting);
+    notifyListeners();
   }
 
   Future<void> toggle() async {
-    _theme =
-        _theme == ThemeSetting.LIGHT ? ThemeSetting.DARK : ThemeSetting.LIGHT;
-    return changeTheme(_theme);
+    setting == ThemeSetting.LIGHT
+        ? await _loadDarkTheme()
+        : await _loadLightTheme();
   }
 }
