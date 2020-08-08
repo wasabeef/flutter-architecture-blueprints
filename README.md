@@ -61,7 +61,7 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| 🤔 | Base | Riverpod + Hooks + ChangeNotifier + Android MVVM-ish |-|
+| ✅ | Base | Riverpod + Hooks + ChangeNotifier + Android MVVM-ish |-|
 | ✅ | Networking | dio |-|
 | ✅ | Caching | dio_http_cache  |-|
 | ✅ | Persist Data | shared_preferences |-|
@@ -72,7 +72,7 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 #### UI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| □ | Theme | - |-|
+| ✅ | Theme | Dynamically Switch between light and dark themes |-|
 
 #### Testing
 |Working status|Category|Description|Codes|
