@@ -30,14 +30,14 @@ workflows:
             - CODECOV_TOKEN: "$CODECOV_TOKEN"
       - flutter-build@0:
           inputs:
-            - ios_additional_params: flutter build ios --release --no-codesign --flavor
-                production --dart-define=FLAVOR=production --target lib/main.dart
+            - ios_additional_params: "--release --no-codesign --flavor production --dart-define=FLAVOR=production
+            --target lib/main.dart"
             - is_debug_mode: 'true'
             - ios_output_pattern: |-
                 *build/ios/iphoneos/*.app
                 *build/ios/iphoneos/*.ipa
-            - android_additional_params: flutter build apk --release --flavor production
-                --dart-define=FLAVOR=production --target lib/main.dart
+            - android_additional_params: "--release --flavor production --dart-define=FLAVOR=production
+            --target lib/main.dart"
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
       - slack@3:
@@ -65,14 +65,14 @@ workflows:
             - CODECOV_TOKEN: "$CODECOV_TOKEN"
       - flutter-build@0:
           inputs:
-            - ios_additional_params: flutter build ios --no-codesign --flavor development
-                --dart-define=FLAVOR=development --target lib/main.dart
+            - ios_additional_params: "--no-codesign --flavor development --dart-define=FLAVOR=development
+            --target lib/main.dart"
             - is_debug_mode: 'true'
             - ios_output_pattern: |-
                 *build/ios/iphoneos/*.app
                 *build/ios/iphoneos/*.ipa
-            - android_additional_params: flutter build apk --flavor development --dart-define=FLAVOR=development
-                --target lib/main.dart
+            - android_additional_params: "--flavor development --dart-define=FLAVOR=development
+            --target lib/main.dart"
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
       - slack@3:
