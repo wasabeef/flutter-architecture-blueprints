@@ -11,8 +11,7 @@ class App extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final appTheme = useProvider(appThemeNotifierProvider);
-    final themeData =
-        useMemoized(() => appTheme.themeData, [appTheme.setting]);
+    final themeData = useMemoized(() => appTheme.themeData, [appTheme.setting]);
     final snapshot = useFuture(themeData);
 
     return MaterialApp(
