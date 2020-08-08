@@ -28,12 +28,12 @@ build-dev-apk:
 
 .PHONY: build-prd-apk
 build-prd-apk:
-	flutter build apk --flavor production --dart-define=FLAVOR=production --target lib/main.dart
+	flutter build apk --release --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
 .PHONY: build-dev-ipa
 build-dev-ipa:
 	cd ios/ && pod install && cd ..
-	flutter build ios --release --no-codesign --flavor development --dart-define=FLAVOR=development --target lib/main.dart
+	flutter build ios --no-codesign --flavor development --dart-define=FLAVOR=development --target lib/main.dart
 
 .PHONY: build-prd-ipa
 build-prd-ipa:

@@ -3,42 +3,12 @@ format_version: '8'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: flutter
 trigger_map:
-  - push_branch: "*"
-    workflow: primary
+  - push_branch: master
+    workflow: master-build
   - pull_request_source_branch: "*"
-    workflow: primary
+    workflow: pull-request-build
 workflows:
-  deploy:
-    steps:
-      - activate-ssh-key@4:
-          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
-      - git-clone@4: {}
-      - script@1:
-          title: Do anything with Script step
-      - certificate-and-profile-installer@1: {}
-      - flutter-installer@0:
-          inputs:
-            - is_update: 'false'
-      - cache-pull@2: {}
-      - flutter-analyze@0:
-          inputs:
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-      - flutter-test@0:
-          inputs:
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-      - flutter-build@0:
-          inputs:
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-            - platform: both
-      - xcode-archive@2:
-          inputs:
-            - project_path: "$BITRISE_PROJECT_PATH"
-            - scheme: "$BITRISE_SCHEME"
-            - export_method: "$BITRISE_EXPORT_METHOD"
-            - configuration: Release
-      - deploy-to-bitrise-io@1: {}
-      - cache-push@2: {}
-  primary:
+  master-build:
     steps:
       - activate-ssh-key@4:
           run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
@@ -60,10 +30,49 @@ workflows:
             - CODECOV_TOKEN: "$CODECOV_TOKEN"
       - flutter-build@0:
           inputs:
-            - ios_additional_params: "--release --no-codesign --flavor production --target
-            lib/main_prd.dart"
+            - ios_additional_params: flutter build ios --release --no-codesign --flavor
+                production --dart-define=FLAVOR=production --target lib/main.dart
             - is_debug_mode: 'true'
-            - android_additional_params: "--release --flavor production --target lib/main_prd.dart"
+            - ios_output_pattern: |-
+                *build/ios/iphoneos/*.app
+                *build/ios/iphoneos/*.ipa
+            - android_additional_params: flutter build apk --release --flavor production
+                --dart-define=FLAVOR=production --target lib/main.dart
+      - deploy-to-bitrise-io@1: {}
+      - cache-push@2: {}
+      - slack@3:
+          inputs:
+            - webhook_url: "$SLACK_WEBHOOK_URL"
+  pull-request-build:
+    steps:
+      - activate-ssh-key@4:
+          run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
+      - git-clone@4: {}
+      - script@1:
+          title: Do anything with Script step
+      - flutter-installer@0:
+          inputs:
+            - version: beta
+      - cache-pull@2: {}
+      - flutter-analyze@0.2:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - flutter-test@0:
+          inputs:
+            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+      - codecov@1:
+          inputs:
+            - CODECOV_TOKEN: "$CODECOV_TOKEN"
+      - flutter-build@0:
+          inputs:
+            - ios_additional_params: flutter build ios --no-codesign --flavor development
+                --dart-define=FLAVOR=development --target lib/main.dart
+            - is_debug_mode: 'true'
+            - ios_output_pattern: |-
+                *build/ios/iphoneos/*.app
+                *build/ios/iphoneos/*.ipa
+            - android_additional_params: flutter build apk --flavor development --dart-define=FLAVOR=development
+                --target lib/main.dart
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
       - slack@3:
