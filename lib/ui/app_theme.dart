@@ -22,6 +22,8 @@ ThemeData get darkTheme {
 class AppTheme extends ChangeNotifier {
   AppTheme({@required ProviderReference ref}) : _ref = ref;
 
+  static const _DEFAULT_THEME_SETTING = ThemeSetting.LIGHT;
+
   final ProviderReference _ref;
 
   ThemeRepository _repository;
@@ -31,7 +33,7 @@ class AppTheme extends ChangeNotifier {
   Future<ThemeData> get themeData async {
     if (setting == null) {
       _repository ??= await _ref.read(themeRepositoryProvider.future);
-      setting = _repository.loadThemeSetting() ?? ThemeSetting.DARK;
+      setting = _repository.loadThemeSetting() ?? _DEFAULT_THEME_SETTING;
     }
     return setting == ThemeSetting.LIGHT ? lightTheme : darkTheme;
   }
