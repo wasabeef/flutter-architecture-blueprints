@@ -1,4 +1,3 @@
-import 'package:app/data/model/news.dart';
 import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/loading.dart';
 import 'package:app/ui/home/home_view_model.dart';
@@ -11,7 +10,8 @@ class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final homeViewModel = useProvider(homeViewModelNotifierProvider);
-    final future = useMemoized(() => homeViewModel.getNews());
+    final getNews = useMemoized(() => homeViewModel.getNews());
+    final snapshot = useFuture(getNews);
     final theme = useProvider(appThemeNotifierProvider);
 
     return Scaffold(
@@ -25,7 +25,7 @@ class HomePage extends HookWidget {
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            onPressed: () async => homeViewModel.getNews(),
+            onPressed: () async => getNews,
           ),
         ],
       ),
@@ -36,19 +36,13 @@ class HomePage extends HookWidget {
             const Text(
               'Fetch latest news from newsapi.org:',
             ),
-            FutureBuilder<News>(
-              future: future,
-              builder: (_, snapshot) {
-                if (snapshot.hasData) {
-                  return Text(
-                    'Total results: ${snapshot.data.totalResults}',
-                    style: Theme.of(context).textTheme.headline4,
-                  );
-                } else {
-                  return const Loading();
-                }
-              },
-            )
+            if (snapshot.hasData)
+              Text(
+                'Total results: ${snapshot.data.totalResults}',
+                style: Theme.of(context).textTheme.headline4,
+              )
+            else
+              const Loading()
           ],
         ),
       ),
