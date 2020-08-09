@@ -1,6 +1,8 @@
+import 'package:app/constants.dart';
 import 'package:app/data/provier/dio_provider.dart';
 import 'package:app/data/provier/news_data_source_provider.dart';
 import 'package:app/data/provier/news_repository_provider.dart';
+import 'package:app/data/remote/app_dio.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -36,6 +38,15 @@ void main() {
       overrides: [dioProvider.overrideWithValue(FakeAppDio())],
     );
     final dataSource = container.read(newsDataSourceProvider);
-    expect(dataSource.getNews(), isNotNull);
+    await expectLater(dataSource.getNews(), completion(isNotNull));
+  });
+
+  test('AppDio options Test', () async {
+    final realDio = AppDio.getInstance();
+    expect(realDio.options.baseUrl, Constants.of().endpoint);
+    expect(realDio.options.contentType, 'application/json');
+    expect(realDio.options.connectTimeout, 30000);
+    expect(realDio.options.sendTimeout, 30000);
+    expect(realDio.options.receiveTimeout, 30000);
   });
 }
