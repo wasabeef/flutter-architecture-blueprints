@@ -79,8 +79,8 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 #### Testing
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| □ | API | - |-|
-| □ | UI | - |-|
+| ✅ | API | - |-|
+| ☑️ | UI | - |-|
 | ✅ | Coverage reports | Codecov |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml)|
 
 #### CI
@@ -91,8 +91,6 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 | ✅ | Build | Codemagic |[codemagic.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codemagic.yaml)|
 | ✅ | Build | Bitrise |[bitrise.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/bitrise.yml)|
 | □ | Build | Github Actions |-|
-| □ | Distributing | Firebase App Distribution |-|
-
 
 ## Getting Started
 
