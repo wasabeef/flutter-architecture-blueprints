@@ -24,6 +24,8 @@ workflows:
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
       - flutter-test@0:
           inputs:
+            - additional_params: "--coverage-path=./coverage/lcov.info"
+            - generate_code_coverage_files: 'yes'
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
       - codecov@1:
           inputs:
@@ -59,6 +61,8 @@ workflows:
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
       - flutter-test@0:
           inputs:
+            - additional_params: "--coverage-path=./coverage/lcov.info"
+            - generate_code_coverage_files: 'yes'
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
       - codecov@1:
           inputs:
