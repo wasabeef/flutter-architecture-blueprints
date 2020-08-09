@@ -15,6 +15,11 @@
     <img src="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints/branch/master/graph/badge.svg?token=9NCYY33KNG" />
   </a>
 </p>
+<p align="center">
+  <a href="https://twitter.com/wasabeef_jp">
+    <img src="https://img.shields.io/twitter/follow/wasabeef_jp?label=%40wasabeef_jp&logoColor=000000&style=social" />
+  </a>
+</p>
 
 Flutter Architecture Blueprint is a project that introduces MVVM architecture and project structure approaches to developing Flutter apps.
 
