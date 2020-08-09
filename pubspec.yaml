@@ -67,6 +67,7 @@ dev_dependencies:
 
   # For Testing
   mockito:
+  image_test_utils:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

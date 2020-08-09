@@ -1,16 +1,23 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility that Flutter provides. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
+import 'package:app/app.dart';
 import 'package:app/ui/component/loading.dart';
+import 'package:app/ui/detail/datail_page.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_test_utils/image_test_utils.dart';
+import 'package:mockito/mockito.dart';
+
+mixin MockDetailPage implements Mock, DetailPage {}
 
 void main() {
-  testWidgets('check label', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('App', (WidgetTester tester) async {
+    await provideMockedNetworkImages(() async {
+      await tester.pumpWidget(ProviderScope(
+//        overrides: [],
+        child: App(),
+      ));
+    });
+  });
+  testWidgets('Loading', (WidgetTester tester) async {
     await tester.pumpWidget(const Loading());
   });
 }
