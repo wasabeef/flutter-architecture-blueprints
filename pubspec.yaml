@@ -54,6 +54,7 @@ dependencies:
   # For UIs
   flutter_easyrefresh: ^2.1.5
   google_fonts: ^1.1.0
+  fluttertoast: ^7.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

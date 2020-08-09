@@ -14,20 +14,22 @@ class NewsDataSourceImpl implements NewsDataSource {
   @override
   Future<News> getNews() async {
     return _dio
-        .get<Map<String, dynamic>>('/v2/everything',
-            queryParameters: <String, String>{
-              'q': 'anime',
-              'from': DateTime.now()
-                  .subtract(
-                    const Duration(days: 28),
-                  )
-                  .toLocal()
-                  .formatYYYYMMdd(),
-              'sortBy': 'publishedAt',
-              'language': 'en',
-              'apiKey': Constants.of().apiKey,
-            },
-            options: buildCacheOptions(const Duration(hours: 1)))
+        .get<Map<String, dynamic>>(
+          '/v2/everything',
+          queryParameters: <String, String>{
+            'q': 'anime',
+            'from': DateTime.now()
+                .subtract(
+                  const Duration(days: 28),
+                )
+                .toLocal()
+                .formatYYYYMMdd(),
+            'sortBy': 'publishedAt',
+            'language': 'en',
+            'apiKey': Constants.of().apiKey,
+          },
+//          options: buildCacheOptions(const Duration(hours: 1)),
+        )
         .then((response) => News.fromJson(response.data));
   }
 }
