@@ -34,7 +34,7 @@ class Constants {
   factory Constants._dev() {
     return const Constants(
       endpoint: 'https://newsapi.org',
-      apiKey: 'f25c1783fa9b43bca53c6ad2d28defbe',
+      apiKey: '98c8df982b8b4da8b86cd70e851fc521',
     );
   }
 

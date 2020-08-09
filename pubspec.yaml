@@ -19,7 +19,7 @@ version: 1.0.0+1
 
 environment:
   sdk: '>2.8.0 <3.0.0'
-  flutter: '>=1.20.0'
+  flutter: '>1.19.0'
 
 dependencies:
   flutter:
@@ -64,6 +64,10 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^1.7.4
+
+  # For Testing
+  mockito:
+  image_test_utils:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -31,26 +31,28 @@ class AppTheme extends ChangeNotifier {
 
   ThemeRepository _repository;
 
-  ThemeSetting setting;
+  ThemeSetting _setting;
+
+  ThemeSetting get setting => _setting;
 
   Future<ThemeData> get themeData async {
     if (setting == null) {
       _repository ??= await _ref.read(themeRepositoryProvider.future);
-      setting = _repository.loadThemeSetting() ?? _DEFAULT_THEME_SETTING;
+      _setting = _repository.loadThemeSetting() ?? _DEFAULT_THEME_SETTING;
     }
     return setting == ThemeSetting.LIGHT ? lightTheme : darkTheme;
   }
 
   Future<void> _loadLightTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    setting = ThemeSetting.LIGHT;
+    _setting = ThemeSetting.LIGHT;
     await _repository.saveThemeSetting(setting);
     notifyListeners();
   }
 
   Future<void> _loadDarkTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    setting = ThemeSetting.DARK;
+    _setting = ThemeSetting.DARK;
     await _repository.saveThemeSetting(setting);
     notifyListeners();
   }

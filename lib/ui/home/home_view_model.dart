@@ -13,12 +13,14 @@ class HomeViewModel extends ChangeNotifier {
 
   final NewsRepository _repository;
 
-  News news;
+  News _news;
+
+  News get news => _news;
 
   Future<News> getNews() async {
     return _repository
         .getNews()
-        .then((value) => news = value)
+        .then((value) => _news = value)
         .whenComplete(() => notifyListeners());
   }
 }

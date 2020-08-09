@@ -8,8 +8,8 @@
   <a href="https://app.bitrise.io/app/bc96b48850888851">
     <img src="https://app.bitrise.io/app/bc96b48850888851/status.svg?token=kpOAmHRna6NiMkHYsosrlA">
   </a>
-  <a href="https://codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/latest_build">
-    <img src="https://api.codemagic.io/apps/5f2c1b6a8ff73d000f7bc1e1/5f2c1b6a8ff73d000f7bc1e0/status_badge.svg">
+  <a href="https://codemagic.io/apps/5f2fd2f0cfa9364ecb48c64e/5f2fd2f0cfa9364ecb48c64d/latest_build">
+    <img src="https://api.codemagic.io/apps/5f2fd2f0cfa9364ecb48c64e/5f2fd2f0cfa9364ecb48c64d/status_badge.svg">
   </a>
   <a href="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints">
     <img src="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints/branch/master/graph/badge.svg?token=9NCYY33KNG" />
@@ -79,8 +79,8 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 #### Testing
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| □ | API | - |-|
-| □ | UI | - |-|
+| ✅ | API | - |-|
+| ☑️ | UI | - |-|
 | ✅ | Coverage reports | Codecov |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml)|
 
 #### CI
@@ -91,8 +91,6 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 | ✅ | Build | Codemagic |[codemagic.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codemagic.yaml)|
 | ✅ | Build | Bitrise |[bitrise.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/bitrise.yml)|
 | □ | Build | Github Actions |-|
-| □ | Distributing | Firebase App Distribution |-|
-
 
 ## Getting Started
 
