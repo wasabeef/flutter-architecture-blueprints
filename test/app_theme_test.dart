@@ -1,12 +1,9 @@
 import 'package:app/data/model/theme_setting.dart';
-import 'package:app/data/provier/theme_data_source_provider.dart';
 import 'package:app/ui/app_theme.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mockito/mockito.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'data/local/fake_theme_data_source_impl.dart';
 
 class MockAppTheme extends Mock implements AppTheme {}
 
