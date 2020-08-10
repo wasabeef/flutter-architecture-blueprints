@@ -1,7 +1,6 @@
 import 'package:app/data/app_error.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
   test('AppError Test', () async {
@@ -41,8 +40,7 @@ void main() {
         ).type,
         equals(AppErrorType.UNKNOWN));
 
-    expect(AppError(AsyncError<String>('error')).type,
-        equals(AppErrorType.UNKNOWN));
+    expect(AppError(ArgumentError()).type, equals(AppErrorType.UNKNOWN));
 
     expect(AppError(null).type, equals(AppErrorType.UNKNOWN));
   });
