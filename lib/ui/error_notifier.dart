@@ -19,8 +19,7 @@ class ErrorNotifier extends ChangeNotifier {
 
   void doOnSuccess() {
     _error = null;
-    _hasBeenHandled = false;
-    notifyListeners();
+    _hasBeenHandled = true;
   }
 
   // Returns the content and prevents its use again.
