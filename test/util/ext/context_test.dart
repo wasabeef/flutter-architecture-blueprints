@@ -1,4 +1,3 @@
-import 'package:app/l10n/localized.dart';
 import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
