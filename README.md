@@ -106,6 +106,7 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 
 ```shell script
 $ make setup
+
 $ make build-runner
 ```
 
@@ -113,11 +114,13 @@ $ make build-runner
 Android
 ```shell script
 $ make build-dev-apk
+
 $ make build-prd-apk
 ```
 
 iOS
 ```shell script
 $ make build-dev-ipa
+
 $ make build-prd-ipa
 ```
