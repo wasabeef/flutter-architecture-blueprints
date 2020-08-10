@@ -1,7 +1,7 @@
 # Flutter Architecture Blueprints
 
 <p align="center">
-  <img width="85%" src="./art/cover.png">
+  <img width="85%" src="./art/cover.png" />
 </p>
 
 <p align="center">
@@ -22,6 +22,8 @@
 </p>
 
 Flutter Architecture Blueprint is a project that introduces MVVM architecture and project structure approaches to developing Flutter apps.
+
+<img height="520px" src="./art/MVVM.jpg" align="right" />
 
 ## Documentation
 
@@ -52,40 +54,40 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/a639f51ebd0d49a64ae1a6f0fa434b5a52fd01d7/pubspec.yaml#L21) |
-| ✅ | Dart | Switching between Development and Production environment | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart), [runConfigurations](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/.idea/runConfigurations), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/Makefile#L14-L28) |
+| ✅ | Dart | Switching between Development and Production environment | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart), [runConfigurations](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/.idea/runConfigurations), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/Makefile#L25-L41) |
 | ✅ | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/analysis_options.yaml) |
 | ✅ | Android | Kotlin version | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/build.gradle#L2) |
-| ✅ | Android | Apk attributes | build.gradle ([compileSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L29), [applicationId](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L43), [minSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L44), [targetSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L45), [ndkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L30) |
-| ✅ | Android | Switching between Development and Production environment | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/android/app/build.gradle#L50-L75), [Flavor dirs](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/src), [signingConfigs](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/signingConfigs) |
+| ✅ | Android | Apk attributes | build.gradle ([compileSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/android/app/build.gradle#L30), [applicationId](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/android/app/build.gradle#L43), [minSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/android/app/build.gradle#L44), [targetSdkVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/android/app/build.gradle#L45)) |
+| ✅ | Android | Switching between Development and Production environment | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/android/app/build.gradle#L50-L75), [Flavor dirs](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/src), [signingConfigs](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/signingConfigs) |
 | ✅ | iOS | Xcode version | [compatibilityVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/3ae7135cc040fecf5bbb2100a353f6594037752d/ios/Runner.xcodeproj/project.pbxproj#L182) |
 | ✅ | iOS | Podfile | [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Podfile) |
-| ✅ | iOS | Switching between Development and Production environment | [xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Podfile#L7-L12) |
+| ✅ | iOS | Switching between Development and Production environment | [xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/ios/Podfile#L7-L12) |
 
 #### Architecture
 
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | Base | Riverpod + Hooks + ChangeNotifier + Android MVVM-ish |-|
-| ✅ | Networking | dio |-|
-| ✅ | Caching | dio_http_cache  |-|
-| ✅ | Persist Data | shared_preferences |-|
+| ✅ | Base | Riverpod + Hooks + ChangeNotifier + MVVM | [home_page.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/home/home_page.dart#L15-L21), [home_view_model.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/home/home_view_model.dart), [news_repository.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/repository/news_repository.dart), [news_data_source.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/remote/news_data_source.dart) |
+| ✅ | Networking | dio | [app_dio.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/remote/app_dio.dart), [news_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/data/remote/news_data_source_impl.dart#L16-L33) |
+| ✅ | Caching | dio_http_cache  | [news_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/data/remote/news_data_source_impl.dart#L31) |
+| ✅ | Persist Data | shared_preferences | [theme_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/local/theme_data_source_impl.dart) |
 | ✅ | Constants | Define constants | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart) |
-| ✅ | Localization | Switching between two languages | [l10n dir](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n), [context.localized](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24) |
-| ✅ | Error handling |  |-|
+| ✅ | Localization | Switching between two languages | [message.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/l10n/message.dart#L13-L21), [context.localized](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24) |
+| ✅ | Error handling | Using ChangeNotifier | (change_notifier_with_error_handle.dart)[https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/change_notifier_with_error_handle.dart], [error_notifier.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/error_notifier.dart), [home_view_model.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/home/home_view_model.dart#L26-L30) |
 
 #### UI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | Theme | Dynamically Switch between light and dark themes |-|
-| ✅ | Font | Google font |-|
-| ✅ | Transition | Simple animation between screens |-|
+| ✅ | Theme | Dynamically Switch between light and dark themes | [app_theme.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/app_theme.dart), [app.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/app.dart#L22-L23) |
+| ✅ | Font | Google font | [app_theme.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/app_theme.dart#L16) |
+| ✅ | Transition | Simple animation between screens using [Hero](https://flutter.dev/docs/development/ui/animations/hero-animations) | [article_item.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/component/article_item.dart#L28), [detail_page.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/detail/datail_page.dart#L13-L24) |
 
 #### Testing
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | API | - |-|
-| ☑️ | UI | - |-|
-| ✅ | Coverage reports | Codecov |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml)|
+| ✅ | API(Repositories) | If needed, we'll use Mockito | [view_mode_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/test/ui/view_mode_test.dart), [app_theme_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/test/ui/app_theme_test.dart) |
+| ☑️ | UI | If needed, we'll use Mockito | [widget_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/test/ui/widget_test.dart) |
+| ✅ | Coverage reports | Send the report to Codecov on CI |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codecov.yml), [codecov.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/scripts/codecov.sh)|
 
 #### CI
 |Working status|Category|Description|Codes|
