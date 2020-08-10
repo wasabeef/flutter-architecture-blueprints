@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
 
-import 'data/dummy/dummy_article.dart';
+import '../data/dummy/dummy_article.dart';
 
 mixin MockDetailPage implements Mock, DetailPage {}
 

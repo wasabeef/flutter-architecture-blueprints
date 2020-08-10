@@ -7,10 +7,10 @@ import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'data/dummy/dummy_news.dart';
-import 'data/remote/fake_app_dio.dart';
-import 'data/remote/fake_news_data_source_impl.dart';
-import 'data/repository/fake_news_repository_impl.dart';
+import '../data/dummy/dummy_news.dart';
+import '../data/remote/fake_app_dio.dart';
+import '../data/remote/fake_news_data_source_impl.dart';
+import '../data/repository/fake_news_repository_impl.dart';
 
 void main() {
   test('HomeViewModel Test', () async {

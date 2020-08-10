@@ -13,14 +13,14 @@ class Message {
   factory Message.of(Locale locale) {
     switch (locale.languageCode) {
       case 'ja':
-        return Message.ja();
+        return Message._ja();
       case 'en':
       default:
-        return Message.en();
+        return Message._en();
     }
   }
 
-  factory Message.en() {
+  factory Message._en() {
     return const Message(
       locale: Locale('en', ''),
       ok: 'OK',
@@ -30,7 +30,7 @@ class Message {
     );
   }
 
-  factory Message.ja() {
+  factory Message._ja() {
     return const Message(
       locale: Locale('ja', ''),
       ok: 'OK',
