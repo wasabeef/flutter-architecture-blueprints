@@ -100,7 +100,7 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 
 ## Getting Started
 
-<img height="540px" src="./art/running-app.gif" align="right" />
+<img height="540px" src="./art/running-app.gif" align="left" />
 
 ### Setup
 
