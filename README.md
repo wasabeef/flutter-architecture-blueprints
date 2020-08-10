@@ -98,9 +98,10 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 | ✅ | Build | Using [Bitrise](https://www.bitrise.io/) |[bitrise.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/bitrise.yml)|
 | □ | Build | Using [Github Actions](https://github.com/features/actions) |-|
 
+
 ## Getting Started
 
-<img height="540px" src="./art/running-app.gif" align="left" />
+<img height="450px" src="./art/running-app.gif" align="left" />
 
 ### Setup
 
@@ -111,6 +112,7 @@ $ make build-runner
 ```
 
 ### Make .apk and .ipa file
+
 Android
 ```shell script
 $ make build-dev-apk
@@ -124,3 +126,7 @@ $ make build-dev-ipa
 
 $ make build-prd-ipa
 ```
+
+## Special Thanks.
+
+- [News API](https://newsapi.org/)
