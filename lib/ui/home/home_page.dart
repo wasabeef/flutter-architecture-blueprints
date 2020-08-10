@@ -6,7 +6,6 @@ import 'package:app/ui/error_notifier.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_easyrefresh/easy_refresh.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -41,21 +40,14 @@ class HomePage extends HookWidget {
           ],
         ),
         body: Center(
-            child: EasyRefresh.builder(
-          builder: (context, physics, header, footer) {
-            if (snapshot.hasData) {
-              return ListView.builder(
-                itemCount: snapshot.data.articles.length,
-                itemBuilder: (_, index) {
-                  return ArticleItem(article: snapshot.data.articles[index]);
-                },
-              );
-            } else {
-              return const Loading();
-            }
-          },
-          onRefresh: () async => await homeViewModel.getNews(),
-          onLoad: () async => await homeViewModel.getNews(),
-        )));
+          child: snapshot.hasData
+              ? ListView.builder(
+                  itemCount: snapshot.data.articles.length,
+                  itemBuilder: (_, index) {
+                    return ArticleItem(article: snapshot.data.articles[index]);
+                  },
+                )
+              : const Loading(),
+        ));
   }
 }
