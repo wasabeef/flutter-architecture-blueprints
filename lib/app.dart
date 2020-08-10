@@ -33,6 +33,6 @@ class App extends HookWidget {
               Constants.PAGE_DETAIL: (context) => DetailPage(),
             },
           )
-        : Center(child: const Loading());
+        : const Center(child: Loading());
   }
 }
