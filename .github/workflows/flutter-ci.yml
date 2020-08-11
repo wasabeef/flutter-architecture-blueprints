@@ -1,0 +1,46 @@
+name: Dart CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    container:
+      image:  google/dart:latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: 'beta'
+
+    - name: Get flutter dependencies.
+      run: make dependencies
+    
+    - name: Check for any formatting and statically analyze the code.
+      run: make format-analyze
+  
+    - name: Run widget tests for our flutter project.
+      env: 
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        make unit-test
+        make codecov
+    
+    - name: Build ipa and apk
+      run: |
+        make build-prd-apk
+        make build-prd-ipa
+        
+        
+    - name: Slack Notification
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+
