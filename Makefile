@@ -8,7 +8,7 @@ setup:
 
 .PHONY: dependencies
 dependencies:
-	flutter packages pub upgrade
+	flutter pub get
 
 .PHONY: analyze
 analyze:
