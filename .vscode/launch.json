@@ -7,7 +7,7 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=FLAVOR=development"
+                "--dart-define=FLAVOR=development",
                 "--flavor",
                 "development"
             ]
@@ -18,7 +18,7 @@
             "request": "launch",
             "type": "dart",
             "args": [
-                "--dart-define=FLAVOR=production"
+                "--dart-define=FLAVOR=production",
                 "--flavor",
                 "production"
             ]
