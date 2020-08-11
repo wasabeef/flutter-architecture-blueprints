@@ -24,7 +24,7 @@
   </a>
 </p>
 
-Flutter Architecture Blueprint is a project that introduces MVVM architecture and project structure approaches to developing Flutter apps.
+Flutter Architecture Blueprints is a project that introduces MVVM architecture and project structure approaches to developing Flutter apps.
 
 ## Documentation
 
