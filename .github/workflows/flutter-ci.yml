@@ -15,6 +15,48 @@ jobs:
       with:
         channel: 'beta'
 
+    - name: Cache Gradle modules
+      uses: actions/cache@v2
+      env:
+        cache-number: ${{ secrets.CACHE_NUMBER }}
+      with:
+        path: |
+          ~/android/.gradle
+          ~/.gradle/cache
+          # ~/.gradle/wrapper
+        key: ${{ runner.os }}-build-${{ env.cache-number }}-${{ hashFiles('android/build.gradle') }}-${{ hashFiles('android/app/build.gradle') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('android/build.gradle') }}
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: Cache CocoaPods modules
+      uses: actions/cache@v2
+      env:
+        cache-number: ${{ secrets.CACHE_NUMBER }}
+      with:
+        path: Pods
+        key: ${{ runner.os }}-build-${{ env.cache-number }}-${{ hashFiles('ios/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+          
+
+    - name: Cache Flutter modules
+      uses: actions/cache@v2
+      env:
+        cache-number: ${{ secrets.CACHE_NUMBER }}
+      with:
+        path: |
+          ~/.pub-cache
+        key: ${{ runner.os }}-build-${{ env.cache-number }}-${{ hashFiles('pubspec.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ pubspec.lock }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
     - name: Get flutter dependencies.
       run: make dependencies
     
@@ -33,9 +75,8 @@ jobs:
         make build-prd-apk
         make build-prd-ipa
         
-        
-    - name: Slack Notification
-      uses: rtCamp/action-slack-notify@master
+    - uses: Ilshidur/action-slack@master
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-
+        SLACK_CHANNEL: develop
+        SLACK_USERNAME: Github Actions
