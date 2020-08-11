@@ -50,7 +50,7 @@ jobs:
         cache-number: ${{ secrets.CACHE_NUMBER }}
       with:
         path: ~/.pub-cache
-        key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ hashFiles('pubspec.lock') }}
+        key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ hashFiles('**/pubspec.lock') }}
         restore-keys: |
           ${{ runner.os }}-pub-${{ pubspec.lock }}-
           ${{ runner.os }}-pub-
