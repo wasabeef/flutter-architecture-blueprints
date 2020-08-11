@@ -75,8 +75,16 @@ jobs:
         make build-prd-apk
         make build-prd-ipa
         
-    - uses: Ilshidur/action-slack@master
-      env:
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
-        SLACK_CHANNEL: develop
-        SLACK_USERNAME: Github Actions
+    - name: Slack Notification
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+        type: ${{ job.status }}
+        job_name: '*Lint Check*'
+        mention: 'here'
+        mention_if: 'failure'
+        channel: '#random'
+        url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        commit: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+
