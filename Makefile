@@ -49,7 +49,6 @@ build-ios-prd:
 	cd ios/ && pod install && cd ..
 	flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
-
 .PHONY: unit-test
 unit-test:
 	flutter test --coverage --coverage-path=./coverage/lcov.info
