@@ -23,21 +23,29 @@ format-analyze:
 build-runner:
 	flutter packages pub run build_runner build --delete-conflicting-outputs
 
-.PHONY: build-dev-apk
-build-dev-apk:
+.PHONY: run-dev
+run-dev:
+	flutter run --flavor development --dart-define=FLAVOR=development --target lib/main.dart
+
+.PHONY: run-prd
+run-prd:
+	flutter run --release --flavor production --dart-define=FLAVOR=production --target lib/main.dart
+
+.PHONY: build-android-dev
+build-android-dev:
 	flutter build apk --flavor development --dart-define=FLAVOR=development --target lib/main.dart
 
-.PHONY: build-prd-apk
-build-prd-apk:
+.PHONY: build-android-prd
+build-android-prd:
 	flutter build apk --release --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
-.PHONY: build-dev-ipa
-build-dev-ipa:
+.PHONY: build-ios-dev
+build-ios-dev:
 	cd ios/ && pod install && cd ..
 	flutter build ios --no-codesign --flavor development --dart-define=FLAVOR=development --target lib/main.dart
 
-.PHONY: build-prd-ipa
-build-prd-ipa:
+.PHONY: build-ios-prd
+build-ios-prd:
 	cd ios/ && pod install && cd ..
 	flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
