@@ -11,6 +11,9 @@
   <a href="https://codemagic.io/apps/5f2fd2f0cfa9364ecb48c64e/5f2fd2f0cfa9364ecb48c64d/latest_build">
     <img src="https://api.codemagic.io/apps/5f2fd2f0cfa9364ecb48c64e/5f2fd2f0cfa9364ecb48c64d/status_badge.svg">
   </a>
+  <a href="https://github.com/wasabeef/flutter-architecture-blueprints/actions?query=workflow%3A%22Flutter+CI%22">
+    <img src="https://github.com/wasabeef/flutter-architecture-blueprints/workflows/Flutter%20CI/badge.svg?branch=master" />
+  </a>
   <a href="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints">
     <img src="https://codecov.io/gh/wasabeef/flutter-architecture-blueprints/branch/master/graph/badge.svg?token=9NCYY33KNG" />
   </a>
@@ -96,11 +99,11 @@ Flutter Architecture Blueprint is a project that introduces MVVM architecture an
 | ✅ | Git | .gitignore settings | [.gitignore](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.gitignore) |
 | ✅ | Build | Using [Codemagic](https://codemagic.io/) |[codemagic.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/codemagic.yaml)|
 | ✅ | Build | Using [Bitrise](https://www.bitrise.io/) |[bitrise.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/bitrise.yml)|
-| □ | Build | Using [Github Actions](https://github.com/features/actions) |-|
+| ✅ | Build | Using [Github Actions](https://github.com/features/actions) | [.github/workflows/flutter-ci.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/.github/workflows/flutter-ci.yml) |
 
 ## Getting Started
 
-<img height="540px" src="./art/running-app.gif" align="left" />
+<img height="450px" src="./art/running-app.gif" align="left" />
 
 ### Setup
 
@@ -111,6 +114,7 @@ $ make build-runner
 ```
 
 ### Make .apk and .ipa file
+
 Android
 ```shell script
 $ make build-dev-apk
@@ -124,3 +128,7 @@ $ make build-dev-ipa
 
 $ make build-prd-ipa
 ```
+
+## Special Thanks.
+
+- [News API](https://newsapi.org/)

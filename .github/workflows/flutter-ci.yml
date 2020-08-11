@@ -1,0 +1,92 @@
+name: Flutter CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v1
+      with:
+        channel: 'beta'
+
+    - name: Cache Gradle modules
+      uses: actions/cache@v2
+      env:
+        cache-number: ${{ secrets.CACHE_NUMBER }}
+      with:
+        path: |
+          ~/android/.gradle
+          ~/.gradle/cache
+          # ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ env.cache-number }}-${{ hashFiles('android/build.gradle') }}-${{ hashFiles('android/app/build.gradle') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-${{ env.cache-name }}-${{ hashFiles('android/build.gradle') }}
+          ${{ runner.os }}-gradle-${{ env.cache-name }}-
+          ${{ runner.os }}-gradle-
+          ${{ runner.os }}-
+
+    - name: Cache CocoaPods modules
+      uses: actions/cache@v2
+      env:
+        cache-number: ${{ secrets.CACHE_NUMBER }}
+      with:
+        path: Pods
+        key: ${{ runner.os }}-pods-${{ env.cache-number }}-${{ hashFiles('ios/Podfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pods-${{ env.cache-name }}-
+          ${{ runner.os }}-pods-
+          ${{ runner.os }}-
+
+    - name: Cache Flutter modules
+      uses: actions/cache@v2
+      env:
+        cache-number: ${{ secrets.CACHE_NUMBER }}
+      with:
+        path: |
+          /Users/runner/hostedtoolcache/flutter
+          # ~/.pub-cache
+        key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ env.flutter_version }}-${{ hashFiles('pubspec.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-pub-${{ env.flutter_version }}-
+          ${{ runner.os }}-pub-
+          ${{ runner.os }}-
+
+    - name: Get flutter dependencies.
+      run: make dependencies
+    
+    - name: Check for any formatting and statically analyze the code.
+      run: make format-analyze
+  
+    - name: Run widget tests for our flutter project.
+      env: 
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      run: |
+        make unit-test
+        make codecov
+    
+    - name: Build ipa and apk
+      run: |
+        make build-prd-apk
+        make build-prd-ipa
+        
+    - name: Slack Notification
+      uses: homoluctus/slatify@master
+      if: always()
+      with:
+        type: ${{ job.status }}
+        job_name: '*Flutter Build*'
+        mention: 'here'
+        mention_if: 'failure'
+        channel: '#develop'
+        username: 'Github Actions'
+        icon_emoji: ':octocat:'
+        url: ${{ secrets.SLACK_WEBHOOK_URL }}
+        commit: true
+        token: ${{ secrets.GITHUB_TOKEN }}
+
