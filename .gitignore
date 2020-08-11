@@ -52,6 +52,7 @@ ios/fastlane/report.xml
 **/android/gradlew
 **/android/gradlew.bat
 **/android/local.properties
+**/android/settings_aar.gradle
 **/android/**/GeneratedPluginRegistrant.java
 **/android/**/gen
 
