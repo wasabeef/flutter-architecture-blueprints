@@ -42,19 +42,18 @@ jobs:
           ${{ runner.os }}-pods-${{ env.cache-name }}-
           ${{ runner.os }}-pods-
           ${{ runner.os }}-
-          
 
-    - name: Cache Flutter modules
-      uses: actions/cache@v2
-      env:
-        cache-number: ${{ secrets.CACHE_NUMBER }}
-      with:
-        path: ~/.pub-cache
-        key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ hashFiles('**/pubspec.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pub-${{ pubspec.lock }}-
-          ${{ runner.os }}-pub-
-          ${{ runner.os }}-
+#     - name: Cache Flutter modules
+#       uses: actions/cache@v2
+#       env:
+#         cache-number: ${{ secrets.CACHE_NUMBER }}
+#       with:
+#         path: ~/.pub-cache
+#         key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ hashFiles('pubspec.lock') }}
+#         restore-keys: |
+#           ${{ runner.os }}-pub-${{ pubspec.lock }}-
+#           ${{ runner.os }}-pub-
+#           ${{ runner.os }}-
 
     - name: Get flutter dependencies.
       run: make dependencies
