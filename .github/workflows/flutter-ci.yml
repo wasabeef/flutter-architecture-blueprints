@@ -83,7 +83,7 @@ jobs:
         job_name: '*Lint Check*'
         mention: 'here'
         mention_if: 'failure'
-        channel: '#random'
+        channel: '#develop'
         url: ${{ secrets.SLACK_WEBHOOK_URL }}
         commit: true
         token: ${{ secrets.GITHUB_TOKEN }}
