@@ -72,8 +72,8 @@ jobs:
     
     - name: Build ipa and apk
       run: |
-        make build-prd-apk
-        make build-prd-ipa
+        make build-android-prd
+        make build-ios-prd
         
     - name: Slack Notification
       uses: homoluctus/slatify@master
