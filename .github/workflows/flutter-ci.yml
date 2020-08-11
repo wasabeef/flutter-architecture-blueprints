@@ -49,8 +49,7 @@ jobs:
       env:
         cache-number: ${{ secrets.CACHE_NUMBER }}
       with:
-        path: |
-          ~/.pub-cache
+        path: ~/.pub-cache
         key: ${{ runner.os }}-build-${{ env.cache-number }}-${{ hashFiles('pubspec.lock') }}
         restore-keys: |
           ${{ runner.os }}-build-${{ pubspec.lock }}-
