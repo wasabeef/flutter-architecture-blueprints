@@ -1,6 +1,6 @@
 import 'package:app/data/app_error.dart';
 import 'package:app/data/model/news.dart';
-import 'package:app/data/provier/news_repository_provider.dart';
+import 'package:app/data/provider/news_repository_provider.dart';
 import 'package:app/data/repository/news_repository.dart';
 import 'package:app/ui/change_notifier_with_error_handle.dart';
 import 'package:flutter/material.dart';
