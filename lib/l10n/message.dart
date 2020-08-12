@@ -1,48 +1,33 @@
 import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
 
 @immutable
 class Message {
-  const Message({
-    @required this.locale,
-    @required this.ok,
-    @required this.cancel,
-    @required this.home,
-    @required this.detail,
-  });
-
-  factory Message.of(Locale locale) {
-    switch (locale.languageCode) {
-      case 'ja':
-        return Message._ja();
-      case 'en':
-      default:
-        return Message._en();
-    }
-  }
-
-  factory Message._en() {
-    return const Message(
-      locale: Locale('en', ''),
-      ok: 'OK',
-      cancel: 'CANCEL',
-      home: 'Home',
-      detail: 'Detail',
-    );
-  }
-
-  factory Message._ja() {
-    return const Message(
-      locale: Locale('ja', ''),
-      ok: 'OK',
-      cancel: 'CANCEL',
-      home: 'ホーム',
-      detail: '詳細',
-    );
-  }
+  const Message(this.locale);
 
   final Locale locale;
-  final String ok;
-  final String cancel;
-  final String home;
-  final String detail;
+
+  String get ok => Intl.message(
+        'OK',
+        name: 'ok',
+        desc: 'Ok button',
+      );
+
+  String get cancel => Intl.message(
+        'CANCEL',
+        name: 'cancel',
+        desc: 'Cancel button',
+      );
+
+  String get home => Intl.message(
+        'Home',
+        name: 'home',
+        desc: 'Home page',
+      );
+
+  String get detail => Intl.message(
+        'Detail',
+        name: 'detail',
+        desc: 'Detail page',
+      );
 }

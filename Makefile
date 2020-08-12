@@ -23,6 +23,11 @@ format-analyze:
 build-runner:
 	flutter packages pub run build_runner build --delete-conflicting-outputs
 
+.PHONY: gen-intl
+gen-intl:
+	flutter pub pub run intl_translation:extract_to_arb --suppress-last-modified --output-dir=l10n-arb lib/l10n/message.dart
+	flutter pub pub run intl_translation:generate_from_arb --output-dir=lib/l10n --no-use-deferred-loading lib/l10n/message.dart l10n-arb/intl_messages_*.arb
+
 .PHONY: run-dev
 run-dev:
 	flutter run --flavor development --dart-define=FLAVOR=development --target lib/main.dart
