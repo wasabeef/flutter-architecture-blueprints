@@ -1,8 +1,8 @@
 import 'package:app/constants.dart';
-import 'package:app/data/provier/dio_provider.dart';
-import 'package:app/data/provier/news_data_source_provider.dart';
-import 'package:app/data/provier/news_repository_provider.dart';
 import 'package:app/data/remote/app_dio.dart';
+import 'package:app/provier/dio_provider.dart';
+import 'package:app/provier/news_data_source_provider.dart';
+import 'package:app/provier/news_repository_provider.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
