@@ -103,7 +103,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Getting Started
 
-<img height="560px" src="./art/running-app.gif" align="left" />
+<img height="540px" src="./art/running-app.gif" align="left" />
 
 ### Setup
 
@@ -135,3 +135,7 @@ $ make run-prd
 ## Special Thanks.
 
 - [News API](https://newsapi.org/)
+
+**Contributors**
+- [lcdsmao](https://github.com/lcdsmao)
+
