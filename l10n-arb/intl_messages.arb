@@ -1,0 +1,26 @@
+{
+  "ok": "OK",
+  "@ok": {
+    "description": "Ok button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancel": "CANCEL",
+  "@cancel": {
+    "description": "Cancel button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Home page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detail": "Detail",
+  "@detail": {
+    "description": "Detail page",
+    "type": "text",
+    "placeholders": {}
+  }
+}

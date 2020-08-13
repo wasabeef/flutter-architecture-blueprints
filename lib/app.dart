@@ -27,7 +27,10 @@ class App extends HookWidget {
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
             ],
-            supportedLocales: const [Locale('en'), Locale('ja')],
+            supportedLocales: const [
+              Locale('en', ''),
+              Locale('ja', ''),
+            ],
             routes: {
               Constants.PAGE_HOME: (context) => HomePage(),
               Constants.PAGE_DETAIL: (context) => DetailPage(),

@@ -8,7 +8,7 @@ class L10nDelegate extends LocalizationsDelegate<Localized> {
   bool isSupported(Locale locale) => ['ja', 'en'].contains(locale.languageCode);
 
   @override
-  Future<Localized> load(Locale locale) async => Localized(locale);
+  Future<Localized> load(Locale locale) => Localized.load(locale);
 
   @override
   bool shouldReload(L10nDelegate old) => false;

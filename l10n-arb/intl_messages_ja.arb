@@ -1,0 +1,27 @@
+{
+  "@@locale": "ja",
+  "ok": "OK",
+  "@ok": {
+    "description": "Ok button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "cancel": "CANCEL",
+  "@cancel": {
+    "description": "Cancel button",
+    "type": "text",
+    "placeholders": {}
+  },
+  "home": "ホーム",
+  "@home": {
+    "description": "Home page",
+    "type": "text",
+    "placeholders": {}
+  },
+  "detail": "詳細",
+  "@detail": {
+    "description": "Detail page",
+    "type": "text",
+    "placeholders": {}
+  }
+}

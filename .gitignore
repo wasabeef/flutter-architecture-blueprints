@@ -103,6 +103,8 @@ node_modules/
 
 ## Generated code
 # **/*.g.dart
+#lib/l10n/messages_*
+#l10n-arb/intl_messages.arb
 
 ## Test coverage
 coverage/
