@@ -1,7 +1,7 @@
 # Flutter Architecture Blueprints
 
 <p align="center">
-  <img width="85%" src="./art/cover.png" />
+  <img src="./art/cover.png" />
 </p>
 
 <p align="center">
