@@ -8,7 +8,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MockAppTheme extends Mock implements AppTheme {}
 
 void main() {
-  setUpAll(() async {
+  setUp(() async {
     SharedPreferences.setMockInitialValues(
         <String, String>{'theme_setting': 'dark'});
   });
