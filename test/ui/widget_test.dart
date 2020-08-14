@@ -1,4 +1,5 @@
 import 'package:app/app.dart';
+import 'package:app/constants.dart';
 import 'package:app/data/app_error.dart';
 import 'package:app/data/model/theme_setting.dart';
 import 'package:app/l10n/delegate.dart';
@@ -17,12 +18,15 @@ import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
 
 import '../data/dummy/dummy_article.dart';
+import '../data/dummy/dummy_news.dart';
 
 class MockAppTheme extends Mock implements AppTheme {}
 
 class MockErrorNotifier extends Mock implements ErrorNotifier {}
 
 class MockHomeViewModel extends Mock implements HomeViewModel {}
+
+class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 void main() {
   final mockErrorNotifier = MockErrorNotifier();
@@ -33,76 +37,74 @@ void main() {
   when(mockAppTheme.setting).thenReturn(ThemeSetting.LIGHT);
   when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
 
+  final mockHomeViewModel = MockHomeViewModel();
+  when(mockHomeViewModel.getNews()).thenAnswer((_) => Future.value(dummyNews));
+  when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
+
+  final mockNavigatorObserver = MockNavigatorObserver();
+
   testWidgets('App widget test', (WidgetTester tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
           appThemeNotifierProvider.overrideWithValue(mockAppTheme),
         ],
-        child: Builder(
-          builder: (context) {
-            return App();
-          },
-        ),
+        child: App(),
       ),
     );
-  });
-
-  testWidgets('HomePage widget test', (WidgetTester tester) async {
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          errorNotifierProvider.overrideWithValue(mockErrorNotifier),
-          appThemeNotifierProvider.overrideWithValue(mockAppTheme),
-          homeViewModelNotifierProvider.overrideWithValue(MockHomeViewModel())
-        ],
-        child: Builder(
-          builder: (context) {
-            return MaterialApp(
-              home: HomePage(),
-              localizationsDelegates: const [
-                L10nDelegate(),
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              supportedLocales: const [
-                Locale('en', ''),
-                Locale('ja', ''),
-              ],
-            );
-          },
-        ),
-      ),
-    );
-  });
-
-  testWidgets('DetailPage widget test', (WidgetTester tester) async {
-    await tester.pumpWidget(MaterialApp(
-      home: DetailPage(),
-      localizationsDelegates: const [
-        L10nDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: const [
-        Locale('en', ''),
-        Locale('ja', ''),
-      ],
-    ));
   });
 
   testWidgets('HomePage widget test', (WidgetTester tester) async {
     await provideMockedNetworkImages(() async {
-      await tester.pumpWidget(ProviderScope(
-        child: MaterialApp(
-          home: ArticleItem(
-            article: dummyArticle,
+      final page = HomePage();
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            errorNotifierProvider.overrideWithValue(mockErrorNotifier),
+            appThemeNotifierProvider.overrideWithValue(mockAppTheme),
+            homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
+          ],
+          child: MaterialApp(
+            home: page,
+            localizationsDelegates: const [
+              L10nDelegate(),
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en', ''),
+              Locale('ja', ''),
+            ],
           ),
         ),
-      ));
+      );
+      await tester.pumpAndSettle();
+      expect(find.byWidget(page), findsOneWidget);
     });
   });
-  testWidgets('HomePage widget test', (WidgetTester tester) async {
-    await tester.pumpWidget(const Loading());
+
+  testWidgets('Article widget test', (WidgetTester tester) async {
+    final article = ArticleItem(article: dummyArticle);
+    await provideMockedNetworkImages(() async {
+      await tester.pumpWidget(MaterialApp(
+        home: article,
+        routes: {
+          Constants.PAGE_DETAIL: (context) => DetailPage(),
+        },
+        navigatorObservers: [mockNavigatorObserver],
+      ));
+
+      expect(find.byWidget(article), findsOneWidget);
+      await tester.tap(find.byType(Hero));
+      await tester.pumpAndSettle();
+      verify(mockNavigatorObserver.didPush(any, any));
+      expect(find.byType(DetailPage), findsOneWidget);
+    });
+  });
+
+  testWidgets('Loading widget test', (WidgetTester tester) async {
+    const loading = Loading();
+    await tester.pumpWidget(loading);
+    expect(find.byWidget(loading), findsOneWidget);
   });
 }
