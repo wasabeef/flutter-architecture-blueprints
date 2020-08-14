@@ -14,10 +14,10 @@ class AppDio with DioMixin implements Dio {
     );
 
     this.options = options;
-    interceptors.add(
-        DioCacheManager(CacheConfig(baseUrl: Constants.of().endpoint))
-            .interceptor as Interceptor);
-    interceptors.add(LogInterceptor(responseBody: true));
+    interceptors
+      ..add(DioCacheManager(CacheConfig(baseUrl: Constants.of().endpoint))
+          .interceptor as Interceptor)
+      ..add(LogInterceptor(responseBody: true));
     httpClientAdapter = DefaultHttpClientAdapter();
   }
 
