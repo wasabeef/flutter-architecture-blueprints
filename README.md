@@ -1,7 +1,7 @@
 # Flutter Architecture Blueprints
 
 <p align="center">
-  <img src="./art/cover.png" />
+  <img src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/cover.png" />
 </p>
 
 <p align="center">
@@ -28,7 +28,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Documentation
 
-<img height="520px" src="./art/MVVM.jpg" align="right" />
+<img height="520px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/MVVM.jpg" align="right" />
 
 * [Install Flutter](https://flutter.dev/get-started/)
 * [Flutter documentation](https://flutter.dev/docs)
@@ -103,7 +103,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Getting Started
 
-<img height="540px" src="./art/running-app.gif" align="left" />
+<img height="540px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/running-app.gif" align="left" />
 
 ### Setup
 
