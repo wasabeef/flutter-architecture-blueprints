@@ -248,7 +248,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0-dev+3"
+    version: "0.6.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -300,7 +300,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0-dev+3"
+    version: "0.6.1"
   html:
     dependency: transitive
     description:
@@ -545,7 +545,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0-dev+3"
+    version: "0.6.1"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -587,7 +587,7 @@ packages:
       name: shelf
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.7"
+    version: "0.7.9"
   shelf_packages_handler:
     dependency: transitive
     description:
