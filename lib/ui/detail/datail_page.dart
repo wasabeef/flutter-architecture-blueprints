@@ -1,6 +1,6 @@
 import 'package:app/data/model/article.dart';
 import 'package:app/util/ext/context.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:app/util/image.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
@@ -13,17 +13,7 @@ class DetailPage extends StatelessWidget {
         child: Center(
           child: Hero(
             tag: _article.url,
-            child: _article.urlToImage == null
-                ? Image.asset(
-                    'assets/images/article_placeholder.webp',
-                  )
-                : CachedNetworkImage(
-                    imageUrl: _article.urlToImage,
-                    fit: BoxFit.cover,
-                    errorWidget: (context, url, dynamic error) => Image.asset(
-                        'assets/images/article_placeholder.webp',
-                        fit: BoxFit.cover),
-                  ),
+            child: networkImage(_article.urlToImage),
           ),
         ),
         onTap: () => context.navigator.pop(),
