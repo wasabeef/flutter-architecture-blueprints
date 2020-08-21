@@ -14,9 +14,13 @@ dependencies:
 analyze:
 	flutter analyze
 
+.PHONY: format 
+format:
+	flutter format
+
 .PHONY: format-analyze
 format-analyze:
-	flutter format lib/
+	flutter format --set-exit-if-changed --dry-run lib/
 	flutter analyze
 
 .PHONY: build-runner
