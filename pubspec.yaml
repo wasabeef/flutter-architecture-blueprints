@@ -27,9 +27,6 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  # For Analyzer
-  pedantic: ^1.9.0
-
   # For Architecture
   flutter_hooks: ^0.12.0
   hooks_riverpod: ^0.6.1
@@ -63,6 +60,9 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^1.7.4
+
+  # For Analyzer
+  pedantic: ^1.9.0
 
   # For l10n
   intl_translation: ^0.17.10
