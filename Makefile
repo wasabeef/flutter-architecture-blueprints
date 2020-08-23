@@ -16,7 +16,7 @@ analyze:
 
 .PHONY: format 
 format:
-	flutter format
+	flutter format lib/
 
 .PHONY: format-analyze
 format-analyze:
