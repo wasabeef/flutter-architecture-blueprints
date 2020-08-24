@@ -18,6 +18,7 @@ import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
 
 import '../data/dummy/dummy_article.dart';
+import '../data/dummy/dummy_news.dart';
 
 class MockAppTheme extends Mock implements AppTheme {}
 
@@ -37,7 +38,8 @@ void main() {
   when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
 
   final mockHomeViewModel = MockHomeViewModel();
-  when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value(null));
+  when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
+  when(mockHomeViewModel.news).thenReturn(dummyNews);
   when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
 
   final mockNavigatorObserver = MockNavigatorObserver();
