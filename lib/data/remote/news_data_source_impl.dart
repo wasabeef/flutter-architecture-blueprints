@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:app/constants.dart';
 import 'package:app/data/model/news.dart';
 import 'package:app/data/remote/news_data_source.dart';
@@ -17,7 +19,7 @@ class NewsDataSourceImpl implements NewsDataSource {
         .get<Map<String, dynamic>>(
           '/v2/everything',
           queryParameters: <String, String>{
-            'q': 'anime',
+            'q': ['anim', 'manga'][Random().nextInt(2)], // For checking reload.
             'from': DateTime.now()
                 .subtract(
                   const Duration(days: 28),

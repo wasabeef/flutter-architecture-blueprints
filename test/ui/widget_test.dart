@@ -38,7 +38,8 @@ void main() {
   when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
 
   final mockHomeViewModel = MockHomeViewModel();
-  when(mockHomeViewModel.getNews()).thenAnswer((_) => Future.value(dummyNews));
+  when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
+  when(mockHomeViewModel.news).thenReturn(dummyNews);
   when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
 
   final mockNavigatorObserver = MockNavigatorObserver();
