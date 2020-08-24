@@ -16,9 +16,8 @@ class HomePage extends HookWidget {
     final error = useProvider(errorNotifierProvider);
     final homeViewModel = useProvider(homeViewModelNotifierProvider);
     // This is very important, so should think carefully.
-    final getNews =
-        useMemoized(() => homeViewModel.getNews(), [error.peekContent()?.type]);
-    final snapshot = useFuture(getNews);
+    final snapshot = useFuture(useMemoized(() => homeViewModel.fetchNews(),
+        [homeViewModel.news.toString(), error.peekContent()?.type]));
 
     if (!error.hasBeenHandled) {
       toast(context, error.getErrorIfNotHandled().message);
@@ -35,19 +34,20 @@ class HomePage extends HookWidget {
             ),
             IconButton(
               icon: const Icon(Icons.refresh),
-              onPressed: () async => homeViewModel.getNews(),
+              onPressed: () async => homeViewModel.fetchNews(),
             ),
           ],
         ),
         body: Center(
-          child: snapshot.hasData
-              ? ListView.builder(
-                  itemCount: snapshot.data.articles.length,
+          child: snapshot.connectionState == ConnectionState.waiting
+              ? const Loading()
+              : ListView.builder(
+                  itemCount: homeViewModel.news.articles.length,
                   itemBuilder: (_, index) {
-                    return ArticleItem(article: snapshot.data.articles[index]);
+                    return ArticleItem(
+                        article: homeViewModel.news.articles[index]);
                   },
-                )
-              : const Loading(),
+                ),
         ));
   }
 }

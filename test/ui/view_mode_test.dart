@@ -20,7 +20,7 @@ void main() {
       ],
     );
     final viewModel = container.read(homeViewModelNotifierProvider);
-    await expectLater(viewModel.getNews(), completion(dummyNews));
+    await expectLater(viewModel.fetchNews(), completion(dummyNews));
   });
 
   test('NewsRepository Test', () async {

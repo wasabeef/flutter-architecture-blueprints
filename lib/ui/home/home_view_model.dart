@@ -20,12 +20,12 @@ class HomeViewModel extends AppChangeNotifier {
 
   News get news => _news;
 
-  Future<News> getNews() async {
+  Future<void> fetchNews() async {
     return _repository
         .getNews()
         .then((value) {
           doOnSuccess();
-          return _news = value;
+          _news = value;
         })
         .catchError((dynamic error) => doOnError(AppError(error)))
         .whenComplete(() => notifyListeners());
