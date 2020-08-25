@@ -12,13 +12,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = useProvider(appThemeNotifierProvider);
     final error = useProvider(errorNotifierProvider);
-    final homeViewModel = useProvider(homeViewModelNotifierProvider);
-    // This is very important, so should think carefully.
-    final snapshot = useFuture(useMemoized(() => homeViewModel.fetchNews(),
-        [homeViewModel.news.toString(), error.peekContent()?.type]));
-
     if (!error.hasBeenHandled) {
       toast(context, error.getErrorIfNotHandled().message);
     }
@@ -30,24 +24,36 @@ class HomePage extends HookWidget {
             // action button
             IconButton(
               icon: const Icon(Icons.color_lens),
-              onPressed: () async => theme.toggle(),
+              onPressed: () async =>
+                  context.read(appThemeNotifierProvider).toggle(),
             ),
             IconButton(
               icon: const Icon(Icons.refresh),
-              onPressed: () async => homeViewModel.fetchNews(),
+              onPressed: () =>
+                  context.read(homeViewModelNotifierProvider).fetchNews(),
             ),
           ],
         ),
         body: Center(
-          child: snapshot.connectionState == ConnectionState.waiting
-              ? const Loading()
-              : ListView.builder(
-                  itemCount: homeViewModel.news.articles.length,
-                  itemBuilder: (_, index) {
-                    return ArticleItem(
-                        article: homeViewModel.news.articles[index]);
-                  },
-                ),
+          child: HookBuilder(
+            builder: (context) {
+              final homeViewModel = useProvider(homeViewModelNotifierProvider);
+              final snapshot = useFuture(useMemoized(
+                  () => homeViewModel.fetchNews(),
+                  // These Keys is very important, so should think carefully.
+                  [homeViewModel.news.toString(), error.peekContent()?.type]));
+
+              return snapshot.connectionState == ConnectionState.waiting
+                  ? const Loading()
+                  : ListView.builder(
+                      itemCount: homeViewModel.news.articles.length,
+                      itemBuilder: (_, index) {
+                        return ArticleItem(
+                            article: homeViewModel.news.articles[index]);
+                      },
+                    );
+            },
+          ),
         ));
   }
 }

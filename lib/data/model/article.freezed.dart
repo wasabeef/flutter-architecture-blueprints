@@ -18,7 +18,7 @@ class _$ArticleTearOff {
 // ignore: unused_element
   _Article call(
       {@required Source source,
-      @required String author,
+      String author,
       @required String title,
       @required String description,
       @required String url,
@@ -172,7 +172,7 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 class _$_Article implements _Article {
   _$_Article(
       {@required this.source,
-      @required this.author,
+      this.author,
       @required this.title,
       @required this.description,
       @required this.url,
@@ -180,7 +180,6 @@ class _$_Article implements _Article {
       @required this.publishedAt,
       this.content})
       : assert(source != null),
-        assert(author != null),
         assert(title != null),
         assert(description != null),
         assert(url != null),
@@ -261,7 +260,7 @@ class _$_Article implements _Article {
 abstract class _Article implements Article {
   factory _Article(
       {@required Source source,
-      @required String author,
+      String author,
       @required String title,
       @required String description,
       @required String url,
