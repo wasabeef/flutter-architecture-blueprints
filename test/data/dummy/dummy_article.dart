@@ -2,7 +2,7 @@ import 'package:app/data/model/article.dart';
 import 'package:app/data/model/source.dart';
 
 final dummyArticle = Article(
-  source: const Source(id: 'wasabeef', name: 'Daichi Furiya'),
+  source: Source(id: 'wasabeef', name: 'Daichi Furiya'),
   author: 'wasabeef',
   title: 'flutter architecture blueprints',
   description:

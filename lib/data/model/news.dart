@@ -1,39 +1,17 @@
 import 'package:app/data/model/article.dart';
-import 'package:flutter/foundation.dart';
-import 'package:json_annotation/json_annotation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'news.freezed.dart';
 
 part 'news.g.dart';
 
-@immutable
-@JsonSerializable()
-class News {
-  const News({
-    this.status,
-    this.totalResults,
-    this.articles,
-  });
+@freezed
+abstract class News with _$News {
+  factory News({
+    @required String status,
+    @required int totalResults,
+    List<Article> articles,
+  }) = _News;
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);
-
-  final String status;
-  final int totalResults;
-  final List<Article> articles;
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is News &&
-          runtimeType == other.runtimeType &&
-          status == other.status &&
-          totalResults == other.totalResults &&
-          articles == other.articles;
-
-  @override
-  int get hashCode =>
-      status.hashCode ^ totalResults.hashCode ^ articles.hashCode;
-
-  @override
-  String toString() {
-    return 'News{status: $status, totalResults: $totalResults, articles: $articles}';
-  }
 }

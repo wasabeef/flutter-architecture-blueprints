@@ -6,8 +6,8 @@ part of 'article.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Article _$ArticleFromJson(Map<String, dynamic> json) {
-  return Article(
+_$_Article _$_$_ArticleFromJson(Map<String, dynamic> json) {
+  return _$_Article(
     source: json['source'] == null
         ? null
         : Source.fromJson(json['source'] as Map<String, dynamic>),
@@ -23,7 +23,8 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$ArticleToJson(Article instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_ArticleToJson(_$_Article instance) =>
+    <String, dynamic>{
       'source': instance.source,
       'author': instance.author,
       'title': instance.title,
