@@ -19,3 +19,7 @@ coverage:
         only_pulls: false
         flags: null
         paths: null
+
+ignore:
+  - "lib/data/model/*.g.dart"
+  - "lib/data/model/*.freezed.dart"

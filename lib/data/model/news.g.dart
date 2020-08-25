@@ -6,8 +6,8 @@ part of 'news.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-News _$NewsFromJson(Map<String, dynamic> json) {
-  return News(
+_$_News _$_$_NewsFromJson(Map<String, dynamic> json) {
+  return _$_News(
     status: json['status'] as String,
     totalResults: json['totalResults'] as int,
     articles: (json['articles'] as List)
@@ -17,7 +17,7 @@ News _$NewsFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$NewsToJson(News instance) => <String, dynamic>{
+Map<String, dynamic> _$_$_NewsToJson(_$_News instance) => <String, dynamic>{
       'status': instance.status,
       'totalResults': instance.totalResults,
       'articles': instance.articles,

@@ -27,8 +27,9 @@ analyzer:
     # the following two are relative to the stocks example and the flutter package respectively
     # see https://github.com/dart-lang/sdk/issues/28463
     - "lib/l10n/messages_*.dart"
-    - "lib/src/http/**"
+    # - "lib/src/http/**"
     - "lib/data/model/*.g.dart"
+    - "lib/data/model/*.freezed.dart"
 
 linter:
   rules:
