@@ -9,7 +9,7 @@ part 'article.g.dart';
 abstract class Article with _$Article {
   factory Article({
     @required Source source,
-    @required String author,
+    String author,
     @required String title,
     @required String description,
     @required String url,

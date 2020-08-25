@@ -21,5 +21,5 @@ coverage:
         paths: null
 
 ignore:
-  - "lib/data/model/*.g.dart"
-  - "lib/data/model/*.freezed.dart"
+  - "**/*.g.dart"
+  - "**/*.freezed.dart"
