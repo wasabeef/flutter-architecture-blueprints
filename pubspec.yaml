@@ -29,7 +29,7 @@ dependencies:
 
   # For Architecture
   flutter_hooks: ^0.12.0
-  hooks_riverpod: ^0.6.1
+  hooks_riverpod: ^0.7.0
 
   # For Networking
   dio: ^3.0.9
@@ -69,9 +69,6 @@ dev_dependencies:
   # For Testing
   mockito:
   image_test_utils:
-
-dependency_overrides:
-  analyzer: '0.39.14' # Need this version for the freezed dependencies. See https://github.com/flutter/flutter/issues/56779
 
 flutter:
   uses-material-design: true
