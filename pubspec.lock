@@ -77,7 +77,7 @@ packages:
       name: build_runner_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.0.1"
+    version: "5.2.0"
   built_collection:
     dependency: transitive
     description:
@@ -236,7 +236,7 @@ packages:
       name: flutter_hooks
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.12.0"
+    version: "0.13.2"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -248,7 +248,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.2"
+    version: "0.9.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -259,13 +259,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  fluttertoast:
-    dependency: "direct main"
-    description:
-      name: fluttertoast
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "7.0.2"
   freezed:
     dependency: "direct dev"
     description:
@@ -307,7 +300,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.2"
+    version: "0.9.1"
   html:
     dependency: transitive
     description:
@@ -552,7 +545,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.0"
+    version: "0.8.0"
   shared_preferences:
     dependency: "direct main"
     description:
