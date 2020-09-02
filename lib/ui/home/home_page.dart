@@ -1,7 +1,6 @@
 import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/loading.dart';
-import 'package:app/ui/component/toast.dart';
 import 'package:app/ui/error_notifier.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/util/ext/context.dart';
@@ -14,7 +13,8 @@ class HomePage extends HookWidget {
   Widget build(BuildContext context) {
     final error = useProvider(errorNotifierProvider);
     if (!error.hasBeenHandled) {
-      toast(context, error.getErrorIfNotHandled().message);
+      context.scaffold.showSnackBar(
+          SnackBar(content: Text(error.getErrorIfNotHandled().message)));
     }
 
     return Scaffold(

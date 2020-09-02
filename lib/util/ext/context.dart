@@ -20,6 +20,10 @@ extension BuildContextExt on BuildContext {
     return Localized.of(this);
   }
 
+  ScaffoldState get scaffold {
+    return Scaffold.of(this);
+  }
+
   T args<T>() {
     return ModalRoute.of(this).settings.arguments as T;
   }
