@@ -20,6 +20,9 @@ class HomeViewModel extends AppChangeNotifier {
 
   News get news => _news;
 
+  bool get hasArticle =>
+      _news != null && _news.articles != null && _news.articles.isNotEmpty;
+
   Future<void> fetchNews() async {
     return _repository
         .getNews()

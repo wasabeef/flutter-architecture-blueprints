@@ -44,15 +44,21 @@ class HomePage extends HookWidget {
                   // These Keys is very important, so should think carefully.
                   [homeViewModel.news.toString(), error.peekContent()?.type]));
 
-              return snapshot.connectionState == ConnectionState.waiting
-                  ? const Loading()
-                  : ListView.builder(
-                      itemCount: homeViewModel.news.articles.length,
-                      itemBuilder: (_, index) {
-                        return ArticleItem(
-                            article: homeViewModel.news.articles[index]);
-                      },
-                    );
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Loading();
+              }
+
+              if (!homeViewModel.hasArticle) {
+                return const Text('Empty screen');
+              }
+
+              return ListView.builder(
+                itemCount: homeViewModel.news.articles.length,
+                itemBuilder: (_, index) {
+                  return ArticleItem(
+                      article: homeViewModel.news.articles[index]);
+                },
+              );
             },
           ),
         ));
