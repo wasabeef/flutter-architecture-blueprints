@@ -57,8 +57,13 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: 
-  freezed: 
+  build_runner:
+
+  # For Model
+  freezed:
+
+  # For Assets generator
+  flutter_gen:
 
   # For Analyzer
   pedantic: 

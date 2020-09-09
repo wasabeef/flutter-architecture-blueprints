@@ -1,4 +1,5 @@
 import 'package:app/data/model/article.dart';
+import 'package:app/gen/assets.gen.dart';
 import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +14,7 @@ class DetailPage extends StatelessWidget {
           child: Hero(
             tag: _article.url,
             child: _article.urlToImage == null
-                ? Image.asset(
-                    'assets/images/article_placeholder.webp',
-                  )
+                ? Assets.images.articlePlaceholder.image()
                 : Image.network(
                     _article.urlToImage,
                   ),

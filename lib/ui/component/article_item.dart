@@ -1,5 +1,6 @@
 import 'package:app/constants.dart';
 import 'package:app/data/model/article.dart';
+import 'package:app/gen/assets.gen.dart';
 import 'package:app/util/ext/context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -33,10 +34,8 @@ class ArticleItem extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: borderRadiusTop,
                     child: _article.urlToImage == null
-                        ? Image.asset(
-                            'assets/images/article_placeholder.webp',
-                            fit: BoxFit.cover,
-                          )
+                        ? Assets.images.articlePlaceholder
+                            .image(fit: BoxFit.cover)
                         : Image.network(
                             _article.urlToImage,
                             fit: BoxFit.cover,
