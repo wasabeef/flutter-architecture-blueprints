@@ -10,11 +10,11 @@ abstract class Article with _$Article {
   factory Article({
     @required Source source,
     String author,
-    @required String title,
-    @required String description,
-    @required String url,
+    String title,
+    String description,
+    String url,
     String urlToImage,
-    @required DateTime publishedAt,
+    DateTime publishedAt,
     String content,
   }) = _Article;
 

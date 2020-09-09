@@ -19,11 +19,11 @@ class _$ArticleTearOff {
   _Article call(
       {@required Source source,
       String author,
-      @required String title,
-      @required String description,
-      @required String url,
+      String title,
+      String description,
+      String url,
       String urlToImage,
-      @required DateTime publishedAt,
+      DateTime publishedAt,
       String content}) {
     return _Article(
       source: source,
@@ -173,17 +173,13 @@ class _$_Article implements _Article {
   _$_Article(
       {@required this.source,
       this.author,
-      @required this.title,
-      @required this.description,
-      @required this.url,
+      this.title,
+      this.description,
+      this.url,
       this.urlToImage,
-      @required this.publishedAt,
+      this.publishedAt,
       this.content})
-      : assert(source != null),
-        assert(title != null),
-        assert(description != null),
-        assert(url != null),
-        assert(publishedAt != null);
+      : assert(source != null);
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$_$_ArticleFromJson(json);
@@ -261,11 +257,11 @@ abstract class _Article implements Article {
   factory _Article(
       {@required Source source,
       String author,
-      @required String title,
-      @required String description,
-      @required String url,
+      String title,
+      String description,
+      String url,
       String urlToImage,
-      @required DateTime publishedAt,
+      DateTime publishedAt,
       String content}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
