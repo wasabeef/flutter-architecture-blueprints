@@ -8,7 +8,7 @@ part 'article.g.dart';
 @freezed
 abstract class Article with _$Article {
   factory Article({
-    @required Source source,
+    Source source,
     String author,
     String title,
     String description,

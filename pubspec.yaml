@@ -57,10 +57,10 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner:
+  build_runner: ^1.10.4
 
   # For Model
-  freezed:
+  freezed: ^0.12.2
 
   # For Analyzer
   pedantic: 

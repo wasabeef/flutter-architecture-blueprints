@@ -9,7 +9,7 @@ part 'source.g.dart';
 abstract class Source with _$Source {
   factory Source({
     String id,
-    @required String name,
+    String name,
   }) = _Source;
 
   factory Source.fromJson(Map<String, dynamic> json) => _$SourceFromJson(json);
