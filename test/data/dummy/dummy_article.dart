@@ -8,8 +8,6 @@ final dummyArticle = Article(
   description:
       'Flutter Architecture Blueprint is a project that introduces MVVM architecture and project structure approaches to developing Flutter apps.',
   url: 'https://github.com/wasabeef/flutter-architecture-blueprints',
-  urlToImage:
-      'https://github.com/wasabeef/flutter-architecture-blueprints/raw/master/art/cover.png',
   publishedAt: DateTime.now(),
   content: 'content',
 );
