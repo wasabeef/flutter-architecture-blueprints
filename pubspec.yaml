@@ -18,58 +18,52 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.9.0 <3.0.0'
-  flutter: '>=1.20.0'
+  sdk: '>=2.10.0 <3.0.0'
+  flutter: '>=1.22.0'
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-
-  # For Architecture
-  flutter_hooks: ^0.14.0
-  hooks_riverpod: ^0.9.2
-
-  # For Networking
-  dio: ^3.0.9
-  dio_http_cache: ^0.2.8
-
-  # For Model
-  json_serializable: ^3.3.0
-  freezed_annotation: ^0.11.0+1
-
   # For DateTime and l10n
   intl: ^0.16.1
 
+  # For Architecture
+  flutter_hooks: ^0.14.1
+  hooks_riverpod: ^0.12.1
+
+  # For Networking
+  dio: ^3.0.10
+  dio_http_cache: ^0.2.11
+
+  # For Model
+  json_serializable: ^3.5.0
+  freezed_annotation: ^0.12.0
+
+
   # For Key-Value local storage
-  shared_preferences: ^0.5.8
+  shared_preferences: ^0.5.12+2
 
   # Convert between Enum and String
-  enum_to_string: ^1.0.4
+  enum_to_string: ^1.0.13
 
   # For UIs
   cupertino_icons: ^1.0.0
-  google_fonts: ^1.1.0
-  fluttertoast: ^7.0.4
+  google_fonts: ^1.1.1
+  fluttertoast: ^7.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner:
+  build_runner: ^1.10.4
 
   # For Model
-  freezed:
-
-  # For Assets generator
-  flutter_gen:
+  freezed: ^0.12.2
 
   # For Analyzer
   pedantic: 
-
-  # For l10n
-  intl_translation: 
 
   # For Testing
   mockito:
@@ -77,6 +71,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  generate: true
 
   assets:
     - assets/images/

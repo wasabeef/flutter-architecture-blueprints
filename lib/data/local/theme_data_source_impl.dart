@@ -19,6 +19,7 @@ class ThemeDataSourceImpl extends ThemeDataSource {
 
   @override
   Future<void> saveThemeSetting(ThemeSetting theme) {
-    return _prefs.setString(KEY_THEME_SETTING, EnumToString.parse(theme));
+    return _prefs.setString(
+        KEY_THEME_SETTING, EnumToString.convertToString(theme));
   }
 }

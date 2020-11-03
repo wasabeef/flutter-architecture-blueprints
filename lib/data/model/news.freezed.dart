@@ -12,6 +12,7 @@ News _$NewsFromJson(Map<String, dynamic> json) {
   return _News.fromJson(json);
 }
 
+/// @nodoc
 class _$NewsTearOff {
   const _$NewsTearOff();
 
@@ -26,11 +27,18 @@ class _$NewsTearOff {
       articles: articles,
     );
   }
+
+// ignore: unused_element
+  News fromJson(Map<String, Object> json) {
+    return News.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $News = _$NewsTearOff();
 
+/// @nodoc
 mixin _$News {
   String get status;
   int get totalResults;
@@ -40,12 +48,14 @@ mixin _$News {
   $NewsCopyWith<News> get copyWith;
 }
 
+/// @nodoc
 abstract class $NewsCopyWith<$Res> {
   factory $NewsCopyWith(News value, $Res Function(News) then) =
       _$NewsCopyWithImpl<$Res>;
   $Res call({String status, int totalResults, List<Article> articles});
 }
 
+/// @nodoc
 class _$NewsCopyWithImpl<$Res> implements $NewsCopyWith<$Res> {
   _$NewsCopyWithImpl(this._value, this._then);
 
@@ -69,6 +79,7 @@ class _$NewsCopyWithImpl<$Res> implements $NewsCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$NewsCopyWith<$Res> implements $NewsCopyWith<$Res> {
   factory _$NewsCopyWith(_News value, $Res Function(_News) then) =
       __$NewsCopyWithImpl<$Res>;
@@ -76,6 +87,7 @@ abstract class _$NewsCopyWith<$Res> implements $NewsCopyWith<$Res> {
   $Res call({String status, int totalResults, List<Article> articles});
 }
 
+/// @nodoc
 class __$NewsCopyWithImpl<$Res> extends _$NewsCopyWithImpl<$Res>
     implements _$NewsCopyWith<$Res> {
   __$NewsCopyWithImpl(_News _value, $Res Function(_News) _then)
@@ -101,6 +113,8 @@ class __$NewsCopyWithImpl<$Res> extends _$NewsCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_News implements _News {
   _$_News({@required this.status, @required this.totalResults, this.articles})
       : assert(status != null),

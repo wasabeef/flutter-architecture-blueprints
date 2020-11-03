@@ -45,7 +45,7 @@ class ArticleItem extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                _article.title,
+                _article.title ?? 'No Title',
                 style: const TextStyle(fontSize: 12),
               ),
             ),

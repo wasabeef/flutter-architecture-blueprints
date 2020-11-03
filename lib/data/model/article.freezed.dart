@@ -12,12 +12,13 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
   return _Article.fromJson(json);
 }
 
+/// @nodoc
 class _$ArticleTearOff {
   const _$ArticleTearOff();
 
 // ignore: unused_element
   _Article call(
-      {@required Source source,
+      {Source source,
       String author,
       String title,
       String description,
@@ -36,11 +37,18 @@ class _$ArticleTearOff {
       content: content,
     );
   }
+
+// ignore: unused_element
+  Article fromJson(Map<String, Object> json) {
+    return Article.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Article = _$ArticleTearOff();
 
+/// @nodoc
 mixin _$Article {
   Source get source;
   String get author;
@@ -55,6 +63,7 @@ mixin _$Article {
   $ArticleCopyWith<Article> get copyWith;
 }
 
+/// @nodoc
 abstract class $ArticleCopyWith<$Res> {
   factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
       _$ArticleCopyWithImpl<$Res>;
@@ -71,6 +80,7 @@ abstract class $ArticleCopyWith<$Res> {
   $SourceCopyWith<$Res> get source;
 }
 
+/// @nodoc
 class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
   _$ArticleCopyWithImpl(this._value, this._then);
 
@@ -115,6 +125,7 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   factory _$ArticleCopyWith(_Article value, $Res Function(_Article) then) =
       __$ArticleCopyWithImpl<$Res>;
@@ -133,6 +144,7 @@ abstract class _$ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
   $SourceCopyWith<$Res> get source;
 }
 
+/// @nodoc
 class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
     implements _$ArticleCopyWith<$Res> {
   __$ArticleCopyWithImpl(_Article _value, $Res Function(_Article) _then)
@@ -169,17 +181,18 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Article implements _Article {
   _$_Article(
-      {@required this.source,
+      {this.source,
       this.author,
       this.title,
       this.description,
       this.url,
       this.urlToImage,
       this.publishedAt,
-      this.content})
-      : assert(source != null);
+      this.content});
 
   factory _$_Article.fromJson(Map<String, dynamic> json) =>
       _$_$_ArticleFromJson(json);
@@ -255,7 +268,7 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   factory _Article(
-      {@required Source source,
+      {Source source,
       String author,
       String title,
       String description,

@@ -2,7 +2,6 @@ import 'package:app/app.dart';
 import 'package:app/constants.dart';
 import 'package:app/data/app_error.dart';
 import 'package:app/data/model/theme_setting.dart';
-import 'package:app/l10n/delegate.dart';
 import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/loading.dart';
@@ -11,7 +10,7 @@ import 'package:app/ui/error_notifier.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_test_utils/image_test_utils.dart';
@@ -68,15 +67,8 @@ void main() {
           ],
           child: MaterialApp(
             home: page,
-            localizationsDelegates: const [
-              L10nDelegate(),
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales: const [
-              Locale('en', ''),
-              Locale('ja', ''),
-            ],
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
           ),
         ),
       );

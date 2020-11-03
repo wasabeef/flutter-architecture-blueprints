@@ -12,21 +12,29 @@ Source _$SourceFromJson(Map<String, dynamic> json) {
   return _Source.fromJson(json);
 }
 
+/// @nodoc
 class _$SourceTearOff {
   const _$SourceTearOff();
 
 // ignore: unused_element
-  _Source call({String id, @required String name}) {
+  _Source call({String id, String name}) {
     return _Source(
       id: id,
       name: name,
     );
   }
+
+// ignore: unused_element
+  Source fromJson(Map<String, Object> json) {
+    return Source.fromJson(json);
+  }
 }
 
+/// @nodoc
 // ignore: unused_element
 const $Source = _$SourceTearOff();
 
+/// @nodoc
 mixin _$Source {
   String get id;
   String get name;
@@ -35,12 +43,14 @@ mixin _$Source {
   $SourceCopyWith<Source> get copyWith;
 }
 
+/// @nodoc
 abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
       _$SourceCopyWithImpl<$Res>;
   $Res call({String id, String name});
 }
 
+/// @nodoc
 class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
   _$SourceCopyWithImpl(this._value, this._then);
 
@@ -60,6 +70,7 @@ class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
   }
 }
 
+/// @nodoc
 abstract class _$SourceCopyWith<$Res> implements $SourceCopyWith<$Res> {
   factory _$SourceCopyWith(_Source value, $Res Function(_Source) then) =
       __$SourceCopyWithImpl<$Res>;
@@ -67,6 +78,7 @@ abstract class _$SourceCopyWith<$Res> implements $SourceCopyWith<$Res> {
   $Res call({String id, String name});
 }
 
+/// @nodoc
 class __$SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
     implements _$SourceCopyWith<$Res> {
   __$SourceCopyWithImpl(_Source _value, $Res Function(_Source) _then)
@@ -88,8 +100,10 @@ class __$SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
 }
 
 @JsonSerializable()
+
+/// @nodoc
 class _$_Source with DiagnosticableTreeMixin implements _Source {
-  _$_Source({this.id, @required this.name}) : assert(name != null);
+  _$_Source({this.id, this.name});
 
   factory _$_Source.fromJson(Map<String, dynamic> json) =>
       _$_$_SourceFromJson(json);
@@ -140,7 +154,7 @@ class _$_Source with DiagnosticableTreeMixin implements _Source {
 }
 
 abstract class _Source implements Source {
-  factory _Source({String id, @required String name}) = _$_Source;
+  factory _Source({String id, String name}) = _$_Source;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$_Source.fromJson;
 
