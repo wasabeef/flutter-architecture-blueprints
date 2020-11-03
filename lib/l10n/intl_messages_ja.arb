@@ -1,4 +1,5 @@
 {
+  "@@locale": "ja",
   "ok": "OK",
   "@ok": {
     "description": "Ok button",
@@ -11,13 +12,13 @@
     "type": "text",
     "placeholders": {}
   },
-  "home": "Home",
+  "home": "ホーム",
   "@home": {
     "description": "Home page",
     "type": "text",
     "placeholders": {}
   },
-  "detail": "Detail",
+  "detail": "詳細",
   "@detail": {
     "description": "Detail page",
     "type": "text",

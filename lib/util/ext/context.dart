@@ -1,7 +1,6 @@
-import 'package:app/l10n/localized.dart';
-import 'package:app/l10n/message.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 extension BuildContextExt on BuildContext {
   ThemeData get theme {
@@ -16,8 +15,8 @@ extension BuildContextExt on BuildContext {
     return Navigator.of(this);
   }
 
-  Message get localized {
-    return Localized.of(this);
+  AppLocalizations get localized {
+    return AppLocalizations.of(this);
   }
 
   T args<T>() {
