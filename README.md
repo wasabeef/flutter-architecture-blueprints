@@ -76,7 +76,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 | ✅ | Data | Using [Freezed](https://pub.dev/packages/freezed) | [model classes](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/model) |
 | ✅ | Persist Data | Using [shared_preferences](https://pub.dev/packages/shared_preferences) | [theme_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/local/theme_data_source_impl.dart) |
 | ✅ | Constants | Define constants and route names | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/constants.dart) |
-| ✅ | Localization | Switching between two languages with [Intl package](https://flutter.dev/docs/development/accessibility-and-localization/internationalization#appendix-using-the-dart-intl-tools) | [message.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/l10n/message.dart#L13-L21), [context.localized](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24), [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/l10n-arb), [message_(en\|ja).dart](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n) |
+| ✅ | Localization | Switching between two languages with [Intl package](https://flutter.dev/docs/development/accessibility-and-localization/internationalization#appendix-using-the-dart-intl-tools) | [context.localized](https://github.com/wasabeef/flutter-architecture-blueprints/blob/b93557b5fe790d8e386136a820d9b0713c2e7950/lib/view/MyHomePage.dart#L24), [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n) |
 | 🤔 | Error handling | Using [ChangeNotifier](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple#changenotifier) | [change_notifier_with_error_handle.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/change_notifier_with_error_handle.dart), [error_notifier.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/ui/error_notifier.dart), [home_view_model.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/home/home_view_model.dart#L26-L30) |
 
 #### UI
@@ -132,6 +132,16 @@ $ make build-ios-prd
 $ make run-dev
 $ make run-prd
 ```
+
+<br>
+
+### How to add assets(images..)
+1. Add assets
+2. Run [FlutterGen](https://github.com/fluttergen)
+
+### How to add translations
+1. Edit [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n) files.
+2. Run generate the `flutter pub get`
 
 ## Special Thanks.
 
