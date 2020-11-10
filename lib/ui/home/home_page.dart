@@ -38,11 +38,13 @@ class HomePage extends HookWidget {
                     msg: error.getErrorIfNotHandled().message);
                 return const Text('Error Screen');
               }
-              final homeViewModel = useProvider(homeViewModelNotifierProvider);
+              final homeViewModel = context.read(homeViewModelNotifierProvider);
+              final news = useProvider(
+                  homeViewModelNotifierProvider.select((value) => value.news));
               final snapshot = useFuture(useMemoized(
                   () => homeViewModel.fetchNews(),
                   // These Keys is very important, so should think carefully.
-                  [homeViewModel.news.toString(), error.peekContent()?.type]));
+                  [news.toString(), error.peekContent()?.type]));
 
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Loading();
@@ -53,10 +55,10 @@ class HomePage extends HookWidget {
               }
 
               return ListView.builder(
-                itemCount: homeViewModel.news.articles.length,
+                itemCount: news.articles.length,
                 itemBuilder: (_, index) {
                   return ArticleItem(
-                      article: homeViewModel.news.articles[index]);
+                      article: news.articles[index]);
                 },
               );
             },
