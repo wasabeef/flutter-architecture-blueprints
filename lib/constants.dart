@@ -46,8 +46,8 @@ class Constants {
   }
 
   // Routing name
-  static const String PAGE_HOME = '/home';
-  static const String PAGE_DETAIL = '/detail';
+  static const String pageHome = '/home';
+  static const String pageDetail = '/detail';
 
   static Constants _instance;
 

@@ -1,7 +1,8 @@
-import 'package:app/data/app_error.dart';
-import 'package:app/ui/error_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../data/app_error.dart';
+import 'error_notifier.dart';
 
 class AppChangeNotifier extends ChangeNotifier {
   AppChangeNotifier(ProviderReference ref) {

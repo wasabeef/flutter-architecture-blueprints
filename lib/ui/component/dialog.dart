@@ -1,11 +1,12 @@
-import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
+
+import '../../util/ext/context.dart';
 
 void showSimpleDialog(BuildContext context,
     {String title, String text, VoidCallback onPressed}) {
   showDialog<void>(
       context: context,
-      builder: (BuildContext context) {
+      builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.white,
           title: Text(title),

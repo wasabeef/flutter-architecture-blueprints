@@ -1,12 +1,13 @@
 import 'dart:math';
 
-import 'package:app/constants.dart';
-import 'package:app/data/model/news.dart';
-import 'package:app/data/remote/news_data_source.dart';
-import 'package:app/util/ext/date_time.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/foundation.dart';
+
+import '../../constants.dart';
+import '../../util/ext/date_time.dart';
+import '../model/news.dart';
+import 'news_data_source.dart';
 
 class NewsDataSourceImpl implements NewsDataSource {
   NewsDataSourceImpl({@required Dio dio}) : _dio = dio;

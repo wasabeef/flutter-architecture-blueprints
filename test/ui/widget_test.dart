@@ -33,7 +33,7 @@ void main() {
   when(mockErrorNotifier.getErrorIfNotHandled()).thenReturn(AppError(Error()));
 
   final mockAppTheme = MockAppTheme();
-  when(mockAppTheme.setting).thenReturn(ThemeSetting.LIGHT);
+  when(mockAppTheme.setting).thenReturn(ThemeSetting.light);
   when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
 
   final mockHomeViewModel = MockHomeViewModel();
@@ -44,7 +44,7 @@ void main() {
 
   final mockNavigatorObserver = MockNavigatorObserver();
 
-  testWidgets('App widget test', (WidgetTester tester) async {
+  testWidgets('App widget test', (tester) async {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
@@ -55,7 +55,7 @@ void main() {
     );
   });
 
-  testWidgets('HomePage widget test', (WidgetTester tester) async {
+  testWidgets('HomePage widget test', (tester) async {
     await provideMockedNetworkImages(() async {
       final page = HomePage();
       await tester.pumpWidget(
@@ -77,13 +77,13 @@ void main() {
     });
   });
 
-  testWidgets('Article widget test', (WidgetTester tester) async {
+  testWidgets('Article widget test', (tester) async {
     final article = ArticleItem(article: dummyArticle);
     await provideMockedNetworkImages(() async {
       await tester.pumpWidget(MaterialApp(
         home: article,
         routes: {
-          Constants.PAGE_DETAIL: (context) => DetailPage(),
+          Constants.pageDetail: (context) => DetailPage(),
         },
         navigatorObservers: [mockNavigatorObserver],
       ));
@@ -96,7 +96,7 @@ void main() {
     });
   });
 
-  testWidgets('Loading widget test', (WidgetTester tester) async {
+  testWidgets('Loading widget test', (tester) async {
     const loading = Loading();
     await tester.pumpWidget(loading);
     expect(find.byWidget(loading), findsOneWidget);

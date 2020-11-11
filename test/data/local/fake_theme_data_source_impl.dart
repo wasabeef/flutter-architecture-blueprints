@@ -4,7 +4,7 @@ import 'package:app/data/model/theme_setting.dart';
 class FakeThemeDataSourceImpl extends ThemeDataSource {
   @override
   ThemeSetting loadThemeSetting() {
-    return ThemeSetting.DARK;
+    return ThemeSetting.dark;
   }
 
   @override

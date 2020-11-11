@@ -1,9 +1,10 @@
-import 'package:app/constants.dart';
-import 'package:app/data/model/article.dart';
-import 'package:app/gen/assets.gen.dart';
-import 'package:app/util/ext/context.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import '../../constants.dart';
+import '../../data/model/article.dart';
+import '../../gen/assets.gen.dart';
+import '../../util/ext/context.dart';
 
 class ArticleItem extends StatelessWidget {
   const ArticleItem({@required Article article}) : _article = article;
@@ -52,7 +53,7 @@ class ArticleItem extends StatelessWidget {
           ],
         ),
         onTap: () => context.navigator.pushNamed(
-          Constants.PAGE_DETAIL,
+          Constants.pageDetail,
           arguments: _article,
         ),
       ),

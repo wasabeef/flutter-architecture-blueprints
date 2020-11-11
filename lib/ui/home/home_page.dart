@@ -1,13 +1,14 @@
-import 'package:app/ui/app_theme.dart';
-import 'package:app/ui/component/article_item.dart';
-import 'package:app/ui/component/loading.dart';
-import 'package:app/ui/error_notifier.dart';
-import 'package:app/ui/home/home_view_model.dart';
-import 'package:app/util/ext/context.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../util/ext/context.dart';
+import '../app_theme.dart';
+import '../component/article_item.dart';
+import '../component/loading.dart';
+import '../error_notifier.dart';
+import 'home_view_model.dart';
 
 class HomePage extends HookWidget {
   @override
@@ -41,8 +42,7 @@ class HomePage extends HookWidget {
               final homeViewModel = context.read(homeViewModelNotifierProvider);
               final news = useProvider(
                   homeViewModelNotifierProvider.select((value) => value.news));
-              final snapshot = useFuture(useMemoized(
-                  () => homeViewModel.fetchNews(),
+              final snapshot = useFuture(useMemoized(homeViewModel.fetchNews,
                   // These Keys is very important, so should think carefully.
                   [news.toString(), error.peekContent()?.type]));
 
@@ -57,8 +57,7 @@ class HomePage extends HookWidget {
               return ListView.builder(
                 itemCount: news.articles.length,
                 itemBuilder: (_, index) {
-                  return ArticleItem(
-                      article: news.articles[index]);
+                  return ArticleItem(article: news.articles[index]);
                 },
               );
             },

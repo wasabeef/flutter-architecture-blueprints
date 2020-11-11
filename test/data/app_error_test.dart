@@ -10,31 +10,31 @@ void main() {
         AppError(
           DioError(type: DioErrorType.CONNECT_TIMEOUT),
         ).type,
-        equals(AppErrorType.NETWORK));
+        equals(AppErrorType.network));
 
     expect(
         AppError(
           DioError(type: DioErrorType.RECEIVE_TIMEOUT),
         ).type,
-        equals(AppErrorType.NETWORK));
+        equals(AppErrorType.network));
 
     expect(
         AppError(
           DioError(type: DioErrorType.SEND_TIMEOUT),
         ).type,
-        equals(AppErrorType.NETWORK));
+        equals(AppErrorType.network));
 
     expect(
         AppError(
           DioError(type: DioErrorType.RESPONSE),
         ).type,
-        equals(AppErrorType.SERVER));
+        equals(AppErrorType.server));
 
     expect(
         AppError(
           DioError(type: DioErrorType.CANCEL),
         ).type,
-        equals(AppErrorType.CANCEL));
+        equals(AppErrorType.cancel));
 
     expect(
         AppError(
@@ -42,16 +42,16 @@ void main() {
               error: const SocketException('Failed host lookup: wasabeef.jp'),
               type: DioErrorType.DEFAULT),
         ).type,
-        equals(AppErrorType.NETWORK));
+        equals(AppErrorType.network));
 
     expect(
         AppError(
           DioError(type: DioErrorType.DEFAULT),
         ).type,
-        equals(AppErrorType.UNKNOWN));
+        equals(AppErrorType.unknown));
 
-    expect(AppError(ArgumentError()).type, equals(AppErrorType.UNKNOWN));
+    expect(AppError(ArgumentError()).type, equals(AppErrorType.unknown));
 
-    expect(AppError(null).type, equals(AppErrorType.UNKNOWN));
+    expect(AppError(null).type, equals(AppErrorType.unknown));
   });
 }

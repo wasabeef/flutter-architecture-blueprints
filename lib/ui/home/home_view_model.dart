@@ -1,10 +1,11 @@
-import 'package:app/data/app_error.dart';
-import 'package:app/data/model/news.dart';
-import 'package:app/data/provider/news_repository_provider.dart';
-import 'package:app/data/repository/news_repository.dart';
-import 'package:app/ui/change_notifier_with_error_handle.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../data/app_error.dart';
+import '../../data/model/news.dart';
+import '../../data/provider/news_repository_provider.dart';
+import '../../data/repository/news_repository.dart';
+import '../change_notifier_with_error_handle.dart';
 
 final homeViewModelNotifierProvider = ChangeNotifierProvider(
     (ref) => HomeViewModel(ref, repository: ref.read(newsRepositoryProvider)));
@@ -31,6 +32,6 @@ class HomeViewModel extends AppChangeNotifier {
           _news = value;
         })
         .catchError((dynamic error) => doOnError(AppError(error)))
-        .whenComplete(() => notifyListeners());
+        .whenComplete(notifyListeners);
   }
 }

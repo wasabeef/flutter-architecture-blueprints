@@ -7,10 +7,10 @@ import 'package:mockito/mockito.dart';
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 void main() {
-  testWidgets('me testing', (WidgetTester tester) async {
+  testWidgets('me testing', (tester) async {
     await tester.pumpWidget(
       Builder(
-        builder: (BuildContext context) {
+        builder: (context) {
           expect(context.theme, Theme.of(context));
           expect(context.focusScope, FocusScope.of(context));
           return const Placeholder();

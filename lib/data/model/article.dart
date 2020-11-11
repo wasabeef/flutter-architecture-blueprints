@@ -1,5 +1,6 @@
-import 'package:app/data/model/source.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import 'source.dart';
 
 part 'article.freezed.dart';
 

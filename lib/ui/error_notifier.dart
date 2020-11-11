@@ -1,6 +1,7 @@
-import 'package:app/data/app_error.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../data/app_error.dart';
 
 final errorNotifierProvider = ChangeNotifierProvider((ref) => ErrorNotifier());
 

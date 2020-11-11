@@ -1,8 +1,10 @@
-import 'package:app/constants.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 
+import '../../constants.dart';
+
+// ignore: prefer_mixin
 class AppDio with DioMixin implements Dio {
   AppDio._([BaseOptions options]) {
     options = BaseOptions(

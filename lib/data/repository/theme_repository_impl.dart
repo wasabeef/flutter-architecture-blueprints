@@ -1,7 +1,8 @@
-import 'package:app/data/local/theme_data_source.dart';
-import 'package:app/data/model/theme_setting.dart';
-import 'package:app/data/repository/theme_repository.dart';
 import 'package:flutter/material.dart';
+
+import '../local/theme_data_source.dart';
+import '../model/theme_setting.dart';
+import 'theme_repository.dart';
 
 class ThemeRepositoryImpl implements ThemeRepository {
   ThemeRepositoryImpl({@required ThemeDataSource dataSource})

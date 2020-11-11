@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-enum AppErrorType { NETWORK, SERVER, CANCEL, UNKNOWN }
+enum AppErrorType { network, server, cancel, unknown }
 
 class AppError {
   AppError(dynamic error) {
@@ -15,32 +15,32 @@ class AppError {
           if (error.error is SocketException) {
             // SocketException: Failed host lookup: '***'
             // (OS Error: No address associated with hostname, errno = 7)
-            type = AppErrorType.NETWORK;
+            type = AppErrorType.network;
           } else {
-            type = AppErrorType.UNKNOWN;
+            type = AppErrorType.unknown;
           }
           break;
         case DioErrorType.CONNECT_TIMEOUT:
         case DioErrorType.RECEIVE_TIMEOUT:
         case DioErrorType.SEND_TIMEOUT:
-          type = AppErrorType.NETWORK;
+          type = AppErrorType.network;
           break;
         case DioErrorType.RESPONSE:
-          type = AppErrorType.SERVER;
+          type = AppErrorType.server;
           break;
         case DioErrorType.CANCEL:
-          type = AppErrorType.CANCEL;
+          type = AppErrorType.cancel;
           break;
         default:
-          type = AppErrorType.UNKNOWN;
+          type = AppErrorType.unknown;
       }
     } else if (error is Error) {
       debugPrint('AppError(Error): ${error.stackTrace.toString()}');
-      type = AppErrorType.UNKNOWN;
+      type = AppErrorType.unknown;
       message = 'AppError: ${error.stackTrace.toString()}';
     } else {
       debugPrint('AppError(UnKnown): $error');
-      type = AppErrorType.UNKNOWN;
+      type = AppErrorType.unknown;
       message = 'AppError: $error';
     }
   }

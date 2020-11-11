@@ -190,6 +190,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.11"
+  effective_dart:
+    dependency: "direct dev"
+    description:
+      name: effective_dart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.3.0"
   enum_to_string:
     dependency: "direct main"
     description:
@@ -477,7 +484,7 @@ packages:
     source: hosted
     version: "0.0.4+1"
   pedantic:
-    dependency: "direct dev"
+    dependency: transitive
     description:
       name: pedantic
       url: "https://pub.dartlang.org"

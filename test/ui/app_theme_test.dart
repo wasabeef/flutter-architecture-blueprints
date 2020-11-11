@@ -23,11 +23,11 @@ void main() {
     );
     final appTheme = container.read(appThemeNotifierProvider);
     await expectLater(appTheme.themeData, completion(darkTheme));
-    expect(appTheme.setting, ThemeSetting.DARK);
+    expect(appTheme.setting, ThemeSetting.dark);
 
     await appTheme.toggle();
 
     await expectLater(appTheme.themeData, completion(lightTheme));
-    expect(appTheme.setting, ThemeSetting.LIGHT);
+    expect(appTheme.setting, ThemeSetting.light);
   });
 }

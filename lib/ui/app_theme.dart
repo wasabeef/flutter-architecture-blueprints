@@ -1,11 +1,12 @@
-import 'package:app/data/app_error.dart';
-import 'package:app/data/model/theme_setting.dart';
-import 'package:app/data/provider/theme_repository_provider.dart';
-import 'package:app/data/repository/theme_repository.dart';
-import 'package:app/ui/change_notifier_with_error_handle.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../data/app_error.dart';
+import '../data/model/theme_setting.dart';
+import '../data/provider/theme_repository_provider.dart';
+import '../data/repository/theme_repository.dart';
+import 'change_notifier_with_error_handle.dart';
 
 // Color converter: https://www.w3schools.com/colors/colors_converter.asp
 // Transparency list
@@ -59,7 +60,7 @@ class AppTheme extends AppChangeNotifier {
       : _ref = ref,
         super(ref);
 
-  static const _DEFAULT_THEME_SETTING = ThemeSetting.LIGHT;
+  static const _defaultThemeSetting = ThemeSetting.light;
 
   final ProviderReference _ref;
 
@@ -72,14 +73,14 @@ class AppTheme extends AppChangeNotifier {
   Future<ThemeData> get themeData async {
     if (setting == null) {
       _repository ??= await _ref.read(themeRepositoryProvider.future);
-      _setting = _repository.loadThemeSetting() ?? _DEFAULT_THEME_SETTING;
+      _setting = _repository.loadThemeSetting() ?? _defaultThemeSetting;
     }
-    return setting == ThemeSetting.LIGHT ? lightTheme : darkTheme;
+    return setting == ThemeSetting.light ? lightTheme : darkTheme;
   }
 
   Future<void> _loadLightTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _setting = ThemeSetting.LIGHT;
+    _setting = ThemeSetting.light;
     await _repository
         .saveThemeSetting(setting)
         .catchError((dynamic error) => doOnError(AppError(error)));
@@ -88,7 +89,7 @@ class AppTheme extends AppChangeNotifier {
 
   Future<void> _loadDarkTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _setting = ThemeSetting.DARK;
+    _setting = ThemeSetting.dark;
     await _repository
         .saveThemeSetting(setting)
         .catchError((dynamic error) => doOnError(AppError(error)));
@@ -96,7 +97,7 @@ class AppTheme extends AppChangeNotifier {
   }
 
   Future<void> toggle() async {
-    setting == ThemeSetting.LIGHT
+    setting == ThemeSetting.light
         ? await _loadDarkTheme()
         : await _loadLightTheme();
   }

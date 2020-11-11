@@ -6,7 +6,9 @@ final dummyArticle = Article(
   author: 'wasabeef',
   title: 'flutter architecture blueprints',
   description:
-      'Flutter Architecture Blueprint is a project that introduces MVVM architecture and project structure approaches to developing Flutter apps.',
+      'Flutter Architecture Blueprint is a project that introduces MVVM'
+      ' architecture and project structure approaches to'
+      ' developing Flutter apps.',
   url: 'https://github.com/wasabeef/flutter-architecture-blueprints',
   publishedAt: DateTime.now(),
   content: 'content',

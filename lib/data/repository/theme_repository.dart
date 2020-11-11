@@ -1,4 +1,4 @@
-import 'package:app/data/model/theme_setting.dart';
+import '../model/theme_setting.dart';
 
 abstract class ThemeRepository {
   ThemeSetting loadThemeSetting();
