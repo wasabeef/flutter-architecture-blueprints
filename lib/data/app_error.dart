@@ -7,6 +7,7 @@ enum AppErrorType { NETWORK, SERVER, CANCEL, UNKNOWN }
 
 class AppError {
   AppError(dynamic error) {
+    error = error;
     if (error is DioError) {
       debugPrint('AppError(DioError): ${error.message}');
       message = error.message;
