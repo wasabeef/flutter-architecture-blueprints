@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../data/app_error.dart';
 import '../data/model/theme_setting.dart';
 import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
@@ -81,19 +80,13 @@ class AppTheme extends AppChangeNotifier {
   Future<void> _loadLightTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
     _setting = ThemeSetting.light;
-    await _repository
-        .saveThemeSetting(setting)
-        .catchError((dynamic error) => doOnError(AppError(error)));
-    notifyListeners();
+    await _repository.saveThemeSetting(setting).whenComplete(notifyListeners);
   }
 
   Future<void> _loadDarkTheme() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
     _setting = ThemeSetting.dark;
-    await _repository
-        .saveThemeSetting(setting)
-        .catchError((dynamic error) => doOnError(AppError(error)));
-    notifyListeners();
+    await _repository.saveThemeSetting(setting).whenComplete(notifyListeners);
   }
 
   Future<void> toggle() async {

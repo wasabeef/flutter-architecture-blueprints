@@ -7,51 +7,66 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   test('AppError Test', () async {
     expect(
-        AppError(
+        ApiError(
           DioError(type: DioErrorType.CONNECT_TIMEOUT),
         ).type,
-        equals(AppErrorType.network));
+        equals(ApiErrorType.network));
 
     expect(
-        AppError(
+        ApiError(
           DioError(type: DioErrorType.RECEIVE_TIMEOUT),
         ).type,
-        equals(AppErrorType.network));
+        equals(ApiErrorType.network));
 
     expect(
-        AppError(
+        ApiError(
           DioError(type: DioErrorType.SEND_TIMEOUT),
         ).type,
-        equals(AppErrorType.network));
+        equals(ApiErrorType.network));
 
     expect(
-        AppError(
-          DioError(type: DioErrorType.RESPONSE),
+        ApiError(
+          DioError(
+              type: DioErrorType.RESPONSE, response: Response(statusCode: 400)),
         ).type,
-        equals(AppErrorType.server));
+        equals(ApiErrorType.badRequest));
 
     expect(
-        AppError(
+        ApiError(
+          DioError(
+              type: DioErrorType.RESPONSE, response: Response(statusCode: 401)),
+        ).type,
+        equals(ApiErrorType.unauthorized));
+
+    expect(
+        ApiError(
+          DioError(
+              type: DioErrorType.RESPONSE, response: Response(statusCode: 500)),
+        ).type,
+        equals(ApiErrorType.unknown));
+
+    expect(
+        ApiError(
           DioError(type: DioErrorType.CANCEL),
         ).type,
-        equals(AppErrorType.cancel));
+        equals(ApiErrorType.cancel));
 
     expect(
-        AppError(
+        ApiError(
           DioError(
               error: const SocketException('Failed host lookup: wasabeef.jp'),
               type: DioErrorType.DEFAULT),
         ).type,
-        equals(AppErrorType.network));
+        equals(ApiErrorType.network));
 
     expect(
-        AppError(
+        ApiError(
           DioError(type: DioErrorType.DEFAULT),
         ).type,
-        equals(AppErrorType.unknown));
+        equals(ApiErrorType.unknown));
 
-    expect(AppError(ArgumentError()).type, equals(AppErrorType.unknown));
+    expect(ApiError(ArgumentError()).type, equals(ApiErrorType.unknown));
 
-    expect(AppError(null).type, equals(AppErrorType.unknown));
+    expect(ApiError(null).type, equals(ApiErrorType.unknown));
   });
 }

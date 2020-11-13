@@ -31,7 +31,7 @@ class HomeViewModel extends AppChangeNotifier {
           doOnSuccess();
           _news = value;
         })
-        .catchError((dynamic error) => doOnError(AppError(error)))
+        .catchError((dynamic error) => doOnError(ApiError(error)))
         .whenComplete(notifyListeners);
   }
 }

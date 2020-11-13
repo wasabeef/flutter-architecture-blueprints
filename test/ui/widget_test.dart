@@ -30,7 +30,7 @@ class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 void main() {
   final mockErrorNotifier = MockErrorNotifier();
   when(mockErrorNotifier.hasBeenHandled).thenReturn(true);
-  when(mockErrorNotifier.getErrorIfNotHandled()).thenReturn(AppError(Error()));
+  when(mockErrorNotifier.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
 
   final mockAppTheme = MockAppTheme();
   when(mockAppTheme.setting).thenReturn(ThemeSetting.light);

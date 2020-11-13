@@ -6,13 +6,13 @@ import '../data/app_error.dart';
 final errorNotifierProvider = ChangeNotifierProvider((ref) => ErrorNotifier());
 
 class ErrorNotifier extends ChangeNotifier {
-  AppError _error;
+  ApiError _error;
 
   bool _hasBeenHandled = true;
 
   bool get hasBeenHandled => _hasBeenHandled;
 
-  void doOnError(AppError appError) {
+  void doOnError(ApiError appError) {
     _error = appError;
     _hasBeenHandled = false;
     notifyListeners();
@@ -24,7 +24,7 @@ class ErrorNotifier extends ChangeNotifier {
   }
 
   // Returns the content and prevents its use again.
-  AppError getErrorIfNotHandled() {
+  ApiError getErrorIfNotHandled() {
     if (_hasBeenHandled) {
       _error = null;
       return _error;
@@ -35,5 +35,5 @@ class ErrorNotifier extends ChangeNotifier {
   }
 
   // Returns the content, even if it's already been handled.
-  AppError peekContent() => _error;
+  ApiError peekContent() => _error;
 }
