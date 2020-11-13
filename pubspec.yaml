@@ -43,7 +43,7 @@ dependencies:
 
 
   # For Key-Value local storage
-  shared_preferences: ^0.5.12+2
+  shared_preferences: ^0.5.12+4
 
   # Convert between Enum and String
   enum_to_string: ^1.0.13
