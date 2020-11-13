@@ -45,7 +45,6 @@ class AppError {
     }
   }
 
-  Error error;
   String message;
   AppErrorType type;
 }
