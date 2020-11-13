@@ -20,7 +20,7 @@ format:
 
 .PHONY: format-analyze
 format-analyze:
-	flutter format --set-exit-if-changed --dry-run lib/
+	flutter format --dry-run lib/
 	flutter analyze
 
 .PHONY: build-runner
