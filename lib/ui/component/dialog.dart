@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../util/ext/context.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 
 void showSimpleDialog(BuildContext context,
     {String title, String text, VoidCallback onPressed}) {
@@ -14,15 +14,15 @@ void showSimpleDialog(BuildContext context,
           actions: <Widget>[
             FlatButton(
               child: Text(
-                context.localized.cancel,
-                style: TextStyle(color: context.theme.colorScheme.secondary),
+                AppLocalizations.of(context).cancel,
+                style: TextStyle(color: Get.theme.colorScheme.secondary),
               ),
-              onPressed: () => context.navigator.pop(),
+              onPressed: Get.back,
             ),
             FlatButton(
               child: Text(
-                context.localized.ok,
-                style: TextStyle(color: context.theme.colorScheme.secondary),
+                AppLocalizations.of(context).ok,
+                style: TextStyle(color: Get.theme.colorScheme.secondary),
               ),
               onPressed: onPressed,
             ),

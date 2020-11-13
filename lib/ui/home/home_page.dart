@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../util/ext/context.dart';
 import '../app_theme.dart';
 import '../component/article_item.dart';
 import '../component/loading.dart';
 import '../error_notifier.dart';
 import 'home_view_model.dart';
 
-class HomePage extends HookWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(context.localized.home),
+          title: Text(AppLocalizations.of(context).home),
           actions: [
             // action button
             IconButton(
               icon: const Icon(Icons.color_lens),
-              onPressed: () async =>
-                  context.read(appThemeNotifierProvider).toggle(),
+              onPressed: () async => context
+                  .read(appThemeNotifierProvider)
+                  .toggle()
+                  .catchError((error) {
+                Get.snackbar('Error Title', 'Failed: Change Theme');
+              }),
             ),
             IconButton(
               icon: const Icon(Icons.refresh),
@@ -34,11 +38,6 @@ class HomePage extends HookWidget {
           child: HookBuilder(
             builder: (context) {
               final error = useProvider(errorNotifierProvider);
-              if (!error.hasBeenHandled) {
-                Fluttertoast.showToast(
-                    msg: error.getErrorIfNotHandled().message);
-                return const Text('Error Screen');
-              }
               final homeViewModel = context.read(homeViewModelNotifierProvider);
               final news = useProvider(
                   homeViewModelNotifierProvider.select((value) => value.news));
@@ -46,6 +45,9 @@ class HomePage extends HookWidget {
                   // These Keys is very important, so should think carefully.
                   [news.toString(), error.peekContent()?.type]));
 
+              if (!error.hasBeenHandled) {
+                return Text('Error Screen: ${error.getErrorIfNotHandled()}');
+              }
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Loading();
               }
