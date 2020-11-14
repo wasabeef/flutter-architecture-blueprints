@@ -24,7 +24,8 @@ class HomePage extends StatelessWidget {
                   .read(appThemeNotifierProvider)
                   .toggle()
                   .catchError((error) {
-                Get.snackbar('Error Title', 'Failed: Change Theme');
+                showErrorSnackbar(
+                    L10n.of(context).error, L10n.of(context).failedSwitchTheme);
               }),
             ),
             IconButton(
