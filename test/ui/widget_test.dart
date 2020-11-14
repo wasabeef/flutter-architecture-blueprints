@@ -10,7 +10,7 @@ import 'package:app/ui/error_notifier.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -69,8 +69,8 @@ void main() {
           ],
           child: GetMaterialApp(
             home: page,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: L10n.localizationsDelegates,
+            supportedLocales: L10n.supportedLocales,
           ),
         ),
       );

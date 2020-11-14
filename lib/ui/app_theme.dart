@@ -44,6 +44,7 @@ ThemeData get lightTheme {
   return ThemeData.light().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
+    errorColor: Color(0xffff5544),
   );
 }
 
@@ -51,6 +52,7 @@ ThemeData get darkTheme {
   return ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
     textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
+    errorColor: Color(0xffff5544),
   );
 }
 
