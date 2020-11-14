@@ -45,7 +45,6 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 **iOS**
 - iOS 13+
-- compatibilityVersion "Xcode 9.3"
 
 **Android**
 - Android 5.1+
