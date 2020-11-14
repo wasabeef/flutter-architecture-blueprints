@@ -1,27 +1,17 @@
 {
   "@@locale": "ja",
   "ok": "OK",
-  "@ok": {
-    "description": "Ok button",
-    "type": "text",
-    "placeholders": {}
-  },
+  "@ok": {},
   "cancel": "CANCEL",
-  "@cancel": {
-    "description": "Cancel button",
-    "type": "text",
-    "placeholders": {}
-  },
+  "@cancel": {},
   "home": "ホーム",
-  "@home": {
-    "description": "Home page",
-    "type": "text",
-    "placeholders": {}
-  },
+  "@home": {},
   "detail": "詳細",
-  "@detail": {
-    "description": "Detail page",
-    "type": "text",
-    "placeholders": {}
-  }
+  "@detail": {},
+  "error": "Error",
+  "@error": {},
+  "failedSwitchTheme": "Failed to switch the theme.",
+  "@failedSwitchTheme": {},
+  "noResult": "データがありません!",
+  "@noResult": {}
 }

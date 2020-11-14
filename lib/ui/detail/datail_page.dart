@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../data/model/article.dart';
 import '../../gen/assets.gen.dart';
-import '../../util/ext/context.dart';
 
 class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _article = context.args<Article>();
+    final Article _article = Get.arguments;
 
     return Scaffold(
       body: GestureDetector(
@@ -21,7 +21,7 @@ class DetailPage extends StatelessWidget {
                   ),
           ),
         ),
-        onTap: () => context.navigator.pop(),
+        onTap: Get.back,
       ),
     );
   }

@@ -10,8 +10,9 @@ import 'package:app/ui/error_notifier.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
@@ -28,9 +29,10 @@ class MockHomeViewModel extends Mock implements HomeViewModel {}
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 void main() {
+  Get.testMode = true;
   final mockErrorNotifier = MockErrorNotifier();
   when(mockErrorNotifier.hasBeenHandled).thenReturn(true);
-  when(mockErrorNotifier.getErrorIfNotHandled()).thenReturn(AppError(Error()));
+  when(mockErrorNotifier.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
 
   final mockAppTheme = MockAppTheme();
   when(mockAppTheme.setting).thenReturn(ThemeSetting.light);
@@ -65,10 +67,10 @@ void main() {
             appThemeNotifierProvider.overrideWithValue(mockAppTheme),
             homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
           ],
-          child: MaterialApp(
+          child: GetMaterialApp(
             home: page,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: L10n.localizationsDelegates,
+            supportedLocales: L10n.supportedLocales,
           ),
         ),
       );
@@ -80,7 +82,7 @@ void main() {
   testWidgets('Article widget test', (tester) async {
     final article = ArticleItem(article: dummyArticle);
     await provideMockedNetworkImages(() async {
-      await tester.pumpWidget(MaterialApp(
+      await tester.pumpWidget(GetMaterialApp(
         home: article,
         routes: {
           Constants.pageDetail: (context) => DetailPage(),

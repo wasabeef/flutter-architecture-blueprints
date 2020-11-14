@@ -3,10 +3,16 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
-enum AppErrorType { network, server, cancel, unknown }
+enum ApiErrorType {
+  network,
+  badRequest,
+  unauthorized,
+  cancel,
+  unknown,
+}
 
-class AppError {
-  AppError(dynamic error) {
+class ApiError {
+  ApiError(dynamic error) {
     if (error is DioError) {
       debugPrint('AppError(DioError): ${error.message}');
       message = error.message;
@@ -15,36 +21,41 @@ class AppError {
           if (error.error is SocketException) {
             // SocketException: Failed host lookup: '***'
             // (OS Error: No address associated with hostname, errno = 7)
-            type = AppErrorType.network;
+            type = ApiErrorType.network;
           } else {
-            type = AppErrorType.unknown;
+            type = ApiErrorType.unknown;
           }
           break;
         case DioErrorType.CONNECT_TIMEOUT:
         case DioErrorType.RECEIVE_TIMEOUT:
         case DioErrorType.SEND_TIMEOUT:
-          type = AppErrorType.network;
+          type = ApiErrorType.network;
           break;
         case DioErrorType.RESPONSE:
-          type = AppErrorType.server;
+          // TODO(api): need define more http status;
+          if (error.response.statusCode == HttpStatus.badRequest) {
+            // 400
+            type = ApiErrorType.badRequest;
+          } else if (error.response.statusCode == HttpStatus.unauthorized) {
+            // 401
+            type = ApiErrorType.unauthorized;
+          } else {
+            type = ApiErrorType.unknown;
+          }
           break;
         case DioErrorType.CANCEL:
-          type = AppErrorType.cancel;
+          type = ApiErrorType.cancel;
           break;
         default:
-          type = AppErrorType.unknown;
+          type = ApiErrorType.unknown;
       }
-    } else if (error is Error) {
-      debugPrint('AppError(Error): ${error.stackTrace.toString()}');
-      type = AppErrorType.unknown;
-      message = 'AppError: ${error.stackTrace.toString()}';
     } else {
       debugPrint('AppError(UnKnown): $error');
-      type = AppErrorType.unknown;
+      type = ApiErrorType.unknown;
       message = 'AppError: $error';
     }
   }
 
   String message;
-  AppErrorType type;
+  ApiErrorType type;
 }

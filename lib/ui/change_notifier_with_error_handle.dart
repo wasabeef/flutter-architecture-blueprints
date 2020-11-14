@@ -11,7 +11,7 @@ class AppChangeNotifier extends ChangeNotifier {
 
   ErrorNotifier _errorNotifier;
 
-  void doOnError(AppError appError) {
+  void doOnError(ApiError appError) {
     _errorNotifier.doOnError(appError);
   }
 
