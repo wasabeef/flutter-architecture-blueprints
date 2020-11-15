@@ -1,5 +1,5 @@
-import 'package:app/data/model/theme_setting.dart';
 import 'package:app/ui/app_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:mockito/mockito.dart';
@@ -10,7 +10,7 @@ class MockAppTheme extends Mock implements AppTheme {}
 void main() {
   setUp(() async {
     SharedPreferences.setMockInitialValues(
-        <String, String>{'theme_setting': 'dark'});
+        <String, String>{'theme_mode': 'dark'});
   });
 
   test('AppTheme + ThemeRepository Test', () async {
@@ -22,12 +22,12 @@ void main() {
       ],
     );
     final appTheme = container.read(appThemeNotifierProvider);
-    await expectLater(appTheme.themeData, completion(darkTheme));
-    expect(appTheme.setting, ThemeSetting.dark);
+    await expectLater(appTheme.themeMode, completion(ThemeMode.dark));
+    expect(appTheme.setting, ThemeMode.dark);
 
     await appTheme.toggle();
 
-    await expectLater(appTheme.themeData, completion(lightTheme));
-    expect(appTheme.setting, ThemeSetting.light);
+    await expectLater(appTheme.themeMode, completion(ThemeMode.light));
+    expect(appTheme.setting, ThemeMode.light);
   });
 }

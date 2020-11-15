@@ -1,7 +1,7 @@
-import '../model/theme_setting.dart';
+import 'package:flutter/material.dart';
 
 abstract class ThemeRepository {
-  ThemeSetting loadThemeSetting();
+  ThemeMode loadThemeMode();
 
-  Future<void> saveThemeSetting(ThemeSetting theme);
+  Future<void> saveThemeMode(ThemeMode theme);
 }

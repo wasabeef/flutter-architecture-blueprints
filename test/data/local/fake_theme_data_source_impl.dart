@@ -1,14 +1,14 @@
 import 'package:app/data/local/theme_data_source.dart';
-import 'package:app/data/model/theme_setting.dart';
+import 'package:flutter/material.dart';
 
 class FakeThemeDataSourceImpl extends ThemeDataSource {
   @override
-  ThemeSetting loadThemeSetting() {
-    return ThemeSetting.dark;
+  ThemeMode loadThemeMode() {
+    return ThemeMode.dark;
   }
 
   @override
-  Future<void> saveThemeSetting(ThemeSetting theme) async {
+  Future<void> saveThemeMode(ThemeMode theme) async {
     // no-op
   }
 }

@@ -1,26 +1,24 @@
 import 'package:enum_to_string/enum_to_string.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../model/theme_setting.dart';
 import 'theme_data_source.dart';
 
 class ThemeDataSourceImpl extends ThemeDataSource {
   ThemeDataSourceImpl({@required SharedPreferences prefs}) : _prefs = prefs;
 
-  static const String keyThemeSetting = 'theme_setting';
+  static const String keyThemeMode = 'theme_mode';
 
   final SharedPreferences _prefs;
 
   @override
-  ThemeSetting loadThemeSetting() {
+  ThemeMode loadThemeMode() {
     return EnumToString.fromString(
-        ThemeSetting.values, _prefs.getString(keyThemeSetting));
+        ThemeMode.values, _prefs.getString(keyThemeMode));
   }
 
   @override
-  Future<void> saveThemeSetting(ThemeSetting theme) {
-    return _prefs.setString(
-        keyThemeSetting, EnumToString.convertToString(theme));
+  Future<void> saveThemeMode(ThemeMode theme) {
+    return _prefs.setString(keyThemeMode, EnumToString.convertToString(theme));
   }
 }
