@@ -1,8 +1,8 @@
-import 'package:app/data/provider/theme_repository_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
 import '../gen/fonts.gen.dart';
 import 'app_change_notifier.dart';
