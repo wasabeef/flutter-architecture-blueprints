@@ -37,7 +37,6 @@ void main() {
   when(mockHomeViewModel.hasArticle).thenReturn(true);
   when(mockHomeViewModel.hasBeenHandled).thenReturn(true);
   when(mockHomeViewModel.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
-  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
 
   final mockNavigatorObserver = MockNavigatorObserver();
 
@@ -46,6 +45,7 @@ void main() {
       ProviderScope(
         overrides: [
           appThemeNotifierProvider.overrideWithValue(mockAppTheme),
+          homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
         ],
         child: App(),
       ),
