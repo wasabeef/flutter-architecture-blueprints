@@ -17,7 +17,7 @@ class ApiError {
   String message;
   ApiErrorType type;
 
-  ApiError(dynamic error) {
+  ApiError(Exception error) {
     if (error is DioError) {
       debugPrint('AppError(DioError): ${error.message}');
       message = error.message;
