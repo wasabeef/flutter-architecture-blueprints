@@ -7,7 +7,6 @@ import '../../util/error_snackbar.dart';
 import '../app_theme.dart';
 import '../component/article_item.dart';
 import '../component/loading.dart';
-import '../error_notifier.dart';
 import 'home_view_model.dart';
 
 class HomePage extends StatelessWidget {
@@ -38,17 +37,19 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: HookBuilder(
             builder: (context) {
-              final error = useProvider(errorNotifierProvider);
               final homeViewModel = context.read(homeViewModelNotifierProvider);
               final news = useProvider(
                   homeViewModelNotifierProvider.select((value) => value.news));
-              final snapshot = useFuture(useMemoized(homeViewModel.fetchNews,
-                  // These Keys is very important, so should think carefully.
-                  [news.toString(), error.peekContent()?.type]));
+              final snapshot = useFuture(
+                  useMemoized(homeViewModel.fetchNews, [news.toString()]));
+              useProvider(homeViewModelNotifierProvider
+                  .select((value) => value.errorPeekContent()));
 
-              if (!error.hasBeenHandled) {
-                return Text('Error Screen: ${error.getErrorIfNotHandled()}');
+              if (!homeViewModel.hasBeenHandled) {
+                return Text(
+                    'Error Screen: ${homeViewModel.getErrorIfNotHandled()}');
               }
+
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Loading();
               }

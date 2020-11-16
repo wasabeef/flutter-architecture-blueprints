@@ -6,7 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'constants.dart';
 import 'ui/app_theme.dart';
-import 'ui/component/loading.dart';
 import 'ui/detail/datail_page.dart';
 import 'ui/home/home_page.dart';
 
@@ -19,19 +18,17 @@ class App extends HookWidget {
     final snapshot =
         useFuture(useMemoized(() => appTheme.themeData, [setting]));
 
-    return snapshot.hasData
-        ? GetMaterialApp(
-            title: 'Flutter Architecture Blueprints',
-            theme: snapshot.data ?? lightTheme,
-            darkTheme: darkTheme,
-            home: HomePage(),
-            localizationsDelegates: L10n.localizationsDelegates,
-            supportedLocales: L10n.supportedLocales,
-            routes: {
-              Constants.pageHome: (context) => HomePage(),
-              Constants.pageDetail: (context) => DetailPage(),
-            },
-          )
-        : const Center(child: Loading());
+    return GetMaterialApp(
+      title: 'Flutter Architecture Blueprints',
+      theme: snapshot.data ?? darkTheme,
+      darkTheme: darkTheme,
+      home: HomePage(),
+      localizationsDelegates: L10n.localizationsDelegates,
+      supportedLocales: L10n.supportedLocales,
+      routes: {
+        Constants.pageHome: (context) => HomePage(),
+        Constants.pageDetail: (context) => DetailPage(),
+      },
+    );
   }
 }
