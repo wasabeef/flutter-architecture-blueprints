@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/article.dart';
-import '../../gen/assets.gen.dart';
+import '../component/network_image.dart';
 
 class DetailPage extends StatelessWidget {
   @override
@@ -14,9 +14,7 @@ class DetailPage extends StatelessWidget {
         child: Center(
           child: Hero(
             tag: article.url,
-            child: article.urlToImage == null
-                ? Assets.images.articlePlaceholder.image()
-                : Image.network(article.urlToImage),
+            child: networkImage(article.urlToImage),
           ),
         ),
         onTap: Get.back,

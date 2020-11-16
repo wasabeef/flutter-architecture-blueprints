@@ -76,7 +76,7 @@ void main() {
   });
 
   testWidgets('Article widget test', (tester) async {
-    final article = ArticleItem(article: dummyArticle);
+    final article = ArticleItem(dummyArticle);
     await provideMockedNetworkImages(() async {
       await tester.pumpWidget(GetMaterialApp(
         home: article,

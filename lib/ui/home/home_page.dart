@@ -62,7 +62,7 @@ class HomePage extends StatelessWidget {
               return ListView.builder(
                 itemCount: news.articles.length,
                 itemBuilder: (_, index) {
-                  return ArticleItem(article: news.articles[index]);
+                  return ArticleItem(news.articles[index]);
                 },
               );
             },

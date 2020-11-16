@@ -1,22 +1,22 @@
+import 'package:app/ui/component/network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants.dart';
 import '../../data/model/article.dart';
-import '../../gen/assets.gen.dart';
 
 class ArticleItem extends StatelessWidget {
-  const ArticleItem({@required Article article}) : _article = article;
+  const ArticleItem(this._article);
 
   final Article _article;
 
-  static BorderRadius borderRadiusAll = BorderRadius.circular(8.0);
+  static BorderRadius borderRadiusAll = BorderRadius.circular(8);
   static BorderRadius borderRadiusTop = const BorderRadius.only(
-    topRight: Radius.circular(8.0),
-    topLeft: Radius.circular(8.0),
-    bottomLeft: Radius.circular(0.0),
-    bottomRight: Radius.circular(0.0),
+    topRight: Radius.circular(8),
+    topLeft: Radius.circular(8),
+    bottomLeft: Radius.circular(0),
+    bottomRight: Radius.circular(0),
   );
 
   @override
@@ -34,17 +34,11 @@ class ArticleItem extends StatelessWidget {
                   height: 200,
                   child: ClipRRect(
                     borderRadius: borderRadiusTop,
-                    child: _article.urlToImage == null
-                        ? Assets.images.articlePlaceholder
-                            .image(fit: BoxFit.cover)
-                        : Image.network(
-                            _article.urlToImage,
-                            fit: BoxFit.cover,
-                          ),
+                    child: networkImage(_article.urlToImage, fit: BoxFit.cover),
                   )),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: Text(
                 _article.title ?? 'No Title',
                 style: const TextStyle(fontSize: 12),
