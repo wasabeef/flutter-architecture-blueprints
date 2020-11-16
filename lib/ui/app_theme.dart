@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
+import '../gen/fonts.gen.dart';
 import 'app_change_notifier.dart';
 
 // Color converter: https://www.w3schools.com/colors/colors_converter.asp
@@ -39,19 +40,33 @@ import 'app_change_notifier.dart';
 final appThemeNotifierProvider =
     ChangeNotifierProvider<AppTheme>((ref) => AppTheme(ref));
 
+const headline1 = TextStyle(
+  fontSize: 24,
+  fontFamily: FontFamily.rotunda,
+  fontWeight: FontWeight.bold,
+);
+
+const errorColor = Color(0xffff5544);
+
 ThemeData get lightTheme {
   return ThemeData.light().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
-    errorColor: Color(0xffff5544),
+    textTheme:
+        GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme).copyWith(
+      headline1: headline1,
+    ),
+    errorColor: errorColor,
   );
 }
 
 ThemeData get darkTheme {
   return ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
-    errorColor: Color(0xffff5544),
+    textTheme:
+        GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme).copyWith(
+      headline1: headline1,
+    ),
+    errorColor: errorColor,
   );
 }
 
