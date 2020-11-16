@@ -1,19 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../data/app_error.dart';
 import '../../data/model/news.dart';
 import '../../data/provider/news_repository_provider.dart';
 import '../../data/repository/news_repository.dart';
-import '../change_notifier_with_error_handle.dart';
+import '../app_change_notifier.dart';
 
 final homeViewModelNotifierProvider = ChangeNotifierProvider(
-    (ref) => HomeViewModel(ref, repository: ref.read(newsRepositoryProvider)));
+    (ref) => HomeViewModel(ref.read(newsRepositoryProvider)));
 
 class HomeViewModel extends AppChangeNotifier {
-  HomeViewModel(ProviderReference ref, {@required NewsRepository repository})
-      : _repository = repository,
-        super(ref);
+  HomeViewModel(this._repository);
 
   final NewsRepository _repository;
 
@@ -27,11 +23,8 @@ class HomeViewModel extends AppChangeNotifier {
   Future<void> fetchNews() async {
     return _repository
         .getNews()
-        .then((value) {
-          doOnSuccess();
-          _news = value;
-        })
-        .catchError((dynamic error) => doOnError(ApiError(error)))
+        .then((value) => _news = value)
+        .catchError((e) => error = e)
         .whenComplete(notifyListeners);
   }
 }

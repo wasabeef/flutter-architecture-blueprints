@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
-import 'change_notifier_with_error_handle.dart';
+import 'app_change_notifier.dart';
 
 // Color converter: https://www.w3schools.com/colors/colors_converter.asp
 // Transparency list
@@ -56,9 +56,7 @@ ThemeData get darkTheme {
 }
 
 class AppTheme extends AppChangeNotifier {
-  AppTheme(ProviderReference ref)
-      : _ref = ref,
-        super(ref);
+  AppTheme(this._ref);
 
   static const _defaultThemeMode = ThemeMode.light;
 

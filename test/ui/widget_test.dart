@@ -5,7 +5,6 @@ import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/loading.dart';
 import 'package:app/ui/detail/datail_page.dart';
-import 'package:app/ui/error_notifier.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter/material.dart';
@@ -21,17 +20,12 @@ import '../data/dummy/dummy_news.dart';
 
 class MockAppTheme extends Mock implements AppTheme {}
 
-class MockErrorNotifier extends Mock implements ErrorNotifier {}
-
 class MockHomeViewModel extends Mock implements HomeViewModel {}
 
 class MockNavigatorObserver extends Mock implements NavigatorObserver {}
 
 void main() {
   Get.testMode = true;
-  final mockErrorNotifier = MockErrorNotifier();
-  when(mockErrorNotifier.hasBeenHandled).thenReturn(true);
-  when(mockErrorNotifier.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
 
   final mockAppTheme = MockAppTheme();
   when(mockAppTheme.setting).thenReturn(ThemeMode.light);
@@ -41,7 +35,8 @@ void main() {
   when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
   when(mockHomeViewModel.news).thenReturn(dummyNews);
   when(mockHomeViewModel.hasArticle).thenReturn(true);
-  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
+  when(mockHomeViewModel.hasBeenHandled).thenReturn(true);
+  when(mockHomeViewModel.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
 
   final mockNavigatorObserver = MockNavigatorObserver();
 
@@ -50,6 +45,7 @@ void main() {
       ProviderScope(
         overrides: [
           appThemeNotifierProvider.overrideWithValue(mockAppTheme),
+          homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
         ],
         child: App(),
       ),
@@ -62,7 +58,6 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            errorNotifierProvider.overrideWithValue(mockErrorNotifier),
             appThemeNotifierProvider.overrideWithValue(mockAppTheme),
             homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
           ],

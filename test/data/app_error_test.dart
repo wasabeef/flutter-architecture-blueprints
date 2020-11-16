@@ -10,13 +10,13 @@ void main() {
         ApiError(
           DioError(type: DioErrorType.CONNECT_TIMEOUT),
         ).type,
-        equals(ApiErrorType.network));
+        equals(ApiErrorType.timeout));
 
     expect(
         ApiError(
           DioError(type: DioErrorType.RECEIVE_TIMEOUT),
         ).type,
-        equals(ApiErrorType.network));
+        equals(ApiErrorType.timeout));
 
     expect(
         ApiError(
@@ -43,7 +43,7 @@ void main() {
           DioError(
               type: DioErrorType.RESPONSE, response: Response(statusCode: 500)),
         ).type,
-        equals(ApiErrorType.unknown));
+        equals(ApiErrorType.server));
 
     expect(
         ApiError(
