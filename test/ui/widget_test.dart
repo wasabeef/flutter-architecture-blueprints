@@ -29,14 +29,16 @@ void main() {
 
   final mockAppTheme = MockAppTheme();
   when(mockAppTheme.setting).thenReturn(ThemeMode.light);
-  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
+  when(mockAppTheme.themeMode())
+      .thenAnswer((_) => Future.value(ThemeMode.light));
 
   final mockHomeViewModel = MockHomeViewModel();
   when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
   when(mockHomeViewModel.news).thenReturn(dummyNews);
   when(mockHomeViewModel.hasArticle).thenReturn(true);
   when(mockHomeViewModel.hasBeenHandled).thenReturn(true);
-  when(mockHomeViewModel.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
+  when(mockHomeViewModel.getErrorIfNotHandled())
+      .thenReturn(ApiError(Exception()));
 
   final mockNavigatorObserver = MockNavigatorObserver();
 

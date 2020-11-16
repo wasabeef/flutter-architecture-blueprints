@@ -7,18 +7,16 @@ import '../../gen/assets.gen.dart';
 class DetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Article _article = Get.arguments;
+    final Article article = Get.arguments;
 
     return Scaffold(
       body: GestureDetector(
         child: Center(
           child: Hero(
-            tag: _article.url,
-            child: _article.urlToImage == null
+            tag: article.url,
+            child: article.urlToImage == null
                 ? Assets.images.articlePlaceholder.image()
-                : Image.network(
-                    _article.urlToImage,
-                  ),
+                : Image.network(article.urlToImage),
           ),
         ),
         onTap: Get.back,

@@ -65,7 +65,7 @@ void main() {
         ).type,
         equals(ApiErrorType.unknown));
 
-    expect(ApiError(ArgumentError()).type, equals(ApiErrorType.unknown));
+    expect(ApiError(FileSystemException()).type, equals(ApiErrorType.unknown));
 
     expect(ApiError(null).type, equals(ApiErrorType.unknown));
   });

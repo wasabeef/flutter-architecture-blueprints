@@ -9,7 +9,6 @@ class AppChangeNotifier extends ChangeNotifier {
   set error(Exception value) {
     _error = ApiError(value);
     _hasBeenHandled = false;
-    debugPrint(_error.type.toString());
   }
 
   bool _hasBeenHandled = true;

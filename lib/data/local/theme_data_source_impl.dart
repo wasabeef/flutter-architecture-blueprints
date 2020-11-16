@@ -1,24 +1,26 @@
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import 'app_shared_preferences.dart';
 import 'theme_data_source.dart';
 
 class ThemeDataSourceImpl extends ThemeDataSource {
-  ThemeDataSourceImpl({@required SharedPreferences prefs}) : _prefs = prefs;
+  ThemeDataSourceImpl(this._prefs);
 
   static const String keyThemeMode = 'theme_mode';
 
-  final SharedPreferences _prefs;
+  final AppSharedPreferences _prefs;
 
   @override
-  ThemeMode loadThemeMode() {
+  Future<ThemeMode> loadThemeMode() async {
+    final prefs = await _prefs.getInstance();
     return EnumToString.fromString(
-        ThemeMode.values, _prefs.getString(keyThemeMode));
+        ThemeMode.values, prefs.getString(keyThemeMode));
   }
 
   @override
-  Future<void> saveThemeMode(ThemeMode theme) {
-    return _prefs.setString(keyThemeMode, EnumToString.convertToString(theme));
+  Future<void> saveThemeMode(ThemeMode theme) async {
+    final prefs = await _prefs.getInstance();
+    return prefs.setString(keyThemeMode, EnumToString.convertToString(theme));
   }
 }

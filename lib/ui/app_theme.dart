@@ -1,8 +1,8 @@
+import 'package:app/data/provider/theme_repository_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
 import '../gen/fonts.gen.dart';
 import 'app_change_notifier.dart';
@@ -37,8 +37,8 @@ import 'app_change_notifier.dart';
 // 5%   0D
 // 0%   00
 
-final appThemeNotifierProvider =
-    ChangeNotifierProvider<AppTheme>((ref) => AppTheme(ref));
+final appThemeNotifierProvider = ChangeNotifierProvider<AppTheme>(
+    (ref) => AppTheme(ref.read(themeRepositoryProvider)));
 
 const headline1 = TextStyle(
   fontSize: 24,
@@ -71,34 +71,29 @@ ThemeData get darkTheme {
 }
 
 class AppTheme extends AppChangeNotifier {
-  AppTheme(this._ref);
+  AppTheme(this._repository);
 
   static const _defaultThemeMode = ThemeMode.light;
 
-  final ProviderReference _ref;
-
-  ThemeRepository _repository;
+  final ThemeRepository _repository;
 
   ThemeMode _setting;
 
   ThemeMode get setting => _setting;
 
-  Future<ThemeMode> get themeMode async {
+  Future<ThemeMode> themeMode() async {
     if (setting == null) {
-      _repository ??= await _ref.read(themeRepositoryProvider.future);
-      _setting = _repository.loadThemeMode() ?? _defaultThemeMode;
+      _setting = await _repository.loadThemeMode() ?? _defaultThemeMode;
     }
     return setting;
   }
 
   Future<void> _loadLightMode() async {
-    _repository ??= await _ref.read(themeRepositoryProvider.future);
     _setting = ThemeMode.light;
     await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
   }
 
   Future<void> _loadDarkMode() async {
-    _repository ??= await _ref.read(themeRepositoryProvider.future);
     _setting = ThemeMode.dark;
     await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
   }
