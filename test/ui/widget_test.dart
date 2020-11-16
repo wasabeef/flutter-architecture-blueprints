@@ -1,7 +1,6 @@
 import 'package:app/app.dart';
 import 'package:app/constants.dart';
 import 'package:app/data/app_error.dart';
-import 'package:app/data/model/theme_setting.dart';
 import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/loading.dart';
@@ -29,8 +28,8 @@ void main() {
   Get.testMode = true;
 
   final mockAppTheme = MockAppTheme();
-  when(mockAppTheme.setting).thenReturn(ThemeSetting.light);
-  when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
+  when(mockAppTheme.setting).thenReturn(ThemeMode.light);
+  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
 
   final mockHomeViewModel = MockHomeViewModel();
   when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
@@ -38,7 +37,7 @@ void main() {
   when(mockHomeViewModel.hasArticle).thenReturn(true);
   when(mockHomeViewModel.hasBeenHandled).thenReturn(true);
   when(mockHomeViewModel.getErrorIfNotHandled()).thenReturn(ApiError(Error()));
-  when(mockAppTheme.themeData).thenAnswer((_) => Future.value(lightTheme));
+  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
 
   final mockNavigatorObserver = MockNavigatorObserver();
 

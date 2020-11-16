@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../data/model/theme_setting.dart';
 import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
 import 'app_change_notifier.dart';
@@ -59,39 +58,37 @@ ThemeData get darkTheme {
 class AppTheme extends AppChangeNotifier {
   AppTheme(this._ref);
 
-  static const _defaultThemeSetting = ThemeSetting.light;
+  static const _defaultThemeMode = ThemeMode.light;
 
   final ProviderReference _ref;
 
   ThemeRepository _repository;
 
-  ThemeSetting _setting;
+  ThemeMode _setting;
 
-  ThemeSetting get setting => _setting;
+  ThemeMode get setting => _setting;
 
-  Future<ThemeData> get themeData async {
+  Future<ThemeMode> get themeMode async {
     if (setting == null) {
       _repository ??= await _ref.read(themeRepositoryProvider.future);
-      _setting = _repository.loadThemeSetting() ?? _defaultThemeSetting;
+      _setting = _repository.loadThemeMode() ?? _defaultThemeMode;
     }
-    return setting == ThemeSetting.light ? lightTheme : darkTheme;
+    return setting;
   }
 
-  Future<void> _loadLightTheme() async {
+  Future<void> _loadLightMode() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _setting = ThemeSetting.light;
-    await _repository.saveThemeSetting(setting).whenComplete(notifyListeners);
+    _setting = ThemeMode.light;
+    await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
   }
 
-  Future<void> _loadDarkTheme() async {
+  Future<void> _loadDarkMode() async {
     _repository ??= await _ref.read(themeRepositoryProvider.future);
-    _setting = ThemeSetting.dark;
-    await _repository.saveThemeSetting(setting).whenComplete(notifyListeners);
+    _setting = ThemeMode.dark;
+    await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
   }
 
   Future<void> toggle() async {
-    setting == ThemeSetting.light
-        ? await _loadDarkTheme()
-        : await _loadLightTheme();
+    setting == ThemeMode.light ? await _loadDarkMode() : await _loadLightMode();
   }
 }
