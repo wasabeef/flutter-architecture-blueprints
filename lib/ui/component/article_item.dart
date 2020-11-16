@@ -1,10 +1,10 @@
-import 'package:app/ui/component/network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants.dart';
 import '../../data/model/article.dart';
+import 'network_image.dart';
 
 class ArticleItem extends StatelessWidget {
   const ArticleItem(this._article);
