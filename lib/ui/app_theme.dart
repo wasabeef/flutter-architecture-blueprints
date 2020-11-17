@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../data/provider/theme_repository_provider.dart';
 import '../data/repository/theme_repository.dart';
+import '../gen/fonts.gen.dart';
 import 'app_change_notifier.dart';
 
 // Color converter: https://www.w3schools.com/colors/colors_converter.asp
@@ -36,54 +37,63 @@ import 'app_change_notifier.dart';
 // 5%   0D
 // 0%   00
 
-final appThemeNotifierProvider =
-    ChangeNotifierProvider<AppTheme>((ref) => AppTheme(ref));
+final appThemeNotifierProvider = ChangeNotifierProvider<AppTheme>(
+    (ref) => AppTheme(ref.read(themeRepositoryProvider)));
+
+const headline1 = TextStyle(
+  fontSize: 24,
+  fontFamily: FontFamily.rotunda,
+  fontWeight: FontWeight.bold,
+);
+
+const errorColor = Color(0xffff5544);
 
 ThemeData get lightTheme {
   return ThemeData.light().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
-    errorColor: Color(0xffff5544),
+    textTheme:
+        GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme).copyWith(
+      headline1: headline1,
+    ),
+    errorColor: errorColor,
   );
 }
 
 ThemeData get darkTheme {
   return ThemeData.dark().copyWith(
     visualDensity: VisualDensity.adaptivePlatformDensity,
-    textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
-    errorColor: Color(0xffff5544),
+    textTheme:
+        GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme).copyWith(
+      headline1: headline1,
+    ),
+    errorColor: errorColor,
   );
 }
 
 class AppTheme extends AppChangeNotifier {
-  AppTheme(this._ref);
+  AppTheme(this._repository);
 
   static const _defaultThemeMode = ThemeMode.light;
 
-  final ProviderReference _ref;
-
-  ThemeRepository _repository;
+  final ThemeRepository _repository;
 
   ThemeMode _setting;
 
   ThemeMode get setting => _setting;
 
-  Future<ThemeMode> get themeMode async {
+  Future<ThemeMode> themeMode() async {
     if (setting == null) {
-      _repository ??= await _ref.read(themeRepositoryProvider.future);
-      _setting = _repository.loadThemeMode() ?? _defaultThemeMode;
+      _setting = await _repository.loadThemeMode() ?? _defaultThemeMode;
     }
     return setting;
   }
 
   Future<void> _loadLightMode() async {
-    _repository ??= await _ref.read(themeRepositoryProvider.future);
     _setting = ThemeMode.light;
     await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
   }
 
   Future<void> _loadDarkMode() async {
-    _repository ??= await _ref.read(themeRepositoryProvider.future);
     _setting = ThemeMode.dark;
     await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
   }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class FakeThemeDataSourceImpl extends ThemeDataSource {
   @override
-  ThemeMode loadThemeMode() {
+  Future<ThemeMode> loadThemeMode() async {
     return ThemeMode.dark;
   }
 

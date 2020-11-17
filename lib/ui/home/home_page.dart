@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../util/error_snackbar.dart';
@@ -14,7 +15,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(L10n.of(context).home),
+          title: Text(L10n.of(context).home, style: Get.textTheme.headline1),
           actions: [
             // action button
             IconButton(
@@ -61,7 +62,7 @@ class HomePage extends StatelessWidget {
               return ListView.builder(
                 itemCount: news.articles.length,
                 itemBuilder: (_, index) {
-                  return ArticleItem(article: news.articles[index]);
+                  return ArticleItem(news.articles[index]);
                 },
               );
             },

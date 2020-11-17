@@ -1,4 +1,5 @@
 import 'package:enum_to_string/enum_to_string.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 enum Flavor { development, production }
@@ -48,6 +49,8 @@ class Constants {
   // Routing name
   static const String pageHome = '/home';
   static const String pageDetail = '/detail';
+
+  static const bool isDebugMode = kDebugMode;
 
   static Constants _instance;
 

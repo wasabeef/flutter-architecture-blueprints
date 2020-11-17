@@ -10,7 +10,7 @@ class ThemeRepositoryImpl implements ThemeRepository {
   final ThemeDataSource _dataSource;
 
   @override
-  ThemeMode loadThemeMode() {
+  Future<ThemeMode> loadThemeMode() {
     return _dataSource.loadThemeMode();
   }
 
