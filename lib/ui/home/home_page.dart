@@ -44,9 +44,9 @@ class HomePage extends StatelessWidget {
               final snapshot = useFuture(
                   useMemoized(homeViewModel.fetchNews, [news.toString()]));
               useProvider(homeViewModelNotifierProvider
-                  .select((value) => value.errorPeekContent()));
+                  .select((value) => value.peekErrorContent()));
 
-              if (!homeViewModel.hasBeenHandled) {
+              if (!homeViewModel.errorHasBeenHandled) {
                 return Text(
                     'Error Screen: ${homeViewModel.getErrorIfNotHandled()}');
               }

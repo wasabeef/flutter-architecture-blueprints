@@ -36,7 +36,7 @@ void main() {
   when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
   when(mockHomeViewModel.news).thenReturn(dummyNews);
   when(mockHomeViewModel.hasArticle).thenReturn(true);
-  when(mockHomeViewModel.hasBeenHandled).thenReturn(true);
+  when(mockHomeViewModel.errorHasBeenHandled).thenReturn(true);
   when(mockHomeViewModel.getErrorIfNotHandled())
       .thenReturn(ApiError(Exception()));
 
