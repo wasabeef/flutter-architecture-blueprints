@@ -52,7 +52,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 - targetSdkVersion 30
 
 ## App architecture
-- Base on [MVVM](https://ja.wikipedia.org/wiki/Model_View_ViewModel) + [Repository](https://docs.microsoft.com/ja-jp/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
+- Base on [MVVM](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93viewmodel) + [Repository](https://docs.microsoft.com/ja-jp/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
   - [Flutter Architecture Blueprints](https://github.com/wasabeef/flutter-architecture-blueprints)
 
 ## Code Style
