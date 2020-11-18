@@ -1,6 +1,6 @@
 import 'package:app/app.dart';
 import 'package:app/constants.dart';
-import 'package:app/data/app_error.dart';
+import 'package:app/data/model/result.dart';
 import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/loading.dart';
@@ -34,11 +34,7 @@ void main() {
 
   final mockHomeViewModel = MockHomeViewModel();
   when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
-  when(mockHomeViewModel.news).thenReturn(dummyNews);
-  when(mockHomeViewModel.hasArticle).thenReturn(true);
-  when(mockHomeViewModel.errorHasBeenHandled).thenReturn(true);
-  when(mockHomeViewModel.getErrorIfNotHandled())
-      .thenReturn(ApiError(Exception()));
+  when(mockHomeViewModel.news).thenReturn(Result.success(data: dummyNews));
 
   final mockNavigatorObserver = MockNavigatorObserver();
 

@@ -43,28 +43,24 @@ class HomePage extends StatelessWidget {
                   homeViewModelNotifierProvider.select((value) => value.news));
               final snapshot = useFuture(
                   useMemoized(homeViewModel.fetchNews, [news.toString()]));
-              useProvider(homeViewModelNotifierProvider
-                  .select((value) => value.peekErrorContent()));
-
-              if (!homeViewModel.errorHasBeenHandled) {
-                return Text(
-                    'Error Screen: ${homeViewModel.getErrorIfNotHandled()}');
-              }
 
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const Loading();
               }
 
-              if (!homeViewModel.hasArticle) {
-                return const Text('Empty screen');
-              }
-
-              return ListView.builder(
-                itemCount: news.articles.length,
-                itemBuilder: (_, index) {
-                  return ArticleItem(news.articles[index]);
-                },
-              );
+              return news.when(success: (data) {
+                if (data.articles.isEmpty) {
+                  return const Text('Empty screen');
+                }
+                return ListView.builder(
+                  itemCount: data.articles.length,
+                  itemBuilder: (_, index) {
+                    return ArticleItem(data.articles[index]);
+                  },
+                );
+              }, failure: (e) {
+                return Text('Error Screen: $e');
+              });
             },
           ),
         ));

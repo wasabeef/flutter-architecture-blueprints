@@ -1,8 +1,9 @@
 import 'package:app/constants.dart';
-import 'package:app/data/remote/app_dio.dart';
+import 'package:app/data/model/result.dart';
 import 'package:app/data/provider/dio_provider.dart';
 import 'package:app/data/provider/news_data_source_provider.dart';
 import 'package:app/data/provider/news_repository_provider.dart';
+import 'package:app/data/remote/app_dio.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -20,7 +21,8 @@ void main() {
       ],
     );
     final viewModel = container.read(homeViewModelNotifierProvider);
-    await expectLater(viewModel.fetchNews(), completion(isNotNull));
+    await expectLater(
+        viewModel.fetchNews(), completion(Result.success(data: dummyNews)));
   });
 
   test('NewsRepository Test', () async {
@@ -30,7 +32,8 @@ void main() {
       ],
     );
     final newsRepository = container.read(newsRepositoryProvider);
-    await expectLater(newsRepository.getNews(), completion(dummyNews));
+    await expectLater(
+        newsRepository.getNews(), completion(Result.success(data: dummyNews)));
   });
 
   test('NewsDataSource Test', () async {
