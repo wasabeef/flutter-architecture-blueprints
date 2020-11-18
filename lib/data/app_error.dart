@@ -19,7 +19,8 @@ class AppError {
 
   AppError(Exception error) {
     if (error is DioError) {
-      debugPrint('AppError(DioError): ${error.message}');
+      debugPrint(
+          'AppError(DioError): type is ${error.type}, message is ${error.message}');
       message = error.message;
       switch (error.type) {
         case DioErrorType.DEFAULT:
