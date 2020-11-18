@@ -19,8 +19,9 @@ class HomeViewModel extends ChangeNotifier {
   Result<News> get news => _news;
 
   Future<void> fetchNews() async {
-    return _repository.getNews().then((value) {
-      return _news = value;
-    }).whenComplete(notifyListeners);
+    return _repository
+        .getNews()
+        .then((value) => _news = value)
+        .whenComplete(notifyListeners);
   }
 }
