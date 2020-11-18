@@ -7,66 +7,66 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   test('AppError Test', () async {
     expect(
-        ApiError(
+        AppError(
           DioError(type: DioErrorType.CONNECT_TIMEOUT),
         ).type,
-        equals(ApiErrorType.timeout));
+        equals(AppErrorType.timeout));
 
     expect(
-        ApiError(
+        AppError(
           DioError(type: DioErrorType.RECEIVE_TIMEOUT),
         ).type,
-        equals(ApiErrorType.timeout));
+        equals(AppErrorType.timeout));
 
     expect(
-        ApiError(
+        AppError(
           DioError(type: DioErrorType.SEND_TIMEOUT),
         ).type,
-        equals(ApiErrorType.network));
+        equals(AppErrorType.network));
 
     expect(
-        ApiError(
+        AppError(
           DioError(
               type: DioErrorType.RESPONSE, response: Response(statusCode: 400)),
         ).type,
-        equals(ApiErrorType.badRequest));
+        equals(AppErrorType.badRequest));
 
     expect(
-        ApiError(
+        AppError(
           DioError(
               type: DioErrorType.RESPONSE, response: Response(statusCode: 401)),
         ).type,
-        equals(ApiErrorType.unauthorized));
+        equals(AppErrorType.unauthorized));
 
     expect(
-        ApiError(
+        AppError(
           DioError(
               type: DioErrorType.RESPONSE, response: Response(statusCode: 500)),
         ).type,
-        equals(ApiErrorType.server));
+        equals(AppErrorType.server));
 
     expect(
-        ApiError(
+        AppError(
           DioError(type: DioErrorType.CANCEL),
         ).type,
-        equals(ApiErrorType.cancel));
+        equals(AppErrorType.cancel));
 
     expect(
-        ApiError(
+        AppError(
           DioError(
               error: const SocketException('Failed host lookup: wasabeef.jp'),
               type: DioErrorType.DEFAULT),
         ).type,
-        equals(ApiErrorType.network));
+        equals(AppErrorType.network));
 
     expect(
-        ApiError(
+        AppError(
           DioError(type: DioErrorType.DEFAULT),
         ).type,
-        equals(ApiErrorType.unknown));
+        equals(AppErrorType.unknown));
 
-    expect(ApiError(FileSystemException()).type, equals(ApiErrorType.unknown));
+    expect(AppError(FileSystemException()).type, equals(AppErrorType.unknown));
 
-    expect(ApiError(null).type, equals(ApiErrorType.unknown));
+    expect(AppError(null).type, equals(AppErrorType.unknown));
   });
 }
