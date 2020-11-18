@@ -4,6 +4,7 @@ setup:
 	flutter upgrade
 	flutter pub get
 	npm install
+	gem update cocoapods
 	cd ios/ && pod install && cd ..
 
 .PHONY: dependencies
