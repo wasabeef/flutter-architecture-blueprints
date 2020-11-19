@@ -40,7 +40,6 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Environment
 
-
 <img height="520px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/MVVM.jpg" align="right" />
 
 **iOS**
@@ -63,13 +62,17 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 - Use [FlutterGen](https://github.com/FlutterGen/flutter_gen/)
 
-
 ## Models
 
 **If added some models for api results**
 
 - Use [Freezed](https://pub.dev/packages/freezed)
 
+## Localizations
+
+**If added some localizations (i.g. edited [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/lib/l10n))**
+
+- Use [Official Flutter localization package](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc)
 
 ## Git Commit message style
 
