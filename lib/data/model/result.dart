@@ -28,7 +28,7 @@ abstract class Result<T> with _$Result<T> {
   }
 }
 
-extension ResultExt<T> on Result<T> {
+extension ResultExt on Result {
   bool get isSuccess => when(success: (data) => true, failure: (e) => false);
 
   bool get isError => !isSuccess;
