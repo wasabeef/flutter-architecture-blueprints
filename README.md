@@ -64,6 +64,14 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 - Use [FlutterGen](https://github.com/FlutterGen/flutter_gen/)
 
+
+## Models
+
+**If added some models for api results**
+
+- Use [Freezed](https://pub.dev/packages/freezed)
+
+
 ## Git Commit message style
 
 - [Semantic Commit Messages](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716)
