@@ -11,7 +11,7 @@ abstract class Result<T> with _$Result<T> {
 
   const factory Result.failure({@required AppError error}) = Failure<T>;
 
-  factory Result.guard(T Function() body) {
+  static Result<T> guard<T>(T Function() body) {
     try {
       return Result.success(data: body());
     } on Exception catch (e) {
