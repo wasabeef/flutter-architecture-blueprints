@@ -100,8 +100,10 @@ class _$SuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
-  const _$Success({@required this.data}) : assert(data != null);
+class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
+  const _$Success({@required this.data})
+      : assert(data != null),
+        super._();
 
   @override
   final T data;
@@ -186,7 +188,8 @@ class _$Success<T> with DiagnosticableTreeMixin implements Success<T> {
   }
 }
 
-abstract class Success<T> implements Result<T> {
+abstract class Success<T> extends Result<T> {
+  const Success._() : super._();
   const factory Success({@required T data}) = _$Success<T>;
 
   T get data;
@@ -220,8 +223,10 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 }
 
 /// @nodoc
-class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
-  const _$Failure({@required this.error}) : assert(error != null);
+class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
+  const _$Failure({@required this.error})
+      : assert(error != null),
+        super._();
 
   @override
   final AppError error;
@@ -306,7 +311,8 @@ class _$Failure<T> with DiagnosticableTreeMixin implements Failure<T> {
   }
 }
 
-abstract class Failure<T> implements Result<T> {
+abstract class Failure<T> extends Result<T> {
+  const Failure._() : super._();
   const factory Failure({@required AppError error}) = _$Failure<T>;
 
   AppError get error;
