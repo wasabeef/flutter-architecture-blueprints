@@ -7,7 +7,7 @@ part 'result.freezed.dart';
 
 @freezed
 abstract class Result<T> with _$Result<T> {
-  Result._();
+  const Result._();
 
   const factory Result.success({@required T data}) = Success<T>;
 
