@@ -51,11 +51,14 @@ class HomePage extends StatelessWidget {
                 if (data.articles.isEmpty) {
                   return const Text('Empty screen');
                 }
-                return ListView.builder(
-                  itemCount: data.articles.length,
-                  itemBuilder: (_, index) {
-                    return ArticleItem(data.articles[index]);
-                  },
+                return RefreshIndicator(
+                  onRefresh: () async => homeViewModel.fetchNews(),
+                  child: ListView.builder(
+                    itemCount: data.articles.length,
+                    itemBuilder: (_, index) {
+                      return ArticleItem(data.articles[index]);
+                    },
+                  ),
                 );
               }, failure: (e) {
                 return Text('Error Screen: $e');
