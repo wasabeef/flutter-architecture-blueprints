@@ -7,7 +7,7 @@ FLUTTER_TARGET=$PROJECT_DIR/../lib/main.dart
 PRODUCT_BUNDLE_IDENTIFIER=com.example.app
 DISPLAY_NAME=FAB
 
-// FIREBASE_DIR=$PROJECT_DIR/$PROJECT_NAME/Resources/Firebase/Production
+FIREBASE_DIR=$PROJECT_DIR/$PROJECT_NAME/Resources/Firebase/Production
 
 // GOOGLE prefix key configs were copied from GoogleService-Info.plist
-// GOOGLE_REVERSED_CLIENT_ID = ***************
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.208498828836-iqqq0sttuv6d6lb1brtih338so84a2mo

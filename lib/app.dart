@@ -8,6 +8,7 @@ import 'constants.dart';
 import 'ui/app_theme.dart';
 import 'ui/detail/datail_page.dart';
 import 'ui/home/home_page.dart';
+import 'ui/signIn/sign_in_page.dart';
 
 class App extends HookWidget {
   @override
@@ -26,6 +27,7 @@ class App extends HookWidget {
       supportedLocales: L10n.supportedLocales,
       routes: {
         Constants.pageHome: (context) => HomePage(),
+        Constants.pageSignIn: (context) => SignInPage(),
         Constants.pageDetail: (context) => DetailPage(),
       },
     );

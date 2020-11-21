@@ -4,11 +4,14 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../constants.dart';
 import '../../util/error_snackbar.dart';
 import '../../util/ext/async_snapshot.dart';
 import '../app_theme.dart';
 import '../component/article_item.dart';
+import '../component/image.dart';
 import '../component/loading.dart';
+import '../user_view_model.dart';
 import 'home_view_model.dart';
 
 class HomePage extends StatelessWidget {
@@ -30,10 +33,16 @@ class HomePage extends StatelessWidget {
               }),
             ),
             IconButton(
-              icon: const Icon(Icons.refresh),
-              onPressed: () =>
-                  context.read(homeViewModelNotifierProvider).fetchNews(),
-            ),
+                icon: HookBuilder(builder: (context) {
+                  final user = useProvider(userViewModelNotifierProvider
+                      .select((value) => value.user));
+                  return CircleAvatar(
+                    backgroundImage: loadProfileImage(user?.photoURL),
+                    backgroundColor: Colors.transparent,
+                    radius: 12,
+                  );
+                }),
+                onPressed: () => Get.toNamed(Constants.pageSignIn))
           ],
         ),
         body: Center(

@@ -6,6 +6,12 @@
   "@cancel": {},
   "home": "ホーム",
   "@home": {},
+  "signIn": "ログイン",
+  "@signIn": {},
+  "googleSignIn": "Google サインイン",
+  "@googleSignIn": {},
+  "googleSignOut": "サインアウト",
+  "@googleSignOut": {},
   "detail": "詳細",
   "@detail": {},
   "error": "Error",
@@ -13,5 +19,11 @@
   "failedSwitchTheme": "Failed to switch the theme.",
   "@failedSwitchTheme": {},
   "noResult": "データがありません!",
-  "@noResult": {}
+  "@noResult": {},
+  "displayName": "Display Name",
+  "@displayName": {},
+  "email": "Email",
+  "@email": {},
+  "uid": "UserId",
+  "@uid": {}
 }

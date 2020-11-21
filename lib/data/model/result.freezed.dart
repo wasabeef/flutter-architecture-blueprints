@@ -14,7 +14,7 @@ class _$ResultTearOff {
   const _$ResultTearOff();
 
 // ignore: unused_element
-  Success<T> success<T>({@required T data}) {
+  Success<T> success<T>({T data}) {
     return Success<T>(
       data: data,
     );
@@ -101,9 +101,7 @@ class _$SuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
 /// @nodoc
 class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
-  const _$Success({@required this.data})
-      : assert(data != null),
-        super._();
+  const _$Success({this.data}) : super._();
 
   @override
   final T data;
@@ -190,7 +188,7 @@ class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
 
 abstract class Success<T> extends Result<T> {
   const Success._() : super._();
-  const factory Success({@required T data}) = _$Success<T>;
+  const factory Success({T data}) = _$Success<T>;
 
   T get data;
   $SuccessCopyWith<T, Success<T>> get copyWith;
