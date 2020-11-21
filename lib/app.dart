@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'constants.dart';
 import 'ui/app_theme.dart';
-import 'ui/detail/datail_page.dart';
+import 'ui/detail/detail_page.dart';
 import 'ui/home/home_page.dart';
 import 'ui/signIn/sign_in_page.dart';
 

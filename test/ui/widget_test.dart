@@ -4,7 +4,7 @@ import 'package:app/data/model/result.dart';
 import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/loading.dart';
-import 'package:app/ui/detail/datail_page.dart';
+import 'package:app/ui/detail/detail_page.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/user_view_model.dart';
