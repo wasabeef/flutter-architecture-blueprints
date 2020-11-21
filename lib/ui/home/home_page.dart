@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../util/error_snackbar.dart';
+import '../../util/ext/async_snapshot.dart';
 import '../app_theme.dart';
 import '../component/article_item.dart';
 import '../component/loading.dart';
@@ -44,9 +45,7 @@ class HomePage extends StatelessWidget {
               final snapshot = useFuture(
                   useMemoized(homeViewModel.fetchNews, [news.toString()]));
 
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Loading();
-              }
+              if (snapshot.isWaiting) return const Loading();
 
               return news.when(success: (data) {
                 if (data.articles.isEmpty) {
