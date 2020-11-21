@@ -92,6 +92,9 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 | ✅ | iOS | Xcode version | [compatibilityVersion](https://github.com/wasabeef/flutter-architecture-blueprints/blob/3ae7135cc040fecf5bbb2100a353f6594037752d/ios/Runner.xcodeproj/project.pbxproj#L182) |
 | ✅ | iOS | Podfile | [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Podfile) |
 | ✅ | iOS | Switching between Development and Production environment | [xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/ios/Podfile#L7-L12) |
+| ✅ | Firebase | [Android] Switching between Development and Production google-service.json using flavors | [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/android/app/src) |
+| ✅ | Firebase | [iOS] Switching between Development and Production GoogleService-Info.plist using run script| [copy_google_service.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/ios/Scripts/copy_google_service.sh), [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/master/ios/Runner/Resources/Firebase) |
+| ✅ | Firebase | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/master/lib/data/remote/auth_data_source_impl.dart) |
 
 #### Architecture
 
