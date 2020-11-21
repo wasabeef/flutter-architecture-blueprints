@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "339920746703",
+    "firebase_url": "https://flutter-arch-blueprints-dev.firebaseio.com",
+    "project_id": "flutter-arch-blueprints-dev",
+    "storage_bucket": "flutter-arch-blueprints-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:339920746703:android:e5f6f5f7a5ebec50ee9fba",
+        "android_client_info": {
+          "package_name": "com.example.app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "339920746703-g2k3mt9j2bva5v555d9ps2j2ord7ecba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmkQUMEuXgB4FM50dcizxumL12DUQG8ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "339920746703-g2k3mt9j2bva5v555d9ps2j2ord7ecba.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "339920746703-nap58gctuc3375h8ciet9p57nh6qvt4r.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.app.dev"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

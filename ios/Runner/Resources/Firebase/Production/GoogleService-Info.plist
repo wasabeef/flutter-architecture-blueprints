@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>208498828836-iqqq0sttuv6d6lb1brtih338so84a2mo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.208498828836-iqqq0sttuv6d6lb1brtih338so84a2mo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAjP8sr4gOdweOwfbrXKY0ya_hqP7GS2nY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>208498828836</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.app</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-arc-blueprints</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-arc-blueprints.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:208498828836:ios:d152afecece7e3436b5ab1</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-arc-blueprints.firebaseio.com</string>
+</dict>
+</plist>

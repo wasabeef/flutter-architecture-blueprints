@@ -48,6 +48,7 @@ class Constants {
 
   // Routing name
   static const String pageHome = '/home';
+  static const String pageSignIn = '/signIn';
   static const String pageDetail = '/detail';
 
   static const bool isDebugMode = kDebugMode;

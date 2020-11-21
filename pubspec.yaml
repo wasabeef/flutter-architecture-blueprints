@@ -1,21 +1,8 @@
 name: app
-description: A new Flutter project.
-
-# The following line prevents the package from being accidentally published to
-# pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
-
-# The following defines the version and build number for your application.
-# A version number is three numbers separated by dots, like 1.2.43
-# followed by an optional build number separated by a +.
-# Both the version and the builder number may be overridden in flutter
-# build by specifying --build-name and --build-number, respectively.
-# In Android, build-name is used as versionName while build-number used as versionCode.
-# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
-# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
-# Read more about iOS versioning at
-# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+description: Flutter Architecture Blueprints project.
 version: 1.0.0+1
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
   sdk: '>=2.10.0 <3.0.0'
@@ -28,6 +15,11 @@ dependencies:
     sdk: flutter
   # For DateTime and l10n
   intl: ^0.16.1
+
+  # For Google and Firebase
+  firebase_core: ^0.5.2
+  firebase_auth: ^0.18.3
+  google_sign_in: ^4.5.6
 
   # For Architecture
   flutter_hooks: ^0.14.1
@@ -48,9 +40,11 @@ dependencies:
   enum_to_string: ^1.0.13
 
   # For UIs
+  gap: ^1.2.0
   cupertino_icons: ^1.0.0
   google_fonts: ^1.1.1
   cached_network_image: ^2.3.3
+  flutter_svg: ^0.19.2+1
 
   # For Utilities
   get: ^3.17.0
@@ -71,12 +65,17 @@ dev_dependencies:
   mockito:
   image_test_utils:
 
+flutter_gen:
+  integrations:
+    flutter_svg: true
+
 flutter:
   uses-material-design: true
   generate: true
 
   assets:
     - assets/images/
+    - assets/svgs/
 
   fonts:
     - family: Rotunda

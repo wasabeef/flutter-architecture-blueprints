@@ -45,6 +45,14 @@ const headline1 = TextStyle(
   fontWeight: FontWeight.bold,
 );
 
+const buttonTextStyle = TextStyle(
+  fontSize: 24,
+  color: Colors.white,
+  fontFamily: FontFamily.rotunda,
+  fontWeight: FontWeight.bold,
+);
+
+const accentColor = Color(0xff17c063);
 const errorColor = Color(0xffff5544);
 
 ThemeData get lightTheme {
@@ -53,7 +61,9 @@ ThemeData get lightTheme {
     textTheme:
         GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme).copyWith(
       headline1: headline1,
+      button: buttonTextStyle,
     ),
+    accentColor: accentColor,
     errorColor: errorColor,
   );
 }
@@ -64,7 +74,9 @@ ThemeData get darkTheme {
     textTheme:
         GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme).copyWith(
       headline1: headline1,
+      button: buttonTextStyle,
     ),
+    accentColor: accentColor,
     errorColor: errorColor,
   );
 }

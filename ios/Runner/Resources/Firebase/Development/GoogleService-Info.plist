@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>339920746703-nap58gctuc3375h8ciet9p57nh6qvt4r.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.339920746703-nap58gctuc3375h8ciet9p57nh6qvt4r</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCxPP2BfUCFmWkYSNswVtT3PQrVXnAQJkg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>339920746703</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.app.dev</string>
+	<key>PROJECT_ID</key>
+	<string>flutter-arch-blueprints-dev</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flutter-arch-blueprints-dev.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:339920746703:ios:108c7372a9770efbee9fba</string>
+	<key>DATABASE_URL</key>
+	<string>https://flutter-arch-blueprints-dev.firebaseio.com</string>
+</dict>
+</plist>
