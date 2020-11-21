@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
-import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../gen/assets.gen.dart';
@@ -14,7 +13,8 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(L10n.of(context).signIn, style: Get.textTheme.headline1),
+        title: Text(L10n.of(context).signIn,
+            style: Theme.of(context).textTheme.headline1),
       ),
       body: Column(
         children: [
@@ -22,7 +22,7 @@ class SignInPage extends StatelessWidget {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
-              border: Border.all(color: Get.theme.dividerColor),
+              border: Border.all(color: Theme.of(context).dividerColor),
               borderRadius: BorderRadius.circular(8),
             ),
             child: Padding(
@@ -85,7 +85,7 @@ class SignInPage extends StatelessWidget {
                   Assets.svgs.firebase.svg(width: 48, height: 48),
                   const Gap(8),
                   Text(L10n.of(context).googleSignIn,
-                      style: Get.textTheme.button)
+                      style: Theme.of(context).textTheme.button)
                 ],
               ),
             ),
@@ -103,7 +103,7 @@ class SignInPage extends StatelessWidget {
                 children: [
                   const Gap(8),
                   Text(L10n.of(context).googleSignOut,
-                      style: Get.textTheme.button)
+                      style: Theme.of(context).textTheme.button)
                 ],
               ),
             ),

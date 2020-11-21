@@ -15,14 +15,16 @@ void showSimpleDialog(BuildContext context,
             FlatButton(
               child: Text(
                 L10n.of(context).cancel,
-                style: TextStyle(color: Get.theme.colorScheme.secondary),
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary),
               ),
               onPressed: Get.back,
             ),
             FlatButton(
               child: Text(
                 L10n.of(context).ok,
-                style: TextStyle(color: Get.theme.colorScheme.secondary),
+                style:
+                    TextStyle(color: Theme.of(context).colorScheme.secondary),
               ),
               onPressed: onPressed,
             ),

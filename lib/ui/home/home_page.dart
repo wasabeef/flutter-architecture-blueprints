@@ -19,7 +19,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(L10n.of(context).home, style: Get.textTheme.headline1),
+          title: Text(L10n.of(context).home,
+              style: Theme.of(context).textTheme.headline1),
           actions: [
             // action button
             IconButton(
