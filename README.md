@@ -95,7 +95,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 | ✅ | Firebase | [Android] Switching between Development and Production google-service.json using flavors | [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/android/app/src) |
 | ✅ | Firebase | [iOS] Switching between Development and Production GoogleService-Info.plist using run script| [copy_google_service.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/ios/Scripts/copy_google_service.sh), [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/ios/Runner/Resources/Firebase) |
 | ✅ | Firebase Auth | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/auth_data_source_impl.dart) |
-| ✅ | Firebase Crashlytics | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/crashlytics/lib/main.dart) |
+| ✅ | Firebase Crashlytics | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
 
 #### Architecture
 
