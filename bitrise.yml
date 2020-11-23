@@ -3,12 +3,12 @@ format_version: '8'
 default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
 project_type: flutter
 trigger_map:
-  - push_branch: master
-    workflow: master-build
+  - push_branch: main
+    workflow: main-build
   - pull_request_source_branch: "*"
     workflow: pull-request-build
 workflows:
-  master-build:
+  main-build:
     steps:
       - activate-ssh-key@4:
           run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'

@@ -2,8 +2,8 @@
 # Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
 
 workflows:
-  master-merge:
-    name: Master Workflow
+  main-merge:
+    name: Main Workflow
     max_build_duration: 60
     environment:
       vars:
@@ -24,7 +24,7 @@ workflows:
         - pull_request
         - tag
       branch_patterns:
-        - pattern: master
+        - pattern: main
           include: true
           source: true
     scripts:
