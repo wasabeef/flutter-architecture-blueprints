@@ -40,7 +40,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Environment
 
-<img height="520px" src="https://github.com/wasabeef/art/raw/main/flutter-architecture-blueprints/MVVM.jpg" align="right" />
+<img height="520px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/MVVM.jpg" align="right" />
 
 **iOS**
 - iOS 13+
