@@ -383,7 +383,6 @@
 			);
 			name = "Run Script";
 			outputPaths = (
-				"",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
