@@ -1,7 +1,7 @@
 # Flutter Architecture Blueprints
 
 <p align="center">
-  <img src="https://github.com/wasabeef/art/raw/main/flutter-architecture-blueprints/cover.png" />
+  <img src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/cover.png" />
 </p>
 
 <p align="center">
@@ -40,7 +40,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Environment
 
-<img height="520px" src="https://github.com/wasabeef/art/raw/main/flutter-architecture-blueprints/MVVM.jpg" align="right" />
+<img height="520px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/MVVM.jpg" align="right" />
 
 **iOS**
 - iOS 13+
@@ -94,8 +94,8 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 | ✅ | iOS | Switching between Development and Production environment | [xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/ios/Podfile#L7-L12) |
 | ✅ | Firebase | [Android] Switching between Development and Production google-service.json using flavors | [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/android/app/src) |
 | ✅ | Firebase | [iOS] Switching between Development and Production GoogleService-Info.plist using run script| [copy_google_service.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/ios/Scripts/copy_google_service.sh), [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/ios/Runner/Resources/Firebase) |
-| ✅ | Firebase | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/auth_data_source_impl.dart) |
-| ✅ | Firebase Crashlytics | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/crashlytics/lib/main.dart) |
+| ✅ | Firebase Auth | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/auth_data_source_impl.dart) |
+| ✅ | Firebase Crashlytics | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
 
 #### Architecture
 
@@ -135,7 +135,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Getting Started
 
-<img height="540px" src="https://github.com/wasabeef/art/raw/main/flutter-architecture-blueprints/running-app.gif" align="left" />
+<img height="540px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/running-app.gif" align="left" />
 
 ### Setup
 
