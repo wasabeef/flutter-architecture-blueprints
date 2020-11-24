@@ -20,7 +20,8 @@ dependencies:
   firebase_core: ^0.5.2
   firebase_auth: ^0.18.3
   google_sign_in: ^4.5.6
-  firebase_crashlytics: "^0.2.3"
+  firebase_crashlytics: ^0.2.3
+  firebase_performance: ^0.4.2
 
   # For Architecture
   flutter_hooks: ^0.15.0
@@ -29,6 +30,7 @@ dependencies:
   # For Networking
   dio: ^3.0.10
   dio_http_cache: ^0.2.11
+  dio_firebase_performance: ^0.2.0
 
   # For Model
   json_serializable: ^3.5.0
