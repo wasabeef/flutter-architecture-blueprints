@@ -1,5 +1,6 @@
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_firebase_performance/dio_firebase_performance.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 
 import '../../constants.dart';
@@ -16,12 +17,18 @@ class AppDio with DioMixin implements Dio {
     );
 
     this.options = options;
-    interceptors.add(
-        DioCacheManager(CacheConfig(baseUrl: Constants.of().endpoint))
-            .interceptor as Interceptor);
+    interceptors.add(DioCacheManager(
+      CacheConfig(
+        baseUrl: Constants.of().endpoint,
+      ),
+    ).interceptor);
     if (Constants.isDebugMode) {
+      // Local Log
       interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
+      // Firebase Performance
+      interceptors.add(DioFirebasePerformanceInterceptor());
     }
+
     httpClientAdapter = DefaultHttpClientAdapter();
   }
 
