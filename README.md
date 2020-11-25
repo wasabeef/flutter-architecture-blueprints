@@ -94,8 +94,9 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 | ✅ | iOS | Switching between Development and Production environment | [xcconfig](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/ios/Config), [Podfile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/ios/Podfile#L7-L12) |
 | ✅ | Firebase | [Android] Switching between Development and Production google-service.json using flavors | [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/android/app/src) |
 | ✅ | Firebase | [iOS] Switching between Development and Production GoogleService-Info.plist using run script| [copy_google_service.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/ios/Scripts/copy_google_service.sh), [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/ios/Runner/Resources/Firebase) |
-| ✅ | Firebase Auth | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/auth_data_source_impl.dart) |
-| ✅ | Firebase Crashlytics | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
+| ✅ | [Firebase Auth](https://firebase.flutter.dev/docs/auth/overview) | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/auth_data_source_impl.dart) |
+| ✅ | [Firebase Crashlytics](https://firebase.flutter.dev/docs/crashlytics/overview) | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
+| ✅ | [Firebase Performance](https://firebase.flutter.dev/docs/performance/overview) | Network monitoring with [dio_firebase_performance](https://pub.dev/packages/dio_firebase_performance) | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
 
 #### Architecture
 
