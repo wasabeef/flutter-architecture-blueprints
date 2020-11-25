@@ -35,8 +35,8 @@ class HomePage extends StatelessWidget {
             ),
             IconButton(
                 icon: HookBuilder(builder: (context) {
-                  final user = useProvider(userViewModelNotifierProvider
-                      .select((value) => value.user));
+                  final user = useProvider(
+                      userViewModelProvider.select((value) => value.user));
                   return CircleAvatar(
                     backgroundImage: loadProfileImage(user?.photoURL),
                     backgroundColor: Colors.transparent,
@@ -49,9 +49,9 @@ class HomePage extends StatelessWidget {
         body: Center(
           child: HookBuilder(
             builder: (context) {
-              final homeViewModel = context.read(homeViewModelNotifierProvider);
+              final homeViewModel = context.read(homeViewModelProvider);
               final news = useProvider(
-                  homeViewModelNotifierProvider.select((value) => value.news));
+                  homeViewModelProvider.select((value) => value.news));
               final snapshot = useFuture(
                   useMemoized(homeViewModel.fetchNews, [news.toString()]));
 

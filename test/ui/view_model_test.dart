@@ -20,7 +20,7 @@ void main() {
         newsRepositoryProvider.overrideWithValue(FakeNewsRepositoryImpl())
       ],
     );
-    final viewModel = container.read(homeViewModelNotifierProvider);
+    final viewModel = container.read(homeViewModelProvider);
     await expectLater(
         viewModel.fetchNews(), completion(Result.success(data: dummyNews)));
   });

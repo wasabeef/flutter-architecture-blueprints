@@ -28,8 +28,8 @@ class SignInPage extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
               child: HookBuilder(builder: (context) {
-                final user = useProvider(userViewModelNotifierProvider
-                    .select((value) => value.user));
+                final user = useProvider(
+                    userViewModelProvider.select((value) => value.user));
 
                 return Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,8 +75,7 @@ class SignInPage extends StatelessWidget {
           FlatButton(
             height: 64,
             color: Color(0xff4285f4),
-            onPressed: () =>
-                context.read(userViewModelNotifierProvider).signIn(),
+            onPressed: () => context.read(userViewModelProvider).signIn(),
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Row(
@@ -94,8 +93,7 @@ class SignInPage extends StatelessWidget {
           FlatButton(
             height: 64,
             color: Color(0xffc53829),
-            onPressed: () =>
-                context.read(userViewModelNotifierProvider).signOut(),
+            onPressed: () => context.read(userViewModelProvider).signOut(),
             child: Padding(
               padding: const EdgeInsets.all(8),
               child: Row(

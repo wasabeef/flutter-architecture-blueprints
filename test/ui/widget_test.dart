@@ -50,8 +50,8 @@ void main() {
       ProviderScope(
         overrides: [
           appThemeNotifierProvider.overrideWithValue(mockAppTheme),
-          homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
-          userViewModelNotifierProvider.overrideWithValue(mockUserViewModel),
+          homeViewModelProvider.overrideWithValue(mockHomeViewModel),
+          userViewModelProvider.overrideWithValue(mockUserViewModel),
         ],
         child: App(),
       ),
@@ -65,8 +65,8 @@ void main() {
         ProviderScope(
           overrides: [
             appThemeNotifierProvider.overrideWithValue(mockAppTheme),
-            homeViewModelNotifierProvider.overrideWithValue(mockHomeViewModel),
-            userViewModelNotifierProvider.overrideWithValue(mockUserViewModel),
+            homeViewModelProvider.overrideWithValue(mockHomeViewModel),
+            userViewModelProvider.overrideWithValue(mockUserViewModel),
           ],
           child: GetMaterialApp(
             home: page,
