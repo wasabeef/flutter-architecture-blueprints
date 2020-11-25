@@ -31,6 +31,7 @@ class NewsDataSourceImpl implements NewsDataSource {
             'language': 'en',
             'apiKey': Constants.of().apiKey,
           },
+          // In-memory cache time-to-live
           options: buildCacheOptions(const Duration(seconds: 5)),
         )
         .then((response) => News.fromJson(response.data));
