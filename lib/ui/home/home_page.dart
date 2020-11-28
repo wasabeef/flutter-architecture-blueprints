@@ -1,4 +1,3 @@
-import 'package:app/ui/component/container_with_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -10,6 +9,7 @@ import '../../util/error_snackbar.dart';
 import '../../util/ext/async_snapshot.dart';
 import '../app_theme.dart';
 import '../component/article_item.dart';
+import '../component/container_with_loading.dart';
 import '../component/image.dart';
 import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
