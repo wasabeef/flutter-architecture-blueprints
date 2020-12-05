@@ -96,7 +96,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 | ✅ | [Firebase](https://firebase.flutter.dev/docs/overview) | [iOS] Switching between Development and Production GoogleService-Info.plist using run script| [copy_google_service.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/ios/Scripts/copy_google_service.sh), [development and production](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/ios/Runner/Resources/Firebase) |
 | ✅ | [Firebase Auth](https://firebase.flutter.dev/docs/auth/overview) | SignIn, SignOut | [auth_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/auth_data_source_impl.dart) |
 | ✅ | [Firebase Crashlytics](https://firebase.flutter.dev/docs/crashlytics/overview) | Crash Reports | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
-| ✅ | [Firebase Performance](https://firebase.flutter.dev/docs/performance/overview) | Network monitoring with [dio_firebase_performance](https://pub.dev/packages/dio_firebase_performance) | [main.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/main.dart) |
+| ✅ | [Firebase Performance](https://firebase.flutter.dev/docs/performance/overview) | Network monitoring with [dio_firebase_performance](https://pub.dev/packages/dio_firebase_performance) | [app_dio.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/37774d273057efa2debb0591eb445baf922366b2/lib/data/remote/app_dio.dart#L28-L29) |
 
 #### Architecture
 
