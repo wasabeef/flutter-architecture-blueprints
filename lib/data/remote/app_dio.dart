@@ -17,16 +17,19 @@ class AppDio with DioMixin implements Dio {
     );
 
     this.options = options;
+    // API Cache
     interceptors.add(DioCacheManager(
       CacheConfig(
         baseUrl: Constants.of().endpoint,
       ),
     ).interceptor);
+
+    // Firebase Performance
+    interceptors.add(DioFirebasePerformanceInterceptor());
+
     if (Constants.isDebugMode) {
       // Local Log
       interceptors.add(LogInterceptor(responseBody: true, requestBody: true));
-      // Firebase Performance
-      interceptors.add(DioFirebasePerformanceInterceptor());
     }
 
     httpClientAdapter = DefaultHttpClientAdapter();

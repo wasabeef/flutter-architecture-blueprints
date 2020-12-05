@@ -9,8 +9,9 @@ import '../../util/error_snackbar.dart';
 import '../../util/ext/async_snapshot.dart';
 import '../app_theme.dart';
 import '../component/article_item.dart';
+import '../component/container_with_loading.dart';
 import '../component/image.dart';
-import '../component/loading.dart';
+import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
 import 'home_view_model.dart';
 
@@ -46,16 +47,20 @@ class HomePage extends StatelessWidget {
                 onPressed: () => Get.toNamed(Constants.pageSignIn))
           ],
         ),
-        body: Center(
+        body: ContainerWithLoading(
           child: HookBuilder(
             builder: (context) {
               final homeViewModel = context.read(homeViewModelProvider);
               final news = useProvider(
                   homeViewModelProvider.select((value) => value.news));
-              final snapshot = useFuture(
-                  useMemoized(homeViewModel.fetchNews, [news.toString()]));
+              final snapshot = useFuture(useMemoized(() {
+                return context
+                    .read(loadingStateProvider)
+                    .whileLoading(homeViewModel.fetchNews);
+              }, [news.toString()]));
 
-              if (snapshot.isWaiting) return const Loading();
+              // Not yet load the contents.
+              if (!snapshot.isDone) return Container();
 
               return news.when(success: (data) {
                 if (data.articles.isEmpty) {
