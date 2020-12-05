@@ -31,6 +31,8 @@ dependencies:
   dio: ^3.0.10
   dio_http_cache: ^0.2.11
   dio_firebase_performance: ^0.2.0
+  # For User-Agent Client Hints
+  ua_client_hints: ^1.0.1
 
   # For Model
   json_serializable: ^3.5.0

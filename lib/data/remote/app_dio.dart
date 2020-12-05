@@ -2,6 +2,7 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_firebase_performance/dio_firebase_performance.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
+import 'package:ua_client_hints/ua_client_hints.dart';
 
 import '../../constants.dart';
 
@@ -17,6 +18,10 @@ class AppDio with DioMixin implements Dio {
     );
 
     this.options = options;
+    interceptors.add(InterceptorsWrapper(onRequest: (options) async {
+      options.headers.addAll(await userAgentClientHintsHeader());
+    }));
+
     // API Cache
     interceptors.add(DioCacheManager(
       CacheConfig(

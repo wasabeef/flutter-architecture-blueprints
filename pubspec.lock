@@ -908,6 +908,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.5"
+  ua_client_hints:
+    dependency: "direct main"
+    description:
+      name: ua_client_hints
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.1"
   uuid:
     dependency: transitive
     description:
@@ -979,5 +986,5 @@ packages:
     source: hosted
     version: "2.2.1"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
+  dart: ">=2.12.0-29.10.beta <3.0.0"
   flutter: ">=1.24.0-6.0.pre <2.0.0"
