@@ -15,7 +15,7 @@ class NewsDataSourceImpl implements NewsDataSource {
   final Dio _dio;
 
   @override
-  Future<News> getNews() async {
+  Future<News> getNews() {
     return _dio
         .get<Map<String, dynamic>>(
           '/v2/everything',

@@ -7,7 +7,7 @@ final loadingStateProvider =
 class LoadingStateViewModel extends ChangeNotifier {
   bool isLoading = false;
 
-  Future<dynamic> whileLoading(Future Function() future) async {
+  Future<dynamic> whileLoading(Future Function() future) {
     return Future.microtask(toLoading)
         .then((_) => future())
         .whenComplete(toIdle);

@@ -79,7 +79,7 @@ class SignInPage extends StatelessWidget {
             FlatButton(
               height: 64,
               color: const Color(0xff4285f4),
-              onPressed: () async {
+              onPressed: () {
                 context.read(loadingStateProvider).whileLoading(() {
                   return context.read(userViewModelProvider).signIn();
                 });

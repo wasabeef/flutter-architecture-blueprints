@@ -12,7 +12,7 @@ class NewsRepositoryImpl implements NewsRepository {
   final NewsDataSource _dataSource;
 
   @override
-  Future<Result<News>> getNews() async {
+  Future<Result<News>> getNews() {
     return Result.guardFuture(_dataSource.getNews);
   }
 }

@@ -19,7 +19,7 @@ class UserViewModel extends ChangeNotifier {
 
   bool get isAuthenticated => _user != null;
 
-  Future<void> signIn() async {
+  Future<void> signIn() {
     return _repository.signIn().then((result) {
       // Result use case No.2
       result.ifSuccess((data) {
@@ -29,7 +29,7 @@ class UserViewModel extends ChangeNotifier {
     });
   }
 
-  Future<void> signOut() async {
+  Future<void> signOut() {
     return _repository.signOut().then((result) {
       return result.when(
           success: (_) {
