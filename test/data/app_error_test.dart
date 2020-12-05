@@ -65,7 +65,8 @@ void main() {
         ).type,
         equals(AppErrorType.unknown));
 
-    expect(AppError(FileSystemException()).type, equals(AppErrorType.unknown));
+    expect(AppError(const FileSystemException()).type,
+        equals(AppErrorType.unknown));
 
     expect(AppError(null).type, equals(AppErrorType.unknown));
   });

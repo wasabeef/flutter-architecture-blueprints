@@ -10,6 +10,6 @@ void showErrorSnackbar(String title, String message) {
     message,
     backgroundColor: Theme.of(Get.context).errorColor,
     snackPosition: SnackPosition.BOTTOM,
-    margin: EdgeInsets.only(bottom: 8, right: 8, left: 8),
+    margin: const EdgeInsets.only(bottom: 8, right: 8, left: 8),
   );
 }

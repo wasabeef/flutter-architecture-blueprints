@@ -74,7 +74,7 @@ class SignInPage extends StatelessWidget {
           const Gap(12),
           FlatButton(
             height: 64,
-            color: Color(0xff4285f4),
+            color: const Color(0xff4285f4),
             onPressed: () => context.read(userViewModelProvider).signIn(),
             child: Padding(
               padding: const EdgeInsets.all(8),
@@ -92,7 +92,7 @@ class SignInPage extends StatelessWidget {
           const Gap(8),
           FlatButton(
             height: 64,
-            color: Color(0xffc53829),
+            color: const Color(0xffc53829),
             onPressed: () => context.read(userViewModelProvider).signOut(),
             child: Padding(
               padding: const EdgeInsets.all(8),
