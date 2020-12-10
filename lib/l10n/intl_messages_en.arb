@@ -16,7 +16,7 @@
   "@detail": {},
   "error": "Error",
   "@error": {},
-  "failedSwitchTheme": "テーマの切り替えに失敗しました。",
+  "failedSwitchTheme": "Failed to switch the theme.",
   "@failedSwitchTheme": {},
   "noResult": "For Empty screen",
   "@noResult": {},
