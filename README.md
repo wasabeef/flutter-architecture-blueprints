@@ -104,7 +104,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 |:---:|---|---|---|
 | ✅ | Base | Using [Riverpod](https://pub.dev/packages/riverpod) + [Hooks](https://pub.dev/packages/flutter_hooks) + [ChangeNotifier](https://flutter.dev/docs/development/data-and-backend/state-mgmt/simple#changenotifier) + MVVM | [home_page.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/ui/home/home_page.dart#L41-L47), [home_view_model.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/ui/home/home_view_model.dart), [news_repository.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/repository/news_repository.dart), [news_data_source.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/news_data_source.dart) |
 | ✅ | Networking | Using [dio](https://pub.dev/packages/dio) | [app_dio.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/app_dio.dart), [news_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/data/remote/news_data_source_impl.dart#L16-L33) |
-| ✅ | Caching | Using [dio_http_cache](https://pub.dev/packages/dio_http_cache)  | [news_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/data/remote/news_data_source_impl.dart#L31) |
+| ✅ | Caching | Using [dio_http_cache](https://pub.dev/packages/dio_http_cache) | [app_dio.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/app_dio.dart#L26-L30), [news_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/remote/news_data_source_impl.dart#L35) |
 | ✅ | Data | Using [Freezed](https://pub.dev/packages/freezed) | [model classes](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/model) |
 | ✅ | Persist Data | Using [shared_preferences](https://pub.dev/packages/shared_preferences) | [theme_data_source_impl.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/data/local/theme_data_source_impl.dart) |
 | ✅ | Constants | Define constants and route names | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/constants.dart) |
@@ -114,8 +114,8 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 #### UI
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | Theme | Dynamically Switch between light and dark themes | [app_theme.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/aed5d8fab3dee4fa8a967a8ecd7092fd2f727d5f/lib/app.dart#L25-L26) |
-| ✅ | Font | Using [Google font](https://pub.dev/packages/google_fonts) | [app_theme.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/app_theme.dart#L16) |
+| ✅ | Theme | Dynamically Switch between light and dark themes | [app_theme.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/app.dart#L22-L24) |
+| ✅ | Font | Using [Google font](https://pub.dev/packages/google_fonts) | [app_theme.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/ui/app_theme.dart#L62) |
 | ✅ | Transition | Simple animation between screens using [Hero](https://flutter.dev/docs/development/ui/animations/hero-animations) | [article_item.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/component/article_item.dart#L28), [detail_page.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/lib/ui/detail/datail_page.dart#L13-L24) |
 
 #### Testing
