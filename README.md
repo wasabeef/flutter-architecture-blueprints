@@ -171,7 +171,7 @@ $ make run-prd
 1. Add assets
 2. Run [FlutterGen](https://github.com/fluttergen)
 
-### How to add translations
+### How to add localizations
 1. Edit [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n) files.
 2. Run generate the `flutter pub get`
 
