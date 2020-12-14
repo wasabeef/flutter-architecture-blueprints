@@ -51,8 +51,6 @@ class Constants {
   static const String pageSignIn = '/signIn';
   static const String pageDetail = '/detail';
 
-  static const bool isDebugMode = kDebugMode;
-
   static Constants _instance;
 
   final String endpoint;
