@@ -8,16 +8,19 @@ environment:
   sdk: '>=2.10.0 <3.0.0'
   flutter: '>=1.22.0'
 
+dependency_overrides:
+  # For DateTime and l10n
+  # TODO: Workaround https://github.com/FirebaseExtended/flutterfire/issues/4342
+  intl: ^0.17.0-nullsafety.2
+
 dependencies:
   flutter:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
-  # For DateTime and l10n
-  intl: ^0.16.1
 
   # For Google and Firebase
-  firebase_core: ^0.5.2
+  firebase_core: ^0.5.3
   firebase_auth: ^0.18.4+1
   google_sign_in: ^4.5.6
   firebase_crashlytics: ^0.2.3
