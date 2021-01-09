@@ -1,4 +1,4 @@
-package com.example.app
+package jp.wasabeef.app
 
 import io.flutter.embedding.android.FlutterActivity
 

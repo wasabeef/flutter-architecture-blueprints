@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>339920746703-nap58gctuc3375h8ciet9p57nh6qvt4r.apps.googleusercontent.com</string>
+	<string>339920746703-140i3bhk3lqtpn2p2e7035btcp61p32i.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.339920746703-nap58gctuc3375h8ciet9p57nh6qvt4r</string>
+	<string>com.googleusercontent.apps.339920746703-140i3bhk3lqtpn2p2e7035btcp61p32i</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>339920746703-1omo33mfc8f7cfjm8pa8qutqpu2q3h7c.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCxPP2BfUCFmWkYSNswVtT3PQrVXnAQJkg</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.app.dev</string>
+	<string>jp.wasabeef.app.dev</string>
 	<key>PROJECT_ID</key>
 	<string>flutter-arch-blueprints-dev</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:339920746703:ios:108c7372a9770efbee9fba</string>
+	<string>1:339920746703:ios:96090bb3427da435ee9fba</string>
 	<key>DATABASE_URL</key>
 	<string>https://flutter-arch-blueprints-dev.firebaseio.com</string>
 </dict>
