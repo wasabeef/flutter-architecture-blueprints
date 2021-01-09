@@ -8,12 +8,28 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:208498828836:android:35acbf3a4d8ae51d6b5ab1",
+        "mobilesdk_app_id": "1:208498828836:android:58145629940ce4a96b5ab1",
         "android_client_info": {
-          "package_name": "com.example.app"
+          "package_name": "jp.wasabeef.app"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "208498828836-3323hr2v1b84i3s8sv4921462l1vtc1i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.wasabeef.app",
+            "certificate_hash": "9425a9509c0eaeaa00375ed671e3bced17e50ca3"
+          }
+        },
+        {
+          "client_id": "208498828836-it7b64n6biakq3u964s0sudjbnklmkl2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.wasabeef.app",
+            "certificate_hash": "aa881aa8477a907316d6f1b7d5257b92bcc94bfd"
+          }
+        },
         {
           "client_id": "208498828836-rbgoklet6680lrcccnov4a25vs9k5du8.apps.googleusercontent.com",
           "client_type": 3
@@ -32,10 +48,10 @@
               "client_type": 3
             },
             {
-              "client_id": "208498828836-iqqq0sttuv6d6lb1brtih338so84a2mo.apps.googleusercontent.com",
+              "client_id": "208498828836-139a9k718tbf1ijjmplm9sef21crjqv9.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.app"
+                "bundle_id": "jp.wasabeef.app"
               }
             }
           ]

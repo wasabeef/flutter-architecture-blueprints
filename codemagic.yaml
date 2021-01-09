@@ -50,7 +50,7 @@ workflows:
           #!/bin/sh
           set -e # exit on first failed commandset
           set -x # print all executed commands to the log
-          /usr/bin/plutil -replace CFBundleIdentifier -string com.example.app ios/Runner/Info.plist
+          /usr/bin/plutil -replace CFBundleIdentifier -string jp.wasabeef.app ios/Runner/Info.plist
           make build-android-prd
           make build-ios-prd
 

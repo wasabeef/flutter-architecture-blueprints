@@ -4,10 +4,10 @@ TRACK_WIDGET_CREATION=
 
 FLUTTER_FLAVOR=pevelopment
 FLUTTER_TARGET=$PROJECT_DIR/../lib/main.dart
-PRODUCT_BUNDLE_IDENTIFIER=com.example.app.dev
+PRODUCT_BUNDLE_IDENTIFIER=jp.wasabeef.app.dev
 DISPLAY_NAME=FAB-dev
 
 FIREBASE_DIR=$PROJECT_DIR/$PROJECT_NAME/Resources/Firebase/Development
 
 // GOOGLE prefix key configs were copied from GoogleService-Info.plist
-GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.339920746703-nap58gctuc3375h8ciet9p57nh6qvt4r
+GOOGLE_REVERSED_CLIENT_ID = com.googleusercontent.apps.339920746703-140i3bhk3lqtpn2p2e7035btcp61p32i

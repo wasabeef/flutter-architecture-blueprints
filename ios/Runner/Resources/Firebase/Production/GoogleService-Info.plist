@@ -3,9 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>208498828836-iqqq0sttuv6d6lb1brtih338so84a2mo.apps.googleusercontent.com</string>
+	<string>208498828836-139a9k718tbf1ijjmplm9sef21crjqv9.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.208498828836-iqqq0sttuv6d6lb1brtih338so84a2mo</string>
+	<string>com.googleusercontent.apps.208498828836-139a9k718tbf1ijjmplm9sef21crjqv9</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>208498828836-3323hr2v1b84i3s8sv4921462l1vtc1i.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyAjP8sr4gOdweOwfbrXKY0ya_hqP7GS2nY</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.example.app</string>
+	<string>jp.wasabeef.app</string>
 	<key>PROJECT_ID</key>
 	<string>flutter-arc-blueprints</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:208498828836:ios:d152afecece7e3436b5ab1</string>
+	<string>1:208498828836:ios:f3fcdda35b7c7aa16b5ab1</string>
 	<key>DATABASE_URL</key>
 	<string>https://flutter-arc-blueprints.firebaseio.com</string>
 </dict>
