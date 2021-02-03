@@ -48,7 +48,6 @@ build-android-prd:
 .PHONEY: clean-flutter-deps
 clean-flutter-deps:
 	rm -rf ~/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework
-	rm ios/Flutter/Flutter.podspec
 
 .PHONY: build-ios-dev
 build-ios-dev:
