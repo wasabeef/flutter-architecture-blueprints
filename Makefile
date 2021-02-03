@@ -44,20 +44,13 @@ build-android-dev:
 build-android-prd:
 	flutter build apk --release --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
-# TODO: https://github.com/flutter/flutter/issues/72737
-.PHONEY: clean-flutter-deps
-clean-flutter-deps:
-	rm -rf ~/flutter/bin/cache/artifacts/engine/ios/Flutter.xcframework
-
 .PHONY: build-ios-dev
 build-ios-dev:
-	@make clean-flutter-deps
 	cd ios/ && pod install && cd ..
 	flutter build ios --no-codesign --flavor development --dart-define=FLAVOR=development --target lib/main.dart
 
 .PHONY: build-ios-prd
 build-ios-prd:
-	@make clean-flutter-deps
 	cd ios/ && pod install && cd ..
 	flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
