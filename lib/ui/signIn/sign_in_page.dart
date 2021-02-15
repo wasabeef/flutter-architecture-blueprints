@@ -76,9 +76,10 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             const Gap(12),
-            FlatButton(
-              height: 64,
-              color: const Color(0xff4285f4),
+            TextButton(
+              style: TextButton.styleFrom(
+                  backgroundColor: const Color(0xff4285f4),
+                  textStyle: const TextStyle(height: 64)),
               onPressed: () {
                 context.read(loadingStateProvider).whileLoading(() {
                   return context.read(userViewModelProvider).signIn();
@@ -98,9 +99,10 @@ class SignInPage extends StatelessWidget {
               ),
             ),
             const Gap(8),
-            FlatButton(
-              height: 64,
-              color: const Color(0xffc53829),
+            TextButton(
+              style: TextButton.styleFrom(
+                  backgroundColor: const Color(0xffc53829),
+                  textStyle: const TextStyle(height: 64)),
               onPressed: () => context.read(userViewModelProvider).signOut(),
               child: Padding(
                 padding: const EdgeInsets.all(8),
