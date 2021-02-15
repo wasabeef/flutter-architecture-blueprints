@@ -17,7 +17,7 @@ workflows:
           title: Do anything with Script step
       - flutter-installer@0:
           inputs:
-            - installation_bundle_url: https://storage.googleapis.com/flutter_infra/releases/beta/macos/flutter_macos_1.25.0-8.3.pre-beta.zip
+            - installation_bundle_url: https://storage.googleapis.com/flutter_infra/releases/beta/macos/flutter_macos_https://storage.googleapis.com/flutter_infra/releases/beta/macos/flutter_macos_1.24.0-10.2.pre-beta.zip
             - is_update: 'false'
             - version: beta
       - cache-pull@2: {}
