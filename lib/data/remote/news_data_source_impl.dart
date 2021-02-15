@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
+// import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../constants.dart';
@@ -32,7 +32,7 @@ class NewsDataSourceImpl implements NewsDataSource {
             'apiKey': Constants.of().apiKey,
           },
           // In-memory cache time-to-live
-          options: buildCacheOptions(const Duration(seconds: 5)),
+          // options: buildCacheOptions(const Duration(seconds: 5)),
         )
         .then((response) => News.fromJson(response.data));
   }

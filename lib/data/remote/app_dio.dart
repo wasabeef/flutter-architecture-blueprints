@@ -1,7 +1,7 @@
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_firebase_performance/dio_firebase_performance.dart';
-import 'package:dio_http_cache/dio_http_cache.dart';
+// import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
 
@@ -24,11 +24,11 @@ class AppDio with DioMixin implements Dio {
     }));
 
     // API Cache
-    interceptors.add(DioCacheManager(
-      CacheConfig(
-        baseUrl: Constants.of().endpoint,
-      ),
-    ).interceptor);
+    // interceptors.add(DioCacheManager(
+    //   CacheConfig(
+    //     baseUrl: Constants.of().endpoint,
+    //   ),
+    // ).interceptor);
 
     // Firebase Performance
     interceptors.add(DioFirebasePerformanceInterceptor());
