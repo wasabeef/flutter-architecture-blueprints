@@ -54,7 +54,6 @@ dependencies:
   gap: ^1.2.0
   cupertino_icons: ^1.0.0
   google_fonts: ^1.1.1
-  cached_network_image: ^2.5.0
   flutter_svg: ^0.19.2+1
 
   # For Utilities
