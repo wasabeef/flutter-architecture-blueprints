@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/widgets.dart';
 
 import '../../gen/assets.gen.dart';
@@ -9,10 +8,10 @@ Widget networkImage(String url, {BoxFit fit}) {
   if (url == null) {
     return placeholder;
   } else {
-    return CachedNetworkImage(
-      imageUrl: url,
+    return Image.network(
+      url,
       fit: fit,
-      errorWidget: (context, url, dynamic error) => placeholder,
+      errorBuilder: (context, url, dynamic error) => placeholder,
     );
   }
 }

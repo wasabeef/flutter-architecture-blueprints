@@ -46,12 +46,10 @@ build-android-prd:
 
 .PHONY: build-ios-dev
 build-ios-dev:
-	cd ios/ && pod install && cd ..
 	flutter build ios --no-codesign --flavor development --dart-define=FLAVOR=development --target lib/main.dart
 
 .PHONY: build-ios-prd
 build-ios-prd:
-	cd ios/ && pod install && cd ..
 	flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production --target lib/main.dart
 
 .PHONY: unit-test

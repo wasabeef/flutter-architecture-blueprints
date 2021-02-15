@@ -12,7 +12,7 @@ void showSimpleDialog(BuildContext context,
           title: Text(title),
           content: Text(text),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text(
                 L10n.of(context).cancel,
                 style:
@@ -20,7 +20,7 @@ void showSimpleDialog(BuildContext context,
               ),
               onPressed: Get.back,
             ),
-            FlatButton(
+            TextButton(
               child: Text(
                 L10n.of(context).ok,
                 style:
