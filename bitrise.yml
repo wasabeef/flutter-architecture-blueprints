@@ -17,11 +17,9 @@ workflows:
           title: Do anything with Script step
       - flutter-installer@0:
           inputs:
-            - installation_bundle_url: https://storage.googleapis.com/flutter_infra/releases/beta/macos/flutter_macos_1.24.0-10.2.pre-beta.zip
-            - is_update: 'false'
             - version: beta
       - cache-pull@2: {}
-      - flutter-analyze@0.2:
+      - flutter-analyze@0:
           inputs:
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
       - flutter-test@0:
@@ -29,7 +27,7 @@ workflows:
             - additional_params: "--coverage-path=./coverage/lcov.info"
             - generate_code_coverage_files: 'yes'
             - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-      - codecov@1:
+      - codecov@2.0:
           inputs:
             - CODECOV_TOKEN: "$CODECOV_TOKEN"
       - flutter-build@0:

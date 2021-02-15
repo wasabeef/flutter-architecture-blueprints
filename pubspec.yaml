@@ -2,16 +2,16 @@ name: app
 description: Flutter Architecture Blueprints project.
 version: 1.0.0+1
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 environment:
-  sdk: '>=2.10.0 <3.0.0'
-  flutter: '>=1.22.0'
+  sdk: '>=2.11.0 <3.0.0'
+  flutter: '>=1.25.0'
 
 dependency_overrides:
   # For DateTime and l10n
   # TODO: Workaround https://github.com/FirebaseExtended/flutterfire/issues/4342
-  intl: ^0.17.0-nullsafety.2
+  intl: ^0.17.0
 
 dependencies:
   flutter:
@@ -42,7 +42,7 @@ dependencies:
   freezed_annotation: ^0.12.0
 
   # For DateTime
-  intl: ^0.17.0-nullsafety.2
+  intl: ^0.17.0
 
   # For Key-Value local storage
   shared_preferences: ^0.5.12+4
@@ -54,7 +54,7 @@ dependencies:
   gap: ^1.2.0
   cupertino_icons: ^1.0.0
   google_fonts: ^1.1.1
-  flutter_svg: ^0.19.2+1
+  flutter_svg: ^0.20.0-nullsafety.3
 
   # For Utilities
   get: ^3.25.4
