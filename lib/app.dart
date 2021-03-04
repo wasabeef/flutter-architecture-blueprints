@@ -16,12 +16,13 @@ class App extends HookWidget {
     final appTheme = context.read(appThemeNotifierProvider);
     final setting =
         useProvider(appThemeNotifierProvider.select((value) => value.setting));
-    useFuture(useMemoized(appTheme.themeMode, [setting]));
+    useFuture(useMemoized(appTheme.themeMode, [setting]),
+        initialData: ThemeMode.light);
     return GetMaterialApp(
       title: 'Flutter Architecture Blueprints',
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: setting ?? ThemeMode.light,
+      themeMode: setting,
       home: HomePage(),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,

@@ -53,11 +53,13 @@ class HomePage extends StatelessWidget {
               final homeViewModel = context.read(homeViewModelProvider);
               final news = useProvider(
                   homeViewModelProvider.select((value) => value.news));
-              final snapshot = useFuture(useMemoized(() {
-                return context
-                    .read(loadingStateProvider)
-                    .whileLoading(homeViewModel.fetchNews);
-              }, [news.toString()]));
+              final snapshot = useFuture(
+                  useMemoized(() {
+                    return context
+                        .read(loadingStateProvider)
+                        .whileLoading(homeViewModel.fetchNews);
+                  }, [news.toString()]),
+                  initialData: null);
 
               // Not yet load the contents.
               if (!snapshot.isDone) return Container();

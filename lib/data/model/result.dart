@@ -36,12 +36,18 @@ abstract class Result<T> with _$Result<T> {
   void ifSuccess(Function(T data) body) {
     maybeWhen(
       success: (data) => body(data),
+      orElse: () {
+        // no-op
+      },
     );
   }
 
   void ifFailure(Function(AppError e) body) {
     maybeWhen(
       failure: (e) => body(e),
+      orElse: () {
+        // no-op
+      },
     );
   }
 
