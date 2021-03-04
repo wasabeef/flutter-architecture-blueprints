@@ -1,3 +1,4 @@
+// @dart = 2.11
 import 'package:app/ui/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';

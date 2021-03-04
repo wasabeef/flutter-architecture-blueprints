@@ -356,7 +356,7 @@ packages:
       name: get
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.25.6"
+    version: "4.0.0-nullsafety.0"
   glob:
     dependency: transitive
     description:

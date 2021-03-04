@@ -1,4 +1,4 @@
-// @dart = 2.10
+// @dart = 2.11
 import 'package:app/app.dart';
 import 'package:app/constants.dart';
 import 'package:app/data/model/result.dart';
