@@ -15,7 +15,7 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(L10n.of(context).signIn,
+        title: Text(L10n.of(context)!.signIn,
             style: Theme.of(context).textTheme.headline1),
       ),
       body: ContainerWithLoading(
@@ -53,18 +53,19 @@ class SignInPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              user?.displayName ?? L10n.of(context).displayName,
+                              user?.displayName ??
+                                  L10n.of(context)!.displayName,
                               style: const TextStyle(
                                   fontSize: 20, fontWeight: FontWeight.bold),
                             ),
                             const Gap(10),
                             Text(
-                              user?.email ?? L10n.of(context).email,
+                              user?.email ?? L10n.of(context)!.email,
                               style: const TextStyle(fontSize: 14),
                             ),
                             const Gap(10),
                             Text(
-                              user?.uid ?? L10n.of(context).uid,
+                              user?.uid ?? L10n.of(context)!.uid,
                               style: const TextStyle(fontSize: 12),
                             ),
                           ],
@@ -92,7 +93,7 @@ class SignInPage extends StatelessWidget {
                   children: [
                     Assets.svgs.firebase.svg(width: 48, height: 48),
                     const Gap(8),
-                    Text(L10n.of(context).googleSignIn,
+                    Text(L10n.of(context)!.googleSignIn,
                         style: Theme.of(context).textTheme.button)
                   ],
                 ),
@@ -110,7 +111,7 @@ class SignInPage extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const Gap(8),
-                    Text(L10n.of(context).googleSignOut,
+                    Text(L10n.of(context)!.googleSignOut,
                         style: Theme.of(context).textTheme.button)
                   ],
                 ),

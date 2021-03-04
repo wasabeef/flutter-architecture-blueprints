@@ -9,9 +9,9 @@ part 'result.freezed.dart';
 abstract class Result<T> with _$Result<T> {
   const Result._();
 
-  const factory Result.success({T data}) = Success<T>;
+  const factory Result.success({required T data}) = Success<T>;
 
-  const factory Result.failure({@required AppError error}) = Failure<T>;
+  const factory Result.failure({required AppError error}) = Failure<T>;
 
   static Result<T> guard<T>(T Function() body) {
     try {
@@ -54,7 +54,7 @@ abstract class Result<T> with _$Result<T> {
   T get dataOrThrow {
     return when(
       success: (data) => data,
-      failure: (e) => throw e,
+      failure: ((e) => throw e),
     );
   }
 }

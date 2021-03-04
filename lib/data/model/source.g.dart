@@ -8,8 +8,8 @@ part of 'source.dart';
 
 _$_Source _$_$_SourceFromJson(Map<String, dynamic> json) {
   return _$_Source(
-    id: json['id'] as String,
-    name: json['name'] as String,
+    id: json['id'] as String?,
+    name: json['name'] as String?,
   );
 }
 

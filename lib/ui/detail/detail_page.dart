@@ -13,7 +13,7 @@ class DetailPage extends StatelessWidget {
       body: GestureDetector(
         child: Center(
           child: Hero(
-            tag: article.url,
+            tag: article.url!,
             child: networkImage(article.urlToImage),
           ),
         ),

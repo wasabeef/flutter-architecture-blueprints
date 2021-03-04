@@ -8,7 +8,7 @@ class FakeThemeDataSourceImpl extends ThemeDataSource {
   }
 
   @override
-  Future<void> saveThemeMode(ThemeMode theme) async {
+  Future<void> saveThemeMode(ThemeMode? theme) async {
     // no-op
   }
 }

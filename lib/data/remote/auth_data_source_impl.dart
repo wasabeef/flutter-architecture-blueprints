@@ -10,7 +10,7 @@ class AuthDataSourceImpl implements AuthDataSource {
   final firebase.FirebaseAuth _firebaseAuth;
 
   @override
-  Future<firebase.User> signIn() async {
+  Future<firebase.User?> signIn() async {
     final account = await GoogleSignIn().signIn();
     if (account == null) {
       return throw StateError('Maybe user canceled.');
@@ -24,7 +24,7 @@ class AuthDataSourceImpl implements AuthDataSource {
 
     final credential = await _firebaseAuth.signInWithCredential(authCredential);
     final currentUser = await firebase.FirebaseAuth.instance.currentUser;
-    assert(credential.user.uid == currentUser.uid);
+    assert(credential.user?.uid == currentUser?.uid);
     return credential.user;
   }
 

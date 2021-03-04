@@ -2,16 +2,16 @@
 /// *****************************************************
 ///  FlutterGen
 /// *****************************************************
-
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/services.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   AssetGenImage get articlePlaceholder =>
       const AssetGenImage('assets/images/article_placeholder.webp');
+
   AssetGenImage get iconPlaceholder =>
       const AssetGenImage('assets/images/icon_placeholder.jpg');
 }
@@ -36,20 +36,20 @@ class AssetGenImage extends AssetImage {
   final String _assetName;
 
   Image image({
-    Key key,
-    ImageFrameBuilder frameBuilder,
-    ImageLoadingBuilder loadingBuilder,
-    ImageErrorWidgetBuilder errorBuilder,
-    String semanticLabel,
+    Key? key,
+    ImageFrameBuilder? frameBuilder,
+    ImageLoadingBuilder? loadingBuilder,
+    ImageErrorWidgetBuilder? errorBuilder,
+    String? semanticLabel,
     bool excludeFromSemantics = false,
-    double width,
-    double height,
-    Color color,
-    BlendMode colorBlendMode,
-    BoxFit fit,
+    double? width,
+    double? height,
+    Color? color,
+    BlendMode? colorBlendMode,
+    BoxFit? fit,
     AlignmentGeometry alignment = Alignment.center,
     ImageRepeat repeat = ImageRepeat.noRepeat,
-    Rect centerSlice,
+    Rect? centerSlice,
     bool matchTextDirection = false,
     bool gaplessPlayback = false,
     bool isAntiAlias = false,
@@ -87,19 +87,19 @@ class SvgGenImage {
   final String _assetName;
 
   SvgPicture svg({
-    Key key,
+    Key? key,
     bool matchTextDirection = false,
-    AssetBundle bundle,
-    String package,
-    double width,
-    double height,
+    AssetBundle? bundle,
+    String? package,
+    double? width,
+    double? height,
     BoxFit fit = BoxFit.contain,
     AlignmentGeometry alignment = Alignment.center,
     bool allowDrawingOutsideViewBox = false,
-    WidgetBuilder placeholderBuilder,
-    Color color,
+    WidgetBuilder? placeholderBuilder,
+    Color? color,
     BlendMode colorBlendMode = BlendMode.srcIn,
-    String semanticsLabel,
+    String? semanticsLabel,
     bool excludeFromSemantics = false,
     Clip clipBehavior = Clip.hardEdge,
   }) {

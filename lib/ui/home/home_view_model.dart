@@ -15,9 +15,9 @@ class HomeViewModel extends ChangeNotifier {
   final NewsRepository _repository;
 
   // Result use case No.1
-  Result<News> _news;
+  Result<News>? _news;
 
-  Result<News> get news => _news;
+  Result<News>? get news => _news;
 
   Future<void> fetchNews() {
     return _repository

@@ -14,10 +14,10 @@ enum AppErrorType {
 }
 
 class AppError {
-  String message;
-  AppErrorType type;
+  late String message;
+  late AppErrorType type;
 
-  AppError(Exception error) {
+  AppError(Exception? error) {
     if (error is DioError) {
       debugPrint('AppError(DioError): '
           'type is ${error.type}, message is ${error.message}');
@@ -41,7 +41,7 @@ class AppError {
           break;
         case DioErrorType.response:
           // TODO(api): need define more http status;
-          switch (error.response.statusCode) {
+          switch (error.response?.statusCode) {
             case HttpStatus.badRequest: // 400
               type = AppErrorType.badRequest;
               break;

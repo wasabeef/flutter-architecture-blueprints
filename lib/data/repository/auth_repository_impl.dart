@@ -10,7 +10,7 @@ class AuthRepositoryImpl implements AuthRepository {
   final AuthDataSource _dataSource;
 
   @override
-  Future<Result<firebase.User>> signIn() {
+  Future<Result<firebase.User?>> signIn() {
     return Result.guardFuture(_dataSource.signIn);
   }
 

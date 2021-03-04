@@ -28,7 +28,7 @@ class ArticleItem extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Hero(
-              tag: _article.url,
+              tag: _article.url!,
               child: SizedBox(
                   width: double.infinity,
                   height: 200,

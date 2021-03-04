@@ -7,7 +7,7 @@ import '../../constants.dart';
 
 // ignore: prefer_mixin
 class AppDio with DioMixin implements Dio {
-  AppDio._([BaseOptions options]) {
+  AppDio._([BaseOptions? options]) {
     options = BaseOptions(
       baseUrl: Constants.of().endpoint,
       contentType: 'application/json',

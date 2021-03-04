@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'news.dart';
 
@@ -8,6 +8,10 @@ part of 'news.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 News _$NewsFromJson(Map<String, dynamic> json) {
   return _News.fromJson(json);
 }
@@ -16,11 +20,10 @@ News _$NewsFromJson(Map<String, dynamic> json) {
 class _$NewsTearOff {
   const _$NewsTearOff();
 
-// ignore: unused_element
   _News call(
-      {@required String status,
-      @required int totalResults,
-      List<Article> articles}) {
+      {required String status,
+      required int totalResults,
+      List<Article> articles = const []}) {
     return _News(
       status: status,
       totalResults: totalResults,
@@ -28,24 +31,23 @@ class _$NewsTearOff {
     );
   }
 
-// ignore: unused_element
   News fromJson(Map<String, Object> json) {
     return News.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $News = _$NewsTearOff();
 
 /// @nodoc
 mixin _$News {
-  String get status;
-  int get totalResults;
-  List<Article> get articles;
+  String get status => throw _privateConstructorUsedError;
+  int get totalResults => throw _privateConstructorUsedError;
+  List<Article> get articles => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $NewsCopyWith<News> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NewsCopyWith<News> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -65,9 +67,9 @@ class _$NewsCopyWithImpl<$Res> implements $NewsCopyWith<$Res> {
 
   @override
   $Res call({
-    Object status = freezed,
-    Object totalResults = freezed,
-    Object articles = freezed,
+    Object? status = freezed,
+    Object? totalResults = freezed,
+    Object? articles = freezed,
   }) {
     return _then(_value.copyWith(
       status: status == freezed ? _value.status : status as String,
@@ -98,9 +100,9 @@ class __$NewsCopyWithImpl<$Res> extends _$NewsCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object status = freezed,
-    Object totalResults = freezed,
-    Object articles = freezed,
+    Object? status = freezed,
+    Object? totalResults = freezed,
+    Object? articles = freezed,
   }) {
     return _then(_News(
       status: status == freezed ? _value.status : status as String,
@@ -116,9 +118,10 @@ class __$NewsCopyWithImpl<$Res> extends _$NewsCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_News implements _News {
-  _$_News({@required this.status, @required this.totalResults, this.articles})
-      : assert(status != null),
-        assert(totalResults != null);
+  _$_News(
+      {required this.status,
+      required this.totalResults,
+      this.articles = const []});
 
   factory _$_News.fromJson(Map<String, dynamic> json) =>
       _$_$_NewsFromJson(json);
@@ -127,6 +130,7 @@ class _$_News implements _News {
   final String status;
   @override
   final int totalResults;
+  @JsonKey(defaultValue: const [])
   @override
   final List<Article> articles;
 
@@ -156,6 +160,7 @@ class _$_News implements _News {
       const DeepCollectionEquality().hash(totalResults) ^
       const DeepCollectionEquality().hash(articles);
 
+  @JsonKey(ignore: true)
   @override
   _$NewsCopyWith<_News> get copyWith =>
       __$NewsCopyWithImpl<_News>(this, _$identity);
@@ -168,18 +173,19 @@ class _$_News implements _News {
 
 abstract class _News implements News {
   factory _News(
-      {@required String status,
-      @required int totalResults,
+      {required String status,
+      required int totalResults,
       List<Article> articles}) = _$_News;
 
   factory _News.fromJson(Map<String, dynamic> json) = _$_News.fromJson;
 
   @override
-  String get status;
+  String get status => throw _privateConstructorUsedError;
   @override
-  int get totalResults;
+  int get totalResults => throw _privateConstructorUsedError;
   @override
-  List<Article> get articles;
+  List<Article> get articles => throw _privateConstructorUsedError;
   @override
-  _$NewsCopyWith<_News> get copyWith;
+  @JsonKey(ignore: true)
+  _$NewsCopyWith<_News> get copyWith => throw _privateConstructorUsedError;
 }

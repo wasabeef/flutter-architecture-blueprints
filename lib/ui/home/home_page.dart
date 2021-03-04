@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(L10n.of(context).home,
+          title: Text(L10n.of(context)!.home,
               style: Theme.of(context).textTheme.headline1),
           actions: [
             // action button
@@ -30,8 +30,8 @@ class HomePage extends StatelessWidget {
                   .read(appThemeNotifierProvider)
                   .toggle()
                   .catchError((error) {
-                showErrorSnackbar(
-                    L10n.of(context).error, L10n.of(context).failedSwitchTheme);
+                showErrorSnackbar(L10n.of(context)!.error,
+                    L10n.of(context)!.failedSwitchTheme);
               }),
             ),
             IconButton(
@@ -58,11 +58,11 @@ class HomePage extends StatelessWidget {
                     return context
                         .read(loadingStateProvider)
                         .whileLoading(homeViewModel.fetchNews);
-                  }, [news.toString()]),
+                  }, [news?.toString()]),
                   initialData: null);
 
               // Not yet load the contents.
-              if (!snapshot.isDone) return Container();
+              if (!snapshot.isDone || news == null) return Container();
 
               return news.when(success: (data) {
                 if (data.articles.isEmpty) {

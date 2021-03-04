@@ -3,18 +3,18 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:get/get.dart';
 
 void showSimpleDialog(BuildContext context,
-    {String title, String text, VoidCallback onPressed}) {
+    {String? title, String? text, VoidCallback? onPressed}) {
   showDialog<void>(
       context: context,
       builder: (context) {
         return AlertDialog(
           backgroundColor: Colors.white,
-          title: Text(title),
-          content: Text(text),
+          title: Text(title!),
+          content: Text(text!),
           actions: <Widget>[
             TextButton(
               child: Text(
-                L10n.of(context).cancel,
+                L10n.of(context)!.cancel,
                 style:
                     TextStyle(color: Theme.of(context).colorScheme.secondary),
               ),
@@ -22,7 +22,7 @@ void showSimpleDialog(BuildContext context,
             ),
             TextButton(
               child: Text(
-                L10n.of(context).ok,
+                L10n.of(context)!.ok,
                 style:
                     TextStyle(color: Theme.of(context).colorScheme.secondary),
               ),

@@ -11,15 +11,15 @@ _$_Article _$_$_ArticleFromJson(Map<String, dynamic> json) {
     source: json['source'] == null
         ? null
         : Source.fromJson(json['source'] as Map<String, dynamic>),
-    author: json['author'] as String,
-    title: json['title'] as String,
-    description: json['description'] as String,
-    url: json['url'] as String,
-    urlToImage: json['urlToImage'] as String,
+    author: json['author'] as String?,
+    title: json['title'] as String?,
+    description: json['description'] as String?,
+    url: json['url'] as String?,
+    urlToImage: json['urlToImage'] as String?,
     publishedAt: json['publishedAt'] == null
         ? null
         : DateTime.parse(json['publishedAt'] as String),
-    content: json['content'] as String,
+    content: json['content'] as String?,
   );
 }
 

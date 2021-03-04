@@ -12,15 +12,15 @@ class ThemeDataSourceImpl extends ThemeDataSource {
   final AppSharedPreferences _prefs;
 
   @override
-  Future<ThemeMode> loadThemeMode() async {
+  Future<ThemeMode?> loadThemeMode() async {
     final prefs = await _prefs.getInstance();
     return EnumToString.fromString(
-        ThemeMode.values, prefs.getString(keyThemeMode));
+        ThemeMode.values, prefs.getString(keyThemeMode)!);
   }
 
   @override
-  Future<void> saveThemeMode(ThemeMode theme) async {
+  Future<void> saveThemeMode(ThemeMode? theme) async {
     final prefs = await _prefs.getInstance();
-    return prefs.setString(keyThemeMode, EnumToString.convertToString(theme));
+    prefs.setString(keyThemeMode, EnumToString.convertToString(theme));
   }
 }

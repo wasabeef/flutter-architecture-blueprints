@@ -88,11 +88,11 @@ class AppTheme extends ChangeNotifier {
 
   final ThemeRepository _repository;
 
-  ThemeMode _setting;
+  ThemeMode? _setting;
 
-  ThemeMode get setting => _setting;
+  ThemeMode? get setting => _setting;
 
-  Future<ThemeMode> themeMode() async {
+  Future<ThemeMode?> themeMode() async {
     if (setting == null) {
       _setting = await _repository.loadThemeMode() ?? _defaultThemeMode;
     }

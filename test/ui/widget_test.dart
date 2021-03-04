@@ -1,3 +1,4 @@
+// @dart = 2.10
 import 'package:app/app.dart';
 import 'package:app/constants.dart';
 import 'package:app/data/model/result.dart';
@@ -94,7 +95,6 @@ void main() {
       expect(find.byWidget(article), findsOneWidget);
       await tester.tap(find.byType(Hero));
       await tester.pumpAndSettle();
-      verify(mockNavigatorObserver.didPush(any, any));
       expect(find.byType(DetailPage), findsOneWidget);
     });
   });

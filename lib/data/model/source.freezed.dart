@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'source.dart';
 
@@ -8,6 +8,10 @@ part of 'source.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Source _$SourceFromJson(Map<String, dynamic> json) {
   return _Source.fromJson(json);
 }
@@ -16,38 +20,36 @@ Source _$SourceFromJson(Map<String, dynamic> json) {
 class _$SourceTearOff {
   const _$SourceTearOff();
 
-// ignore: unused_element
-  _Source call({String id, String name}) {
+  _Source call({String? id, String? name}) {
     return _Source(
       id: id,
       name: name,
     );
   }
 
-// ignore: unused_element
   Source fromJson(Map<String, Object> json) {
     return Source.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Source = _$SourceTearOff();
 
 /// @nodoc
 mixin _$Source {
-  String get id;
-  String get name;
+  String? get id => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $SourceCopyWith<Source> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SourceCopyWith<Source> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SourceCopyWith<$Res> {
   factory $SourceCopyWith(Source value, $Res Function(Source) then) =
       _$SourceCopyWithImpl<$Res>;
-  $Res call({String id, String name});
+  $Res call({String? id, String? name});
 }
 
 /// @nodoc
@@ -60,12 +62,12 @@ class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String,
-      name: name == freezed ? _value.name : name as String,
+      id: id == freezed ? _value.id : id as String?,
+      name: name == freezed ? _value.name : name as String?,
     ));
   }
 }
@@ -75,7 +77,7 @@ abstract class _$SourceCopyWith<$Res> implements $SourceCopyWith<$Res> {
   factory _$SourceCopyWith(_Source value, $Res Function(_Source) then) =
       __$SourceCopyWithImpl<$Res>;
   @override
-  $Res call({String id, String name});
+  $Res call({String? id, String? name});
 }
 
 /// @nodoc
@@ -89,12 +91,12 @@ class __$SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object id = freezed,
-    Object name = freezed,
+    Object? id = freezed,
+    Object? name = freezed,
   }) {
     return _then(_Source(
-      id: id == freezed ? _value.id : id as String,
-      name: name == freezed ? _value.name : name as String,
+      id: id == freezed ? _value.id : id as String?,
+      name: name == freezed ? _value.name : name as String?,
     ));
   }
 }
@@ -109,9 +111,9 @@ class _$_Source with DiagnosticableTreeMixin implements _Source {
       _$_$_SourceFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String name;
+  final String? name;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -143,6 +145,7 @@ class _$_Source with DiagnosticableTreeMixin implements _Source {
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(name);
 
+  @JsonKey(ignore: true)
   @override
   _$SourceCopyWith<_Source> get copyWith =>
       __$SourceCopyWithImpl<_Source>(this, _$identity);
@@ -154,14 +157,15 @@ class _$_Source with DiagnosticableTreeMixin implements _Source {
 }
 
 abstract class _Source implements Source {
-  factory _Source({String id, String name}) = _$_Source;
+  factory _Source({String? id, String? name}) = _$_Source;
 
   factory _Source.fromJson(Map<String, dynamic> json) = _$_Source.fromJson;
 
   @override
-  String get id;
+  String? get id => throw _privateConstructorUsedError;
   @override
-  String get name;
+  String? get name => throw _privateConstructorUsedError;
   @override
-  _$SourceCopyWith<_Source> get copyWith;
+  @JsonKey(ignore: true)
+  _$SourceCopyWith<_Source> get copyWith => throw _privateConstructorUsedError;
 }
