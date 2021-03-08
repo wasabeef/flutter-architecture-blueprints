@@ -10,7 +10,7 @@ abstract class News with _$News {
   factory News({
     required String status,
     required int totalResults,
-    @Default([]) List<Article> articles,
+    List<Article> articles,
   }) = _News;
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);

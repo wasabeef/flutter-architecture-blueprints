@@ -40,7 +40,6 @@ mixin _$Result<T> {
     required TResult Function(AppError error) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T data)? success,
@@ -48,14 +47,12 @@ mixin _$Result<T> {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(Success<T> value) success,
     required TResult Function(Failure<T> value) failure,
   }) =>
       throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(Success<T> value)? success,
@@ -76,7 +73,6 @@ class _$ResultCopyWithImpl<T, $Res> implements $ResultCopyWith<T, $Res> {
   _$ResultCopyWithImpl(this._value, this._then);
 
   final Result<T> _value;
-
   // ignore: unused_field
   final $Res Function(Result<T>) _then;
 }
@@ -85,7 +81,6 @@ class _$ResultCopyWithImpl<T, $Res> implements $ResultCopyWith<T, $Res> {
 abstract class $SuccessCopyWith<T, $Res> {
   factory $SuccessCopyWith(Success<T> value, $Res Function(Success<T>) then) =
       _$SuccessCopyWithImpl<T, $Res>;
-
   $Res call({T data});
 }
 
@@ -192,11 +187,9 @@ class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
 
 abstract class Success<T> extends Result<T> {
   const Success._() : super._();
-
   const factory Success({required T data}) = _$Success<T>;
 
   T get data => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $SuccessCopyWith<T, Success<T>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -206,7 +199,6 @@ abstract class Success<T> extends Result<T> {
 abstract class $FailureCopyWith<T, $Res> {
   factory $FailureCopyWith(Failure<T> value, $Res Function(Failure<T>) then) =
       _$FailureCopyWithImpl<T, $Res>;
-
   $Res call({AppError error});
 }
 
@@ -313,11 +305,9 @@ class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
 
 abstract class Failure<T> extends Result<T> {
   const Failure._() : super._();
-
   const factory Failure({required AppError error}) = _$Failure<T>;
 
   AppError get error => throw _privateConstructorUsedError;
-
   @JsonKey(ignore: true)
   $FailureCopyWith<T, Failure<T>> get copyWith =>
       throw _privateConstructorUsedError;

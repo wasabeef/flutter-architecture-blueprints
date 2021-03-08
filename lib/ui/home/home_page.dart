@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget {
                   final user = useProvider(
                       userViewModelProvider.select((value) => value.user));
                   return CircleAvatar(
-                    backgroundImage: loadProfileImageProvider(user?.photoURL),
+                    backgroundImage: profileImageProvider(user?.photoURL),
                     backgroundColor: Colors.transparent,
                     radius: 12,
                   );

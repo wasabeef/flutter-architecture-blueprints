@@ -45,7 +45,7 @@ class SignInPage extends StatelessWidget {
                               shape: BoxShape.circle,
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: loadProfileImageProvider(user?.photoURL),
+                                image: profileImageProvider(user?.photoURL),
                               ))),
                       const Gap(12),
                       Expanded(
