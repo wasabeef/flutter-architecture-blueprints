@@ -120,8 +120,8 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 #### Testing
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | API(Repositories) | Using [Mockito](https://pub.dev/packages/mockito) | [view_mode_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/test/ui/view_model_test.dart), [app_theme_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/test/ui/app_theme_test.dart) |
-| ✅️ | UI | Using [Mockito](https://pub.dev/packages/mockito) | [widget_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/test/ui/widget_test.dart) |
+| ✅ | API(Repositories) | Using [mocktail](https://github.com/felangel/mocktail) | [view_mode_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/test/ui/view_model_test.dart), [app_theme_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/test/ui/app_theme_test.dart) |
+| ✅️ | UI | Using [mocktail](https://github.com/felangel/mocktail) | [widget_test.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/test/ui/widget_test.dart) |
 | ✅ | Coverage reports | Send the report to [Codecov](https://codecov.io/) on CI |[codecov.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/codecov.yml), [codecov.sh](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/scripts/codecov.sh), [flutte-ci.yml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/8e2a373af5e4603aaa75d3c9b9af8150400ab46e/.github/workflows/flutter-ci.yml#L66-L71) |
 
 #### CI
