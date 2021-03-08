@@ -58,8 +58,10 @@ jobs:
           ${{ runner.os }}-
 
     - name: Get flutter dependencies.
-      run: make dependencies
-    
+      run: |
+        make setup-tools
+        make setup-env
+
     - name: Check for any formatting and statically analyze the code.
       run: make format-analyze
   

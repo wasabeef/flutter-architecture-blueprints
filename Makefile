@@ -1,9 +1,15 @@
-.PHONY: setup
-setup:
+.PHONY: setup-tools
+setup-tools:
 	dart pub global activate fvm
 	fvm install
 	fvm flutter pub get
 	npm install
+
+.PHONY: setup-env
+setup-env:
+	export PATH="$PATH:`pwd`/flutter/bin"
+	export PATH="$PATH:`pwd`/bin/cache/dart-sdk/bin"
+	export PATH="$PATH:`pwd`/.pub-cache/bin"
 
 .PHONY: dependencies
 dependencies:
