@@ -13,7 +13,7 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../data/dummy/dummy_article.dart';
@@ -31,17 +31,17 @@ void main() {
   Get.testMode = true;
 
   final mockAppTheme = MockAppTheme();
-  when(mockAppTheme.setting).thenReturn(ThemeMode.light);
-  when(mockAppTheme.themeMode())
-      .thenAnswer((_) => Future.value(ThemeMode.light));
+  when(() => mockAppTheme.setting).thenReturn(ThemeMode.light);
+  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
 
   final mockHomeViewModel = MockHomeViewModel();
-  when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
-  when(mockHomeViewModel.news).thenReturn(Result.success(data: dummyNews));
+  when(mockHomeViewModel.fetchNews).thenAnswer((_) => Future.value());
+  when(() => mockHomeViewModel.news)
+      .thenReturn(Result.success(data: dummyNews));
 
   final mockUserViewModel = MockUserViewModel();
-  when(mockUserViewModel.signIn()).thenAnswer((_) => Future.value());
-  when(mockUserViewModel.signOut()).thenAnswer((_) => Future.value());
+  when(mockUserViewModel.signIn).thenAnswer((_) => Future.value());
+  when(mockUserViewModel.signOut).thenAnswer((_) => Future.value());
 
   final mockNavigatorObserver = MockNavigatorObserver();
 

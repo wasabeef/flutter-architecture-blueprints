@@ -92,19 +92,19 @@ class AppTheme extends ChangeNotifier {
 
   ThemeMode get setting => _setting;
 
-  Future<ThemeMode?> themeMode() async {
+  Future<ThemeMode> themeMode() async {
     _setting = await _repository.loadThemeMode() ?? _defaultThemeMode;
-    return setting;
+    return _setting;
   }
 
   Future<void> _loadLightMode() async {
     _setting = ThemeMode.light;
-    await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
+    await _repository.saveThemeMode(_setting).whenComplete(notifyListeners);
   }
 
   Future<void> _loadDarkMode() async {
     _setting = ThemeMode.dark;
-    await _repository.saveThemeMode(setting).whenComplete(notifyListeners);
+    await _repository.saveThemeMode(_setting).whenComplete(notifyListeners);
   }
 
   Future<void> toggle() async {
