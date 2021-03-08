@@ -2,8 +2,16 @@ import 'package:flutter/widgets.dart';
 
 import '../../gen/assets.gen.dart';
 
-ImageProvider loadProfileImage(String? imageUrl) {
-  return imageUrl == null || imageUrl.isEmpty
-      ? Assets.images.iconPlaceholder
-      : Image.network(imageUrl) as ImageProvider<Object>;
+Image loadProfileImage(String? imageUrl) {
+  if (imageUrl == null || imageUrl.isEmpty) {
+    return Assets.images.iconPlaceholder.image();
+  }
+  return Image.network(imageUrl);
+}
+
+ImageProvider loadProfileImageProvider(String? imageUrl) {
+  if (imageUrl == null || imageUrl.isEmpty) {
+    return Assets.images.iconPlaceholder;
+  }
+  return NetworkImage(imageUrl);
 }
