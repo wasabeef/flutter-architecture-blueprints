@@ -18,30 +18,19 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                set -e
-                set -x
-
-                export PATH=$PATH:$HOME/.pub-cache/bin
-                make setup-tools
+                export PATH="$PATH":"$HOME/.pub-cache/bin"
+                make setup
           title: Get flutter dependencies
       - script@1:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                set -e
-                set -x
-
                 make format-analyze
           title: Check for any formatting and statically analyze the code
       - script@1:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                # fail if any commands fails
-                set -e
-                # debug log
-                set -x
-
                 make make unit-test
           title: Run widget tests for our flutter project
       - codecov@2.0:
@@ -51,11 +40,6 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                # fail if any commands fails
-                set -e
-                # debug log
-                set -x
-
                 make build-android-prd
                 make build-ios-prd
           title: Build ipa and apk
@@ -74,30 +58,19 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                set -e
-                set -x
-
                 export PATH=$PATH:$HOME/.pub-cache/bin
-                make setup-tools
+                make setup
           title: Get flutter dependencies
       - script@1:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                set -e
-                set -x
-
                 make format-analyze
           title: Check for any formatting and statically analyze the code
       - script@1:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                # fail if any commands fails
-                set -e
-                # debug log
-                set -x
-
                 make make unit-test
           title: Run widget tests for our flutter project
       - codecov@2.0:
@@ -107,11 +80,6 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                # fail if any commands fails
-                set -e
-                # debug log
-                set -x
-
                 make build-android-prd
                 make build-ios-prd
           title: Build ipa and apk

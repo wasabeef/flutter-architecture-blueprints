@@ -1,5 +1,5 @@
-.PHONY: setup-tools
-setup-tools:
+.PHONY: setup
+setup:
 	dart pub global activate fvm
 	fvm install
 	fvm flutter pub get

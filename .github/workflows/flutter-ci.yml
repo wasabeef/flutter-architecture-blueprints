@@ -9,15 +9,11 @@ on:
 jobs:
   build:
     runs-on: macos-latest
-    strategy:
-      matrix:
-        os: [ ubuntu-latest ]
-        sdk: [ stable ]
     steps:
       - uses: actions/checkout@v2
       - uses: dart-lang/setup-dart@v1
         with:
-          sdk: ${{ matrix.sdk }}
+          sdk: stable
 
       - name: Cache Gradle modules
         uses: actions/cache@v2.1.4
@@ -53,8 +49,8 @@ jobs:
           cache-number: ${{ secrets.CACHE_NUMBER }}
         with:
           path: |
-            /Users/runner/hostedtoolcache/flutter
-            # ~/.pub-cache
+            .fvm/versions
+            ~/.pub-cache/bin
           key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ env.flutter_version }}-${{ hashFiles('pubspec.lock') }}
           restore-keys: |
             ${{ runner.os }}-pub-${{ env.flutter_version }}-
@@ -64,7 +60,7 @@ jobs:
       - name: Get flutter dependencies.
         run: |
           export PATH="$PATH":"$HOME/.pub-cache/bin"
-          make setup-tools
+          make setup
 
       - name: Check for any formatting and statically analyze the code.
         run: make format-analyze
