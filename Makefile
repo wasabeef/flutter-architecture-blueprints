@@ -1,7 +1,7 @@
 .PHONY: setup-tools
 setup-tools:
 	dart pub global activate fvm
-	export PATH="$PATH:$HOME/.pub-cache/bin"
+	export PATH="$PATH":"$HOME/.pub-cache/bin"
 	fvm install
 	fvm flutter pub get
 	npm install
