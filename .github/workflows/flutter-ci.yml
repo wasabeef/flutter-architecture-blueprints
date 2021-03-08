@@ -57,6 +57,9 @@ jobs:
           ${{ runner.os }}-pub-
           ${{ runner.os }}-
 
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v3
+
     - name: Get flutter dependencies.
       run: |
         echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
