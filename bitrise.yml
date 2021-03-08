@@ -18,7 +18,8 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                export PATH="$PATH":"$HOME/.pub-cache/bin"
+                export PATH=$PATH:$HOME/.pub-cache/bin
+                envman add --key PATH --value $PATH
                 make setup
           title: Get flutter dependencies
       - script@1:
@@ -31,7 +32,7 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                make make unit-test
+                make unit-test
           title: Run widget tests for our flutter project
       - codecov@2.0:
           inputs:
@@ -59,6 +60,7 @@ workflows:
             - content: |-
                 #!/usr/bin/env bash
                 export PATH=$PATH:$HOME/.pub-cache/bin
+                envman add --key PATH --value $PATH
                 make setup
           title: Get flutter dependencies
       - script@1:
@@ -71,7 +73,7 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
-                make make unit-test
+                make unit-test
           title: Run widget tests for our flutter project
       - codecov@2.0:
           inputs:
