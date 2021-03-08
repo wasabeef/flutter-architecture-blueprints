@@ -84,8 +84,8 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 #### Project settings
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
-| ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/aed5d8fab3dee4fa8a967a8ecd7092fd2f727d5f/pubspec.yaml#L20-L22) |
-| ✅ | [FVM](https://github.com/leoafarias/fvm)   | Flutter Version Management | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/aed5d8fab3dee4fa8a967a8ecd7092fd2f727d5f/pubspec.yaml#L20-L22) |
+| ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/pubspec.yaml#L7-L9) |
+| ✅ | [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/.fvm/fvm_config.json) |
 | ✅ | Dart | Switching between Development and Production environment | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/constants.dart), [runConfigurations](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/.idea/runConfigurations), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/Makefile#L25-L41) |
 | ✅ | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/analysis_options.yaml) |
 | ✅ | Android | Kotlin version | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/android/build.gradle#L2) |
