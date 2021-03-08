@@ -146,7 +146,7 @@ $ export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .b
 $ make build-runner
 ```
 
-And set your IDE.
+**And set your IDE.**  
 <img height="180px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/fvm-intellij-env.png"/>
 
 <br/>
