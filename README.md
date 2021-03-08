@@ -36,7 +36,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 - [Dart 2.12.0+ (stable channel)](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
 - [FVM](https://github.com/leoafarias/fvm)
-  - [Flutter](https://flutter.dev/docs/get-started/install)
+  - [Flutter](https://flutter.dev/docs/get-started/install) via FVM
 - [npm (for git hooks)](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
 ## Environment
@@ -145,6 +145,8 @@ $ make setup
 $ export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .bashrc, etc)
 $ make build-runner
 ```
+
+And set your IDE.
 <img height="180px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/fvm-intellij-env.png"/>
 
 <br/>
