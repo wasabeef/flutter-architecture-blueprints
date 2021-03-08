@@ -7,9 +7,7 @@ setup-tools:
 
 .PHONY: setup-env
 setup-env:
-	export PATH="$PATH:`pwd`/flutter/bin"
-	export PATH="$PATH:`pwd`/bin/cache/dart-sdk/bin"
-	export PATH="$PATH:`pwd`/.pub-cache/bin"
+	export PATH="$PATH:$HOME/.pub-cache/bin"
 
 .PHONY: dependencies
 dependencies:
