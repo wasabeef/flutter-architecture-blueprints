@@ -14,8 +14,8 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:image_test_utils/image_test_utils.dart';
 import 'package:mockito/mockito.dart';
+import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../data/dummy/dummy_article.dart';
 import '../data/dummy/dummy_news.dart';
@@ -60,7 +60,7 @@ void main() {
   });
 
   testWidgets('HomePage widget test', (tester) async {
-    await provideMockedNetworkImages(() async {
+    await mockNetworkImages(() async {
       final page = HomePage();
       await tester.pumpWidget(
         ProviderScope(
@@ -83,7 +83,7 @@ void main() {
 
   testWidgets('Article widget test', (tester) async {
     final article = ArticleItem(dummyArticle);
-    await provideMockedNetworkImages(() async {
+    await mockNetworkImages(() async {
       await tester.pumpWidget(GetMaterialApp(
         home: article,
         routes: {

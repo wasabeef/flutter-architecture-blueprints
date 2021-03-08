@@ -67,8 +67,8 @@ dev_dependencies:
   effective_dart: ^1.3.0
 
   # For Testing
-  mockito:
-  image_test_utils:
+  mockito: ^5.0.0
+  mocktail_image_network: ^0.0.2-dev.1
 
 flutter_gen:
   integrations:
