@@ -9,91 +9,90 @@ on:
 jobs:
   build:
     runs-on: macos-latest
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        sdk: [ stable ]
     steps:
-    - uses: actions/checkout@v2
-    - uses: subosito/flutter-action@v1
-      with:
-        channel: 'stable'
+      - uses: actions/checkout@v2
+      - uses: dart-lang/setup-dart@v1
+        with:
+          sdk: ${{ matrix.sdk }}
 
-    - name: Cache Gradle modules
-      uses: actions/cache@v2.1.4
-      env:
-        cache-number: ${{ secrets.CACHE_NUMBER }}
-      with:
-        path: |
-          ~/android/.gradle
-          ~/.gradle/cache
-          # ~/.gradle/wrapper
-        key: ${{ runner.os }}-gradle-${{ env.cache-number }}-${{ hashFiles('android/build.gradle') }}-${{ hashFiles('android/app/build.gradle') }}
-        restore-keys: |
-          ${{ runner.os }}-gradle-${{ env.cache-name }}-${{ hashFiles('android/build.gradle') }}
-          ${{ runner.os }}-gradle-${{ env.cache-name }}-
-          ${{ runner.os }}-gradle-
-          ${{ runner.os }}-
+      - name: Cache Gradle modules
+        uses: actions/cache@v2.1.4
+        env:
+          cache-number: ${{ secrets.CACHE_NUMBER }}
+        with:
+          path: |
+            ~/android/.gradle
+            ~/.gradle/cache
+            # ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ env.cache-number }}-${{ hashFiles('android/build.gradle') }}-${{ hashFiles('android/app/build.gradle') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-${{ env.cache-name }}-${{ hashFiles('android/build.gradle') }}
+            ${{ runner.os }}-gradle-${{ env.cache-name }}-
+            ${{ runner.os }}-gradle-
+            ${{ runner.os }}-
 
-    - name: Cache CocoaPods modules
-      uses: actions/cache@v2.1.4
-      env:
-        cache-number: ${{ secrets.CACHE_NUMBER }}
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ env.cache-number }}-${{ hashFiles('ios/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-${{ env.cache-name }}-
-          ${{ runner.os }}-pods-
-          ${{ runner.os }}-
+      - name: Cache CocoaPods modules
+        uses: actions/cache@v2.1.4
+        env:
+          cache-number: ${{ secrets.CACHE_NUMBER }}
+        with:
+          path: Pods
+          key: ${{ runner.os }}-pods-${{ env.cache-number }}-${{ hashFiles('ios/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-${{ env.cache-name }}-
+            ${{ runner.os }}-pods-
+            ${{ runner.os }}-
 
-    - name: Cache Flutter modules
-      uses: actions/cache@v2.1.4
-      env:
-        cache-number: ${{ secrets.CACHE_NUMBER }}
-      with:
-        path: |
-          /Users/runner/hostedtoolcache/flutter
-          # ~/.pub-cache
-        key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ env.flutter_version }}-${{ hashFiles('pubspec.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pub-${{ env.flutter_version }}-
-          ${{ runner.os }}-pub-
-          ${{ runner.os }}-
+      - name: Cache Flutter modules
+        uses: actions/cache@v2.1.4
+        env:
+          cache-number: ${{ secrets.CACHE_NUMBER }}
+        with:
+          path: |
+            /Users/runner/hostedtoolcache/flutter
+            # ~/.pub-cache
+          key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ env.flutter_version }}-${{ hashFiles('pubspec.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pub-${{ env.flutter_version }}-
+            ${{ runner.os }}-pub-
+            ${{ runner.os }}-
 
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+      - name: Get flutter dependencies.
+        run: |
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          make setup-tools
 
-    - name: Get flutter dependencies.
-      run: |
-        echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-        echo "$GITHUB_WORKSPACE/_flutter/.pub-cache/bin" >> $GITHUB_PATH
-        echo "$GITHUB_WORKSPACE/_flutter/bin/cache/dart-sdk/bin" >> $GITHUB_PATH
-        make setup-tools
+      - name: Check for any formatting and statically analyze the code.
+        run: make format-analyze
 
-    - name: Check for any formatting and statically analyze the code.
-      run: make format-analyze
-  
-    - name: Run widget tests for our flutter project.
-      env: 
-        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-      run: |
-        make unit-test
-        make codecov
-    
-    - name: Build ipa and apk
-      run: |
-        make build-android-prd
-        make build-ios-prd
-        
-    - name: Slack Notification
-      uses: homoluctus/slatify@master
-      if: always()
-      with:
-        type: ${{ job.status }}
-        job_name: '*Flutter Build*'
-        mention: 'here'
-        mention_if: 'failure'
-        channel: '#develop'
-        username: 'Github Actions'
-        icon_emoji: ':octocat:'
-        url: ${{ secrets.SLACK_WEBHOOK_URL }}
-        commit: true
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run widget tests for our flutter project.
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: |
+          make unit-test
+          make codecov
+
+      - name: Build ipa and apk
+        run: |
+          make build-android-prd
+          make build-ios-prd
+
+      - name: Slack Notification
+        uses: homoluctus/slatify@master
+        if: always()
+        with:
+          type: ${{ job.status }}
+          job_name: '*Flutter Build*'
+          mention: 'here'
+          mention_if: 'failure'
+          channel: '#develop'
+          username: 'Github Actions'
+          icon_emoji: ':octocat:'
+          url: ${{ secrets.SLACK_WEBHOOK_URL }}
+          commit: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
