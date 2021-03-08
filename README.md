@@ -143,6 +143,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 ```shell script
 $ make setup
 $ export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .bashrc, etc)
+$ make dependencies
 $ make build-runner
 ```
 
