@@ -22,7 +22,7 @@ class App extends HookWidget {
       title: 'Flutter Architecture Blueprints',
       theme: lightTheme,
       darkTheme: darkTheme,
-      themeMode: setting  ,
+      themeMode: setting,
       home: HomePage(),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,

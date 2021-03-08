@@ -4,7 +4,6 @@ class AppSharedPreferences {
   SharedPreferences? _prefs;
 
   Future<SharedPreferences> getInstance() async {
-    _prefs ??= await SharedPreferences.getInstance();
-    return _prefs!;
+    return _prefs ??= await SharedPreferences.getInstance();
   }
 }

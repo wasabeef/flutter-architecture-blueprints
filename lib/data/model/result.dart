@@ -54,7 +54,7 @@ abstract class Result<T> with _$Result<T> {
   T get dataOrThrow {
     return when(
       success: (data) => data,
-      failure: ((e) => throw e),
+      failure: (e) => throw e,
     );
   }
 }
