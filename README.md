@@ -34,8 +34,8 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Requirements
 
-- [Flutter 1.22.0+ (beta channel)](https://flutter.dev/docs/get-started/install)
-- [Dart 2.10.0+](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
+- [Flutter 2.0.0+ (stable channel)](https://flutter.dev/docs/get-started/install)
+- [Dart 2.12.0+](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
 - [npm](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
 ## Environment

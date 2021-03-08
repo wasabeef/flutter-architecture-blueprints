@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../data/model/article.dart';
-import '../component/network_image.dart';
+import '../component/image.dart';
 
 class DetailPage extends StatelessWidget {
   @override
@@ -13,7 +13,7 @@ class DetailPage extends StatelessWidget {
       body: GestureDetector(
         child: Center(
           child: Hero(
-            tag: article.url,
+            tag: article,
             child: networkImage(article.urlToImage),
           ),
         ),

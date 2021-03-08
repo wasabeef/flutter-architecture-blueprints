@@ -7,14 +7,12 @@ enum Flavor { development, production }
 @immutable
 class Constants {
   const Constants({
-    @required this.endpoint,
-    @required this.apiKey,
+    required this.endpoint,
+    required this.apiKey,
   });
 
   factory Constants.of() {
-    if (_instance != null) {
-      return _instance;
-    }
+    if (_instance != null) return _instance!;
 
     final flavor = EnumToString.fromString(
       Flavor.values,
@@ -29,7 +27,7 @@ class Constants {
       default:
         _instance = Constants._prd();
     }
-    return _instance;
+    return _instance!;
   }
 
   factory Constants._dev() {
@@ -51,7 +49,7 @@ class Constants {
   static const String pageSignIn = '/signIn';
   static const String pageDetail = '/detail';
 
-  static Constants _instance;
+  static Constants? _instance;
 
   final String endpoint;
   final String apiKey;

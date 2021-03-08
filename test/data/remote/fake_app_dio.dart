@@ -11,14 +11,14 @@ class FakeAppDio implements AppDio {
   @override
   Future<Response<T>> get<T>(
     String path, {
-    Map<String, dynamic> queryParameters,
-    Options options,
-    CancelToken cancelToken,
-    ProgressCallback onReceiveProgress,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+    ProgressCallback? onReceiveProgress,
   }) async {
     if (path.contains('/v2/everything')) {
       return FakeResponse(
-              json.decode(dummyResponseNewsApi) as Map<String, dynamic>)
+              json.decode(dummyResponseNewsApi) as Map<String, dynamic>?)
           as Response<T>;
     } else {
       throw UnimplementedError();
@@ -35,7 +35,7 @@ class FakeResponse implements Response<Map<String, dynamic>> {
   FakeResponse(this.data);
 
   @override
-  final Map<String, dynamic> data;
+  final Map<String, dynamic>? data;
 
   @override
   void noSuchMethod(Invocation invocation) {

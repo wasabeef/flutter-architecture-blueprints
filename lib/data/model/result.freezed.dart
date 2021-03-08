@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'result.dart';
 
@@ -9,19 +9,20 @@ part of 'result.dart';
 
 T _$identity<T>(T value) => value;
 
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 /// @nodoc
 class _$ResultTearOff {
   const _$ResultTearOff();
 
-// ignore: unused_element
-  Success<T> success<T>({T data}) {
+  Success<T> success<T>({required T data}) {
     return Success<T>(
       data: data,
     );
   }
 
-// ignore: unused_element
-  Failure<T> failure<T>({@required AppError error}) {
+  Failure<T> failure<T>({required AppError error}) {
     return Failure<T>(
       error: error,
     );
@@ -29,33 +30,36 @@ class _$ResultTearOff {
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Result = _$ResultTearOff();
 
 /// @nodoc
 mixin _$Result<T> {
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result success(T data),
-    @required Result failure(AppError error),
-  });
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(AppError error) failure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result success(T data),
-    Result failure(AppError error),
-    @required Result orElse(),
-  });
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(AppError error)? failure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result success(Success<T> value),
-    @required Result failure(Failure<T> value),
-  });
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
+  }) =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result success(Success<T> value),
-    Result failure(Failure<T> value),
-    @required Result orElse(),
-  });
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -91,7 +95,7 @@ class _$SuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object data = freezed,
+    Object? data = freezed,
   }) {
     return _then(Success<T>(
       data: data == freezed ? _value.data : data as T,
@@ -101,7 +105,7 @@ class _$SuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
 /// @nodoc
 class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
-  const _$Success({this.data}) : super._();
+  const _$Success({required this.data}) : super._();
 
   @override
   final T data;
@@ -131,29 +135,27 @@ class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(data);
 
+  @JsonKey(ignore: true)
   @override
   $SuccessCopyWith<T, Success<T>> get copyWith =>
       _$SuccessCopyWithImpl<T, Success<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result success(T data),
-    @required Result failure(AppError error),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(AppError error) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return success(data);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result success(T data),
-    Result failure(AppError error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(AppError error)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(data);
     }
@@ -162,23 +164,20 @@ class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result success(Success<T> value),
-    @required Result failure(Failure<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return success(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result success(Success<T> value),
-    Result failure(Failure<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (success != null) {
       return success(this);
     }
@@ -188,10 +187,12 @@ class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
 
 abstract class Success<T> extends Result<T> {
   const Success._() : super._();
-  const factory Success({T data}) = _$Success<T>;
+  const factory Success({required T data}) = _$Success<T>;
 
-  T get data;
-  $SuccessCopyWith<T, Success<T>> get copyWith;
+  T get data => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $SuccessCopyWith<T, Success<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -212,7 +213,7 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
   @override
   $Res call({
-    Object error = freezed,
+    Object? error = freezed,
   }) {
     return _then(Failure<T>(
       error: error == freezed ? _value.error : error as AppError,
@@ -222,9 +223,7 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
 
 /// @nodoc
 class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
-  const _$Failure({@required this.error})
-      : assert(error != null),
-        super._();
+  const _$Failure({required this.error}) : super._();
 
   @override
   final AppError error;
@@ -254,29 +253,27 @@ class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
   int get hashCode =>
       runtimeType.hashCode ^ const DeepCollectionEquality().hash(error);
 
+  @JsonKey(ignore: true)
   @override
   $FailureCopyWith<T, Failure<T>> get copyWith =>
       _$FailureCopyWithImpl<T, Failure<T>>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  Result when<Result extends Object>({
-    @required Result success(T data),
-    @required Result failure(AppError error),
+  TResult when<TResult extends Object?>({
+    required TResult Function(T data) success,
+    required TResult Function(AppError error) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return failure(error);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeWhen<Result extends Object>({
-    Result success(T data),
-    Result failure(AppError error),
-    @required Result orElse(),
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T data)? success,
+    TResult Function(AppError error)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(error);
     }
@@ -285,23 +282,20 @@ class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
 
   @override
   @optionalTypeArgs
-  Result map<Result extends Object>({
-    @required Result success(Success<T> value),
-    @required Result failure(Failure<T> value),
+  TResult map<TResult extends Object?>({
+    required TResult Function(Success<T> value) success,
+    required TResult Function(Failure<T> value) failure,
   }) {
-    assert(success != null);
-    assert(failure != null);
     return failure(this);
   }
 
   @override
   @optionalTypeArgs
-  Result maybeMap<Result extends Object>({
-    Result success(Success<T> value),
-    Result failure(Failure<T> value),
-    @required Result orElse(),
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Success<T> value)? success,
+    TResult Function(Failure<T> value)? failure,
+    required TResult orElse(),
   }) {
-    assert(orElse != null);
     if (failure != null) {
       return failure(this);
     }
@@ -311,8 +305,10 @@ class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
 
 abstract class Failure<T> extends Result<T> {
   const Failure._() : super._();
-  const factory Failure({@required AppError error}) = _$Failure<T>;
+  const factory Failure({required AppError error}) = _$Failure<T>;
 
-  AppError get error;
-  $FailureCopyWith<T, Failure<T>> get copyWith;
+  AppError get error => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $FailureCopyWith<T, Failure<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }

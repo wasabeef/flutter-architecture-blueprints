@@ -8,46 +8,52 @@ void main() {
   test('AppError Test', () async {
     expect(
         AppError(
-          DioError(type: DioErrorType.CONNECT_TIMEOUT),
+          DioError(type: DioErrorType.connectTimeout),
         ).type,
         equals(AppErrorType.timeout));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.RECEIVE_TIMEOUT),
+          DioError(type: DioErrorType.receiveTimeout),
         ).type,
         equals(AppErrorType.timeout));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.SEND_TIMEOUT),
+          DioError(type: DioErrorType.sendTimeout),
         ).type,
         equals(AppErrorType.network));
 
     expect(
         AppError(
           DioError(
-              type: DioErrorType.RESPONSE, response: Response(statusCode: 400)),
+              type: DioErrorType.response,
+              response:
+                  Response(statusCode: 400, request: RequestOptions(path: ''))),
         ).type,
         equals(AppErrorType.badRequest));
 
     expect(
         AppError(
           DioError(
-              type: DioErrorType.RESPONSE, response: Response(statusCode: 401)),
+              type: DioErrorType.response,
+              response:
+                  Response(statusCode: 401, request: RequestOptions(path: ''))),
         ).type,
         equals(AppErrorType.unauthorized));
 
     expect(
         AppError(
           DioError(
-              type: DioErrorType.RESPONSE, response: Response(statusCode: 500)),
+              type: DioErrorType.response,
+              response:
+                  Response(statusCode: 500, request: RequestOptions(path: ''))),
         ).type,
         equals(AppErrorType.server));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.CANCEL),
+          DioError(type: DioErrorType.cancel),
         ).type,
         equals(AppErrorType.cancel));
 
@@ -55,13 +61,13 @@ void main() {
         AppError(
           DioError(
               error: const SocketException('Failed host lookup: wasabeef.jp'),
-              type: DioErrorType.DEFAULT),
+              type: DioErrorType.other),
         ).type,
         equals(AppErrorType.network));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.DEFAULT),
+          DioError(type: DioErrorType.other),
         ).type,
         equals(AppErrorType.unknown));
 

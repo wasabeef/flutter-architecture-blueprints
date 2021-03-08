@@ -4,13 +4,13 @@ import '../local/theme_data_source.dart';
 import 'theme_repository.dart';
 
 class ThemeRepositoryImpl implements ThemeRepository {
-  ThemeRepositoryImpl({@required ThemeDataSource dataSource})
+  ThemeRepositoryImpl({required ThemeDataSource dataSource})
       : _dataSource = dataSource;
 
   final ThemeDataSource _dataSource;
 
   @override
-  Future<ThemeMode> loadThemeMode() {
+  Future<ThemeMode?> loadThemeMode() {
     return _dataSource.loadThemeMode();
   }
 

@@ -13,9 +13,9 @@ class UserViewModel extends ChangeNotifier {
 
   final AuthRepository _repository;
 
-  firebase.User _user;
+  firebase.User? _user;
 
-  firebase.User get user => _user;
+  firebase.User? get user => _user;
 
   bool get isAuthenticated => _user != null;
 

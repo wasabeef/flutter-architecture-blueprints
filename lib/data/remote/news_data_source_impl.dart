@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 import '../../constants.dart';
 import '../../util/ext/date_time.dart';
@@ -9,7 +8,7 @@ import '../model/news.dart';
 import 'news_data_source.dart';
 
 class NewsDataSourceImpl implements NewsDataSource {
-  NewsDataSourceImpl({@required Dio dio}) : _dio = dio;
+  NewsDataSourceImpl({required Dio dio}) : _dio = dio;
 
   final Dio _dio;
 
@@ -29,6 +28,6 @@ class NewsDataSourceImpl implements NewsDataSource {
         'language': 'en',
         'apiKey': Constants.of().apiKey,
       },
-    ).then((response) => News.fromJson(response.data));
+    ).then((response) => News.fromJson(response.data!));
   }
 }

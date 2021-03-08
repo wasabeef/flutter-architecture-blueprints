@@ -13,8 +13,8 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:image_test_utils/image_test_utils.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
+import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../data/dummy/dummy_article.dart';
 import '../data/dummy/dummy_news.dart';
@@ -31,17 +31,17 @@ void main() {
   Get.testMode = true;
 
   final mockAppTheme = MockAppTheme();
-  when(mockAppTheme.setting).thenReturn(ThemeMode.light);
-  when(mockAppTheme.themeMode())
-      .thenAnswer((_) => Future.value(ThemeMode.light));
+  when(() => mockAppTheme.setting).thenReturn(ThemeMode.light);
+  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
 
   final mockHomeViewModel = MockHomeViewModel();
-  when(mockHomeViewModel.fetchNews()).thenAnswer((_) => Future.value());
-  when(mockHomeViewModel.news).thenReturn(Result.success(data: dummyNews));
+  when(mockHomeViewModel.fetchNews).thenAnswer((_) => Future.value());
+  when(() => mockHomeViewModel.news)
+      .thenReturn(Result.success(data: dummyNews));
 
   final mockUserViewModel = MockUserViewModel();
-  when(mockUserViewModel.signIn()).thenAnswer((_) => Future.value());
-  when(mockUserViewModel.signOut()).thenAnswer((_) => Future.value());
+  when(mockUserViewModel.signIn).thenAnswer((_) => Future.value());
+  when(mockUserViewModel.signOut).thenAnswer((_) => Future.value());
 
   final mockNavigatorObserver = MockNavigatorObserver();
 
@@ -59,7 +59,7 @@ void main() {
   });
 
   testWidgets('HomePage widget test', (tester) async {
-    await provideMockedNetworkImages(() async {
+    await mockNetworkImages(() async {
       final page = HomePage();
       await tester.pumpWidget(
         ProviderScope(
@@ -82,7 +82,7 @@ void main() {
 
   testWidgets('Article widget test', (tester) async {
     final article = ArticleItem(dummyArticle);
-    await provideMockedNetworkImages(() async {
+    await mockNetworkImages(() async {
       await tester.pumpWidget(GetMaterialApp(
         home: article,
         routes: {
@@ -94,7 +94,6 @@ void main() {
       expect(find.byWidget(article), findsOneWidget);
       await tester.tap(find.byType(Hero));
       await tester.pumpAndSettle();
-      verify(mockNavigatorObserver.didPush(any, any));
       expect(find.byType(DetailPage), findsOneWidget);
     });
   });

@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../constants.dart';
 import '../../data/model/article.dart';
-import 'network_image.dart';
+import 'image.dart';
 
 class ArticleItem extends StatelessWidget {
   const ArticleItem(this._article);
@@ -28,7 +28,7 @@ class ArticleItem extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Hero(
-              tag: _article.url,
+              tag: _article,
               child: SizedBox(
                   width: double.infinity,
                   height: 200,

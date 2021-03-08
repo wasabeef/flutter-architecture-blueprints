@@ -1,5 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
 part of 'article.dart';
 
@@ -8,6 +8,10 @@ part of 'article.dart';
 // **************************************************************************
 
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
 Article _$ArticleFromJson(Map<String, dynamic> json) {
   return _Article.fromJson(json);
 }
@@ -16,16 +20,15 @@ Article _$ArticleFromJson(Map<String, dynamic> json) {
 class _$ArticleTearOff {
   const _$ArticleTearOff();
 
-// ignore: unused_element
   _Article call(
-      {Source source,
-      String author,
-      String title,
-      String description,
-      String url,
-      String urlToImage,
-      DateTime publishedAt,
-      String content}) {
+      {Source? source,
+      String? author,
+      String? title,
+      String? description,
+      String? url,
+      String? urlToImage,
+      DateTime? publishedAt,
+      String? content}) {
     return _Article(
       source: source,
       author: author,
@@ -38,29 +41,28 @@ class _$ArticleTearOff {
     );
   }
 
-// ignore: unused_element
   Article fromJson(Map<String, Object> json) {
     return Article.fromJson(json);
   }
 }
 
 /// @nodoc
-// ignore: unused_element
 const $Article = _$ArticleTearOff();
 
 /// @nodoc
 mixin _$Article {
-  Source get source;
-  String get author;
-  String get title;
-  String get description;
-  String get url;
-  String get urlToImage;
-  DateTime get publishedAt;
-  String get content;
+  Source? get source => throw _privateConstructorUsedError;
+  String? get author => throw _privateConstructorUsedError;
+  String? get title => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  String? get url => throw _privateConstructorUsedError;
+  String? get urlToImage => throw _privateConstructorUsedError;
+  DateTime? get publishedAt => throw _privateConstructorUsedError;
+  String? get content => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson();
-  $ArticleCopyWith<Article> get copyWith;
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ArticleCopyWith<Article> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -68,16 +70,16 @@ abstract class $ArticleCopyWith<$Res> {
   factory $ArticleCopyWith(Article value, $Res Function(Article) then) =
       _$ArticleCopyWithImpl<$Res>;
   $Res call(
-      {Source source,
-      String author,
-      String title,
-      String description,
-      String url,
-      String urlToImage,
-      DateTime publishedAt,
-      String content});
+      {Source? source,
+      String? author,
+      String? title,
+      String? description,
+      String? url,
+      String? urlToImage,
+      DateTime? publishedAt,
+      String? content});
 
-  $SourceCopyWith<$Res> get source;
+  $SourceCopyWith<$Res>? get source;
 }
 
 /// @nodoc
@@ -90,36 +92,38 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
 
   @override
   $Res call({
-    Object source = freezed,
-    Object author = freezed,
-    Object title = freezed,
-    Object description = freezed,
-    Object url = freezed,
-    Object urlToImage = freezed,
-    Object publishedAt = freezed,
-    Object content = freezed,
+    Object? source = freezed,
+    Object? author = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? url = freezed,
+    Object? urlToImage = freezed,
+    Object? publishedAt = freezed,
+    Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed ? _value.source : source as Source,
-      author: author == freezed ? _value.author : author as String,
-      title: title == freezed ? _value.title : title as String,
+      source: source == freezed ? _value.source : source as Source?,
+      author: author == freezed ? _value.author : author as String?,
+      title: title == freezed ? _value.title : title as String?,
       description:
-          description == freezed ? _value.description : description as String,
-      url: url == freezed ? _value.url : url as String,
+          description == freezed ? _value.description : description as String?,
+      url: url == freezed ? _value.url : url as String?,
       urlToImage:
-          urlToImage == freezed ? _value.urlToImage : urlToImage as String,
-      publishedAt:
-          publishedAt == freezed ? _value.publishedAt : publishedAt as DateTime,
-      content: content == freezed ? _value.content : content as String,
+          urlToImage == freezed ? _value.urlToImage : urlToImage as String?,
+      publishedAt: publishedAt == freezed
+          ? _value.publishedAt
+          : publishedAt as DateTime?,
+      content: content == freezed ? _value.content : content as String?,
     ));
   }
 
   @override
-  $SourceCopyWith<$Res> get source {
+  $SourceCopyWith<$Res>? get source {
     if (_value.source == null) {
       return null;
     }
-    return $SourceCopyWith<$Res>(_value.source, (value) {
+
+    return $SourceCopyWith<$Res>(_value.source!, (value) {
       return _then(_value.copyWith(source: value));
     });
   }
@@ -131,17 +135,17 @@ abstract class _$ArticleCopyWith<$Res> implements $ArticleCopyWith<$Res> {
       __$ArticleCopyWithImpl<$Res>;
   @override
   $Res call(
-      {Source source,
-      String author,
-      String title,
-      String description,
-      String url,
-      String urlToImage,
-      DateTime publishedAt,
-      String content});
+      {Source? source,
+      String? author,
+      String? title,
+      String? description,
+      String? url,
+      String? urlToImage,
+      DateTime? publishedAt,
+      String? content});
 
   @override
-  $SourceCopyWith<$Res> get source;
+  $SourceCopyWith<$Res>? get source;
 }
 
 /// @nodoc
@@ -155,27 +159,28 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object source = freezed,
-    Object author = freezed,
-    Object title = freezed,
-    Object description = freezed,
-    Object url = freezed,
-    Object urlToImage = freezed,
-    Object publishedAt = freezed,
-    Object content = freezed,
+    Object? source = freezed,
+    Object? author = freezed,
+    Object? title = freezed,
+    Object? description = freezed,
+    Object? url = freezed,
+    Object? urlToImage = freezed,
+    Object? publishedAt = freezed,
+    Object? content = freezed,
   }) {
     return _then(_Article(
-      source: source == freezed ? _value.source : source as Source,
-      author: author == freezed ? _value.author : author as String,
-      title: title == freezed ? _value.title : title as String,
+      source: source == freezed ? _value.source : source as Source?,
+      author: author == freezed ? _value.author : author as String?,
+      title: title == freezed ? _value.title : title as String?,
       description:
-          description == freezed ? _value.description : description as String,
-      url: url == freezed ? _value.url : url as String,
+          description == freezed ? _value.description : description as String?,
+      url: url == freezed ? _value.url : url as String?,
       urlToImage:
-          urlToImage == freezed ? _value.urlToImage : urlToImage as String,
-      publishedAt:
-          publishedAt == freezed ? _value.publishedAt : publishedAt as DateTime,
-      content: content == freezed ? _value.content : content as String,
+          urlToImage == freezed ? _value.urlToImage : urlToImage as String?,
+      publishedAt: publishedAt == freezed
+          ? _value.publishedAt
+          : publishedAt as DateTime?,
+      content: content == freezed ? _value.content : content as String?,
     ));
   }
 }
@@ -198,21 +203,21 @@ class _$_Article implements _Article {
       _$_$_ArticleFromJson(json);
 
   @override
-  final Source source;
+  final Source? source;
   @override
-  final String author;
+  final String? author;
   @override
-  final String title;
+  final String? title;
   @override
-  final String description;
+  final String? description;
   @override
-  final String url;
+  final String? url;
   @override
-  final String urlToImage;
+  final String? urlToImage;
   @override
-  final DateTime publishedAt;
+  final DateTime? publishedAt;
   @override
-  final String content;
+  final String? content;
 
   @override
   String toString() {
@@ -256,6 +261,7 @@ class _$_Article implements _Article {
       const DeepCollectionEquality().hash(publishedAt) ^
       const DeepCollectionEquality().hash(content);
 
+  @JsonKey(ignore: true)
   @override
   _$ArticleCopyWith<_Article> get copyWith =>
       __$ArticleCopyWithImpl<_Article>(this, _$identity);
@@ -268,33 +274,35 @@ class _$_Article implements _Article {
 
 abstract class _Article implements Article {
   factory _Article(
-      {Source source,
-      String author,
-      String title,
-      String description,
-      String url,
-      String urlToImage,
-      DateTime publishedAt,
-      String content}) = _$_Article;
+      {Source? source,
+      String? author,
+      String? title,
+      String? description,
+      String? url,
+      String? urlToImage,
+      DateTime? publishedAt,
+      String? content}) = _$_Article;
 
   factory _Article.fromJson(Map<String, dynamic> json) = _$_Article.fromJson;
 
   @override
-  Source get source;
+  Source? get source => throw _privateConstructorUsedError;
   @override
-  String get author;
+  String? get author => throw _privateConstructorUsedError;
   @override
-  String get title;
+  String? get title => throw _privateConstructorUsedError;
   @override
-  String get description;
+  String? get description => throw _privateConstructorUsedError;
   @override
-  String get url;
+  String? get url => throw _privateConstructorUsedError;
   @override
-  String get urlToImage;
+  String? get urlToImage => throw _privateConstructorUsedError;
   @override
-  DateTime get publishedAt;
+  DateTime? get publishedAt => throw _privateConstructorUsedError;
   @override
-  String get content;
+  String? get content => throw _privateConstructorUsedError;
   @override
-  _$ArticleCopyWith<_Article> get copyWith;
+  @JsonKey(ignore: true)
+  _$ArticleCopyWith<_Article> get copyWith =>
+      throw _privateConstructorUsedError;
 }

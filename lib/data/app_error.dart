@@ -14,16 +14,16 @@ enum AppErrorType {
 }
 
 class AppError {
-  String message;
-  AppErrorType type;
+  late String message;
+  late AppErrorType type;
 
-  AppError(Exception error) {
+  AppError(Exception? error) {
     if (error is DioError) {
       debugPrint('AppError(DioError): '
           'type is ${error.type}, message is ${error.message}');
       message = error.message;
       switch (error.type) {
-        case DioErrorType.DEFAULT:
+        case DioErrorType.other:
           if (error.error is SocketException) {
             // SocketException: Failed host lookup: '***'
             // (OS Error: No address associated with hostname, errno = 7)
@@ -32,16 +32,16 @@ class AppError {
             type = AppErrorType.unknown;
           }
           break;
-        case DioErrorType.CONNECT_TIMEOUT:
-        case DioErrorType.RECEIVE_TIMEOUT:
+        case DioErrorType.connectTimeout:
+        case DioErrorType.receiveTimeout:
           type = AppErrorType.timeout;
           break;
-        case DioErrorType.SEND_TIMEOUT:
+        case DioErrorType.sendTimeout:
           type = AppErrorType.network;
           break;
-        case DioErrorType.RESPONSE:
+        case DioErrorType.response:
           // TODO(api): need define more http status;
-          switch (error.response.statusCode) {
+          switch (error.response?.statusCode) {
             case HttpStatus.badRequest: // 400
               type = AppErrorType.badRequest;
               break;
@@ -59,7 +59,7 @@ class AppError {
               break;
           }
           break;
-        case DioErrorType.CANCEL:
+        case DioErrorType.cancel:
           type = AppErrorType.cancel;
           break;
         default:
