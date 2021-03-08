@@ -59,8 +59,10 @@ jobs:
 
       - name: Get flutter dependencies.
         run: |
-          export PATH="$PATH":"$HOME/.pub-cache/bin"
           make setup
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+          make dependencies
 
       - name: Check for any formatting and statically analyze the code.
         run: make format-analyze

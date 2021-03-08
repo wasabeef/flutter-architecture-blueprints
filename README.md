@@ -39,17 +39,6 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
   - [Flutter](https://flutter.dev/docs/get-started/install)
 - [npm (for git hooks)](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
-<br/>
-
-How to use the [FVM](https://github.com/leoafarias/fvm)  
-*Please refer to [Makefile]()
-```shell
-dart pub global activate fvm
-export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .bashrc, etc) 
-fvm install
-fvm flutter pub get
-```
-
 ## Environment
 
 <img height="520px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/MVVM.jpg" align="right" />
@@ -148,16 +137,31 @@ fvm flutter pub get
 
 ## Getting Started
 
-<img height="540px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/running-app.gif" align="left" />
 
 ### Setup
 
 ```shell script
 $ make setup
+$ export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .bashrc, etc)
 $ make build-runner
 ```
+<img height="180px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/fvm-intellij-env.png"/>
+
+<br/>
+
+### How to add assets(images..)
+1. Add assets
+2. Run [FlutterGen](https://github.com/fluttergen)
+
+### How to add localizations
+1. Edit [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n) files.
+2. Run generate the `flutter pub get`
+
+<br/>
 
 ### Make .apk and .ipa file
+
+<img height="540px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/running-app.gif" align="left" />
 
 Android
 ```shell script
@@ -176,17 +180,6 @@ $ make build-ios-prd
 $ make run-dev
 $ make run-prd
 ```
-
-<br>
-
-### How to add assets(images..)
-1. Add assets
-2. Run [FlutterGen](https://github.com/fluttergen)
-
-### How to add localizations
-1. Edit [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n) files.
-2. Run generate the `flutter pub get`
-
 ## Special Thanks.
 
 - [News API](https://newsapi.org/)

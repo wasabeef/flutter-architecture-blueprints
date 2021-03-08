@@ -1,12 +1,11 @@
 .PHONY: setup
 setup:
 	dart pub global activate fvm
-	fvm install
-	fvm flutter pub get
 	npm install
 
 .PHONY: dependencies
 dependencies:
+	fvm install
 	fvm flutter pub get
 
 .PHONY: analyze

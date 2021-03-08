@@ -18,9 +18,11 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
+                make setup
                 export PATH=$PATH:$HOME/.pub-cache/bin
                 envman add --key PATH --value $PATH
-                make setup
+
+                make dependencies
           title: Get flutter dependencies
       - script@1:
           inputs:
@@ -59,9 +61,11 @@ workflows:
           inputs:
             - content: |-
                 #!/usr/bin/env bash
+                make setup
                 export PATH=$PATH:$HOME/.pub-cache/bin
                 envman add --key PATH --value $PATH
-                make setup
+
+                make dependencies
           title: Get flutter dependencies
       - script@1:
           inputs:
