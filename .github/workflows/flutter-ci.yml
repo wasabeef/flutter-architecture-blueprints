@@ -59,8 +59,8 @@ jobs:
 
     - name: Get flutter dependencies.
       run: |
+        echo "$HOME/.pub-cache/bin" >> "$GITHUB_ENV
         make setup-tools
-        make setup-env
 
     - name: Check for any formatting and statically analyze the code.
       run: make format-analyze
