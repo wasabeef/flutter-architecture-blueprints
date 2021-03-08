@@ -34,9 +34,10 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Requirements
 
-- [Flutter 2.0.0+ (stable channel)](https://flutter.dev/docs/get-started/install)
-- [Dart 2.12.0+](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
-- [npm](https://treehouse.github.io/installation-guides/mac/node-mac.html)
+- [Dart 2.12.0+ (stable channel)](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
+- [FVM](https://github.com/leoafarias/fvm)
+  - [Flutter](https://flutter.dev/docs/get-started/install)
+- [npm (for git hooks)](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
 ## Environment
 
@@ -84,6 +85,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/aed5d8fab3dee4fa8a967a8ecd7092fd2f727d5f/pubspec.yaml#L20-L22) |
+| ✅ | [FVM](https://github.com/leoafarias/fvm)   | Flutter Version Management | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/aed5d8fab3dee4fa8a967a8ecd7092fd2f727d5f/pubspec.yaml#L20-L22) |
 | ✅ | Dart | Switching between Development and Production environment | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/constants.dart), [runConfigurations](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/.idea/runConfigurations), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/Makefile#L25-L41) |
 | ✅ | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/analysis_options.yaml) |
 | ✅ | Android | Kotlin version | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/android/build.gradle#L2) |
@@ -135,16 +137,31 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 ## Getting Started
 
-<img height="540px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/running-app.gif" align="left" />
 
 ### Setup
 
 ```shell script
 $ make setup
+$ export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .bashrc, etc)
 $ make build-runner
 ```
+<img height="180px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/fvm-intellij-env.png"/>
+
+<br/>
+
+### How to add assets(images..)
+1. Add assets
+2. Run [FlutterGen](https://github.com/fluttergen)
+
+### How to add localizations
+1. Edit [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n) files.
+2. Run generate the `flutter pub get`
+
+<br/>
 
 ### Make .apk and .ipa file
+
+<img height="540px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/running-app.gif" align="left" />
 
 Android
 ```shell script
@@ -163,17 +180,6 @@ $ make build-ios-prd
 $ make run-dev
 $ make run-prd
 ```
-
-<br>
-
-### How to add assets(images..)
-1. Add assets
-2. Run [FlutterGen](https://github.com/fluttergen)
-
-### How to add localizations
-1. Edit [*.arb](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/lib/l10n) files.
-2. Run generate the `flutter pub get`
-
 ## Special Thanks.
 
 - [News API](https://newsapi.org/)

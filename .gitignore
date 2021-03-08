@@ -111,3 +111,6 @@ node_modules/
 
 ## Test coverage
 coverage/
+
+# fvm
+.fvm/flutter_sdk

@@ -13,33 +13,39 @@ workflows:
       - activate-ssh-key@4:
           run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
       - git-clone@4: {}
-      - script@1:
-          title: Do anything with Script step
-      - flutter-installer@0:
-          inputs:
-            - version: beta
       - cache-pull@2: {}
-      - flutter-analyze@0:
+      - script@1:
           inputs:
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-      - flutter-test@0:
+            - content: |-
+                #!/usr/bin/env bash
+                make setup
+                export PATH=$PATH:$HOME/.pub-cache/bin
+                envman add --key PATH --value $PATH
+
+                make dependencies
+          title: Get flutter dependencies
+      - script@1:
           inputs:
-            - additional_params: "--coverage-path=./coverage/lcov.info"
-            - generate_code_coverage_files: 'yes'
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
+            - content: |-
+                #!/usr/bin/env bash
+                make format-analyze
+          title: Check for any formatting and statically analyze the code
+      - script@1:
+          inputs:
+            - content: |-
+                #!/usr/bin/env bash
+                make unit-test
+          title: Run widget tests for our flutter project
       - codecov@2.0:
           inputs:
             - CODECOV_TOKEN: "$CODECOV_TOKEN"
-      - flutter-build@0:
+      - script@1:
           inputs:
-            - ios_additional_params: "--release --no-codesign --flavor production --dart-define=FLAVOR=production
-            --target lib/main.dart"
-            - is_debug_mode: 'true'
-            - ios_output_pattern: |-
-                *build/ios/iphoneos/*.app
-                *build/ios/iphoneos/*.ipa
-            - android_additional_params: "--release --flavor production --dart-define=FLAVOR=production
-            --target lib/main.dart"
+            - content: |-
+                #!/usr/bin/env bash
+                make build-android-prd
+                make build-ios-prd
+          title: Build ipa and apk
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
       - slack@3:
@@ -50,33 +56,39 @@ workflows:
       - activate-ssh-key@4:
           run_if: '{{getenv "SSH_RSA_PRIVATE_KEY" | ne ""}}'
       - git-clone@4: {}
+      - cache-pull@2: { }
       - script@1:
-          title: Do anything with Script step
-      - flutter-installer@0:
           inputs:
-            - version: beta
-      - cache-pull@2: {}
-      - flutter-analyze@0.2:
+            - content: |-
+                #!/usr/bin/env bash
+                make setup
+                export PATH=$PATH:$HOME/.pub-cache/bin
+                envman add --key PATH --value $PATH
+
+                make dependencies
+          title: Get flutter dependencies
+      - script@1:
           inputs:
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-      - flutter-test@0:
+            - content: |-
+                #!/usr/bin/env bash
+                make format-analyze
+          title: Check for any formatting and statically analyze the code
+      - script@1:
           inputs:
-            - additional_params: "--coverage-path=./coverage/lcov.info"
-            - generate_code_coverage_files: 'yes'
-            - project_location: "$BITRISE_FLUTTER_PROJECT_LOCATION"
-      - codecov@1:
+            - content: |-
+                #!/usr/bin/env bash
+                make unit-test
+          title: Run widget tests for our flutter project
+      - codecov@2.0:
           inputs:
             - CODECOV_TOKEN: "$CODECOV_TOKEN"
-      - flutter-build@0:
+      - script@1:
           inputs:
-            - ios_additional_params: "--no-codesign --flavor development --dart-define=FLAVOR=development
-            --target lib/main.dart"
-            - is_debug_mode: 'true'
-            - ios_output_pattern: |-
-                *build/ios/iphoneos/*.app
-                *build/ios/iphoneos/*.ipa
-            - android_additional_params: "--flavor development --dart-define=FLAVOR=development
-            --target lib/main.dart"
+            - content: |-
+                #!/usr/bin/env bash
+                make build-android-prd
+                make build-ios-prd
+          title: Build ipa and apk
       - deploy-to-bitrise-io@1: {}
       - cache-push@2: {}
       - slack@3:

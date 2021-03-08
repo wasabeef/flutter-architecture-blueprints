@@ -33,11 +33,15 @@ workflows:
             # set up local properties
             echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/android/local.properties"
 
-      - name: Flutter pub get
-        script: make dependencies
+      - name: Get flutter dependencies
+        script: |
+          make setup
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-      - name: Flutte Analysis
-        script: make analyze
+          make dependencies
+
+      - name: Check for any formatting and statically analyze the code
+        script: make format-analyze
 
       - name: Flutter Unit test
         script: make unit-test
