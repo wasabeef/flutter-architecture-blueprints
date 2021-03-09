@@ -147,7 +147,7 @@ $ make dependencies
 $ make build-runner
 ```
 
-**And set your IDE.**  
+**And set your IDE for FVM path.**  
 <img height="180px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/fvm-intellij-env.png"/>
 
 <br/>
