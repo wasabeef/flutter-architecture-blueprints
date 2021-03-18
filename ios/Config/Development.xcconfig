@@ -2,7 +2,7 @@
 #include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release-development.xcconfig"
 TRACK_WIDGET_CREATION=
 
-FLUTTER_FLAVOR=pevelopment
+FLUTTER_FLAVOR=development
 FLUTTER_TARGET=$PROJECT_DIR/../lib/main.dart
 PRODUCT_BUNDLE_IDENTIFIER=jp.wasabeef.app.dev
 DISPLAY_NAME=FAB-dev
