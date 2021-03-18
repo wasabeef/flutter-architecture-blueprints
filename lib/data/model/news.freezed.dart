@@ -23,7 +23,7 @@ class _$NewsTearOff {
   _News call(
       {required String status,
       required int totalResults,
-      List<Article> articles = const []}) {
+      required List<Article> articles}) {
     return _News(
       status: status,
       totalResults: totalResults,
@@ -72,11 +72,18 @@ class _$NewsCopyWithImpl<$Res> implements $NewsCopyWith<$Res> {
     Object? articles = freezed,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed ? _value.status : status as String,
-      totalResults:
-          totalResults == freezed ? _value.totalResults : totalResults as int,
-      articles:
-          articles == freezed ? _value.articles : articles as List<Article>,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalResults: totalResults == freezed
+          ? _value.totalResults
+          : totalResults // ignore: cast_nullable_to_non_nullable
+              as int,
+      articles: articles == freezed
+          ? _value.articles
+          : articles // ignore: cast_nullable_to_non_nullable
+              as List<Article>,
     ));
   }
 }
@@ -105,11 +112,18 @@ class __$NewsCopyWithImpl<$Res> extends _$NewsCopyWithImpl<$Res>
     Object? articles = freezed,
   }) {
     return _then(_News(
-      status: status == freezed ? _value.status : status as String,
-      totalResults:
-          totalResults == freezed ? _value.totalResults : totalResults as int,
-      articles:
-          articles == freezed ? _value.articles : articles as List<Article>,
+      status: status == freezed
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String,
+      totalResults: totalResults == freezed
+          ? _value.totalResults
+          : totalResults // ignore: cast_nullable_to_non_nullable
+              as int,
+      articles: articles == freezed
+          ? _value.articles
+          : articles // ignore: cast_nullable_to_non_nullable
+              as List<Article>,
     ));
   }
 }
@@ -121,7 +135,7 @@ class _$_News implements _News {
   _$_News(
       {required this.status,
       required this.totalResults,
-      this.articles = const []});
+      required this.articles});
 
   factory _$_News.fromJson(Map<String, dynamic> json) =>
       _$_$_NewsFromJson(json);
@@ -130,7 +144,6 @@ class _$_News implements _News {
   final String status;
   @override
   final int totalResults;
-  @JsonKey(defaultValue: const [])
   @override
   final List<Article> articles;
 
@@ -175,7 +188,7 @@ abstract class _News implements News {
   factory _News(
       {required String status,
       required int totalResults,
-      List<Article> articles}) = _$_News;
+      required List<Article> articles}) = _$_News;
 
   factory _News.fromJson(Map<String, dynamic> json) = _$_News.fromJson;
 

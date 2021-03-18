@@ -102,18 +102,38 @@ class _$ArticleCopyWithImpl<$Res> implements $ArticleCopyWith<$Res> {
     Object? content = freezed,
   }) {
     return _then(_value.copyWith(
-      source: source == freezed ? _value.source : source as Source?,
-      author: author == freezed ? _value.author : author as String?,
-      title: title == freezed ? _value.title : title as String?,
-      description:
-          description == freezed ? _value.description : description as String?,
-      url: url == freezed ? _value.url : url as String?,
-      urlToImage:
-          urlToImage == freezed ? _value.urlToImage : urlToImage as String?,
+      source: source == freezed
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as Source?,
+      author: author == freezed
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      urlToImage: urlToImage == freezed
+          ? _value.urlToImage
+          : urlToImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       publishedAt: publishedAt == freezed
           ? _value.publishedAt
-          : publishedAt as DateTime?,
-      content: content == freezed ? _value.content : content as String?,
+          : publishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 
@@ -169,18 +189,38 @@ class __$ArticleCopyWithImpl<$Res> extends _$ArticleCopyWithImpl<$Res>
     Object? content = freezed,
   }) {
     return _then(_Article(
-      source: source == freezed ? _value.source : source as Source?,
-      author: author == freezed ? _value.author : author as String?,
-      title: title == freezed ? _value.title : title as String?,
-      description:
-          description == freezed ? _value.description : description as String?,
-      url: url == freezed ? _value.url : url as String?,
-      urlToImage:
-          urlToImage == freezed ? _value.urlToImage : urlToImage as String?,
+      source: source == freezed
+          ? _value.source
+          : source // ignore: cast_nullable_to_non_nullable
+              as Source?,
+      author: author == freezed
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as String?,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String?,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      url: url == freezed
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
+              as String?,
+      urlToImage: urlToImage == freezed
+          ? _value.urlToImage
+          : urlToImage // ignore: cast_nullable_to_non_nullable
+              as String?,
       publishedAt: publishedAt == freezed
           ? _value.publishedAt
-          : publishedAt as DateTime?,
-      content: content == freezed ? _value.content : content as String?,
+          : publishedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      content: content == freezed
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }

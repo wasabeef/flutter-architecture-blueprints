@@ -2,16 +2,16 @@
 /// *****************************************************
 ///  FlutterGen
 /// *****************************************************
-import 'package:flutter/services.dart';
+
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/services.dart';
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
   AssetGenImage get articlePlaceholder =>
       const AssetGenImage('assets/images/article_placeholder.webp');
-
   AssetGenImage get iconPlaceholder =>
       const AssetGenImage('assets/images/icon_placeholder.jpg');
 }

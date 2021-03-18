@@ -66,8 +66,14 @@ class _$SourceCopyWithImpl<$Res> implements $SourceCopyWith<$Res> {
     Object? name = freezed,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed ? _value.id : id as String?,
-      name: name == freezed ? _value.name : name as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -95,8 +101,14 @@ class __$SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
     Object? name = freezed,
   }) {
     return _then(_Source(
-      id: id == freezed ? _value.id : id as String?,
-      name: name == freezed ? _value.name : name as String?,
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }

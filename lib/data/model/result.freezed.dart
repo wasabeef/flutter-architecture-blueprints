@@ -98,7 +98,10 @@ class _$SuccessCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
     Object? data = freezed,
   }) {
     return _then(Success<T>(
-      data: data == freezed ? _value.data : data as T,
+      data: data == freezed
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as T,
     ));
   }
 }
@@ -186,8 +189,8 @@ class _$Success<T> extends Success<T> with DiagnosticableTreeMixin {
 }
 
 abstract class Success<T> extends Result<T> {
-  const Success._() : super._();
   const factory Success({required T data}) = _$Success<T>;
+  const Success._() : super._();
 
   T get data => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -216,7 +219,10 @@ class _$FailureCopyWithImpl<T, $Res> extends _$ResultCopyWithImpl<T, $Res>
     Object? error = freezed,
   }) {
     return _then(Failure<T>(
-      error: error == freezed ? _value.error : error as AppError,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as AppError,
     ));
   }
 }
@@ -304,8 +310,8 @@ class _$Failure<T> extends Failure<T> with DiagnosticableTreeMixin {
 }
 
 abstract class Failure<T> extends Result<T> {
-  const Failure._() : super._();
   const factory Failure({required AppError error}) = _$Failure<T>;
+  const Failure._() : super._();
 
   AppError get error => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
