@@ -8,19 +8,25 @@ void main() {
   test('AppError Test', () async {
     expect(
         AppError(
-          DioError(type: DioErrorType.connectTimeout),
+          DioError(
+              type: DioErrorType.connectTimeout,
+              requestOptions: RequestOptions(path: '')),
         ).type,
         equals(AppErrorType.timeout));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.receiveTimeout),
+          DioError(
+              type: DioErrorType.receiveTimeout,
+              requestOptions: RequestOptions(path: '')),
         ).type,
         equals(AppErrorType.timeout));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.sendTimeout),
+          DioError(
+              type: DioErrorType.sendTimeout,
+              requestOptions: RequestOptions(path: '')),
         ).type,
         equals(AppErrorType.network));
 
@@ -28,8 +34,9 @@ void main() {
         AppError(
           DioError(
               type: DioErrorType.response,
-              response:
-                  Response(statusCode: 400, request: RequestOptions(path: ''))),
+              requestOptions: RequestOptions(path: ''),
+              response: Response(
+                  requestOptions: RequestOptions(path: ''), statusCode: 400)),
         ).type,
         equals(AppErrorType.badRequest));
 
@@ -37,8 +44,9 @@ void main() {
         AppError(
           DioError(
               type: DioErrorType.response,
-              response:
-                  Response(statusCode: 401, request: RequestOptions(path: ''))),
+              requestOptions: RequestOptions(path: ''),
+              response: Response(
+                  requestOptions: RequestOptions(path: ''), statusCode: 401)),
         ).type,
         equals(AppErrorType.unauthorized));
 
@@ -46,14 +54,17 @@ void main() {
         AppError(
           DioError(
               type: DioErrorType.response,
-              response:
-                  Response(statusCode: 500, request: RequestOptions(path: ''))),
+              requestOptions: RequestOptions(path: ''),
+              response: Response(
+                  requestOptions: RequestOptions(path: ''), statusCode: 500)),
         ).type,
         equals(AppErrorType.server));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.cancel),
+          DioError(
+              type: DioErrorType.cancel,
+              requestOptions: RequestOptions(path: '')),
         ).type,
         equals(AppErrorType.cancel));
 
@@ -61,13 +72,16 @@ void main() {
         AppError(
           DioError(
               error: const SocketException('Failed host lookup: wasabeef.jp'),
-              type: DioErrorType.other),
+              type: DioErrorType.other,
+              requestOptions: RequestOptions(path: '')),
         ).type,
         equals(AppErrorType.network));
 
     expect(
         AppError(
-          DioError(type: DioErrorType.other),
+          DioError(
+              type: DioErrorType.other,
+              requestOptions: RequestOptions(path: '')),
         ).type,
         equals(AppErrorType.unknown));
 
