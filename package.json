@@ -1,6 +1,6 @@
 {
   "name": "flutter-architecture-blueprints",
-  "author": "wasabeef",
+  "private": true,
   "husky": {
     "hooks": {
       "pre-push": "make format-analyze"
