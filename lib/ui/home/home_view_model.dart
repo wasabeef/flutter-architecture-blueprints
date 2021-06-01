@@ -6,13 +6,14 @@ import '../../data/model/result.dart';
 import '../../data/provider/news_repository_provider.dart';
 import '../../data/repository/news_repository.dart';
 
-final homeViewModelProvider = ChangeNotifierProvider(
-    (ref) => HomeViewModel(ref.read(newsRepositoryProvider)));
+final homeViewModelProvider =
+    ChangeNotifierProvider((ref) => HomeViewModel(ref.read));
 
 class HomeViewModel extends ChangeNotifier {
-  HomeViewModel(this._repository);
+  final Reader _read;
+  HomeViewModel(this._read);
 
-  final NewsRepository _repository;
+  NewsRepository get _repository => _read(newsRepositoryProvider);
 
   // Result use case No.1
   Result<News>? _news;
