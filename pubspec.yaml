@@ -5,7 +5,7 @@ version: 1.0.0+1
 publish_to: 'none'
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: '>=2.13.0 <3.0.0'
   flutter: '>=2.0.0'
 
 dependencies:
@@ -15,60 +15,60 @@ dependencies:
     sdk: flutter
 
   # For Google and Firebase
-  firebase_core: ^1.0.0
-  firebase_auth: ^1.0.0
-  google_sign_in: ^5.0.0
-  firebase_crashlytics: ^1.0.0
-  firebase_performance: ^0.6.0
+  firebase_core: ^1.2.0
+  firebase_auth: ^1.2.0
+  google_sign_in: ^5.0.4
+  firebase_crashlytics: ^2.0.0
+  firebase_performance: ^0.7.0+3
 
   # For Architecture
-  flutter_hooks: ^0.16.0
-  hooks_riverpod: ^0.13.0
+  flutter_hooks: ^0.17.0
+  hooks_riverpod: ^0.14.0+4
 
   # For Networking
-  dio: ^4.0.0-beta4
+  dio: ^4.0.0
   # TODO: dio_firebase_performance does not yet support NNBD.
   # dio_firebase_performance: ^0.3.0
   # For User-Agent Client Hints
   ua_client_hints: ^1.0.3
 
   # For Model
-  json_serializable: ^4.0.2
-  freezed_annotation: ^0.14.0
+  json_serializable: ^4.1.3
+  freezed_annotation: ^0.14.2
 
   # For DateTime
   intl: ^0.17.0
 
   # For Key-Value local storage
-  shared_preferences: ^2.0.3
+  shared_preferences: ^2.0.6
 
   # Convert between Enum and String
-  enum_to_string: ^2.0.0-nullsafety.1
+  enum_to_string: ^2.0.1
 
   # For UIs
-  gap: ^2.0.0-nullsafety.1
-  cupertino_icons: ^1.0.0
-  google_fonts: ^2.0.0
-  flutter_svg: ^0.21.0-nullsafety.0
+  gap: ^2.0.0
+  cupertino_icons: ^1.0.3
+  google_fonts: ^2.1.0
+  flutter_svg: ^0.22.0
 
   # For Utilities
-  get: ^4.0.0-nullsafety.0
+  get: ^4.1.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  build_runner: ^1.11.1
-  flutter_gen_runner: ^3.0.2
+  build_runner: ^2.0.4
+  flutter_gen_runner: ^3.1.1
 
   # For Model
-  freezed: ^0.14.0
+  freezed: ^0.14.2
 
   # For Analyzer
   effective_dart: ^1.3.0
 
   # For Testing
-  mocktail: ^0.1.1
+  mocktail: ^0.1.4
   mocktail_image_network: ^0.1.0
 
 flutter_gen:
