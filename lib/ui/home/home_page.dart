@@ -15,7 +15,7 @@ import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
 import 'home_view_model.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = useL10n();

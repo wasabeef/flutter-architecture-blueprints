@@ -10,7 +10,7 @@ import '../hook/use_l10n.dart';
 import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
 
-class SignInPage extends StatelessWidget {
+class SignInPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = useL10n();
