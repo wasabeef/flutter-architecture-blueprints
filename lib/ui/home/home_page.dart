@@ -11,6 +11,7 @@ import '../component/article_item.dart';
 import '../component/container_with_loading.dart';
 import '../component/image.dart';
 import '../hook/use_l10n.dart';
+import '../hook/use_theme.dart';
 import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
 import 'home_view_model.dart';
@@ -18,12 +19,13 @@ import 'home_view_model.dart';
 class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final theme = useTheme();
     final l10n = useL10n();
     return Scaffold(
         appBar: AppBar(
           title: Text(
             l10n.home,
-            style: Theme.of(context).textTheme.headline1,
+            style: theme.textTheme.headline1,
           ),
           actions: [
             // action button

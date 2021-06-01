@@ -7,18 +7,20 @@ import '../../gen/assets.gen.dart';
 import '../component/container_with_loading.dart';
 import '../component/image.dart';
 import '../hook/use_l10n.dart';
+import '../hook/use_theme.dart';
 import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
 
 class SignInPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    final theme = useTheme();
     final l10n = useL10n();
     return Scaffold(
       appBar: AppBar(
         title: Text(
           l10n.signIn,
-          style: Theme.of(context).textTheme.headline1,
+          style: theme.textTheme.headline1,
         ),
       ),
       body: ContainerWithLoading(
@@ -28,7 +30,7 @@ class SignInPage extends HookWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                border: Border.all(color: Theme.of(context).dividerColor),
+                border: Border.all(color: theme.dividerColor),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Padding(
@@ -102,8 +104,7 @@ class SignInPage extends HookWidget {
                   children: [
                     Assets.svgs.firebase.svg(width: 48, height: 48),
                     const Gap(8),
-                    Text(l10n.googleSignIn,
-                        style: Theme.of(context).textTheme.button)
+                    Text(l10n.googleSignIn, style: theme.textTheme.button)
                   ],
                 ),
               ),
@@ -123,7 +124,7 @@ class SignInPage extends HookWidget {
                     const Gap(8),
                     Text(
                       l10n.googleSignOut,
-                      style: Theme.of(context).textTheme.button,
+                      style: theme.textTheme.button,
                     )
                   ],
                 ),
