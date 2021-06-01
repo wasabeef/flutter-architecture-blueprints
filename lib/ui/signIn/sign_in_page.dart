@@ -1,15 +1,14 @@
+import 'package:app/gen/assets.gen.dart';
+import 'package:app/ui/component/container_with_loading.dart';
+import 'package:app/ui/component/image.dart';
+import 'package:app/ui/hook/use_l10n.dart';
+import 'package:app/ui/hook/use_theme.dart';
+import 'package:app/ui/loading_state_view_model.dart';
+import 'package:app/ui/user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../gen/assets.gen.dart';
-import '../component/container_with_loading.dart';
-import '../component/image.dart';
-import '../hook/use_l10n.dart';
-import '../hook/use_theme.dart';
-import '../loading_state_view_model.dart';
-import '../user_view_model.dart';
 
 class SignInPage extends HookWidget {
   @override

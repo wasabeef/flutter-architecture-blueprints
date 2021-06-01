@@ -1,10 +1,9 @@
+import 'package:app/data/model/result.dart';
+import 'package:app/data/provider/auth_data_source_provider.dart';
+import 'package:app/data/remote/auth_data_source.dart';
+import 'package:app/data/repository/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../model/result.dart';
-import '../provider/auth_data_source_provider.dart';
-import '../remote/auth_data_source.dart';
-import 'auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._reader);

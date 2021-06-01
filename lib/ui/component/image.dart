@@ -1,6 +1,5 @@
+import 'package:app/gen/assets.gen.dart';
 import 'package:flutter/widgets.dart';
-
-import '../../gen/assets.gen.dart';
 
 Image profileImage(String? imageUrl) {
   if (imageUrl == null || imageUrl.isEmpty) {

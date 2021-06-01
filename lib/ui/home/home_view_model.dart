@@ -1,10 +1,9 @@
+import 'package:app/data/model/news.dart';
+import 'package:app/data/model/result.dart';
+import 'package:app/data/provider/news_repository_provider.dart';
+import 'package:app/data/repository/news_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../data/model/news.dart';
-import '../../data/model/result.dart';
-import '../../data/provider/news_repository_provider.dart';
-import '../../data/repository/news_repository.dart';
 
 final homeViewModelProvider =
     ChangeNotifierProvider((ref) => HomeViewModel(ref.read));

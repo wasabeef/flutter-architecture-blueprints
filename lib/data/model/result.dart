@@ -1,7 +1,6 @@
+import 'package:app/data/app_error.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
-import '../app_error.dart';
 
 part 'result.freezed.dart';
 

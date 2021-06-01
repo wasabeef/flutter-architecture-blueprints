@@ -1,9 +1,8 @@
+import 'package:app/data/local/theme_data_source.dart';
+import 'package:app/data/provider/theme_data_source_provider.dart';
+import 'package:app/data/repository/theme_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../local/theme_data_source.dart';
-import '../provider/theme_data_source_provider.dart';
-import 'theme_repository.dart';
 
 class ThemeRepositoryImpl implements ThemeRepository {
   ThemeRepositoryImpl(this._reader);

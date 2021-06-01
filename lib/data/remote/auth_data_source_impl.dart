@@ -1,10 +1,9 @@
+import 'package:app/data/provider/firebase_auth_provider.dart';
+import 'package:app/data/remote/auth_data_source.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../provider/firebase_auth_provider.dart';
-import 'auth_data_source.dart';
 
 class AuthDataSourceImpl implements AuthDataSource {
   AuthDataSourceImpl(this._reader);
