@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -11,6 +10,7 @@ import '../app_theme.dart';
 import '../component/article_item.dart';
 import '../component/container_with_loading.dart';
 import '../component/image.dart';
+import '../hook/use_l10n.dart';
 import '../loading_state_view_model.dart';
 import '../user_view_model.dart';
 import 'home_view_model.dart';
@@ -18,10 +18,13 @@ import 'home_view_model.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final l10n = useL10n();
     return Scaffold(
         appBar: AppBar(
-          title: Text(L10n.of(context)!.home,
-              style: Theme.of(context).textTheme.headline1),
+          title: Text(
+            l10n.home,
+            style: Theme.of(context).textTheme.headline1,
+          ),
           actions: [
             // action button
             IconButton(
@@ -30,8 +33,10 @@ class HomePage extends StatelessWidget {
                   .read(appThemeNotifierProvider)
                   .toggle()
                   .catchError((error) {
-                showErrorSnackbar(L10n.of(context)!.error,
-                    L10n.of(context)!.failedSwitchTheme);
+                showErrorSnackbar(
+                  l10n.error,
+                  l10n.failedSwitchTheme,
+                );
               }),
             ),
             IconButton(
