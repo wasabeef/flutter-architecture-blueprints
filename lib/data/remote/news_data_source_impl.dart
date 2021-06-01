@@ -1,16 +1,19 @@
 import 'dart:math';
 
 import 'package:dio/dio.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../constants.dart';
 import '../../util/ext/date_time.dart';
 import '../model/news.dart';
+import '../provider/dio_provider.dart';
 import 'news_data_source.dart';
 
 class NewsDataSourceImpl implements NewsDataSource {
-  NewsDataSourceImpl({required Dio dio}) : _dio = dio;
+  final Reader _read;
+  NewsDataSourceImpl(this._read);
 
-  final Dio _dio;
+  Dio get _dio => _read(dioProvider);
 
   @override
   Future<News> getNews() {
