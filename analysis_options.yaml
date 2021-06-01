@@ -9,4 +9,9 @@ analyzer:
 linter:
   rules:
     public_member_api_docs: false
+    one_member_abstracts: false
     prefer_const_constructors: true
+    # IDE works bad with relative import
+    # See: https://github.com/dart-lang/sdk/issues/32916
+    prefer_relative_imports: false
+    always_use_package_imports: true

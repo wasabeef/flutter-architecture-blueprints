@@ -1,9 +1,9 @@
+import 'package:app/constants.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:dio_firebase_performance/dio_firebase_performance.dart';
 import 'package:flutter/foundation.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
-
-import '../../constants.dart';
 
 // ignore: prefer_mixin
 class AppDio with DioMixin implements Dio {
@@ -23,8 +23,7 @@ class AppDio with DioMixin implements Dio {
     }));
 
     // Firebase Performance
-    // TODO: dio_firebase_performance does not yet support NNBD.
-    // interceptors.add(DioFirebasePerformanceInterceptor());
+    interceptors.add(DioFirebasePerformanceInterceptor());
 
     if (kDebugMode) {
       // Local Log

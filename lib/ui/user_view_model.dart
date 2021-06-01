@@ -1,18 +1,18 @@
+import 'package:app/data/provider/auth_repository_provider.dart';
+import 'package:app/data/repository/auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase;
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../data/provider/auth_repository_provider.dart';
-import '../data/repository/auth_repository.dart';
 
 final userViewModelProvider =
     ChangeNotifierProvider((ref) => UserViewModel(ref.read));
 
 class UserViewModel extends ChangeNotifier {
-  final Reader _read;
-  UserViewModel(this._read);
+  UserViewModel(this._reader);
 
-  AuthRepository get _repository => _read(authRepositoryProvider);
+  final Reader _reader;
+
+  late final AuthRepository _repository = _reader(authRepositoryProvider);
 
   firebase.User? _user;
 

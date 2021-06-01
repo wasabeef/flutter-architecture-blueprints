@@ -1,19 +1,19 @@
+import 'package:app/data/model/news.dart';
+import 'package:app/data/model/result.dart';
+import 'package:app/data/provider/news_repository_provider.dart';
+import 'package:app/data/repository/news_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../../data/model/news.dart';
-import '../../data/model/result.dart';
-import '../../data/provider/news_repository_provider.dart';
-import '../../data/repository/news_repository.dart';
 
 final homeViewModelProvider =
     ChangeNotifierProvider((ref) => HomeViewModel(ref.read));
 
 class HomeViewModel extends ChangeNotifier {
-  final Reader _read;
-  HomeViewModel(this._read);
+  HomeViewModel(this._reader);
 
-  NewsRepository get _repository => _read(newsRepositoryProvider);
+  final Reader _reader;
+
+  late final NewsRepository _repository = _reader(newsRepositoryProvider);
 
   // Result use case No.1
   Result<News>? _news;

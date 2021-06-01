@@ -1,10 +1,9 @@
+import 'package:app/data/provider/theme_repository_provider.dart';
+import 'package:app/data/repository/theme_repository.dart';
+import 'package:app/gen/fonts.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-
-import '../data/provider/theme_repository_provider.dart';
-import '../data/repository/theme_repository.dart';
-import '../gen/fonts.gen.dart';
 
 // Color converter: https://www.w3schools.com/colors/colors_converter.asp
 // Transparency list
@@ -36,8 +35,8 @@ import '../gen/fonts.gen.dart';
 // 5%   0D
 // 0%   00
 
-final appThemeNotifierProvider = ChangeNotifierProvider<AppTheme>(
-    (ref) => AppTheme(ref.read(themeRepositoryProvider)));
+final appThemeNotifierProvider =
+    ChangeNotifierProvider<AppTheme>((ref) => AppTheme(ref.read));
 
 const headline1 = TextStyle(
   fontSize: 24,
@@ -82,11 +81,13 @@ ThemeData get darkTheme {
 }
 
 class AppTheme extends ChangeNotifier {
-  AppTheme(this._repository);
+  AppTheme(this._reader);
+
+  final Reader _reader;
 
   static const _defaultThemeMode = ThemeMode.light;
 
-  final ThemeRepository _repository;
+  late final ThemeRepository _repository = _reader(themeRepositoryProvider);
 
   ThemeMode _setting = _defaultThemeMode;
 

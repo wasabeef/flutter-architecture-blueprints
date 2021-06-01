@@ -1,8 +1,7 @@
+import 'package:app/data/model/article.dart';
+import 'package:app/ui/component/image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../data/model/article.dart';
-import '../component/image.dart';
 
 class DetailPage extends StatelessWidget {
   @override
