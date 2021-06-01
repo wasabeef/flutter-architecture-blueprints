@@ -7,8 +7,9 @@ import '../provider/firebase_auth_provider.dart';
 import 'auth_data_source.dart';
 
 class AuthDataSourceImpl implements AuthDataSource {
+  const AuthDataSourceImpl(this._read);
+
   final Reader _read;
-  AuthDataSourceImpl(this._read);
 
   firebase.FirebaseAuth get _firebaseAuth => _read(firebaseAuthProvider);
 

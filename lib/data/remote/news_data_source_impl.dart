@@ -10,8 +10,9 @@ import '../provider/dio_provider.dart';
 import 'news_data_source.dart';
 
 class NewsDataSourceImpl implements NewsDataSource {
+  const NewsDataSourceImpl(this._read);
+
   final Reader _read;
-  NewsDataSourceImpl(this._read);
 
   Dio get _dio => _read(dioProvider);
 
