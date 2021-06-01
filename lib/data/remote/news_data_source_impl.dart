@@ -10,11 +10,11 @@ import '../provider/dio_provider.dart';
 import 'news_data_source.dart';
 
 class NewsDataSourceImpl implements NewsDataSource {
-  const NewsDataSourceImpl(this._read);
+  NewsDataSourceImpl(this._reader);
 
-  final Reader _read;
+  final Reader _reader;
 
-  Dio get _dio => _read(dioProvider);
+  late final Dio _dio = _reader(dioProvider);
 
   @override
   Future<News> getNews() {

@@ -4,5 +4,5 @@ import '../repository/theme_repository.dart';
 import '../repository/theme_repository_impl.dart';
 import 'theme_data_source_provider.dart';
 
-final themeRepositoryProvider = Provider<ThemeRepository>((ref) =>
-    ThemeRepositoryImpl(dataSource: ref.read(themeDataSourceProvider)));
+final themeRepositoryProvider =
+    Provider<ThemeRepository>((ref) => ThemeRepositoryImpl(ref.read));

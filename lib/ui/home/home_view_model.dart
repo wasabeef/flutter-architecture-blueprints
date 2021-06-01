@@ -10,10 +10,11 @@ final homeViewModelProvider =
     ChangeNotifierProvider((ref) => HomeViewModel(ref.read));
 
 class HomeViewModel extends ChangeNotifier {
-  final Reader _read;
-  HomeViewModel(this._read);
+  HomeViewModel(this._reader);
 
-  NewsRepository get _repository => _read(newsRepositoryProvider);
+  final Reader _reader;
+
+  late final NewsRepository _repository = _reader(newsRepositoryProvider);
 
   // Result use case No.1
   Result<News>? _news;

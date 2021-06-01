@@ -36,8 +36,8 @@ import '../gen/fonts.gen.dart';
 // 5%   0D
 // 0%   00
 
-final appThemeNotifierProvider = ChangeNotifierProvider<AppTheme>(
-    (ref) => AppTheme(ref.read(themeRepositoryProvider)));
+final appThemeNotifierProvider =
+    ChangeNotifierProvider<AppTheme>((ref) => AppTheme(ref.read));
 
 const headline1 = TextStyle(
   fontSize: 24,
@@ -82,11 +82,13 @@ ThemeData get darkTheme {
 }
 
 class AppTheme extends ChangeNotifier {
-  AppTheme(this._repository);
+  AppTheme(this._reader);
+
+  final Reader _reader;
 
   static const _defaultThemeMode = ThemeMode.light;
 
-  final ThemeRepository _repository;
+  late final ThemeRepository _repository = _reader(themeRepositoryProvider);
 
   ThemeMode _setting = _defaultThemeMode;
 

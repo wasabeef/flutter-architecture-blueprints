@@ -9,10 +9,11 @@ final userViewModelProvider =
     ChangeNotifierProvider((ref) => UserViewModel(ref.read));
 
 class UserViewModel extends ChangeNotifier {
-  final Reader _read;
-  UserViewModel(this._read);
+  UserViewModel(this._reader);
 
-  AuthRepository get _repository => _read(authRepositoryProvider);
+  final Reader _reader;
+
+  late final AuthRepository _repository = _reader(authRepositoryProvider);
 
   firebase.User? _user;
 

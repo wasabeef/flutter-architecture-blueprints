@@ -7,11 +7,12 @@ import '../provider/firebase_auth_provider.dart';
 import 'auth_data_source.dart';
 
 class AuthDataSourceImpl implements AuthDataSource {
-  const AuthDataSourceImpl(this._read);
+  AuthDataSourceImpl(this._reader);
 
-  final Reader _read;
+  final Reader _reader;
 
-  firebase.FirebaseAuth get _firebaseAuth => _read(firebaseAuthProvider);
+  late final firebase.FirebaseAuth _firebaseAuth =
+      _reader(firebaseAuthProvider);
 
   @override
   Future<firebase.User?> signIn() async {
