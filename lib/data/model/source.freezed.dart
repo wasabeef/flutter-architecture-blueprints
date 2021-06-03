@@ -113,9 +113,8 @@ class __$SourceCopyWithImpl<$Res> extends _$SourceCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_Source with DiagnosticableTreeMixin implements _Source {
   _$_Source({this.id, this.name});
 

@@ -5,14 +5,16 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ContainerWithLoading extends StatelessWidget {
-  const ContainerWithLoading({required Widget child}) : _child = child;
+  const ContainerWithLoading({
+    required this.child,
+  });
 
-  final Widget _child;
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
-      _child,
+      child,
       HookBuilder(builder: (context) {
         final state = useProvider(loadingStateProvider);
         return state.isLoading ? const Loading() : const SizedBox();

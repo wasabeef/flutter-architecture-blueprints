@@ -128,9 +128,8 @@ class __$NewsCopyWithImpl<$Res> extends _$NewsCopyWithImpl<$Res>
   }
 }
 
-@JsonSerializable()
-
 /// @nodoc
+@JsonSerializable()
 class _$_News implements _News {
   _$_News(
       {required this.status,

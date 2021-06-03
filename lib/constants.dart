@@ -44,11 +44,6 @@ class Constants {
     );
   }
 
-  // Routing name
-  static const String pageHome = '/home';
-  static const String pageSignIn = '/signIn';
-  static const String pageDetail = '/detail';
-
   static Constants? _instance;
 
   final String endpoint;

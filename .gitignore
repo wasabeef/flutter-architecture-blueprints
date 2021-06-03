@@ -105,9 +105,11 @@ ios/fastlane/report.xml
 node_modules/
 
 ## Generated code
-# **/*.g.dart
-#lib/l10n/messages_*
-#l10n-arb/intl_messages.arb
+#*.gen.dart
+#*.g.dart
+#*.freezed.dart
+#*.gr.dart
+#l10n*.dart
 
 ## Test coverage
 coverage/

@@ -1,12 +1,8 @@
-import 'package:app/constants.dart';
 import 'package:app/ui/app_theme.dart';
-import 'package:app/ui/detail/detail_page.dart';
-import 'package:app/ui/home/home_page.dart';
-import 'package:app/ui/signIn/sign_in_page.dart';
+import 'package:app/ui/route/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:get/get.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class App extends HookWidget {
@@ -19,19 +15,16 @@ class App extends HookWidget {
       useMemoized(appTheme.themeMode, [setting]),
       initialData: ThemeMode.light,
     );
-    return GetMaterialApp(
+    final appRouter = useMemoized(() => AppRouter());
+    return MaterialApp.router(
       title: 'Flutter Architecture Blueprints',
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: setting,
-      home: HomePage(),
       localizationsDelegates: L10n.localizationsDelegates,
       supportedLocales: L10n.supportedLocales,
-      routes: {
-        Constants.pageHome: (context) => HomePage(),
-        Constants.pageSignIn: (context) => SignInPage(),
-        Constants.pageDetail: (context) => DetailPage(),
-      },
+      routeInformationParser: appRouter.defaultRouteParser(),
+      routerDelegate: appRouter.delegate(),
     );
   }
 }
