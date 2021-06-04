@@ -41,9 +41,6 @@ dependencies:
   # For DateTime
   intl: ^0.17.0
 
-  # For Key-Value local storage
-  shared_preferences: ^2.0.6
-
   # Convert between Enum and String
   enum_to_string: ^2.0.1
 
