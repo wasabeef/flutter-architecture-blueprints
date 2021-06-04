@@ -4,7 +4,7 @@ import 'package:app/constants.dart';
 import 'package:app/data/model/news.dart';
 import 'package:app/data/provider/dio_provider.dart';
 import 'package:app/data/remote/news_data_source.dart';
-import 'package:app/util/ext/date_time.dart';
+import 'package:app/foundation/extension/date_time.dart';
 import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
