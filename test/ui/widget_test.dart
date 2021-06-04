@@ -1,6 +1,5 @@
 import 'package:app/app.dart';
 import 'package:app/data/model/result.dart';
-import 'package:app/ui/app_theme.dart';
 import 'package:app/ui/component/loading.dart';
 import 'package:app/ui/home/home_page.dart';
 import 'package:app/ui/home/home_view_model.dart';
@@ -15,17 +14,11 @@ import 'package:mocktail_image_network/mocktail_image_network.dart';
 
 import '../data/dummy/dummy_news.dart';
 
-class MockAppTheme extends Mock implements AppTheme {}
-
 class MockHomeViewModel extends Mock implements HomeViewModel {}
 
 class MockUserViewModel extends Mock implements UserViewModel {}
 
 void main() {
-  final mockAppTheme = MockAppTheme();
-  when(() => mockAppTheme.setting).thenReturn(ThemeMode.light);
-  when(mockAppTheme.themeMode).thenAnswer((_) => Future.value(ThemeMode.light));
-
   final mockHomeViewModel = MockHomeViewModel();
   when(mockHomeViewModel.fetchNews).thenAnswer((_) => Future.value());
   when(() => mockHomeViewModel.news)
@@ -39,7 +32,6 @@ void main() {
     await tester.pumpWidget(
       ProviderScope(
         overrides: [
-          appThemeNotifierProvider.overrideWithValue(mockAppTheme),
           homeViewModelProvider.overrideWithValue(mockHomeViewModel),
           userViewModelProvider.overrideWithValue(mockUserViewModel),
         ],
@@ -54,7 +46,6 @@ void main() {
       await tester.pumpWidget(
         ProviderScope(
           overrides: [
-            appThemeNotifierProvider.overrideWithValue(mockAppTheme),
             homeViewModelProvider.overrideWithValue(mockHomeViewModel),
             userViewModelProvider.overrideWithValue(mockUserViewModel),
           ],
@@ -75,7 +66,7 @@ void main() {
 
   testWidgets('Loading widget test', (tester) async {
     const loading = Loading();
-    await tester.pumpWidget(loading);
+    await tester.pumpWidget(const ProviderScope(child: loading));
     expect(find.byWidget(loading), findsOneWidget);
   });
 }

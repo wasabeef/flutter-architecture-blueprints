@@ -2,8 +2,8 @@ import 'package:app/gen/assets.gen.dart';
 import 'package:app/ui/component/container_with_loading.dart';
 import 'package:app/ui/component/image.dart';
 import 'package:app/ui/hook/use_l10n.dart';
-import 'package:app/ui/hook/use_theme.dart';
 import 'package:app/ui/loading_state_view_model.dart';
+import 'package:app/ui/theme/app_theme.dart';
 import 'package:app/ui/user_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -13,13 +13,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class SignInPage extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = useTheme();
+    final theme = useProvider(appThemeProvider);
     final l10n = useL10n();
     return Scaffold(
       appBar: AppBar(
         title: Text(
           l10n.signIn,
-          style: theme.textTheme.headline1,
+          style: theme.textTheme.h60.bold().rotunda(),
         ),
       ),
       body: ContainerWithLoading(
@@ -29,7 +29,7 @@ class SignInPage extends HookWidget {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
               decoration: BoxDecoration(
-                border: Border.all(color: theme.dividerColor),
+                border: Border.all(color: theme.appColors.divider),
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Padding(
@@ -62,20 +62,17 @@ class SignInPage extends HookWidget {
                           children: [
                             Text(
                               user?.displayName ?? l10n.displayName,
-                              style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
+                              style: theme.textTheme.h50,
                             ),
                             const Gap(10),
                             Text(
                               user?.email ?? l10n.email,
-                              style: const TextStyle(fontSize: 14),
+                              style: theme.textTheme.h30,
                             ),
                             const Gap(10),
                             Text(
                               user?.uid ?? l10n.uid,
-                              style: const TextStyle(fontSize: 12),
+                              style: theme.textTheme.h30,
                             ),
                           ],
                         ),
@@ -86,46 +83,33 @@ class SignInPage extends HookWidget {
               ),
             ),
             const Gap(12),
-            TextButton(
+            TextButton.icon(
               style: TextButton.styleFrom(
-                backgroundColor: const Color(0xff4285f4),
-                textStyle: const TextStyle(height: 64),
+                backgroundColor: theme.appColors.signIn,
               ),
               onPressed: () {
                 context.read(loadingStateProvider).whileLoading(() {
                   return context.read(userViewModelProvider).signIn();
                 });
               },
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Assets.svgs.firebase.svg(width: 48, height: 48),
-                    const Gap(8),
-                    Text(l10n.googleSignIn, style: theme.textTheme.button)
-                  ],
+              icon: Assets.svgs.firebase.svg(width: 24),
+              label: Text(
+                l10n.googleSignIn,
+                style: theme.textTheme.h50.copyWith(
+                  color: Colors.white,
                 ),
               ),
             ),
             const Gap(8),
             TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: const Color(0xffc53829),
-                textStyle: const TextStyle(height: 64),
+                backgroundColor: theme.appColors.signOut,
               ),
               onPressed: () => context.read(userViewModelProvider).signOut(),
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Gap(8),
-                    Text(
-                      l10n.googleSignOut,
-                      style: theme.textTheme.button,
-                    )
-                  ],
+              child: Text(
+                l10n.googleSignOut,
+                style: theme.textTheme.h50.copyWith(
+                  color: Colors.white,
                 ),
               ),
             )

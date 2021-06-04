@@ -1,4 +1,4 @@
-import 'package:app/ui/app_theme.dart';
+import 'package:app/foundation/extension/async_snapshot.dart';
 import 'package:app/ui/component/article_item.dart';
 import 'package:app/ui/component/container_with_loading.dart';
 import 'package:app/ui/component/error_snackbar.dart';
@@ -6,11 +6,10 @@ import 'package:app/ui/component/image.dart';
 import 'package:app/ui/home/home_view_model.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/hook/use_router.dart';
-import 'package:app/ui/hook/use_theme.dart';
 import 'package:app/ui/loading_state_view_model.dart';
 import 'package:app/ui/route/app_route.dart';
+import 'package:app/ui/theme/app_theme.dart';
 import 'package:app/ui/user_view_model.dart';
-import 'package:app/util/ext/async_snapshot.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -18,27 +17,20 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class HomePage extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final theme = useTheme();
+    final theme = useProvider(appThemeProvider);
     final l10n = useL10n();
     final router = useRouter();
     return Scaffold(
         appBar: AppBar(
           title: Text(
             l10n.home,
-            style: theme.textTheme.headline1,
+            style: theme.textTheme.h60.bold().rotunda(),
           ),
           actions: [
-            // action button
             IconButton(
-              icon: const Icon(Icons.color_lens),
-              onPressed: () async {
-                return context
-                    .read(appThemeNotifierProvider)
-                    .toggle()
-                    .catchError((error) {
-                  showErrorSnackbar(
-                      context: context, message: l10n.failedSwitchTheme);
-                });
+              icon: const Icon(Icons.error),
+              onPressed: () {
+                return showErrorSnackbar(context: context, message: l10n.error);
               },
             ),
             IconButton(
@@ -74,7 +66,7 @@ class HomePage extends HookWidget {
 
               return news.when(success: (data) {
                 if (data.articles.isEmpty) {
-                  return const Text('Empty screen');
+                  return Text(l10n.noResult);
                 }
                 return RefreshIndicator(
                   onRefresh: () async => homeViewModel.fetchNews(),
@@ -86,7 +78,7 @@ class HomePage extends HookWidget {
                   ),
                 );
               }, failure: (e) {
-                return Text('Error Screen: $e');
+                return Text(l10n.fetchFailed);
               });
             },
           ),

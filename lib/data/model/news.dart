@@ -2,7 +2,6 @@ import 'package:app/data/model/article.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'news.freezed.dart';
-
 part 'news.g.dart';
 
 @freezed
