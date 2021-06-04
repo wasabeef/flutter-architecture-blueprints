@@ -1,6 +1,7 @@
 import 'package:app/ui/theme/app_colors.dart';
 import 'package:app/ui/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 export 'package:app/ui/theme/app_text_theme.dart' show TextStyleExt;
@@ -36,6 +37,7 @@ class AppTheme {
     final appColors = AppColors.light();
     final themeData = ThemeData.light().copyWith(
       scaffoldBackgroundColor: appColors.background,
+      textTheme: GoogleFonts.notoSansTextTheme(ThemeData.light().textTheme),
       snackBarTheme: SnackBarThemeData(
         backgroundColor: appColors.error,
         behavior: SnackBarBehavior.floating,
@@ -54,6 +56,7 @@ class AppTheme {
     final appColors = AppColors.dark();
     final themeData = ThemeData.dark().copyWith(
       scaffoldBackgroundColor: appColors.background,
+      textTheme: GoogleFonts.notoSansTextTheme(ThemeData.dark().textTheme),
       snackBarTheme: SnackBarThemeData(
         backgroundColor: appColors.error,
         behavior: SnackBarBehavior.floating,
