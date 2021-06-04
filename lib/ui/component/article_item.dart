@@ -1,5 +1,6 @@
 import 'package:app/data/model/article.dart';
 import 'package:app/ui/component/image.dart';
+import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/hook/use_router.dart';
 import 'package:app/ui/route/app_route.dart';
 import 'package:app/ui/theme/app_theme.dart';
@@ -27,6 +28,7 @@ class ArticleItem extends HookWidget {
   Widget build(BuildContext context) {
     final theme = useProvider(appThemeProvider);
     final router = useRouter();
+    final l10n = useL10n();
     return Card(
       shape: RoundedRectangleBorder(borderRadius: borderRadiusAll),
       elevation: 4,
@@ -47,7 +49,7 @@ class ArticleItem extends HookWidget {
             Padding(
               padding: const EdgeInsets.all(8),
               child: Text(
-                article.title ?? 'No Title',
+                article.title ?? l10n.noTitle,
                 style: theme.textTheme.h20,
               ),
             ),

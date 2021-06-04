@@ -10,6 +10,7 @@
   "error": "エラー: これはデモです。",
   "fetchFailed": "データの取得に失敗しました",
   "noResult": "データがありません!",
+  "noTitle":  "No Title",
   "displayName": "Display Name",
   "email": "メール",
   "uid": "ユーザID"
