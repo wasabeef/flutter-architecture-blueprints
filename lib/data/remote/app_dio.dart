@@ -1,4 +1,4 @@
-import 'package:app/constants.dart';
+import 'package:app/foundation/constants.dart';
 import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_firebase_performance/dio_firebase_performance.dart';

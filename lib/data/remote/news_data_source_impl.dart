@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:app/constants.dart';
+import 'package:app/foundation/constants.dart';
 import 'package:app/data/model/news.dart';
 import 'package:app/data/provider/dio_provider.dart';
 import 'package:app/data/remote/news_data_source.dart';

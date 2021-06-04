@@ -1,4 +1,4 @@
-import 'package:app/constants.dart';
+import 'package:app/foundation/constants.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/provider/dio_provider.dart';
 import 'package:app/data/provider/news_data_source_provider.dart';
