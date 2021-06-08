@@ -1,6 +1,6 @@
 import 'package:app/data/provider/auth_repository_provider.dart';
 import 'package:app/data/repository/auth_repository.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -14,9 +14,9 @@ class UserViewModel extends ChangeNotifier {
 
   late final AuthRepository _repository = _reader(authRepositoryProvider);
 
-  firebase.User? _user;
+  User? _user;
 
-  firebase.User? get user => _user;
+  User? get user => _user;
 
   bool get isAuthenticated => _user != null;
 
