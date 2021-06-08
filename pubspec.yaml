@@ -49,6 +49,7 @@ dependencies:
   cupertino_icons: ^1.0.3
   google_fonts: ^2.1.0
   flutter_svg: ^0.22.0
+  video_player: ^2.1.5
 
 dev_dependencies:
   flutter_test:
@@ -83,6 +84,7 @@ flutter:
   assets:
     - assets/images/
     - assets/svgs/
+    - assets/videos/
 
   fonts:
     - family: Rotunda

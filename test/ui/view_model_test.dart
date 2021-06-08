@@ -1,10 +1,10 @@
-import 'package:app/foundation/constants.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/provider/dio_provider.dart';
 import 'package:app/data/provider/news_data_source_provider.dart';
 import 'package:app/data/provider/news_repository_provider.dart';
 import 'package:app/data/remote/app_dio.dart';
-import 'package:app/ui/home/home_view_model.dart';
+import 'package:app/foundation/constants.dart';
+import 'package:app/ui/news/news_view_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -20,7 +20,7 @@ void main() {
         newsRepositoryProvider.overrideWithValue(FakeNewsRepositoryImpl())
       ],
     );
-    final viewModel = container.read(homeViewModelProvider);
+    final viewModel = container.read(newsViewModelProvider);
     await expectLater(
         viewModel.fetchNews(), completion(Result.success(data: dummyNews)));
   });

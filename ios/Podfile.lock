@@ -123,6 +123,8 @@ PODS:
   - Protobuf (3.17.0)
   - ua_client_hints (1.0.3):
     - Flutter
+  - video_player (0.0.1):
+    - Flutter
 
 DEPENDENCIES:
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
@@ -133,6 +135,7 @@ DEPENDENCIES:
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - ua_client_hints (from `.symlinks/plugins/ua_client_hints/ios`)
+  - video_player (from `.symlinks/plugins/video_player/ios`)
 
 SPEC REPOS:
   trunk:
@@ -172,6 +175,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider/ios"
   ua_client_hints:
     :path: ".symlinks/plugins/ua_client_hints/ios"
+  video_player:
+    :path: ".symlinks/plugins/video_player/ios"
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
@@ -200,6 +205,7 @@ SPEC CHECKSUMS:
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   ua_client_hints: 21afb74063bbc16dd66a09d7a21fba69075c250a
+  video_player: 9cc823b1d9da7e8427ee591e8438bfbcde500e6e
 
 PODFILE CHECKSUM: af976f751d801ced1cf35e237c7db47ea4b2ec3e
 
