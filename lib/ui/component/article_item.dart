@@ -32,7 +32,7 @@ class ArticleItem extends HookWidget {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: borderRadiusAll),
       elevation: 4,
-      child: GestureDetector(
+      child: InkWell(
         child: Column(
           children: <Widget>[
             Hero(
@@ -50,7 +50,7 @@ class ArticleItem extends HookWidget {
               padding: const EdgeInsets.all(8),
               child: Text(
                 article.title ?? l10n.noTitle,
-                style: theme.textTheme.h20,
+                style: theme.textTheme.h20.dense(),
               ),
             ),
           ],
