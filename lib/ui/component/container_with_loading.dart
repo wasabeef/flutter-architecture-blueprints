@@ -4,21 +4,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ContainerWithLoading extends StatelessWidget {
+class ContainerWithLoading extends HookWidget {
   const ContainerWithLoading({
+    Key? key,
     required this.child,
-  });
+  }) : super(key: key);
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
+    final state = useProvider(loadingStateProvider);
     return Stack(children: [
       child,
-      HookBuilder(builder: (context) {
-        final state = useProvider(loadingStateProvider);
-        return state.isLoading ? const Loading() : const SizedBox();
-      })
+      state.isLoading ? const Loading() : const SizedBox(),
     ]);
   }
 }

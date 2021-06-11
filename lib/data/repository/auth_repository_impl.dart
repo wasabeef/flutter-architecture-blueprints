@@ -1,8 +1,8 @@
+import 'package:app/data/local/app_user.dart';
 import 'package:app/data/model/result.dart';
 import 'package:app/data/provider/auth_data_source_provider.dart';
 import 'package:app/data/remote/auth_data_source.dart';
 import 'package:app/data/repository/auth_repository.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class AuthRepositoryImpl implements AuthRepository {
@@ -13,8 +13,9 @@ class AuthRepositoryImpl implements AuthRepository {
   late final AuthDataSource _dataSource = _reader(authDataSourceProvider);
 
   @override
-  Future<Result<User?>> signIn() {
-    return Result.guardFuture(_dataSource.signIn);
+  Future<Result<AppUser>> signIn() {
+    return Result.guardFuture(
+        () async => AppUser.from(await _dataSource.signIn()));
   }
 
   @override
