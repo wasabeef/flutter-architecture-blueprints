@@ -6,14 +6,12 @@ enum Flavor { development, production }
 
 @immutable
 class Constants {
-  const Constants({
+  const Constants._({
     required this.endpoint,
     required this.apiKey,
   });
 
   factory Constants.of() {
-    if (_instance != null) return _instance!;
-
     final flavor = EnumToString.fromString(
       Flavor.values,
       const String.fromEnvironment('FLAVOR'),
@@ -21,30 +19,28 @@ class Constants {
 
     switch (flavor) {
       case Flavor.development:
-        _instance = Constants._dev();
-        break;
+        return Constants._dev();
       case Flavor.production:
       default:
-        _instance = Constants._prd();
+        return Constants._prd();
     }
-    return _instance!;
   }
 
   factory Constants._dev() {
-    return const Constants(
+    return const Constants._(
       endpoint: 'https://newsapi.org',
       apiKey: '98c8df982b8b4da8b86cd70e851fc521',
     );
   }
 
   factory Constants._prd() {
-    return const Constants(
+    return const Constants._(
       endpoint: 'https://newsapi.org',
       apiKey: '4bc454db94464956aea4cbb01f4bf9f4',
     );
   }
 
-  static Constants? _instance;
+  static late final Constants instance = Constants.of();
 
   final String endpoint;
   final String apiKey;

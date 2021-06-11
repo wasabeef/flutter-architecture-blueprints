@@ -1,9 +1,11 @@
 import 'package:app/data/local/app_user.dart';
 import 'package:app/data/model/result.dart';
-import 'package:app/data/provider/auth_data_source_provider.dart';
 import 'package:app/data/remote/auth_data_source.dart';
+import 'package:app/data/remote/auth_data_source_impl.dart';
 import 'package:app/data/repository/auth_repository.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final authRepositoryProvider = Provider((ref) => AuthRepositoryImpl(ref.read));
 
 class AuthRepositoryImpl implements AuthRepository {
   AuthRepositoryImpl(this._reader);

@@ -1,7 +1,7 @@
 import 'package:app/data/model/news.dart';
 import 'package:app/data/model/result.dart';
-import 'package:app/data/provider/news_repository_provider.dart';
 import 'package:app/data/repository/news_repository.dart';
+import 'package:app/data/repository/news_repository_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

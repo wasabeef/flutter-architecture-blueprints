@@ -6,17 +6,12 @@ import 'package:dio/dio.dart';
 import '../dummy/dummy_response_news_api.dart';
 
 class FakeAppDio implements AppDio {
-  FakeAppDio();
+  @override
+  BaseOptions get options => BaseOptions();
 
   @override
-  Future<Response<T>> get<T>(
-    String path, {
-    Map<String, dynamic>? queryParameters,
-    Options? options,
-    CancelToken? cancelToken,
-    ProgressCallback? onReceiveProgress,
-  }) async {
-    if (path.contains('/v2/everything')) {
+  Future<Response<T>> fetch<T>(RequestOptions requestOptions) async {
+    if (requestOptions.path.contains('/v2/everything')) {
       return FakeResponse(
               json.decode(dummyResponseNewsApi) as Map<String, dynamic>?)
           as Response<T>;

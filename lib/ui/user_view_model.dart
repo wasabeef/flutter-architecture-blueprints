@@ -1,6 +1,6 @@
 import 'package:app/data/local/app_user.dart';
-import 'package:app/data/provider/auth_repository_provider.dart';
 import 'package:app/data/repository/auth_repository.dart';
+import 'package:app/data/repository/auth_repository_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 

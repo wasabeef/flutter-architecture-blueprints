@@ -28,6 +28,7 @@ dependencies:
   # For Networking
   dio: ^4.0.0
   dio_firebase_performance: ^0.3.1-dev.3
+  retrofit: ^2.0.0
   # For User-Agent Client Hints
   ua_client_hints: ^1.0.3
 
@@ -56,6 +57,9 @@ dev_dependencies:
     sdk: flutter
 
   build_runner: ^2.0.4
+
+  # For Networking
+  retrofit_generator: ^2.0.0+1
 
   # For Assets
   flutter_gen_runner: ^3.1.1
