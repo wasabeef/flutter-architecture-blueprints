@@ -1,6 +1,6 @@
 import 'package:app/app.dart';
 import 'package:app/data/model/result.dart';
-import 'package:app/ui/component/loading.dart';
+import 'package:app/ui/component/loading/loading.dart';
 import 'package:app/ui/news/news_page.dart';
 import 'package:app/ui/news/news_view_model.dart';
 import 'package:app/ui/route/app_route.gr.dart';

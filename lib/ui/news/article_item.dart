@@ -1,5 +1,5 @@
 import 'package:app/data/model/article.dart';
-import 'package:app/ui/component/image.dart';
+import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/hook/use_router.dart';
 import 'package:app/ui/route/app_route.dart';

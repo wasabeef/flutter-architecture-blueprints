@@ -1,4 +1,4 @@
-import 'package:app/ui/component/loading.dart';
+import 'package:app/ui/component/loading/loading.dart';
 import 'package:app/ui/loading_state_view_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';

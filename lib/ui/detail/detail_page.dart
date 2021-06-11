@@ -1,5 +1,5 @@
 import 'package:app/data/model/article.dart';
-import 'package:app/ui/component/image.dart';
+import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/hook/use_router.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';

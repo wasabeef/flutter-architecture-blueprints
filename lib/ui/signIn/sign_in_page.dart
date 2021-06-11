@@ -1,6 +1,6 @@
 import 'package:app/gen/assets.gen.dart';
-import 'package:app/ui/component/container_with_loading.dart';
-import 'package:app/ui/component/image.dart';
+import 'package:app/ui/component/loading/container_with_loading.dart';
+import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/loading_state_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
