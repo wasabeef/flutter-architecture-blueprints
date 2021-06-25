@@ -1,5 +1,6 @@
 # Flutter Architecture Blueprints
 
+
 <p align="center">
   <img src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/cover.png" />
 </p>
