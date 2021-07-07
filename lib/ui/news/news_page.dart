@@ -21,7 +21,7 @@ class NewsPage extends HookWidget {
         return context
             .read(loadingStateProvider)
             .whileLoading(homeViewModel.fetchNews);
-      }, [news?.toString()]),
+      }),
     );
 
     return ContainerWithLoading(
