@@ -1,6 +1,6 @@
 import 'package:app/gen/assets.gen.dart';
-import 'package:app/ui/component/container_with_loading.dart';
-import 'package:app/ui/component/image.dart';
+import 'package:app/ui/component/loading/container_with_loading.dart';
+import 'package:app/ui/component/image/image.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/loading_state_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
@@ -15,6 +15,11 @@ class SignInPage extends HookWidget {
   Widget build(BuildContext context) {
     final theme = useProvider(appThemeProvider);
     final l10n = useL10n();
+    final user =
+        useProvider(userViewModelProvider.select((value) => value.user));
+    final userViewModel = context.read(userViewModelProvider);
+    final loading = context.read(loadingStateProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -37,49 +42,44 @@ class SignInPage extends HookWidget {
                   vertical: 12,
                   horizontal: 8,
                 ),
-                child: HookBuilder(builder: (context) {
-                  final user = useProvider(
-                      userViewModelProvider.select((value) => value.user));
-
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 60,
-                        height: 60,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                            fit: BoxFit.cover,
-                            image: profileImageProvider(user?.photoURL),
-                          ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: profileImageProvider(user?.imageUrl),
                         ),
                       ),
-                      const Gap(12),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              user?.displayName ?? l10n.displayName,
-                              style: theme.textTheme.h50,
-                            ),
-                            const Gap(10),
-                            Text(
-                              user?.email ?? l10n.email,
-                              style: theme.textTheme.h30,
-                            ),
-                            const Gap(10),
-                            Text(
-                              user?.uid ?? l10n.uid,
-                              style: theme.textTheme.h30,
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  );
-                }),
+                    ),
+                    const Gap(12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            user?.name ?? l10n.displayName,
+                            style: theme.textTheme.h50,
+                          ),
+                          const Gap(10),
+                          Text(
+                            user?.email ?? l10n.email,
+                            style: theme.textTheme.h30,
+                          ),
+                          const Gap(10),
+                          Text(
+                            user?.userId ?? l10n.uid,
+                            style: theme.textTheme.h30,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
             const Gap(12),
@@ -88,7 +88,7 @@ class SignInPage extends HookWidget {
                 backgroundColor: theme.appColors.signIn,
               ),
               onPressed: () {
-                context.read(loadingStateProvider).whileLoading(() {
+                loading.whileLoading(() async {
                   return context.read(userViewModelProvider).signIn();
                 });
               },
@@ -105,7 +105,7 @@ class SignInPage extends HookWidget {
               style: TextButton.styleFrom(
                 backgroundColor: theme.appColors.signOut,
               ),
-              onPressed: () => context.read(userViewModelProvider).signOut(),
+              onPressed: userViewModel.signOut,
               child: Text(
                 l10n.googleSignOut,
                 style: theme.textTheme.h50.copyWith(

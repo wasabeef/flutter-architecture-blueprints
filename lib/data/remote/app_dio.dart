@@ -3,7 +3,10 @@ import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:dio_firebase_performance/dio_firebase_performance.dart';
 import 'package:flutter/foundation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ua_client_hints/ua_client_hints.dart';
+
+final dioProvider = Provider((_) => AppDio.getInstance());
 
 // ignore: prefer_mixin
 class AppDio with DioMixin implements Dio {

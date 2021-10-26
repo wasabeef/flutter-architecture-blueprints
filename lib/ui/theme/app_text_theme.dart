@@ -12,13 +12,14 @@ class AppTextTheme {
     required this.h60,
     required this.h70,
     required this.h80,
-    required this.normal,
-    required this.comfort,
-    required this.dense,
   });
 
   factory AppTextTheme() {
-    final _normalRegular = const TextStyle(fontWeight: FontWeight.w400);
+    final _normalRegular = const TextStyle(
+      fontWeight: FontWeight.w400,
+      height: 1.5,
+      leadingDistribution: TextLeadingDistribution.even,
+    );
     return AppTextTheme._(
       h10: const TextStyle(fontSize: FontSize.pt10).merge(_normalRegular),
       h20: const TextStyle(fontSize: FontSize.pt12).merge(_normalRegular),
@@ -26,13 +27,8 @@ class AppTextTheme {
       h40: const TextStyle(fontSize: FontSize.pt16).merge(_normalRegular),
       h50: const TextStyle(fontSize: FontSize.pt20).merge(_normalRegular),
       h60: const TextStyle(fontSize: FontSize.pt24).merge(_normalRegular),
-      h70: const TextStyle(fontSize: FontSize.pt32, letterSpacing: -0.5)
-          .merge(_normalRegular),
-      h80: const TextStyle(fontSize: FontSize.pt40, letterSpacing: -0.5)
-          .merge(_normalRegular),
-      normal: const StrutStyle(leading: 0.5),
-      comfort: const StrutStyle(leading: 0.8),
-      dense: const StrutStyle(leading: 0.2),
+      h70: const TextStyle(fontSize: FontSize.pt32).merge(_normalRegular),
+      h80: const TextStyle(fontSize: FontSize.pt40).merge(_normalRegular),
     );
   }
 
@@ -59,15 +55,14 @@ class AppTextTheme {
 
   /// pt40
   final TextStyle h80;
-
-  // Use leading to control height because we want text to be in center
-  final StrutStyle normal;
-  final StrutStyle comfort;
-  final StrutStyle dense;
 }
 
 extension TextStyleExt on TextStyle {
   TextStyle bold() => copyWith(fontWeight: FontWeight.w700);
+
+  TextStyle comfort() => copyWith(height: 1.8);
+
+  TextStyle dense() => copyWith(height: 1.2);
 
   TextStyle rotunda() => copyWith(fontFamily: FontFamily.rotunda);
 }

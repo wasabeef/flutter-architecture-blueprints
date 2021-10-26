@@ -10,6 +10,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // debugPaintBaselinesEnabled = true;
+  // debugPaintSizeEnabled = true;
+  // debugPaintLayerBordersEnabled = true;
+
   // Firebase
   await Firebase.initializeApp();
   // Crashlytics

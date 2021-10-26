@@ -1,10 +1,14 @@
 include: package:effective_dart/analysis_options.yaml
 analyzer:
   exclude:
-    - "lib/generated_plugin_registrant.dart"
-    - "lib/l10n/messages_*.dart"
-    - "lib/data/model/*.g.dart"
-    - "lib/data/model/*.freezed.dart"
+    - "**/generated_plugin_registrant.dart"
+    - "**/build/**"
+    - "**/generated_*.dart"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.gr.dart"
+    - "**/l10n*.dart"
+    - "**/*.gen.dart"
 
 linter:
   rules:

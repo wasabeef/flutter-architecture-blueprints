@@ -1,6 +1,6 @@
-import 'package:app/data/provider/auth_repository_provider.dart';
+import 'package:app/data/local/app_user.dart';
 import 'package:app/data/repository/auth_repository.dart';
-import 'package:firebase_auth/firebase_auth.dart' as firebase;
+import 'package:app/data/repository/auth_repository_impl.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -14,9 +14,9 @@ class UserViewModel extends ChangeNotifier {
 
   late final AuthRepository _repository = _reader(authRepositoryProvider);
 
-  firebase.User? _user;
+  AppUser? _user;
 
-  firebase.User? get user => _user;
+  AppUser? get user => _user;
 
   bool get isAuthenticated => _user != null;
 
@@ -33,11 +33,12 @@ class UserViewModel extends ChangeNotifier {
   Future<void> signOut() {
     return _repository.signOut().then((result) {
       return result.when(
-          success: (_) {
-            _user = null;
-            notifyListeners();
-          },
-          failure: (_) => result);
+        success: (_) {
+          _user = null;
+          notifyListeners();
+        },
+        failure: (_) => result,
+      );
     });
   }
 }
