@@ -1,0 +1,18 @@
+{
+  "extends": [
+    "config:base",
+    "group:monorepos"
+  ],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["before 10am on monday"],
+  "labels": ["dependencies"],
+  "branchPrefix": "chore-renovate-",
+  "semanticCommits": "auto",
+  "semanticCommitType": "build",
+  "semanticCommitScope": null,
+  "rangeStrategy": "replace",
+  "rebaseWhen": "conflicted",
+  "lockFileMaintenance": {
+    "enabled": true
+  }
+}
