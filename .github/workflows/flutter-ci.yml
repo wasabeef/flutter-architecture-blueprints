@@ -11,9 +11,12 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          flutter-version: '2.5.3'
       - uses: dart-lang/setup-dart@v1
         with:
-          sdk: stable
+          sdk: '2.14.4'
 
       - name: Cache Gradle modules
         uses: actions/cache@v2.1.5
@@ -49,7 +52,6 @@ jobs:
           cache-number: ${{ secrets.CACHE_NUMBER }}
         with:
           path: |
-            .fvm/versions
             ~/.pub-cache/bin
           key: ${{ runner.os }}-pub-${{ env.cache-number }}-${{ env.flutter_version }}-${{ hashFiles('pubspec.lock') }}
           restore-keys: |

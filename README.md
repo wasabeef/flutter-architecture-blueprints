@@ -33,11 +33,11 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 - [Flutter documentation](https://flutter.dev/docs)
 - [Contributing to Flutter](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/CONTRIBUTING.md)
 
-## Requirements
+## Installation
 
-- [Dart 2.13.0+ (stable channel)](https://github.com/dart-lang/sdk/wiki/Installing-beta-and-dev-releases-with-brew,-choco,-and-apt-get#installing)
-- [FVM](https://github.com/leoafarias/fvm)
-  - [Flutter 2.2.+ via FVM](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/.fvm/fvm_config.json)
+- [asdf](https://github.com/asdf-vm/asdf)
+  - Dart 2.14.4
+  - Flutter 2.5.3
 - [npm (for git hooks)](https://treehouse.github.io/installation-guides/mac/node-mac.html)
 
 ## Environment
@@ -86,7 +86,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 |Working status|Category|Description|Codes|
 |:---:|---|---|---|
 | ✅ | Dart | Dart version | [pubspec.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/pubspec.yaml#L7-L9) |
-| ✅ | [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/.fvm/fvm_config.json) |
+| ✅ | [asdf](https://github.com/asdf-vm/asdf) | asdf | [.tool-versions](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/.tool-versions) |
 | ✅ | Dart | Switching between Development and Production environment | [constants.dart](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/lib/foundation/constants.dart), [runConfigurations](https://github.com/wasabeef/flutter-architecture-blueprints/tree/main/.idea/runConfigurations), [Makefile](https://github.com/wasabeef/flutter-architecture-blueprints/blob/be26dc3f7ff27ee2710326abe8ed09893a35386c/Makefile#L25-L41) |
 | ✅ | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/analysis_options.yaml) |
 | ✅ | Android | Kotlin version | [build.gradle](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/android/build.gradle#L2) |
@@ -146,11 +146,6 @@ $ export PATH="$PATH":"$HOME/.pub-cache/bin" # Add your run-commands (.zshrc, .b
 $ make dependencies
 $ make build-runner
 ```
-
-**And set your IDE for FVM path.**  
-<img height="180px" src="https://github.com/wasabeef/art/raw/master/flutter-architecture-blueprints/fvm-intellij-env.png"/>
-
-<br/>
 
 ### How to add assets(images..)
 1. Add assets
