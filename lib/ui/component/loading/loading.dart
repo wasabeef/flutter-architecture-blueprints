@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class Loading extends HookWidget {
-  const Loading();
+  const Loading({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

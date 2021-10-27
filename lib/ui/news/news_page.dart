@@ -9,6 +9,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class NewsPage extends HookWidget {
+  const NewsPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final l10n = useL10n();

@@ -11,6 +11,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ConnectedNewsPage extends HookWidget {
+  const ConnectedNewsPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final theme = useProvider(appThemeProvider);
@@ -43,7 +45,7 @@ class ConnectedNewsPage extends HookWidget {
           )
         ],
       ),
-      body: NewsPage(),
+      body: const NewsPage(),
     );
   }
 }

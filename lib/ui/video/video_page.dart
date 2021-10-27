@@ -8,6 +8,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoPage extends HookWidget {
+  const VideoPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final theme = useProvider(appThemeProvider);

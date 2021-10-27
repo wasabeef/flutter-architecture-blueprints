@@ -15,7 +15,7 @@ class AppTextTheme {
   });
 
   factory AppTextTheme() {
-    final _normalRegular = const TextStyle(
+    const _normalRegular = TextStyle(
       fontWeight: FontWeight.w400,
       height: 1.5,
       leadingDistribution: TextLeadingDistribution.even,

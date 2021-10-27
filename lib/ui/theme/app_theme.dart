@@ -33,7 +33,7 @@ class AppTheme {
   });
 
   factory AppTheme.light() {
-    final mode = ThemeMode.light;
+    const mode = ThemeMode.light;
     final appColors = AppColors.light();
     final themeData = ThemeData.light().copyWith(
       scaffoldBackgroundColor: appColors.background,
@@ -52,7 +52,7 @@ class AppTheme {
   }
 
   factory AppTheme.dark() {
-    final mode = ThemeMode.dark;
+    const mode = ThemeMode.dark;
     final appColors = AppColors.dark();
     final themeData = ThemeData.dark().copyWith(
       scaffoldBackgroundColor: appColors.background,

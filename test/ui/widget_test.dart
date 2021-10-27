@@ -35,7 +35,7 @@ void main() {
           newsViewModelProvider.overrideWithValue(mockNewsViewModel),
           userViewModelProvider.overrideWithValue(mockUserViewModel),
         ],
-        child: App(),
+        child: const App(),
       ),
     );
   });

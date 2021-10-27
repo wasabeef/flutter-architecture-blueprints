@@ -7,9 +7,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 
 class DetailPage extends HookWidget {
   const DetailPage({
-    // TODO: QueryParams must be nullable or have default value
+    Key? key,
     @QueryParam('article') this.article,
-  });
+  }) : super(key: key);
 
   final Article? article;
 
