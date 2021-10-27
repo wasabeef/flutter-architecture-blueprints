@@ -1,6 +1,6 @@
 import 'package:app/gen/assets.gen.dart';
-import 'package:app/ui/component/loading/container_with_loading.dart';
 import 'package:app/ui/component/image/image.dart';
+import 'package:app/ui/component/loading/container_with_loading.dart';
 import 'package:app/ui/hook/use_l10n.dart';
 import 'package:app/ui/loading_state_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
@@ -11,6 +11,8 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class SignInPage extends HookWidget {
+  const SignInPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final theme = useProvider(appThemeProvider);

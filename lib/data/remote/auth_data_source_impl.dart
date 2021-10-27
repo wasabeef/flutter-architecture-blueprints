@@ -29,7 +29,7 @@ class AuthDataSourceImpl implements AuthDataSource {
     );
 
     final credential = await _firebaseAuth.signInWithCredential(authCredential);
-    final currentUser = await firebase.FirebaseAuth.instance.currentUser;
+    final currentUser = firebase.FirebaseAuth.instance.currentUser;
     assert(credential.user?.uid == currentUser?.uid);
     return credential.user;
   }

@@ -15,29 +15,29 @@ dependencies:
     sdk: flutter
 
   # For Google and Firebase
-  firebase_core: ^1.2.0
-  firebase_auth: ^1.2.0
-  google_sign_in: ^5.0.4
-  firebase_crashlytics: ^2.0.0
-  firebase_performance: ^0.7.0+3
+  firebase_core: ^1.8.0
+  firebase_auth: ^3.1.4
+  google_sign_in: ^5.2.0
+  firebase_crashlytics: ^2.2.4
+  firebase_performance: ^0.7.1+2
 
   # For Architecture
   flutter_hooks: ^0.17.0
   hooks_riverpod: ^0.14.0+4
 
   # For Networking
-  dio: ^4.0.0
+  dio: ^4.0.1
   dio_firebase_performance: ^0.3.1-dev.3
-  retrofit: ^2.0.0
+  retrofit: ^2.0.1
   # For User-Agent Client Hints
-  ua_client_hints: ^1.0.3
+  ua_client_hints: ^1.1.0
 
   # For Model
-  json_serializable: ^4.1.3
-  freezed_annotation: ^0.14.2
+  json_serializable: ^5.0.2
+  freezed_annotation: ^0.14.0
 
   # For Navigation
-  auto_route: ^2.2.0
+  auto_route: ^3.0.4
 
   # For DateTime
   intl: ^0.17.0
@@ -49,8 +49,8 @@ dependencies:
   gap: ^2.0.0
   cupertino_icons: ^1.0.3
   google_fonts: ^2.1.0
-  flutter_svg: ^0.22.0
-  video_player: ^2.1.5
+  flutter_svg: ^0.23.0+1
+  video_player: ^2.2.5
 
 dev_dependencies:
   flutter_test:
@@ -62,20 +62,20 @@ dev_dependencies:
   retrofit_generator: ^2.0.0+1
 
   # For Assets
-  flutter_gen_runner: ^3.1.1
+  flutter_gen_runner: ^4.0.1
 
   # For Navigation
-  auto_route_generator: ^2.1.0
+  auto_route_generator: ^3.0.1
 
   # For Model
   freezed: ^0.14.2
 
   # For Analyzer
-  effective_dart: ^1.3.0
+  flutter_lints: ^1.0.4
 
   # For Testing
-  mocktail: ^0.1.4
-  mocktail_image_network: ^0.1.0
+  mocktail: ^0.2.0
+  mocktail_image_network: ^0.2.0
 
 flutter_gen:
   integrations:

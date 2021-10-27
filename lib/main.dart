@@ -30,7 +30,7 @@ Future<void> main() async {
   }
 
   runZonedGuarded(() {
-    runApp(ProviderScope(child: App()));
+    runApp(const ProviderScope(child: App()));
   }, (error, stackTrace) {
     FirebaseCrashlytics.instance.recordError(error, stackTrace);
   });

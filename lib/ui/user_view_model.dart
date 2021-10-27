@@ -30,7 +30,7 @@ class UserViewModel extends ChangeNotifier {
     });
   }
 
-  Future<void> signOut() {
+  Future signOut() {
     return _repository.signOut().then((result) {
       return result.when(
         success: (_) {

@@ -11,8 +11,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class ArticleItem extends HookWidget {
   const ArticleItem({
+    Key? key,
     required this.article,
-  });
+  }) : super(key: key);
 
   final Article article;
 
