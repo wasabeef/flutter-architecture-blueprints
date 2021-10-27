@@ -22,8 +22,8 @@ dependencies:
   firebase_performance: ^0.7.1+2
 
   # For Architecture
-  flutter_hooks: ^0.17.0
-  hooks_riverpod: ^0.14.0+4
+  flutter_hooks: ^0.18.0
+  hooks_riverpod: ^1.0.0-dev.10
 
   # For Networking
   dio: ^4.0.1
@@ -34,7 +34,7 @@ dependencies:
 
   # For Model
   json_serializable: ^5.0.2
-  freezed_annotation: ^0.14.0
+  freezed_annotation: ^0.15.0
 
   # For Navigation
   auto_route: ^3.0.4

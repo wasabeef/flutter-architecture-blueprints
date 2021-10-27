@@ -8,19 +8,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class NewsPage extends HookWidget {
+class NewsPage extends HookConsumerWidget {
   const NewsPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useL10n();
-    final homeViewModel = context.read(newsViewModelProvider);
-    final news =
-        useProvider(newsViewModelProvider.select((value) => value.news));
+    final homeViewModel = ref.read(newsViewModelProvider);
+    final news = ref.watch(newsViewModelProvider.select((value) => value.news));
 
     final snapshot = useFuture(
       useMemoized(() {
-        return context
+        return ref
             .read(loadingStateProvider)
             .whileLoading(homeViewModel.fetchNews);
       }, [news?.toString()]),

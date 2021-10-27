@@ -369,7 +369,7 @@ packages:
       name: flutter_hooks
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.17.0"
+    version: "0.18.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -388,7 +388,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0+3"
+    version: "1.0.0-dev.11"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -419,7 +419,7 @@ packages:
       name: freezed_annotation
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.3"
+    version: "0.15.0"
   frontend_server_client:
     dependency: transitive
     description:
@@ -482,7 +482,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0+4"
+    version: "1.0.0-dev.11"
   html:
     dependency: transitive
     description:
@@ -748,7 +748,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.14.0+3"
+    version: "1.0.0-dev.10"
   shelf:
     dependency: transitive
     description:

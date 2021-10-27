@@ -6,10 +6,9 @@ import 'package:app/ui/route/app_route.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ArticleItem extends HookWidget {
+class ArticleItem extends HookConsumerWidget {
   const ArticleItem({
     Key? key,
     required this.article,
@@ -26,8 +25,8 @@ class ArticleItem extends HookWidget {
   );
 
   @override
-  Widget build(BuildContext context) {
-    final theme = useProvider(appThemeProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
     final router = useRouter();
     final l10n = useL10n();
     return Card(
