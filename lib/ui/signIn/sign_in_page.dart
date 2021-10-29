@@ -6,21 +6,19 @@ import 'package:app/ui/loading_state_view_model.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:app/ui/user_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class SignInPage extends HookWidget {
+class SignInPage extends HookConsumerWidget {
   const SignInPage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final theme = useProvider(appThemeProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
     final l10n = useL10n();
-    final user =
-        useProvider(userViewModelProvider.select((value) => value.user));
-    final userViewModel = context.read(userViewModelProvider);
-    final loading = context.read(loadingStateProvider);
+    final user = ref.watch(userViewModelProvider.select((value) => value.user));
+    final userViewModel = ref.read(userViewModelProvider);
+    final loading = ref.read(loadingStateProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -91,7 +89,7 @@ class SignInPage extends HookWidget {
               ),
               onPressed: () {
                 loading.whileLoading(() async {
-                  return context.read(userViewModelProvider).signIn();
+                  return ref.read(userViewModelProvider).signIn();
                 });
               },
               icon: Assets.svgs.firebase.svg(width: 24),

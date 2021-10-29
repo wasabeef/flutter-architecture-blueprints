@@ -5,13 +5,13 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class App extends HookWidget {
+class App extends HookConsumerWidget {
   const App({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final theme = useProvider(appThemeProvider);
-    final themeMode = useProvider(appThemeModeProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
+    final themeMode = ref.watch(appThemeModeProvider);
     final appRouter = useMemoized(() => AppRouter());
     return MaterialApp.router(
       theme: theme.data,

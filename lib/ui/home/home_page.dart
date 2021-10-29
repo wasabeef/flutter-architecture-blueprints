@@ -4,15 +4,14 @@ import 'package:app/ui/route/app_route.gr.dart';
 import 'package:app/ui/theme/app_theme.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class HomePage extends HookWidget {
+class HomePage extends HookConsumerWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final theme = useProvider(appThemeProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = ref.watch(appThemeProvider);
     final l10n = useL10n();
     return AutoTabsScaffold(
       routes: const [
