@@ -68,7 +68,7 @@ dev_dependencies:
   auto_route_generator: ^3.0.1
 
   # For Model
-  freezed: ^0.14.2
+  freezed: ^0.15.0
 
   # For Analyzer
   flutter_lints: ^1.0.4
