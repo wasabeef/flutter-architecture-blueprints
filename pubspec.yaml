@@ -33,7 +33,7 @@ dependencies:
   ua_client_hints: ^1.1.0
 
   # For Model
-  json_serializable: ^5.0.2
+  json_serializable: ^6.0.0
   freezed_annotation: ^0.15.0
 
   # For Navigation
