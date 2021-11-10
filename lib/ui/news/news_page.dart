@@ -22,7 +22,7 @@ class NewsPage extends HookConsumerWidget {
         return ref
             .read(loadingStateProvider)
             .whileLoading(homeViewModel.fetchNews);
-      }, [news?.toString()]),
+      }),
     );
 
     return ContainerWithLoading(
