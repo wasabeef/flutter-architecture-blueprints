@@ -28,7 +28,7 @@ dependencies:
   # For Networking
   dio: ^4.0.1
   dio_firebase_performance: ^0.3.1-dev.3
-  retrofit: ^2.0.1
+  retrofit: ^3.0.0
   # For User-Agent Client Hints
   ua_client_hints: ^1.1.0
 
