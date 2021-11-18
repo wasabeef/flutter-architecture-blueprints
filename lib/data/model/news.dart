@@ -5,7 +5,7 @@ part 'news.freezed.dart';
 part 'news.g.dart';
 
 @freezed
-abstract class News with _$News {
+class News with _$News {
   factory News({
     required String status,
     required int totalResults,

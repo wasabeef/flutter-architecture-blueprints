@@ -5,7 +5,7 @@ part 'article.freezed.dart';
 part 'article.g.dart';
 
 @freezed
-abstract class Article with _$Article {
+class Article with _$Article {
   factory Article({
     Source? source,
     String? author,

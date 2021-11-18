@@ -5,7 +5,7 @@ part 'source.freezed.dart';
 part 'source.g.dart';
 
 @freezed
-abstract class Source with _$Source {
+class Source with _$Source {
   factory Source({
     String? id,
     String? name,
