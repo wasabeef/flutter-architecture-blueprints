@@ -34,7 +34,7 @@ dependencies:
 
   # For Model
   json_serializable: ^5.0.2
-  freezed_annotation: ^0.15.0
+  freezed_annotation: ^1.0.0
 
   # For Navigation
   auto_route: ^3.0.4
