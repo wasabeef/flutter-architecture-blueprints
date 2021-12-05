@@ -49,7 +49,7 @@ dependencies:
   gap: ^2.0.0
   cupertino_icons: ^1.0.3
   google_fonts: ^2.1.0
-  flutter_svg: ^0.23.0+1
+  flutter_svg: ^1.0.0
   video_player: ^2.2.5
 
 dev_dependencies:
