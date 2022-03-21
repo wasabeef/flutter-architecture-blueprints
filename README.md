@@ -31,7 +31,7 @@ Flutter Architecture Blueprints is a project that introduces MVVM architecture a
 
 - [Install Flutter](https://flutter.dev/get-started/)
 - [Flutter documentation](https://flutter.dev/docs)
-- [Contributing to Flutter](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/CONTRIBUTING.md)
+- [Contributing to Flutter](https://github.com/wasabeef/flutter-architecture-blueprints/blob/main/CODE_OF_CONDUCT.md)
 
 ## Installation
 
